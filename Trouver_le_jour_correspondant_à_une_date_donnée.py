@@ -2,23 +2,23 @@
 
 #@author: H.BOUIA (Created on Dec 2013)
 
-#-------- Jour correspondant Ã  une date donnÃ©e----------------------------------
+#-------- Jour correspondant à une date donnée----------------------------------
 
 import string
 import os
 
 def jour(date): # date est sous la forme 'jj/mm/aaaa'
     jours=['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi']
-    # nombre de jours cumulÃ©s des mois prÃ©cÃ©dents modulo 7
-    # sur la base d'une annÃ©e non bissextile
+    # nombre de jours cumulés des mois précédents modulo 7
+    # sur la base d'une année non bissextile
     code_mois=[0,3,3,6,1,4,6,2,5,0,3,5]
-    # Extraction du jour, mois et annÃ©e de la date 'jj/mm/aaaa'
+    # Extraction du jour, mois et année de la date 'jj/mm/aaaa'
     j,m,a=map(int,string.capwords(date)
-    # annÃ©e de rÃ©fÃ©rence : 1900
+    # année de référence : 1900
     a=a-1900
-    # eps=1 si l'annÃ©e est bissextile (=0 sinon)
+    # eps=1 si l'année est bissextile (=0 sinon)
     eps=1 if (a%400==0 or (a%4==0 and a%100!=0)) else 0
-    # Calcul du numÃ©ro du jour
+    # Calcul du numéro du jour
     #r=(j%7)+(code_mois[m-1]%7)+((a+a//4)%7)-int(m<=2)*eps
     r=(j+code_mois[m-1]+(a+a//4)-int(m<=2)*eps)%7
     return jours[r]
