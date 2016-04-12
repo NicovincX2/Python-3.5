@@ -1,5 +1,7 @@
 # Algèbre linéaire (FFT)
 
+>> cubic_spline par interpolation voir "Interpolation - zéro d'une fonction (root-finding)\cubic_spline.py"
+
 #### Liens à consulter:
 
 >> - [Algèbre linéaire](https://fr.wikipedia.org/wiki/Alg%C3%A8bre_lin%C3%A9aire)
@@ -21,10 +23,19 @@
 
 #### Série temporelle
 
->> [Time series analysis](https://fr.wikipedia.org/wiki/S%C3%A9rie_temporelle)
+>> - [Time series analysis](https://fr.wikipedia.org/wiki/S%C3%A9rie_temporelle)
 
->> [Méthodes de Runge-Kutta (Voir RK4)](https://fr.wikipedia.org/wiki/M%C3%A9thodes_de_Runge-Kutta)
+>> - [Méthodes de Runge-Kutta (Voir RK4)](https://fr.wikipedia.org/wiki/M%C3%A9thodes_de_Runge-Kutta)
 
->> [Transformation de Fourier discrète](https://fr.wikipedia.org/wiki/Transformation_de_Fourier_discr%C3%A8te)
->> [https://en.wikipedia.org/wiki/Discrete_Fourier_transform](https://en.wikipedia.org/wiki/Discrete_Fourier_transform)
+>> - [Transformation de Fourier discrète](https://fr.wikipedia.org/wiki/Transformation_de_Fourier_discr%C3%A8te)
+>> - [Discrete Fourier transform](https://en.wikipedia.org/wiki/Discrete_Fourier_transform)
+
+#### Transformation de Fournier
+
+>> - [Transformation de Fourier](https://fr.wikipedia.org/wiki/Transformation_de_Fourier)
+
+#### Opérations matricielles
+
+>> - [Matrice tridiagonale](https://fr.wikipedia.org/wiki/Matrice_tridiagonale)
+
 
