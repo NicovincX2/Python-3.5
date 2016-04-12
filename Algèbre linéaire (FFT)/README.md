@@ -13,11 +13,18 @@
 >> - [Matrice de Hilbert](https://fr.wikipedia.org/wiki/Matrice_de_Hilbert)
 >> - [Hilbert matrix](https://en.wikipedia.org/wiki/Hilbert_matrix)
 
+>> - [Élimination de Gauss-Jordan(Pivot de Gauss)](https://fr.wikipedia.org/wiki/%C3%89limination_de_Gauss-Jordan)
+
 #### Inverse d'une matrice
 
->> Gauss and Newton's methods.
+>> Pivot de Gauss et [méthode de Newton](https://en.wikipedia.org/wiki/Newton's_method)
 
 #### Série temporelle
 
 >> [Time series analysis](https://fr.wikipedia.org/wiki/S%C3%A9rie_temporelle)
+
+>> [Méthodes de Runge-Kutta (Voir RK4)](https://fr.wikipedia.org/wiki/M%C3%A9thodes_de_Runge-Kutta)
+
+>> [Transformation de Fourier discrète](https://fr.wikipedia.org/wiki/Transformation_de_Fourier_discr%C3%A8te)
+>> [https://en.wikipedia.org/wiki/Discrete_Fourier_transform](https://en.wikipedia.org/wiki/Discrete_Fourier_transform)
 

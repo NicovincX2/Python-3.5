@@ -64,7 +64,7 @@ def printing(n, h, f1, fp, e, er, ea):
     print "\n________________________________________________________________________________"
     print "Iteration n = ", int(n)
     print "The distance between two points in this grid (h) is:    ", h            
-    print "Calculated (Richardsob) Derivative of f(x)=sin(x) at x = 1:    ", f1
+    print "Calculated (Richardson) Derivative of f(x)=sin(x) at x = 1:    ", f1
     print "Analytic First Derivative of f(x)=sin(x) at x = 1:    ", fp
     print "Truncated Error (from the Taylor approx):    ", e
     print "Relative Error:    ", er
