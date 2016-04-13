@@ -8,3 +8,8 @@
 >> - SHA1/SHA2
 >> - AES
 >> - DES
+
+#### Liens à consulter:
+
+>> - [Système binaire](https://fr.wikipedia.org/wiki/Syst%C3%A8me_binaire)
+>> - [Leading zero](https://en.wikipedia.org/wiki/Leading_zero)

@@ -10,3 +10,4 @@
 >> - [A+B](https://rosettacode.org/wiki/A%2BB#Python)
 >> - [ABC problem](https://rosettacode.org/wiki/ABC_Problem#Python)
 >> - [I before E except after C](https://rosettacode.org/wiki/I_before_E_except_after_C#Python)
+>> - [Bulls and Cows](https://en.wikipedia.org/wiki/Bulls_and_Cows)

@@ -4,7 +4,6 @@ import os
 
 from __future__ import print_function
 
-
 class Node(object):
     """Tree node: left and right child + data which can be any object
     """
