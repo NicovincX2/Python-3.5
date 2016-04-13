@@ -8,6 +8,7 @@
 >> - [Cluster analysis](https://en.wikipedia.org/wiki/Cluster_analysis)
 
 >> - [Union-Find](https://fr.wikipedia.org/wiki/Union-Find)
+>> - [Disjoint-set data structure](https://en.wikipedia.org/wiki/Disjoint-set_data_structure)
 >> - [Algorithme de Kruskal](https://fr.wikipedia.org/wiki/Algorithme_de_Kruskal)
 
 >> - [Linked list](https://en.wikipedia.org/wiki/Linked_list#Singly_linked_list)
@@ -17,17 +18,22 @@
 >> - [Pile (informatique)](https://fr.wikipedia.org/wiki/Pile_%28informatique%29)
 >> - [Stack (abstract data type)](https://en.wikipedia.org/wiki/Stack_%28abstract_data_type%29)
 
+>> - [Substring](https://en.wikipedia.org/wiki/Substring#Suffix)
+>> - [Suffix array](https://en.wikipedia.org/wiki/Suffix_array)
+>> - [LCP array](https://en.wikipedia.org/wiki/LCP_array)
+
 #### Algorithmes de recherche de chemin
 
 #### Graphes
 
 >> - [Théorie des graphes](https://fr.wikipedia.org/wiki/Th%C3%A9orie_des_graphes)
 >> - [Directed graph](https://en.wikipedia.org/wiki/Directed_graph)
+>> _ [Undirected graph](https://en.wikipedia.org/wiki/Graph_%28discrete_mathematics%29#Undirected_graph)
 
 >> - [Eulerian path](https://en.wikipedia.org/wiki/Eulerian_path)
 >> - [Théorème d'Euler-Hierholzer](https://fr.wikipedia.org/wiki/Graphe_eul%C3%A9rien)
 
-#### Graph Algorithms
+###### Graph Algorithms
 
 >> - [Algorithme de parcours en largeur](https://fr.wikipedia.org/wiki/Algorithme_de_parcours_en_largeur)
 >> - [Connected components in an undirected graph](https://en.wikipedia.org/wiki/Connected_component_%28graph_theory%29)
@@ -45,3 +51,12 @@
 >> - [Minimum spanning tree](https://en.wikipedia.org/wiki/Minimum_spanning_tree)
 >> - [Algorithme de Prim](https://fr.wikipedia.org/wiki/Algorithme_de_Prim)
 >> - [Algorithme de Kruskal](https://fr.wikipedia.org/wiki/Algorithme_de_Kruskal)
+
+#### Arbres
+
+>> - [Arbres binaires](https://fr.wikipedia.org/wiki/Arbre_binaire)
+>> - [Arbre binaire de recherche](https://fr.wikipedia.org/wiki/Arbre_binaire_de_recherche)
+
+>> - [Trie](https://en.wikipedia.org/wiki/Trie)
+>> - [Arbre préfixe](https://fr.wikipedia.org/wiki/Trie_%28informatique%29)
+

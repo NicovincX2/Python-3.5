@@ -5,7 +5,9 @@
 >> - [Integration/Differentiation](https://www.quora.com/Calculus-What-is-the-difference-between-differentiation-and-integration)
 
 >> - [Derivative](https://en.wikipedia.org/wiki/Derivative)
+>> - [Dérivée](https://fr.wikipedia.org/wiki/D%C3%A9riv%C3%A9e)
 >> - [Integral](https://en.wikipedia.org/wiki/Integral)
+>> - [Intégration (mathématiques)](https://fr.wikipedia.org/wiki/Int%C3%A9gration_%28math%C3%A9matiques%29)
 
 #### Numerical derivatives
 
