@@ -4,7 +4,7 @@ import os
 
 __author__ = "bt3"
 
-def longest_common_substring(s1, s2):
+def longest_common_subsequence1(s1, s2):
     p1 = 0
     aux, lcp = '', ''
     string1 = max(s1, s2)
@@ -25,9 +25,10 @@ def longest_common_substring(s1, s2):
     return lcp
                
 if __name__ == '__main__':
+    print(longest_common_subsequence1("ABCXYZ","ACBCXZ"))
     str1 = 'hasfgeaae'
     str2 = 'bafgekk'
     result = 'fge'
-    assert(longest_common_substring(str1, str2) == result)
+    assert(longest_common_subsequence1(str1, str2) == result)
 
 os.system("pause")

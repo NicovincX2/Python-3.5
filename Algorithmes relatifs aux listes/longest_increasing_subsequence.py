@@ -46,5 +46,17 @@ if __name__ == "__main__":
     assert longest_increasing_subsequence([3, 4, -1, 0, 6, 2, 3]) == (4, [-1, 0, 2, 3])
     assert longest_increasing_subsequence([10, 22, 9, 33, 21, 50, 41, 60, 80]) == (6, [10, 22, 33, 50, 60, 80])
     assert longest_increasing_subsequence([5,0,1,2,3,4,5,6,7,8,9,10,11,12, 2, 8, 10, 3, 6, 9, 7]) == (13, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
+    
+    seq = [10, -12, 2, 3, -3, 5, -1, 2, -10]
+    result = [-12, 2, 3]
+    assert(longest_increasing_subsequence(seq) == result)
+    
+    seq = [2]
+    result = [2]
+    assert(longest_increasing_subsequence(seq) == result)
+
+    seq = []
+    result = []
+    assert(longest_increasing_subsequence(seq) == result)
 
 os.system("pause")

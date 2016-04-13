@@ -34,5 +34,9 @@ def longest_common_subsequence(s1, s2):
 
 if __name__ == "__main__":
     print(longest_common_subsequence("ABCXYZ","ACBCXZ"))
+    str1 = 'hasfgeaae'
+    str2 = 'bafgekk'
+    result = 'fge'
+    assert(longest_common_subsequence(str1, str2) == result)
 
 os.system("pause")
