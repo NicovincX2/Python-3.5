@@ -1,0 +1,2 @@
+# Méthode de Gauss-Seidel
+

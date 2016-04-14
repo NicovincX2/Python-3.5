@@ -1,0 +1,1 @@
+# Élimination de Gauss-Jordan (Pivot de Gauss)
