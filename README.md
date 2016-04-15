@@ -12,3 +12,5 @@
 >> - [Théorie des automates](https://fr.wikipedia.org/wiki/Th%C3%A9orie_des_automates)
 >> - [Animation](https://fr.wikipedia.org/wiki/Image_anim%C3%A9e)
 >> - [Théorie des nombres](https://fr.wikipedia.org/wiki/Th%C3%A9orie_des_nombres)
+>> - [Cryptologie](https://fr.wikipedia.org/wiki/Cryptologie)
+>> - Audio-vidéo
