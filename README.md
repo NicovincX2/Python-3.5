@@ -8,3 +8,7 @@
 >> - [Statistiques](https://fr.wikipedia.org/wiki/Statistique)
 >> - [Physique](https://fr.wikipedia.org/wiki/Physique)
 >> - [Algorithmique](https://fr.wikipedia.org/wiki/Algorithmique)
+>> - [Mathématiques discrètes](https://fr.wikipedia.org/wiki/Math%C3%A9matiques_discr%C3%A8tes)
+>> - [Théorie des automates](https://fr.wikipedia.org/wiki/Th%C3%A9orie_des_automates)
+>> - [Animation](https://fr.wikipedia.org/wiki/Image_anim%C3%A9e)
+>> - [Théorie des nombres](https://fr.wikipedia.org/wiki/Th%C3%A9orie_des_nombres)

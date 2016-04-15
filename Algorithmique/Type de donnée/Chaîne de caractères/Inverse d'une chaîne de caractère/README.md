@@ -1,0 +1,1 @@
+# Inverse d'une chaîne de caractère
