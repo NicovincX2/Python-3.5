@@ -1,0 +1,1 @@
+# Fonction carré (Square function)

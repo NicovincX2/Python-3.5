@@ -1,3 +1,0 @@
-# Tests
-
->> Tests des programmes.

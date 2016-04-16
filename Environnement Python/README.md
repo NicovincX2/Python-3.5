@@ -13,3 +13,10 @@
 #### Classes
 
 >> Différentes classes utilisées.
+
+#### Tests d'algorithmes
+
+>> Tests concernant quelques algorithmes.
+
+#### Tests de performance
+

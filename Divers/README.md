@@ -7,3 +7,5 @@
 
 >>>> - [Points of the compass](https://en.wikipedia.org/wiki/Points_of_the_compass)
 >>>> - [Compass rose](https://en.wikipedia.org/wiki/Compass_rose)
+
+>> - [Palindrome](https://fr.wikipedia.org/wiki/Palindrome)

@@ -1,0 +1,1 @@
+# Méthode de Gauss-Legendre

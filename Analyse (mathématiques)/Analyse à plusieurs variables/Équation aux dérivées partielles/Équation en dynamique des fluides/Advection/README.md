@@ -6,3 +6,5 @@
 
 >> - [FTCS scheme](https://en.wikipedia.org/wiki/FTCS_scheme)
 >> - [Upwind scheme](https://en.wikipedia.org/wiki/Upwind_scheme)
+
+>> - [Problème de Riemann](https://fr.wikipedia.org/wiki/Probl%C3%A8me_de_Riemann)
