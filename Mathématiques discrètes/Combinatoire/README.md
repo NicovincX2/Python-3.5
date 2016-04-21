@@ -11,3 +11,4 @@
 >> - [Permutation aléatoire](https://fr.wikipedia.org/wiki/Permutation_al%C3%A9atoire)
 
 >> - [Anagramme](https://fr.wikipedia.org/wiki/Anagramme)
+>> - [Solitaire (casse-tête)](https://fr.wikipedia.org/wiki/Solitaire_(casse-t%C3%AAte))

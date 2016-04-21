@@ -9,6 +9,9 @@
 >> - [Algorithme de Johnson](https://fr.wikipedia.org/wiki/Algorithme_de_Johnson)
 >> - [Algorithme de parcours en largeur](https://fr.wikipedia.org/wiki/Algorithme_de_parcours_en_largeur)
 >> - [Algorithme de parcours en profondeur](https://fr.wikipedia.org/wiki/Algorithme_de_parcours_en_profondeur)
+>> - [Algorithme de Prim](https://fr.wikipedia.org/wiki/Algorithme_de_Prim)
+>> - [Modélisation mathématique d'un labyrinthe](https://fr.wikipedia.org/wiki/Mod%C3%A9lisation_math%C3%A9matique_d%27un_labyrinthe)
+>> - [Problèmes de cheminement](https://fr.wikipedia.org/wiki/Probl%C3%A8mes_de_cheminement)
 
 >>>> - [Connected components in an undirected graph](https://en.wikipedia.org/wiki/Connected_component_%28graph_theory%29)
 
