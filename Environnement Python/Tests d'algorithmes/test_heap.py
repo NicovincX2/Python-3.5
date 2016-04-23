@@ -4,8 +4,8 @@ import os
 
 # test module and project code
 
+from heap_smallest import *
 from heap import *
-from project_heap import *
 
 x = range(20)
 heapsort(x)

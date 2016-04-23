@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import os
-
 import math
 class minheap(object):
     """
@@ -59,7 +57,7 @@ class minheap(object):
         in linear time """
         self.heap = elem[:]
         last_leaf = self.parent(len(self.heap))
-        for i in range(last_leaf, -1, -1):
+        for i in range(int(last_leaf), -1, -1):
             self.heapify(i)
 
     def heappush(self, x):
@@ -81,5 +79,3 @@ class minheap(object):
             self.heapify(0)
             return pop
         raise Exception("Heap is empty")
-
-os.system("pause")

@@ -66,7 +66,7 @@ def trialTable_nonr():
     trial = 2
     while trial <= 2048:
         result = compareTrials_nonr(trial)
-        print trial, '\t', result[0], '\t', result[1]
+        print (trial, '\t', result[0], '\t', result[1])
 
         trial *= 2
 
@@ -110,7 +110,7 @@ def trialTable():
     trial = 2
     while trial <= 2048:
         result = compareTrials(trial)
-        print trial, '\t', result[0], '\t', result[1]
+        print (trial, '\t', result[0], '\t', result[1])
 
         trial *= 2
 
@@ -163,11 +163,11 @@ def trialTable_mat():
     size = 33
     while trial <= 512:
         result = compareTrials_mat(trial, size)
-        print trial, '\t', result[0], '\t', result[1]
+        print (trial, '\t', result[0], '\t', result[1])
 
         trial *= 2
 
-        
+
 """
 Change Log
 

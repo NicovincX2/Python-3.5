@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import os
-
 from minheap import minheap
 class maxheap(minheap):
     """
@@ -35,5 +33,3 @@ class maxheap(minheap):
             self.heap[i], self.heap[parent] = self.heap[parent], self.heap[i]
             i = parent
             parent = self.parent(i)
-
-os.system("pause")

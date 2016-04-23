@@ -15,7 +15,7 @@ def inverse(AInput):
 
     # A is square, with each dimension of length N
     if not (A.shape[0] == A.shape[1]):
-        print "ERROR: A should be square"
+        print ("ERROR: A should be square")
         return None
 
     # create an identity matrix
@@ -36,10 +36,10 @@ def inverse(AInput):
 
     # main loop over rows
     for k in range(N):
-        
+
         # find the pivot row based on the size of column k -- only consider
         # the rows beyond the current row
-        rowMax = numpy.argmax(A[k:, k]/scales[k:]) 
+        rowMax = numpy.argmax(A[k:, k]/scales[k:])
         if (k > 0): rowMax += k  # we sliced A from k:, correct for total rows
 
         # swap the row with the largest scaled element in the current column
@@ -58,11 +58,11 @@ def inverse(AInput):
 
             A[i,k] = 0.0
             I[i,:] += -coeff*I[k,:]
-    
-    
+
+
 
     # back-substitution -- once for each column in the I matrix
-    
+
     for c in range(N):
 
         # last solution is easy
@@ -77,7 +77,7 @@ def inverse(AInput):
 
     # determinant
     det = numpy.prod(numpy.diagonal(A))*(-1.0)**numRowSwap
-    
+
     return Ainv
 
 
@@ -87,23 +87,23 @@ def inverse(AInput):
 
 A = numpy.array([ [4, 3, 4, 10], [2, -7, 3, 0], [-2, 11, 1, 3], [3, -4, 0, 2] ], dtype=numpy.float64)
 Ainv = inverse(A)
-print "A . Ainv = \n", numpy.dot(A, Ainv)
-print" Ainv = \n", Ainv
+print ("A . Ainv = \n", numpy.dot(A, Ainv))
+print (" Ainv = \n", Ainv)
 
-print " "
+print (" ")
 
 A = numpy.array([ [0, 1, 1], [1, 1, 0], [1, 0, 1] ], dtype=numpy.float64)
 Ainv = inverse(A)
-print "A . Ainv = \n", numpy.dot(A, Ainv)
+print ("A . Ainv = \n", numpy.dot(A, Ainv))
 
-print " "
+print (" ")
 
-A = numpy.array([ [0, 0, 0, 4], 
-                  [0, 0, 3, 0], 
+A = numpy.array([ [0, 0, 0, 4],
+                  [0, 0, 3, 0],
                   [5, 6, 7, 8],
                   [0, 4, 3, 2] ], dtype=numpy.float64)
 Ainv = inverse(A)
-print "A . Ainv = \n", numpy.dot(A, Ainv)
+print ("A . Ainv = \n", numpy.dot(A, Ainv))
 
 
 os.system("pause")

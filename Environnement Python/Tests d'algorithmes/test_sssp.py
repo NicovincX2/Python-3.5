@@ -4,7 +4,7 @@ import os
 
 # test module and project
 from bheap import *
-from project_bheap import *
+from prim_bheap import *
 
 bh = BHeap(10)
 assert(bh.isEmpty())

@@ -3,8 +3,8 @@
 import os, sys
 sys.path.append(os.path.join(os.getcwd(), os.path.pardir))
 import unittest
-from Algorithmes de tri.Tri par tas.minheap import minheap
-from Algorithmes de tri.Tri par tas.maxheap import maxheap
+from minheap import minheap
+from maxheap import maxheap
 import random
 
 class test_heap(unittest.TestCase):
@@ -19,7 +19,7 @@ class test_heap(unittest.TestCase):
     def test_heap_pop(self):
         self.assertEqual(min(self.a), self.h.heappop())
         self.assertEqual(max(self.a), self.m.heappop())
-    
+
     def test_max_elements(self):
         self.assertEqual(len(self.a), self.h.max_elements())
         self.assertEqual(len(self.a), self.m.max_elements())

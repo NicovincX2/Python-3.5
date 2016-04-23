@@ -39,53 +39,53 @@ def iter_inverse(A, Ainv0):
         iter += 1
 
 
-    print "number of iterations = ", iter
+    print ("number of iterations = ", iter)
 
     return Ainv
 
 
 # some attempts
-A = numpy.array([ [ 4,  3, 4, 10], 
-                  [ 2, -7, 3,  0], 
+A = numpy.array([ [ 4,  3, 4, 10],
+                  [ 2, -7, 3,  0],
                   [-2, 11, 1,  3],
                   [ 3, -4, 0,  2] ], dtype=numpy.float64)
 
 
 # identity
-print "calling with Ainv0 = I"
+print ("calling with Ainv0 = I")
 Ainv = iter_inverse(A, numpy.eye(4))
 
-print numpy.dot(A, Ainv)
+print (numpy.dot(A, Ainv))
 
-print  " "
+print ( " ")
 
 
 # transpose scaled by maximum element **2
-print "calling with Ainv0 = A^T/max(A)**2"
+print ("calling with Ainv0 = A^T/max(A)**2")
 Ainv = iter_inverse(A, numpy.transpose(A)/numpy.max(numpy.abs(A))**2)
 
-print numpy.dot(A, Ainv)
+print (numpy.dot(A, Ainv))
 
-print  " "
+print ( " ")
 
 
 # diagonal of 1/ A's diagonal
 Ainv = numpy.diagflat(1.0/numpy.diag(A))
 
-print "calling with diag(Ainv0) = 1.0/diag(A)"
+print ("calling with diag(Ainv0) = 1.0/diag(A)")
 Ainv = iter_inverse(A, numpy.transpose(A)/numpy.max(numpy.abs(A))**2)
-print numpy.dot(A, Ainv)
+print (numpy.dot(A, Ainv))
 
-print  " "
+print ( " ")
 
 
 # matrix with all elements = 1/max(A)
 Ainv = numpy.ones(A.shape)/numpy.max(numpy.abs(A))
 
-print "calling with Ainv_ij = 1.0/max(|A|)"
+print ("calling with Ainv_ij = 1.0/max(|A|)")
 Ainv = iter_inverse(A, numpy.transpose(A)/numpy.max(numpy.abs(A))**2)
-print numpy.dot(A, Ainv)
+print (numpy.dot(A, Ainv))
 
-print  " "
+print ( " ")
 
 os.system("pause")

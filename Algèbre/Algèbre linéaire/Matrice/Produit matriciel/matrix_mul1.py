@@ -3,7 +3,7 @@
 import os
 
 from operator import mul
- 
+
 def matrixMul(m1, m2):
   return map(
     lambda row:

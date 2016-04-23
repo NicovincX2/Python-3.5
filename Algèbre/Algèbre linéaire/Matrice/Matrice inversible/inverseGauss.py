@@ -5,7 +5,7 @@
     Almost a copy of on Mike Zingale's code, spring 2013.
 """
 
-import numpy, os
+import numpy
 
 def inverseGauss(AInput):
     """ return the inverse of AInput """
@@ -15,7 +15,7 @@ def inverseGauss(AInput):
 
     # A is square, with each dimension of length N
     if not (A.shape[0] == A.shape[1]):
-        print "ERROR: A should be square"
+        print ("ERROR: A should be square")
         return None
 
     # create an identity matrix
@@ -36,10 +36,10 @@ def inverseGauss(AInput):
 
     # main loop over rows
     for k in range(N):
-        
+
         # find the pivot row based on the size of column k -- only consider
         # the rows beyond the current row
-        rowMax = numpy.argmax(A[k:, k]/scales[k:]) 
+        rowMax = numpy.argmax(A[k:, k]/scales[k:])
         if (k > 0): rowMax += k  # we sliced A from k:, correct for total rows
 
         # swap the row with the largest scaled element in the current column
@@ -58,11 +58,11 @@ def inverseGauss(AInput):
 
             A[i,k] = 0.0
             I[i,:] += -coeff*I[k,:]
-    
-    
+
+
 
     # back-substitution -- once for each column in the I matrix
-    
+
     for c in range(N):
 
         # last solution is easy
@@ -77,7 +77,5 @@ def inverseGauss(AInput):
 
     # determinant
     #idet = numpy.prod(numpy.diagonal(A))*(-1.0)**numRowSwap
-    
-    return Ainv
 
-os.system("pause")
+    return Ainv
