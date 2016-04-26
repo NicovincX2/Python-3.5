@@ -4,7 +4,7 @@ import os
 
 # test module and project code
 
-import heapsort
+import heap
 import heap_smallest
 
 x = range(20)
