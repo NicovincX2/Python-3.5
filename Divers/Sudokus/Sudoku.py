@@ -1,7 +1,7 @@
 #-*- coding: utf-8 -*-
 
 ## Solve Every Sudoku Puzzle
-import numpy, matplotlib, os
+import matplotlib, os
 ## See http://norvig.com/sudoku.html
 
 ## Throughout this program we have:
@@ -108,7 +108,6 @@ def display(values):
         print (''.join(values[r+c].center(width)+('|' if c in '36' else ''))
                       for c in cols)
         if r in 'CF': print (line)
-    print
 
 ################ Search ################
 

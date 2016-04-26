@@ -2,7 +2,7 @@
 
 from tkinter import *
 from time import *
-import sys, os, threading
+import sys, os
 
 class Application:
     def __init__(self):

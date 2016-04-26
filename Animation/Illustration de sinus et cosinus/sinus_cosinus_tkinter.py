@@ -20,7 +20,7 @@ Un programme simple qui permet d'illustrer dynamiquement les fonctions sinus et 
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
 
-from PIL import Image, ImageTk
+from PIL import ImageTk
 from tkinter import *
 from math import *
 import os

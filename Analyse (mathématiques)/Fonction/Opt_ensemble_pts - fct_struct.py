@@ -27,8 +27,5 @@ def residu(p):
 
 
 LM = op.leastsq(residu,[1.0,1.0],full_output=1)
-LM[0]
-LM[1]
-LM[2]['nfev']
 
 os.system("pause")
