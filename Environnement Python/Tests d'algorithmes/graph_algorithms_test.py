@@ -3,9 +3,9 @@
 import os, sys
 sys.path.append(os.path.join(os.getcwd(), os.path.pardir))
 import unittest
-from Structures de données.Graphes.digraph import digraph
-from Structures de données.Graphes.graph import graph
-from Structures de données.Graphes.graph_algorithms import *
+from digraph import digraph
+from graph import graph
+from graph_algorithms import *
 
 class test_graph(unittest.TestCase):
 

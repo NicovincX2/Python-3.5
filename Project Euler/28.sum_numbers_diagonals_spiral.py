@@ -13,37 +13,13 @@ What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed 
 
 import os
 
-def number_spiral(spiral):
-    return rows, mid
-    
-def make_spiral(n):
-    spiral = []
-    row = rows//2
-    col = col//2
-    count = 1
-    while row < n:
-        while col < n:
-            spiral[col][row] = count
-            count += 1
-            if count%2 == 0:
-                col += 1
-            else:
-                row += 1
-        
-    return spiral
+#Project Euler Problem 28
 
-def main():
-    import time
-    start = time.time() 
-    
-    n = 5
-    spiral = make_spiral(n)
-    print(number_spiral(spiral))# 101
-    
-    elapsed = (time.time() - start)
-    print('Tests Passed!\n It took %s seconds to run them.' % (elapsed))   
-                   
-if __name__ == '__main__':
-    main()
+def g(L):
+    n = (L-1) // 2
+    return (16*n**3 + 30*n**2 + 26*n + 3) // 3
+ 
+L = 1001 
+print ("Sum of both diagonals of a", L, "square \nspiral =", g(L))
 
 os.system("pause")

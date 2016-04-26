@@ -19,4 +19,4 @@ while i < len(LETTERS):
     shift = shift + 1
     CIPHER = ""
  
- os.system("pause")
+os.system("pause")

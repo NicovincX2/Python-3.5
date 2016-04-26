@@ -3,7 +3,7 @@
 import os
 
 import unittest
-from Algorithmes relatifs aux listes.longest_common_subsequence import longest_common_subsequence
+from longest_common_subsequence import longest_common_subsequence
 
 class TestLCS(unittest.TestCase):
     def test_lcs(self):

@@ -7,7 +7,7 @@
 
 from tkinter import *
 from queue import *
-import time, threading, os
+import time, threading
 
 class GUI:
 
@@ -91,4 +91,3 @@ class calcul (threading.Thread):
         GUI().finir(4*somme,t2-t1,boucles)
 
 GUI().run()
-os.system("pause")

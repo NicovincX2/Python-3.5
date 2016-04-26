@@ -3,7 +3,7 @@
 import os, sys
 sys.path.append(os.path.join(os.getcwd(), os.path.pardir))
 import unittest
-from Structures de données.Graphes.graph import graph
+import graph
 
 class test_graph(unittest.TestCase):
 

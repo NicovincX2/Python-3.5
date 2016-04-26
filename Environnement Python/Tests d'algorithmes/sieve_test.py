@@ -3,7 +3,7 @@
 import os
 
 import unittest
-from Arithmétique.Nombres premiers.sieve_of_eratosthenes import calculate_primes
+from sieve_of_eratosthenes import calculate_primes
 
 class TestSieveOfEratosthenes(unittest.TestCase):
 	def test_primes(self):

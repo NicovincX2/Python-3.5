@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-
-from Algorithmes de tri.sorting import mergesort
+import mergesort
 
 def search(arr, item):
     """Performs binary search on an array
