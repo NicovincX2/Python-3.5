@@ -1,11 +1,15 @@
 # -*- coding: utf-8 -*-
 
-import os
+import os, sys
+
+print (sys.path)
+
+sys.path.append('C:\Python35\Algorithmique\Structure de données\Tas (Heap)')
 
 # test module and project code
 
-from heap_smallest import *
-from heap import *
+import heap
+import heap_smallest
 
 x = range(20)
 heapsort(x)

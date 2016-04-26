@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import os
-
 # Heap implementation
 
 def buildHeap(A):
@@ -33,4 +31,3 @@ def heapsort(A):
         A[0],A[i] = A[i],A[0]
         heapify(A, 0, i)
 
-os.system("pause")

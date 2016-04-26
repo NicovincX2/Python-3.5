@@ -15,6 +15,7 @@
 >> - [Cryptologie](https://fr.wikipedia.org/wiki/Cryptologie)
 >> - [Physique](https://fr.wikipedia.org/wiki/Physique)
 >> - [Animation](https://fr.wikipedia.org/wiki/Image_anim%C3%A9e)
+>> - [Génie logiciel](https://fr.wikipedia.org/wiki/G%C3%A9nie_logiciel)
+>> - [Project Euler](https://projecteuler.net/archives)
 >> - Audio-vidéo
 >> - Problèmes divers
->> - [Project Euler](https://projecteuler.net/archives)

@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import os
-
 # Efficiently locate kth largest element
 
 def kthSmallest(collection, k):
@@ -38,4 +36,3 @@ def heapify (A, idx, maxIdx):
         A[idx],A[largest] = A[largest],A[idx]
         heapify(A, largest, maxIdx)
 
-os.system("pause")
