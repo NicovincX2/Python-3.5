@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import os
-
 class UnionFind(object):
     """ Disjoint Set data structure supporting union and find operations used
     for Kruskal's MST algorithm 
@@ -10,8 +8,7 @@ class UnionFind(object):
         get_leader(a) -> returns the leader(representative) corresponding to item a
         make_union(leadera, leaderb) -> unions two sets with leadera and leaderb
         in O(nlogn) time where n the number of elements in the data structure
-        count_keys() -> returns the number of groups in the data structure
-    """
+        count_keys() -> returns the number of groups in the data structure """
 
     def __init__(self):
         self.leader = {}
@@ -83,5 +80,3 @@ class UnionFind(object):
 if __name__ == "__main__":
     uf = UnionFind()
     uf.insert("a", "b")
-
-os.system("pause")

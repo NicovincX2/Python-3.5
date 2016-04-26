@@ -2,15 +2,13 @@
 
 import os
 
-"""
-    Merge Sort
+""" Merge Sort
     ----------
     Uses divide and conquer to recursively divide and sort the list
     Time Complexity: O(n log n)
     Space Complexity: O(n) Auxiliary
     Stable: Yes
-    Psuedo Code: CLRS. Introduction to Algorithms. 3rd ed.
-"""
+    Psuedo Code: CLRS. Introduction to Algorithms. 3rd ed. """
 
 
 def merge(left, right):

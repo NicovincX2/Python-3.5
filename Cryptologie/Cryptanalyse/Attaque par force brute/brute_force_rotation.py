@@ -2,7 +2,7 @@
 
 # https://github.com/bt3gl/My-Gray-Hacker-Resources/blob/patch-1/Cryptography/Rotation-Ciphers/brute_force_rotation.py
 
-import sys, os
+import os
 
 CIPHER = "OMQEMDUEQMEK"
 LETTERS = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")

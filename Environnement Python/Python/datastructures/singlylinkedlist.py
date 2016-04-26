@@ -2,8 +2,7 @@
 
 import os
 
-"""
-    Singly Linked List
+""" Singly Linked List
     ------------------
     A linked list is a data structure consisting of a group of nodes which
     together represent a sequence. Under the simplest form, each node is
@@ -11,8 +10,7 @@ import os
     node in the sequence; more complex variants add additional links. This
     structure allows for efficient insertion or removal of elements from any
     position in the sequence.
-    Pseudo Code: https://en.wikipedia.org/wiki/Linked_list
-"""
+    Pseudo Code: https://en.wikipedia.org/wiki/Linked_list """
 
 
 class Node:

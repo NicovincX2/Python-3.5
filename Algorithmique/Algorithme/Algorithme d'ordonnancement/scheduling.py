@@ -3,8 +3,8 @@
 import os
 
 """ data of the form -> wi, li 
-(wi -> weight of job i, li -> length of job i)
-"""
+(wi -> weight of job i, li -> length of job i) """
+
 test_data = """8 50
 74 59
 31 73
@@ -22,8 +22,7 @@ test_data = """8 50
 17 36
 98 27
 13 68
-11 34
-"""
+11 34 """
 
 def get_times(data):
     lines = [l for l in data.splitlines()]

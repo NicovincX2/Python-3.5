@@ -7,7 +7,6 @@
 >> - [Algèbre](https://fr.wikipedia.org/wiki/Alg%C3%A8bre)
 >> - [Théorie des nombres](https://fr.wikipedia.org/wiki/Th%C3%A9orie_des_nombres)
 >> - [Algorithmique](https://fr.wikipedia.org/wiki/Algorithmique)
->> - [Mathématiques discrètes](https://fr.wikipedia.org/wiki/Math%C3%A9matiques_discr%C3%A8tes)
 >> - [Géométrie](https://fr.wikipedia.org/wiki/G%C3%A9om%C3%A9trie)
 >> - [Probabilités](https://fr.wikipedia.org/wiki/Probabilit%C3%A9)
 >> - [Statistiques](https://fr.wikipedia.org/wiki/Statistique)

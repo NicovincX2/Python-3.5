@@ -2,42 +2,40 @@
 
 import os
 
-"""
-The multigrid module provides a framework for solving elliptic
-problems.  A multigrid object is just a list of grids, from the finest
-mesh down (by factors of two) to a single interior zone (each grid has
-the same number of guardcells).
-The main multigrid class (MGcc) is setup to solve a constant-coefficient
-Helmholtz equation:
-(alpha - beta L) phi = f
-where L is the Laplacian and alpha and beta are constants.  If alpha =
-0 and beta = -1, then this is the Poisson equation.
-We support homogeneous Dirichlet or Neumann BCs, or on periodic domain.
-The general usage is as follows:
-> a = multigrid.ccMG1d(nx, verbose=1, alpha=alpha, beta=beta)
-this creates the multigrid object a, with a finest grid of nx zones
-and the default boundary condition types.  alpha and beta are the
-coefficients of the Helmholtz equation.  Setting verbose = 1 causing
-debugging information to be output, so you can see the residual errors
-in each of the V-cycles.
-> a.initSolution(zeros((nx), numpy.float64))
-this initializes the solution vector with zeros
-> a.initRHS(zeros((nx), numpy.float64))
-this initializes the RHS on the finest grid to 0 (Laplace's equation).
-Any RHS can be set by passing through an array of nx values here.
-Then to solve, you just do:
-> a.solve(rtol = 1.e-10)
-where rtol is the desired tolerance (relative difference in solution from
-one cycle to the next).
-to access the final solution, use the getSolution method
-v = a.getSolution()
-For convenience, the grid information on the solution level is available as
-attributes to the class,
-a.ilo, a.ihi are the indices bounding the interior
-of the solution array (i.e. excluding the guardcells).
-a.x is the coordinate arrays, a.dx is the grid spacings
-M. Zingale (2013-03-28)
-"""
+""" The multigrid module provides a framework for solving elliptic
+    problems.  A multigrid object is just a list of grids, from the finest
+    mesh down (by factors of two) to a single interior zone (each grid has
+    the same number of guardcells).
+    The main multigrid class (MGcc) is setup to solve a constant-coefficient
+    Helmholtz equation:
+    (alpha - beta L) phi = f
+    where L is the Laplacian and alpha and beta are constants.  If alpha =
+    0 and beta = -1, then this is the Poisson equation.
+    We support homogeneous Dirichlet or Neumann BCs, or on periodic domain.
+    The general usage is as follows:
+    > a = multigrid.ccMG1d(nx, verbose=1, alpha=alpha, beta=beta)
+    this creates the multigrid object a, with a finest grid of nx zones
+    and the default boundary condition types.  alpha and beta are the
+    coefficients of the Helmholtz equation.  Setting verbose = 1 causing
+    debugging information to be output, so you can see the residual errors
+    in each of the V-cycles.
+    > a.initSolution(zeros((nx), numpy.float64))
+    this initializes the solution vector with zeros
+    > a.initRHS(zeros((nx), numpy.float64))
+    this initializes the RHS on the finest grid to 0 (Laplace's equation).
+    Any RHS can be set by passing through an array of nx values here.
+    Then to solve, you just do:
+    > a.solve(rtol = 1.e-10)
+    where rtol is the desired tolerance (relative difference in solution from
+    one cycle to the next).
+    to access the final solution, use the getSolution method
+    v = a.getSolution()
+    For convenience, the grid information on the solution level is available as
+    attributes to the class,
+    a.ilo, a.ihi are the indices bounding the interior
+    of the solution array (i.e. excluding the guardcells).
+    a.x is the coordinate arrays, a.dx is the grid spacings
+    M. Zingale (2013-03-28) """
 
 import patch1d
 import math

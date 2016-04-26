@@ -1,5 +1,5 @@
 from command import MoveFileCommand
-import os, shutil, subprocess, sys
+import os, shutil, sys
 
 if sys.version_info < (2, 7):
     import unittest2 as unittest
@@ -7,7 +7,6 @@ else:
     import unittest
 
 class CommandTest(unittest.TestCase):
-
     @classmethod
     def __get_test_directory(self):
         """

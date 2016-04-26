@@ -1,11 +1,8 @@
 # -*- coding: utf-8 -*-
 
-import os
-
 # mergesort using mmap
 
-"""
-To run the project, load 'project_merge.py' and create a file which will be sorted. Do so as follows:
+""" To run the project, load 'project_merge.py' and create a file which will be sorted. Do so as follows:
 
   >>> createRandom(100, 'sample-file.txt')
 
@@ -21,8 +18,7 @@ To show the integers in the file, use the 'output' function
 
 To sort the external file, say:
 
-  >>> mergeSortFile('sample-file.txt')
-"""
+  >>> mergeSortFile('sample-file.txt') """
 
 import shutil
 import tempfile

@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
 
-import os
-
 from collections import deque
 from copy import deepcopy
-from Structures de données import UnionFind
-import heapq
+import UnionFind
+import heap
 
 def BFS(gr, s):
     """ Breadth first search 
@@ -155,10 +153,10 @@ def shortest_path(digr, s):
 
     for n in nodes_unexplored:
         min = compute_min_dist(digr, n, nodes_explored, dist)
-        heapq.heappush(node_heap, (min, n))
+        heap.heappush(node_heap, (min, n))
 
     while len(node_heap) > 0:
-        min_dist, nearest_node = heapq.heappop(node_heap)
+        min_dist, nearest_node = heap.heappop(node_heap)
         dist[nearest_node] = min_dist
         nodes_explored.add(nearest_node)
         nodes_unexplored.remove(nearest_node)
@@ -169,7 +167,7 @@ def shortest_path(digr, s):
                 for i in range(len(node_heap)):
                     if node_heap[i][1] == v:
                         node_heap[i] = (compute_min_dist(digr, v, nodes_explored, dist), v)
-                        heapq.heapify(node_heap)
+                        heap.heapify(node_heap)
 
     return dist
 
@@ -196,11 +194,11 @@ def minimum_spanning_tree(gr):
     #computes the key for each vertex in unexplored
     for n in nodes_unexplored:
         min = compute_key(gr, n, nodes_explored)
-        heapq.heappush(node_heap, (min, n))
+        heap.heappush(node_heap, (min, n))
 
     while len(nodes_unexplored) > 0:
         # adds the cheapest to "explored"
-        node_cost, min_node = heapq.heappop(node_heap)
+        node_cost, min_node = heap.heappop(node_heap)
         min_cost += node_cost
         nodes_explored.add(min_node)
         nodes_unexplored.remove(min_node)
@@ -211,7 +209,7 @@ def minimum_spanning_tree(gr):
                 for i in range(len(node_heap)):
                     if node_heap[i][1] == v:
                         node_heap[i] = (compute_key(gr, v, nodes_explored), v)
-                        heapq.heapify(node_heap)
+                        heap.heapify(node_heap)
     return min_cost
 
 def compute_key(gr, n, nodes_explored):
@@ -268,5 +266,3 @@ def get_max_spacing(clusters):
                 if spacing < min:
                     min = spacing
     return min
-
-os.system("pause")

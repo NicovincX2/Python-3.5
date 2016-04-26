@@ -13,7 +13,6 @@ from unittest.mock import patch
 
 
 class TestPetShop(unittest.TestCase):
-    
     def test_dog_pet_shop_shall_show_dog_instance(self):
         f = DogFactory()
         with patch.object(f, 'get_pet') as mock_f_get_pet,\
@@ -34,7 +33,6 @@ class TestPetShop(unittest.TestCase):
 
 
 class TestCat(unittest.TestCase):
-
     @classmethod
     def setUpClass(cls):
         cls.c = Cat()
@@ -47,7 +45,6 @@ class TestCat(unittest.TestCase):
 
 
 class TestDog(unittest.TestCase):
-
     @classmethod
     def setUpClass(cls):
         cls.d = Dog()

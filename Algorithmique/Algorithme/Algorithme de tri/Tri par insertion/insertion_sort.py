@@ -2,15 +2,13 @@
 
 import os
 
-"""
-    Insertion Sort
+""" Insertion Sort
     --------------
     A sort that uses the insertion of elements in to the list to sort the list.
     Time Complexity: O(n**2)
     Space Complexity: O(n) total
     Stable: Yes
-    Psuedo Code: CLRS. Introduction to Algorithms. 3rd ed.
-"""
+    Psuedo Code: CLRS. Introduction to Algorithms. 3rd ed. """
 
 
 def sort(seq):

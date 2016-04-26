@@ -38,7 +38,6 @@ class TestProvider(unittest.TestCase):
         expected_msg = 'expected msg'
         pro = Provider()
         pub = Publisher(pro)
-        sub = Subscriber('sub name', pro)
         cls.assertEqual(len(pro.msg_queue), 0)
         pub.publish(expected_msg)
         cls.assertEqual(len(pro.msg_queue), 1)

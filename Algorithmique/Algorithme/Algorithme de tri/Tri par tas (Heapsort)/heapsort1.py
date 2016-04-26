@@ -2,15 +2,13 @@
 
 import os
 
-"""
-    Heap Sort
+""" Heap Sort
     ---------
     Uses the max heap data structure implemented in a list.
     Time Complexity: O(n log n)
     Space Complexity: O(1) Auxiliary
     Stable: Yes
-    Psuedo Code: CLRS. Introduction to Algorithms. 3rd ed.
-"""
+    Psuedo Code: CLRS. Introduction to Algorithms. 3rd ed. """
 
 
 def max_heapify(seq, i, n):

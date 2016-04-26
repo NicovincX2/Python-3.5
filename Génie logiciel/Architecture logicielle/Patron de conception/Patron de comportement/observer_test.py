@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 import sys
-from io import StringIO
 from observer import Subject, Data, DecimalViewer, HexViewer
 
 if sys.version_info < (2, 7):
@@ -14,7 +13,6 @@ else:
 from unittest.mock import patch
 
 class TestSubject(unittest.TestCase):
-
     @classmethod
     def setUpClass(cls):
         cls.s = Subject()
@@ -41,7 +39,6 @@ class TestSubject(unittest.TestCase):
         cls.assertEqual(len(cls.s._observers), 0)
 
 class TestData(unittest.TestCase):
-
     @classmethod
     def setUpClass(cls):
         cls.dec_obs = DecimalViewer()
