@@ -17,4 +17,6 @@ def fib_gen(n):
         a, b = b, a+b
         i += 1
 
+for i in fib_gen(5): print (i)
+
 os.system("pause")

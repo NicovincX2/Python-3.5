@@ -9,3 +9,5 @@
 >>>> - [Compass rose](https://en.wikipedia.org/wiki/Compass_rose)
 
 >> - [Palindrome](https://fr.wikipedia.org/wiki/Palindrome)
+
+>> - [Star Wars API](http://swapi.co/)
