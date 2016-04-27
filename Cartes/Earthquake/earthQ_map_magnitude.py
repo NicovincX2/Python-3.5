@@ -47,7 +47,6 @@ eq_map.plot(x, y, 'ro', markersize=6)
 plt.show()
 
 ###highlight=[40,41,42,43,44]
-import csv
 
 # Open the earthquake data file.
 filename = 'earthquake_data.csv'
@@ -72,9 +71,6 @@ with open(filename) as f:
         magnitudes.append(float(row[4]))
         
 # --- Build Map ---
-from mpl_toolkits.basemap import Basemap
-import matplotlib.pyplot as plt
-import numpy as np
  
 eq_map = Basemap(projection='robin', resolution = 'l', area_thresh = 1000.0,
               lat_0=0, lon_0=-130)

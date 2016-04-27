@@ -29,8 +29,7 @@ df.head()
 
 import plotly.plotly as py
 from plotly.graph_objs import *
-import plotly.tools as tls
-from random import random, randrange, seed
+from random import randrange, seed
 seed(123)
 
 traces = []

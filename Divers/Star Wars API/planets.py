@@ -27,7 +27,7 @@ df.head()
 
 
 import plotly.plotly as py
-from random import random, randrange, seed
+from random import randrange, seed
 seed(456)
 
 traces = []
