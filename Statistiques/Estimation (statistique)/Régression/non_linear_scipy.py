@@ -45,8 +45,8 @@ a1 = 1
 # argument lists for the function to be minimized (resid in our case)
 afit, flag = optimize.leastsq(resid, [a0, a1], args=(x, y))
 
-print flag
-print afit
+print (flag)
+print (afit)
 
 p = pylab.plot(x, afit[0]*numpy.exp(afit[1]*x), 
            label=r"$a_0 = $ %f; $a_1 = $ %f" % (afit[0], afit[1]))
