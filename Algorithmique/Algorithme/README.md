@@ -8,3 +8,4 @@
 >> - [Algorithme de recherche](https://fr.wikipedia.org/wiki/Algorithme_de_recherche)
 >> - Algorithme numérique
 >> - Algorithme de la théorie des graphes
+>> - Algorithme de compression

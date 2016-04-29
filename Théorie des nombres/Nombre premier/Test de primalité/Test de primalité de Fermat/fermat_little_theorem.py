@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import os
-
 # Mathematical algorithms project
 import random
 
@@ -18,4 +16,3 @@ def isPrime(n, k=5):
     
     return True
 
-os.system("pause")

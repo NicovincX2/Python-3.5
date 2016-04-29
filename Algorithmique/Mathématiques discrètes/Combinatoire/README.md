@@ -12,3 +12,4 @@
 
 >> - [Anagramme](https://fr.wikipedia.org/wiki/Anagramme)
 >> - [Solitaire (casse-tête)](https://fr.wikipedia.org/wiki/Solitaire_(casse-t%C3%AAte))
+>> - [Coefficient binomial](https://fr.wikipedia.org/wiki/Coefficient_binomial)
