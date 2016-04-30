@@ -3,7 +3,7 @@
 # http://nbviewer.jupyter.org/github/yoavram/CS1001.py/blob/master/recitation12.ipynb
 
 import os
-import timeit
+from timeit import Timer
 
 def find_max_repetition(text, index, window_length=2**12-1, max_rep_length=2**5-1):
     """ finds a maximum repetition in the text.
@@ -12,11 +12,11 @@ def find_max_repetition(text, index, window_length=2**12-1, max_rep_length=2**5-
     assert isinstance(text, str)
     repitition_length = 0 # length of max repitition
     repitition_offset = 0 # distance backwards to begining of max repitition
-    for offset in range(1, min(index + 1, window_length)): 
+    for offset in range(1, min(index + 1, window_length)):
         current_length = 0
         while current_length < min(max_rep_length, len(text) - index) and text[index - offset + current_length] == text[index + current_length]:
             current_length += + 1
-        if repitition_length < current_length:  
+        if repitition_length < current_length:
             repitition_length = current_length
             repitition_offset = offset
     return repitition_offset, repitition_length
@@ -33,7 +33,7 @@ find_max_repetition("xyzxyzwxyzw", 7)
 find_max_repetition('aaaaa', 1)
 
 def lz77_compress(text, window_length=2**12-1, max_rep_length=2**5-1):
-    """LZ77 compression of ASCII text. 
+    """LZ77 compression of ASCII text.
     Produces a list comprising of either ascii character
     or by a pair [m,k] where m is an offset and
     k is a match (both are non negative integers)"""
@@ -47,7 +47,7 @@ def lz77_compress(text, window_length=2**12-1, max_rep_length=2**5-1):
         offset, length = find_max_repetition(text, index, window_length, max_rep_length)
         if length < 3:
             # no repetition or a single character repetition
-            result.append(text[index]) 
+            result.append(text[index])
             index += 1
         else:
             result.append((offset, length))   # two or more chars in repetition
@@ -58,7 +58,7 @@ print(lz77_compress("You know what I hate, you know what I hate, you know what I
 
 welcome = '''Welcome my son, welcome to the machine.
 Where have you been? It's alright we know where you've been.
-You've been in the pipeline, filling in time, 
+You've been in the pipeline, filling in time,
 Provided with toys and Scouting for Boys.
 You bought a guitar to punish your ma,
 And you didn't like school, and you know you're nobody's fool,
@@ -73,7 +73,7 @@ welcome_intermediate = lz77_compress(welcome)
 print(welcome_intermediate)
 
 def char2bits(ch):
-    ''' convert a character to int and then format it to binary 
+    ''' convert a character to int and then format it to binary
     using exactly 7 bits '''
     return '{:07b}'.format(ord(ch))
 print(char2bits('1'))
@@ -100,9 +100,9 @@ def intermediate2bits(compressed, window_length=2**12-1, max_rep_length=2**5-1):
          result.append('{num:0{width}b}'.format
                        (num=offset, width=offset_width))
          result.append('{num:0{width}b}'.
-                       format(num=length, width=length_width))         
+                       format(num=length, width=length_width))
    return "".join(result)
-  
+
 welcome_bits = intermediate2bits(welcome_intermediate)
 print(welcome_bits)
 
@@ -115,7 +115,7 @@ def bitstring_to_file(bitstring, filename):
         f.write(bytes(output, 'utf-8'))
 
 bitstring_to_file(welcome_bits, 'welcome.lz')
-!cat welcome.lz
+# !cat welcome.lz
 
 def bits2intermediate(bitstring, window_length=2**12-1, max_rep_length=2**5-1):
     """ converts a compressed string of bits
@@ -160,7 +160,7 @@ def lz77_decompress(compressed, window_length=2**12-1, max_rep_length=2**5-1):
 print(lz77_decompress(welcome_intermediate))
 
 compress = lambda text: intermediate2bits(lz77_compress(text))
-lz_ratio = lambda text: len(compress(text)) / (len(text)*7) 
+lz_ratio = lambda text: len(compress(text)) / (len(text)*7)
 
 lz_ratio(welcome)
 
@@ -169,13 +169,17 @@ from urllib.request import urlopen
 with urlopen("http://www.gutenberg.org/cache/epub/28233/pg28233.txt") as f:
     newton = f.read().decode('utf-8')
 print(newton[:newton.index('\n\r')])
+
 newton = ''.join(ch for ch in newton if ord(ch) < 128)
 
 len(newton), lz_ratio(newton[:len(newton)//100])
 
-timeit compress(welcome)
-timeit -n 1 compress(newton[:len(newton)//1000])
-timeit -n 1 compress(newton[:len(newton)//100])
+t1 = Timer(lambda: compress(welcome))
+t2 = Timer(lambda: compress(newton[:len(newton)//1000]))
+t3 = Timer(lambda: compress(newton[:len(newton)//100]))
+t1.timeit()
+t2.timeit()
+t3.timeit()
 
 lz77_compress("a"*40)
 len(compress("a"*40))
@@ -188,4 +192,3 @@ print(len(compress('a'*k)))
 print(18*((k-1)//31+1)+8)
 
 os.system("pause")
-

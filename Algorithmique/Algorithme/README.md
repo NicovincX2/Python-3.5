@@ -9,3 +9,4 @@
 >> - Algorithme numérique
 >> - Algorithme de la théorie des graphes
 >> - Algorithme de compression
+>> - Algorithme de partitionnement de données

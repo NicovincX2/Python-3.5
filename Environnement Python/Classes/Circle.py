@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import os
-import matplotlib
 
 class Circle:
     def __init__(self,x0,y0,R):

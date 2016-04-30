@@ -6,8 +6,11 @@
 >> - [Régression linéaire](https://fr.wikipedia.org/wiki/R%C3%A9gression_lin%C3%A9aire)
 >> - [Régression non linéaire](https://fr.wikipedia.org/wiki/R%C3%A9gression_non_lin%C3%A9aire)
 >> - [Régression linéaire multiple](https://fr.wikipedia.org/wiki/R%C3%A9gression_lin%C3%A9aire_multiple)
+>> - [Régression logistique](https://fr.wikipedia.org/wiki/R%C3%A9gression_logistique)
 
 >> - [Méthode des moindres carrés](https://fr.wikipedia.org/wiki/M%C3%A9thode_des_moindres_carr%C3%A9s)
 
 >> - [Polynômes de Legendre](https://fr.wikipedia.org/wiki/Polyn%C3%B4me_de_Legendre)
 >> - [Nombre de Courant](https://fr.wikipedia.org/wiki/Nombre_de_Courant)
+
+>> - [Régularisation Tychonoff (Régression d'arête)](https://fr.wikipedia.org/wiki/R%C3%A9gularisation_Tychonoff)

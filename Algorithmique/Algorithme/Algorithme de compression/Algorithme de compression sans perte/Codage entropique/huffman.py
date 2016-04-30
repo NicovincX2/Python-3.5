@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import numpy
 
 def char_count(text):
     histogram = {}
@@ -22,7 +23,7 @@ def build_huffman_tree(letter_count):
         queue.sort(key=by_value)  # sort by the count
         # combine two least frequent elements
         elem1, freq1 = queue.pop(0)
-        elem2, freq2 = queue.pop(0) 
+        elem2, freq2 = queue.pop(0)
         elems = (elem1, elem2)
         freqs = freq1 + freq2
         queue.append((elems,freqs))
@@ -103,7 +104,7 @@ def compression_ratio(text, corpus):
     len_compress = len(compress(text, codebook))
     len_ascii = len(text) * 7
     return len_compress / len_ascii
-	
+
 from urllib.request import urlopen
 
 with urlopen("http://www.gutenberg.org/cache/epub/42745/pg42745.txt") as f:
@@ -159,8 +160,8 @@ graph = tree_to_graph(tree)
 
 with open("tmp.dot","w") as f:
     f.write(graph.to_string())
-!dot tmp.dot -Tpng -ohuffman_tree.png 
-!huffman_tree.png
+# !dot tmp.dot -Tpng -ohuffman_tree.png
+# !huffman_tree.png
 
 for c in flatland_book:
     if ord(c) >= 128:
@@ -174,8 +175,7 @@ graph = tree_to_graph(flatland_tree)
 
 with open("tmp.dot","w") as f:
     f.write(graph.to_string())
-!dot tmp.dot -Tpng -oflatland_tree.png 
-!flatland_tree.png
+# !dot tmp.dot -Tpng -oflatland_tree.png
+# !flatland_tree.png
 
 os.system("pause")
-

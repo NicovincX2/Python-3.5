@@ -12,3 +12,4 @@
 >> - [I before E except after C](https://rosettacode.org/wiki/I_before_E_except_after_C#Python)
 >> - [Bulls and Cows](https://en.wikipedia.org/wiki/Bulls_and_Cows)
 >> - [Closest pair of points problem](https://en.wikipedia.org/wiki/Closest_pair_of_points_problem)
+>> - [Bandit manchot](https://fr.wikipedia.org/wiki/Bandit_manchot_(math%C3%A9matiques))

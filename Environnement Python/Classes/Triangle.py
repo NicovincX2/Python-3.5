@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import os
-import matplotlib
 
 class Triangle:
     def __init__(self, x0y0, x1y1, x2y2, color='b'):

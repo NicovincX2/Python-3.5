@@ -1,3 +1,0 @@
-# Exploration de données
-
->> - [Partitionnement de données](https://fr.wikipedia.org/wiki/Partitionnement_de_donn%C3%A9es)
