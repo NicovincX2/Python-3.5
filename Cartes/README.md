@@ -1,3 +1,2 @@
 # Cartes
 
->> - Earthquake

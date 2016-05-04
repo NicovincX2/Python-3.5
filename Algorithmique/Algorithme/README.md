@@ -1,12 +1,12 @@
 # Algorithme
 
->> - [Algorithme de sélection](https://fr.wikipedia.org/wiki/Algorithme_de_s%C3%A9lection)
->> - [Algorithme de tri](https://fr.wikipedia.org/wiki/Algorithme_de_tri)
+>> - Algorithme d'ordonnancement
+>> - Algorithme de compression
+>> - Algorithme de la théorie des graphes
+>> - Algorithme de partitionnement de données
+>> - Algorithme numérique
 >> - Algorithme sur les chaînes de caractères
 >> - Détection et correction d'erreur
->> - Algorithme d'ordonnancement
 >> - [Algorithme de recherche](https://fr.wikipedia.org/wiki/Algorithme_de_recherche)
->> - Algorithme numérique
->> - Algorithme de la théorie des graphes
->> - Algorithme de compression
->> - Algorithme de partitionnement de données
+>> - [Algorithme de sélection](https://fr.wikipedia.org/wiki/Algorithme_de_s%C3%A9lection)
+>> - [Algorithme de tri](https://fr.wikipedia.org/wiki/Algorithme_de_tri)

@@ -13,6 +13,9 @@
 >> - [Radial basis function (RBF) kernel](https://en.wikipedia.org/wiki/Radial_basis_function_kernel)
 >> - [Polynomial kernel](https://en.wikipedia.org/wiki/Polynomial_kernel)
 
+>> - [Lasso (statistiques)](https://fr.wikipedia.org/wiki/Lasso_%28statistiques%29)
+>> - [Elastic net regularization](https://en.wikipedia.org/wiki/Elastic_net_regularization)
+
 >> - [Noyau (statistiques)](https://fr.wikipedia.org/wiki/Noyau_%28statistiques%29)
 >> - [Machine à vecteurs de support (SVR)](https://fr.wikipedia.org/wiki/Machine_%C3%A0_vecteurs_de_support)
 
