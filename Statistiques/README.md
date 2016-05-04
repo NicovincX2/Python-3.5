@@ -1,11 +1,12 @@
 # Statistiques
 
 >> - Estimation (statistique)
->> - [Corrélation (statistiques)](https://fr.wikipedia.org/wiki/Corr%C3%A9lation_(statistiques))
->> - [Fiabilité](https://fr.wikipedia.org/wiki/Fiabilit%C3%A9)
+>> - [Algorithme du gradient stochastique (SGD)](https://fr.wikipedia.org/wiki/Algorithme_du_gradient_stochastique)
 
+> - [Corrélation (statistiques)](https://fr.wikipedia.org/wiki/Corr%C3%A9lation_(statistiques))
+> - [Modèle statistique](https://fr.wikipedia.org/wiki/Mod%C3%A8le_statistique)
+>> - [Fiabilité](https://fr.wikipedia.org/wiki/Fiabilit%C3%A9)
 >> - [Histogramme](https://fr.wikipedia.org/wiki/Histogramme)
->> - [Modèle statistique](https://fr.wikipedia.org/wiki/Mod%C3%A8le_statistique)
 >> - [Science des données](https://fr.wikipedia.org/wiki/Science_des_donn%C3%A9es)
 >> - [Statistique descriptive](https://fr.wikipedia.org/wiki/Statistique_descriptive)
 >> - [Statistiques bayésienne](https://fr.wikipedia.org/wiki/Statistique_bay%C3%A9sienne)

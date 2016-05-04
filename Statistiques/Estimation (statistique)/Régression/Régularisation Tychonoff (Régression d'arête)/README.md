@@ -1,0 +1,1 @@
+# Régularisation Tychonoff (Régression d'arête)
