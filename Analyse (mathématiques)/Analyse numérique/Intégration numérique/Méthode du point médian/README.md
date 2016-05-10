@@ -1,0 +1,2 @@
+# Méthode du point médian
+

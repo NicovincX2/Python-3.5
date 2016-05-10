@@ -28,12 +28,12 @@ def quicksort(l):
 if __name__ == '__main__':
     array = [3, 1, 6, 0, 7, 19, 7, 2, 22]
     sorted = [0, 1, 2, 3, 6, 7, 7, 19, 22]
-    assert(quick_sort(array) == sorted)
+    assert(quicksort(array) == sorted)
     
     array = []
-    assert(quick_sort(array) == array)
+    assert(quicksort(array) == array)
 
     array = [1]
-    assert(quick_sort(array) == array)
+    assert(quicksort(array) == array)
 
 os.system("pause")

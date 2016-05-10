@@ -28,7 +28,7 @@ class HashTable(object):
     # Aux: print table
     def print_table(self):
         for key in range(self.slots):
-            print "Key is {0}, value is {1}.".format(key, self.table[key])
+            print ("Key is {0}, value is {1}.".format(key, self.table[key]))
 
     # Aux: find item
     def find_item(self, item):

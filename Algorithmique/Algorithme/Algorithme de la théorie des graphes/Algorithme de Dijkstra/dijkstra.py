@@ -1,49 +1,35 @@
 # -*- coding: utf-8 -*-
 
 import os
+from numpy import inf
 
-from heapq import heappush, heappop
-# graph = { 
-#     's' : {'t':6, 'y':7},
-#     't' : {'x':5, 'z':4, 'y':8 },
-#     'y' : {'z':9, 'x':3},
-#     'z' : {'x':7, 's': 2},
-#     'x' : {'t':2}
-# }
-
-def read_graph(file):
-    graph = dict()
-    with open(file) as f:
-        for l in f:
-            (u, v, w) = l.split()
-            if int(u) not in graph:
-                graph[int(u)] = dict()
-            graph[int(u)][int(v)] = int(w)
-    return graph
-
-inf = float('inf')
-def dijkstra(graph, s):
-    n = len(graph.keys())
-    dist = dict()
-    Q = list()
+def Dijkstra(L,s):
+    def Extraire_min():
+        nonlocal E
+        u_min=E[0]
+        e_min=e[u_min]
+        for u in E[1:]:
+            if e[u]<e_min:
+                e_min=e[u]
+                u_min=u
+        E=[u for u in E if u!=u_min]
+        return u_min
     
-    for v in graph:
-        dist[v] = inf
-    dist[s] = 0
-    
-    heappush(Q, (dist[s], s))
+    n=len(L)
+    e=n*[inf]
+    p=n*[-1]
+    E=list(range(n))
+    e[s]=0
+    while E!=[]:
+        u=Extraire_min()
+        for (v,V) in L[u]:
+            if e[u]+V<e[v]:
+                e[v]=e[u]+V
+                p[v]=u
+    print(e)
+    print(p)
 
-    while Q:
-        d, u = heappop(Q)
-        if d < dist[u]:
-            dist[u] = d
-        for v in graph[u]:
-            if dist[v] > dist[u] + graph[u][v]:
-                dist[v] = dist[u] + graph[u][v]
-                heappush(Q, (dist[v], v))
-    return dist
-
-graph = read_graph("graph.txt")
-print dijkstra(graph, 1)
+L=[[(1,10),(3,5)],[(2,1),(3,2)],[(4,4)],[(1,3),(2,9),(4,2)],[(0,7),(2,6)]]
+Dijkstra(L,1)
 
 os.system("pause")

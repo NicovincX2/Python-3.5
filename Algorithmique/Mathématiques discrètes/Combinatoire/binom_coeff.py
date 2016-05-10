@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-import timeit
+from time import perf_counter
 
 def binom_naive(n, k):
     if k == n or k == 0:
@@ -29,14 +29,30 @@ def binom_mem(n, k):
     if key not in binom_memory:
         binom_memory[key] =  binom_mem(n - 1, k - 1) + binom_mem(n - 1, k)
     return binom_memory[key]
-	
-timeit -n 100 binom_naive(14,5)
-timeit -n 1000 binom_formula(14,5)
-timeit -n 1000 binom_mem(14,5)
 
-timeit -n 1 binom_naive(24,8)
-timeit -n 10 binom_formula(24,8)
-timeit -n 10 binom_mem(24,8)
+top=perf_counter()
+print(binom_naive(14,5))
+print(perf_counter()-top)
+
+top=perf_counter()
+print(binom_formula(14,5))
+print(perf_counter()-top)
+
+top=perf_counter()
+print(binom_mem(14,5))
+print(perf_counter()-top)
+
+top=perf_counter()
+print(binom_naive(24,8))
+print(perf_counter()-top)
+
+top=perf_counter()
+print(binom_formula(24,8))
+print(perf_counter()-top)
+
+top=perf_counter()
+print(binom_mem(24,8))
+print(perf_counter()-top)
 
 os.system("pause")
 

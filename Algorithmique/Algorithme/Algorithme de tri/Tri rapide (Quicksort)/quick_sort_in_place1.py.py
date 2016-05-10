@@ -11,7 +11,7 @@ def qsort(a, start, end):
     >>> sortedresult = [sorted(r) for r in rand_list]
     >>> for r in rand_list: qsort(r, 0, len(r)-1)
     >>> result = [sortedresult[i] == rand_list[i] for i in range(len(rand_list))]
-    >>> print sum(result)
+    >>> print (sum(result))
     10
     """
     if start < end:

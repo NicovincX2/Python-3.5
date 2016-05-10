@@ -29,7 +29,7 @@ class maxheap(minheap):
         i = len(self.heap)
         self.heap.append(x)
         parent = self.parent(i)
-        while parent != -1 and self.heap[i] > self.heap[parent]:
-            self.heap[i], self.heap[parent] = self.heap[parent], self.heap[i]
+        while parent != -1 and self.heap[int(i)] > self.heap[int(parent)]:
+            self.heap[int(i)], self.heap[int(parent)] = self.heap[int(parent)], self.heap[int(i)]
             i = parent
             parent = self.parent(i)

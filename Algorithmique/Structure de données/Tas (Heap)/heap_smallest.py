@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+import os
+
 # Efficiently locate kth largest element
 
 def kthSmallest(collection, k):
@@ -18,7 +20,7 @@ def kthSmallest(collection, k):
 def buildHeap(A):
     """Construct heap from array A"""
     n = len(A)
-    for i in range(n/2-1, -1, -1):
+    for i in range(n//2-1, -1, -1):
         heapify(A, i, n)
 
 def heapify (A, idx, maxIdx):
@@ -36,3 +38,8 @@ def heapify (A, idx, maxIdx):
         A[idx],A[largest] = A[largest],A[idx]
         heapify(A, largest, maxIdx)
 
+assert(2 == kthSmallest(list(range(10)),3))
+assert(0 == kthSmallest(list(range(10)),1))
+assert(9 == kthSmallest(list(range(10)),10))
+
+os.system("pause")

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-from timeit import Timer
+from time import perf_counter
 
 def slowsort(lst):
     """quicksort of list lst"""
@@ -26,15 +26,19 @@ def quicksort(lst):
     return quicksort(smaller) + equal + quicksort(greater)
 
 lst = [random.randint(0,100) for i in range(100000)]
-t1 = Timer(lambda: slowsort(lst))
-t2 = Timer(lambda: quicksort(lst))
-t1.timeit()
-t2.timeit()
+top=perf_counter()
+slowsort(lst)
+print(perf_counter()-top,' s')
+top=perf_counter()
+quicksort(lst)
+print(perf_counter()-top,' s')
 
 lst = [i for i in range(100)]
-t3 = Timer(lambda: slowsort(lst))
-t4 = Timer(lambda: quicksort(lst))
-t3.timeit()
-t4.timeit()
+top=perf_counter()
+slowsort(lst)
+print(perf_counter()-top,' s')
+top=perf_counter()
+quicksort(lst)
+print(perf_counter()-top,' s')
 
 os.system("pause")

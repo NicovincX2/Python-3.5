@@ -3,7 +3,7 @@
 import os
 import unittest
 import fraction
-from Arithmétique.GCD import GCD
+import GCD
 
 class TestEuclideanGCD(unittest.TestCase):
     def test_gcd(self):

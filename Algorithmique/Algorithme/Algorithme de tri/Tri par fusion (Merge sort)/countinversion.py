@@ -11,8 +11,8 @@ def sort_and_count(a):
     """
 
     if len(a) == 1: return (a, 0)
-    (b, x) = sort_and_count(a[:(len(a)/2)])
-    (c, y) = sort_and_count(a[(len(a)/2):])
+    (b, x) = sort_and_count(a[:(len(a)//2)])
+    (c, y) = sort_and_count(a[(len(a)//2):])
     (d, z) = merge_and_count_inv(b, c)
     return (d, x + y + z)
 

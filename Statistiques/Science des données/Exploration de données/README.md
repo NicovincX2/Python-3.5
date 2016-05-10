@@ -8,3 +8,15 @@
 
 > - [Bootstrap - Bagging (statistiques)](https://fr.wikipedia.org/wiki/Bootstrap_%28statistiques%29)
 > - [Dilemme biais-variance](https://fr.wikipedia.org/wiki/Dilemme_biais-variance)
+
+> - [Analyse en composantes principales (ACP/PCA)](https://fr.wikipedia.org/wiki/Analyse_en_composantes_principales)
+> - [Kernel principal component analysis (KPCA)](https://en.wikipedia.org/wiki/Kernel_principal_component_analysis)
+> - [Analyse en composantes indépendantes (ICA)](https://fr.wikipedia.org/wiki/Analyse_en_composantes_ind%C3%A9pendantes)
+> - [Analyse discriminante linéaire](https://fr.wikipedia.org/wiki/Analyse_discriminante_lin%C3%A9aire)
+> - [Factor analysis (FA)](https://en.wikipedia.org/wiki/Factor_analysis)
+> - [Covariance](https://fr.wikipedia.org/wiki/Covariance)
+> - [Validation croisée](https://fr.wikipedia.org/wiki/Validation_crois%C3%A9e)
+> - [Maximum de vraisemblance](https://fr.wikipedia.org/wiki/Maximum_de_vraisemblance)
+> - [Homoscédasticité](https://fr.wikipedia.org/wiki/Homosc%C3%A9dasticit%C3%A9)
+> - [Hétéroscédasticité](https://fr.wikipedia.org/wiki/H%C3%A9t%C3%A9rosc%C3%A9dasticit%C3%A9)
+> - [Méthode de séparation aveugle de source](https://fr.wikipedia.org/wiki/M%C3%A9thode_de_s%C3%A9paration_aveugle_de_source)

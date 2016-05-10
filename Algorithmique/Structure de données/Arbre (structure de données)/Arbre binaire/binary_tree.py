@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 
-import os
-
 from __future__ import print_function
+import os
 
 class Node(object):
     """Tree node: left and right child + data which can be any object

@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import os
-
 # Adjacency list Graph Implementation
 
 class Graph:
@@ -113,4 +111,3 @@ Change Log
 
 """
 
-os.system("pause")

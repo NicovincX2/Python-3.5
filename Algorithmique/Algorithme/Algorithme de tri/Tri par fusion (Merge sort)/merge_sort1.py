@@ -39,7 +39,7 @@ def merge_sort(l):
     length = len(l)
     if length <= 1:
         return l
-    mid = length / 2
+    mid = length // 2
     h1 = merge_sort(l[:mid])
     h2 = merge_sort(l[mid:])
 

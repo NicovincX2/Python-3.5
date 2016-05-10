@@ -13,3 +13,4 @@
 >> - [Coins change](http://www.algorithmist.com/index.php/Coin_Change)
 >> - [I before E except after C](https://rosettacode.org/wiki/I_before_E_except_after_C#Python)
 >> - [Problème du sac à dos](https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_sac_%C3%A0_dos)
+>> - [Tours de Hanoï](https://fr.wikipedia.org/wiki/Tours_de_Hano%C3%AF)

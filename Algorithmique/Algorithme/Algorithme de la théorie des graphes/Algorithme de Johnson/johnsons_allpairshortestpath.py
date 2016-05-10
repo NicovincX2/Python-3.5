@@ -4,9 +4,11 @@ import os
 
 """ Johnson's algorithm for all-pairs shortest path problem.
 Reimplemented Bellman-Ford and Dijkstra's for clarity"""
+
 from heapq import heappush, heappop
 from datetime import datetime
 from copy import deepcopy
+
 graph = { 
     'a' : {'b':-2},
     'b' : {'c':-1},
@@ -114,9 +116,9 @@ if __name__ == "__main__":
     t1 = datetime.utcnow()
     final_distances =  johnsons(graph_new)
     if not final_distances:
-        print "Negative cycle"
+        print ("Negative cycle")
     else:
-        print compute_min(final_distances)
-    print datetime.utcnow() - t1
+        print (compute_min(final_distances))
+    print (datetime.utcnow() - t1)
 
 os.system("pause")

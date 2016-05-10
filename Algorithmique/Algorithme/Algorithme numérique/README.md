@@ -4,3 +4,5 @@
 >> - [Algorithme d'Euclide](https://fr.wikipedia.org/wiki/Algorithme_d'Euclide)
 >> - [Algorithme de Karatsuba](https://fr.wikipedia.org/wiki/Algorithme_de_Karatsuba)
 >> - [Algorithme de recherche d'un zéro d'une fonction](https://fr.wikipedia.org/wiki/Algorithme_de_recherche_d'un_z%C3%A9ro_d'une_fonction)
+
+> - [Méthode de Ruffini-Horner](https://fr.wikipedia.org/wiki/M%C3%A9thode_de_Ruffini-Horner)

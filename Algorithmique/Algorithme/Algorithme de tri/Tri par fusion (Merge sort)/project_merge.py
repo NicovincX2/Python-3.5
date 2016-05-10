@@ -41,7 +41,7 @@ def mergesort_array(A, result, start, end):
             result[start],result[start+1] = result[start+1],result[start]
             return
 
-    mid = (end + start)/2
+    mid = (end + start)//2
     mergesort_array(result, A, start, mid)
     mergesort_array(result, A, mid, end)
 
@@ -80,7 +80,7 @@ def compareSortTimes():
 
             assert a1 == a2
 
-        print n, '\t', timeN/10, '\t', timeM/10
+        print (n, '\t', timeN/10, '\t', timeM/10)
         n *= 2
 
 def output (src):
@@ -90,7 +90,7 @@ def output (src):
     length   = os.stat(src).st_size
     
     while length > 0:
-        print readInt(srcMap)
+        print (readInt(srcMap))
         length -= 4
     srcMap.close()
     srcFile.close()
@@ -144,15 +144,15 @@ def mergeSortMMap(A, result, start, end):
       return
 
     if end - start == 8:
-      result.seek(start)
-      left = readInt(result)
-      right = readInt(result)
-      
-      if left > right:
         result.seek(start)
-        writeInt(result, right)
-        writeInt(result, left)
-      return
+        left = readInt(result)
+        right = readInt(result)
+      
+        if left > right:
+            result.seek(start)
+            writeInt(result, right)
+            writeInt(result, left)
+        return
 
     mid = (end + start)/8*4;
     mergeSortMMap(result, A, start, mid);

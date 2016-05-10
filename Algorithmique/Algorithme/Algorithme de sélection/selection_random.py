@@ -21,7 +21,7 @@ def random_selection(a, start, end, i):
     >>> test_cases = [sample(range(20), 10) for i in range(10)]
     >>> orders = [randint(0, 9) for i in range(10)] 
     >>> results = [sorted(test_cases[i])[orders[i]] == random_selection(test_cases[i], 0, len(test_cases[i])-1, orders[i]) for i in range(10)]
-    >>> print sum(results)
+    >>> print (sum(results))
     10
     """
     if start < end:

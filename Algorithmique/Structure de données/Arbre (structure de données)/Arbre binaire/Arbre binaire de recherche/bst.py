@@ -130,7 +130,7 @@ def performance():
         
         now = time()
         bt.contains(random.randint(1,n))
-        print n, (time() - now)*1000
+        print (n, (time() - now)*1000)
 
         n *= 2
 
