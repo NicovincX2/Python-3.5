@@ -46,7 +46,7 @@ def performance():
 
         done = time()
 
-        print n, (done-now)*1000
+        print (n, (done-now)*1000)
         n *= 2
 
 os.system("pause")

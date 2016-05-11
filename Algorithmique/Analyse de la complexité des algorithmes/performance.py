@@ -22,7 +22,7 @@ def performance_sum():
         trial += 1
 
     for i in scores:
-        print 2**i, '\t', scores[i]
+        print (2**i, '\t', scores[i])
         
 def performance_sort():
     """Evaluate performance of sorting"""
@@ -41,7 +41,7 @@ def performance_sort():
         trial += 1
 
     for i in scores:
-        print 2**i, '\t', scores[i]
+        print (2**i, '\t', scores[i])
 
 def hasDuplicates(X):
     """Determine whether X contains a duplicate value"""

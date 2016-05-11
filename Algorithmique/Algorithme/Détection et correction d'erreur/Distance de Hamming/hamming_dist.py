@@ -3,9 +3,9 @@
 import os, sys
 import operator
 sys.path.append(os.path.join(os.getcwd(), os.path.pardir))
-from Structures de données.Graphes.graph import graph
+from graph import graph
 from itertools import *
-from Structures de données.unionfind import UnionFind
+from unionfind import UnionFind
 
 def ham_dist(e1, e2):
     """ computes hamming distance between two strings e1 and e2 """
@@ -22,6 +22,6 @@ uf = UnionFind()
 # print hamdist(nodes[1], nodes[2])
 for i in range(len(nodes)):
     for j in range(i+1, len(nodes)):
-        print i, j, ham_dist(nodes[i], nodes[j])
+        print (i, j, ham_dist(nodes[i], nodes[j]))
 
 os.system("pause")

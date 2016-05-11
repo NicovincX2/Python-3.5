@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import random as random
 
 def gen(N):
     txt = ['[', ']'] * N

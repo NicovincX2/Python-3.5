@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 
-import os
-
 from __future__ import print_function
+import os
  
 # remember the tree generation state and expand on demand
 def path(n, p = {1:0}, lvl=[[1]]):

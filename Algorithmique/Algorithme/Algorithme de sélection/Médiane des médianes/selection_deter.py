@@ -3,7 +3,7 @@
 import os
 
 # selection problem solved deterministically
-from Algorithmes de tri.sorting import mergesort
+import merge_sort
 def median_of_medians(a):
     n = len(a)
     p = range(0, n, 5) + [n]

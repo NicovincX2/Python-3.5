@@ -3,7 +3,7 @@
 # http://nbviewer.jupyter.org/github/yoavram/CS1001.py/blob/master/recitation12.ipynb
 
 import os
-from timeit import Timer
+from time import perf_counter
 
 def find_max_repetition(text, index, window_length=2**12-1, max_rep_length=2**5-1):
     """ finds a maximum repetition in the text.
@@ -174,12 +174,15 @@ newton = ''.join(ch for ch in newton if ord(ch) < 128)
 
 len(newton), lz_ratio(newton[:len(newton)//100])
 
-t1 = Timer(lambda: compress(welcome))
-t2 = Timer(lambda: compress(newton[:len(newton)//1000]))
-t3 = Timer(lambda: compress(newton[:len(newton)//100]))
-t1.timeit()
-t2.timeit()
-t3.timeit()
+top = perf_counter()
+compress(welcome)
+print(perf_counter()-top)
+top = perf_counter()
+compress(newton[:len(newton)//1000])
+print(perf_counter()-top)
+top = perf_counter()
+compress(newton[:len(newton)//100])
+print(perf_counter()-top)
 
 lz77_compress("a"*40)
 len(compress("a"*40))

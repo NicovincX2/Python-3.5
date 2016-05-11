@@ -3,7 +3,7 @@
 # http://nbviewer.jupyter.org/github/yoavram/CS1001.py/blob/master/recitation10.ipynb
 
 import os
-import timeit
+from time import perf_counter
 
 def arithmetize(text, basis=2**16, r=2**32-3):
     """ convert substring to number using basis powers
@@ -45,33 +45,63 @@ song = '''אני כל כך עצוב לי ושמש על העיר
 אז אני שומע צליל מאוד מוכר 
 מגיע מלמטה רחוק מהכיכר'''
 
+print ("Arithmetize_text")
 print(arithmetize_text(song, 1) == arithmetize_text_naive(song, 1))
 print(arithmetize_text(song, 2)[:10])
 print(arithmetize_text(song, 2, 2**16 - 1)[:10])
 
-timeit -n 5 arithmetize_text_naive(song, 5)
-timeit -n 5 arithmetize_text(song, 5)
+print ("Arithmetize_text_naive vs arithmetize_text")
+top = perf_counter()
+print (arithmetize_text_naive(song, 5))
+print (perf_counter()-top)
+top = perf_counter()
+print (arithmetize_text(song, 5))
+print (perf_counter()-top)
 
-import urllib
+import urllib.request
 with urllib.request.urlopen("http://www.gutenberg.org/cache/epub/2701/pg2701.txt") as f:
     book = f.read().decode('utf8')
-print(book[:book.index('\n\r\n\r')])
+#print(book[:book.index('\n\r\n\r')])
 
 len(book)
 
-timeit -n 3 arithmetize_text_naive(book[:len(book)//10], 3)
-timeit -n 3 arithmetize_text_naive(book, 3)
+print ("Arithmetize_text_naive")
+top = perf_counter()
+arithmetize_text_naive(book[:len(book)//10], 3)
+print (perf_counter()-top)
+top = perf_counter()
+arithmetize_text_naive(book, 3)
+print (perf_counter()-top)
 
-timeit -n 3 arithmetize_text(book[:len(book)//10], 3)
-timeit -n 3 arithmetize_text(book, 3)
+print ("Arithmetize_text")
+top = perf_counter()
+arithmetize_text(book[:len(book)//10], 3)
+print (perf_counter()-top)
+top = perf_counter()
+arithmetize_text(book, 3)
+print (perf_counter()-top)
 
-timeit -n 3 arithmetize_text_naive(book[:len(book)//10], 3)
-timeit -n 3 arithmetize_text_naive(book[:len(book)//10], 5)
-timeit -n 3 arithmetize_text_naive(book[:len(book)//10], 10)
+print ("Arithmetize_text_naive")
+top = perf_counter()
+arithmetize_text_naive(book[:len(book)//10], 3)
+print (perf_counter()-top)
+top = perf_counter()
+arithmetize_text_naive(book[:len(book)//10], 5)
+print (perf_counter()-top)
+top = perf_counter()
+arithmetize_text_naive(book[:len(book)//10], 10)
+print (perf_counter()-top)
 
-timeit -n 3 arithmetize_text(book[:len(book)//10], 3)
-timeit -n 3 arithmetize_text(book[:len(book)//10], 5)
-timeit -n 3 arithmetize_text(book[:len(book)//10], 10)
+print ("Arithmetize_text")
+top = perf_counter()
+arithmetize_text(book[:len(book)//10], 3)
+print (perf_counter()-top)
+top = perf_counter()
+arithmetize_text(book[:len(book)//10], 5)
+print (perf_counter()-top)
+top = perf_counter()
+arithmetize_text(book[:len(book)//10], 10)
+print (perf_counter()-top)
 
 def find_matches(pattern, text, basis=2**16, r=2**32-3):
     """ find all occurances of pattern in text
@@ -104,11 +134,15 @@ print(foo(False,"foo") and foo(True,"bar"))
 text = "a" * 10**5
 for pattern in ["a"*10**2, "a"*10**3, "a"*10**4]:
     for f in [find_matches, find_matches_safe]:
-        %timeit -n 1 f(pattern, text)
+        top = perf_counter()
+        f(pattern, text)
+        print(perf_counter()-top)
 		
 for pattern in ["moby", "aye, aye, sir", "moby dick was his name"]:
     for f in [find_matches, find_matches_safe]:
-        %timeit -n 1 f(pattern, book.lower())
+        top = perf_counter()
+        f(pattern, book.lower())
+        print(perf_counter()-top)
 
 find_matches("da","abracadabra", basis=2**16, r=2**16)
 find_matches_safe("da","abracadabra", basis=2**16, r=2**16)
@@ -128,15 +162,32 @@ def arithmetize_text_sum(text, m, r=2**32-3):
         lst.append(rolling_hash)
     return lst 
 
-timeit -n 3 arithmetize_text(song, 3)
-timeit -n 3 arithmetize_text_sum(song, 3)
-timeit -n 3 arithmetize_text(song, 30)
-timeit -n 3 arithmetize_text_sum(song, 30)
+print ("Arithmetize_text / arithmetize_text_sum")
+top = perf_counter()
+arithmetize_text(song, 3)
+print(perf_counter()-top)
+top = perf_counter()
+arithmetize_text_sum(song, 3)
+print(perf_counter()-top)
+top = perf_counter()
+arithmetize_text(song, 30)
+print(perf_counter()-top)
+top = perf_counter()
+arithmetize_text_sum(song, 30)
+print(perf_counter()-top)
 
-timeit -n 3 arithmetize_text(book, 3)
-timeit -n 3 arithmetize_text_sum(book, 3)
-timeit -n 3 arithmetize_text(book, 10)
-timeit -n 3 arithmetize_text_sum(book, 10)
+top = perf_counter()
+arithmetize_text(book, 3)
+print(perf_counter()-top)
+top = perf_counter()
+arithmetize_text_sum(book, 3)
+print(perf_counter()-top)
+top = perf_counter()
+arithmetize_text(book, 10)
+print(perf_counter()-top)
+top = perf_counter()
+arithmetize_text_sum(book, 10)
+print(perf_counter()-top)
 
 arithmetize_sum("I am Lord Voldemort".lower())
 arithmetize_sum("Tom Marvolo Riddle ".lower())

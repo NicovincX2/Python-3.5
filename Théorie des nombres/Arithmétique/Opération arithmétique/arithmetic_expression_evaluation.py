@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import os
-
 import operator
  
 class AstNode(object):
@@ -53,7 +52,7 @@ class Yaccer(object):
  
    def syntaxErr(self, char ):
       # Open Parenthesis 
-      print 'parse error - near operator "%s"' %char
+      print ('parse error - near operator "%s"' %char)
  
    def pc2( self,operchar ):
       # Close Parenthesis
@@ -62,7 +61,7 @@ class Yaccer(object):
       if len(self.operstak)>0:
          self.operstak.pop()		# pop off open parenthesis
       else:
-         print 'Error - no open parenthesis matches close parens.'
+         print ('Error - no open parenthesis matches close parens.')
       self.__dict__.update(self.state2)
  
    def end(self):
@@ -78,7 +77,7 @@ class Yaccer(object):
          vrgt = self.nodestak.pop()
          vlft= self.nodestak.pop()
          self.nodestak.append( AstNode(tailOper[0], vlft, vrgt))
-         # print 'reduce'
+         # print ('reduce')
  
    state1 = { 'v': v1, 'o':syntaxErr, 'po':o2, 'pc':syntaxErr }
    state2 = { 'v': syntaxErr, 'o':o2, 'po':syntaxErr, 'pc':pc2 }
@@ -104,7 +103,7 @@ def Lex( exprssn, p ):
          if bgn is None:
             bgn = cp
       else:
-         print 'Invalid character in expression'
+         print ('Invalid character in expression')
          if bgn is not None:
             p.v(p, exprssn[bgn:cp])
             bgn = None
@@ -117,6 +116,6 @@ def Lex( exprssn, p ):
  
 expr = input("Expression:")
 astTree = Lex( expr, Yaccer())
-print expr, '=',astTree.eval()
+print (expr, '=',astTree.eval())
 
 os.system("pause")

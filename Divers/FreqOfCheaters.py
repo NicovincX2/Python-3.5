@@ -5,7 +5,6 @@ import pymc as pm
 
 p = pm.Uniform("freq_cheating", 0, 1)
 
-
 @pm.deterministic
 def p_skewed(p=p):
     return 0.5 * p + 0.25

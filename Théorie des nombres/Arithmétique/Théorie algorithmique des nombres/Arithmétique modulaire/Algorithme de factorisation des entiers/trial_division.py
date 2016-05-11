@@ -9,7 +9,7 @@ import os
     to understand of the integer factorization algorithms.
     Try to divide a number n by all prime numbers < sqrt(n).
 """
-from algorithms.math.sieve_eratosthenes import eratosthenes
+from sieve_of_eratosthenes1 import eratosthenes
 
 
 def trial_division(n):

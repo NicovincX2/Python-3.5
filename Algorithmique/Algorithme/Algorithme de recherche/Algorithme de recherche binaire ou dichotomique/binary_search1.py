@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-import mergesort
+import merge_sort
 
 def search(arr, item):
     """Performs binary search on an array
@@ -13,7 +13,7 @@ def search(arr, item):
     False
     """
 
-    arr = mergesort(arr)
+    arr = merge_sort(arr)
 
     first = 0
     last = len(arr) - 1
@@ -32,7 +32,7 @@ def search(arr, item):
     return found
 
 
-print search([5, 4, 1, 6, 2, 3, 9, 7], 2)
-print search([5, 4, 1, 6, 2, 3, 9, 7], 8)
+print (search([5, 4, 1, 6, 2, 3, 9, 7], 2))
+print (search([5, 4, 1, 6, 2, 3, 9, 7], 8))
 
 os.system("pause")

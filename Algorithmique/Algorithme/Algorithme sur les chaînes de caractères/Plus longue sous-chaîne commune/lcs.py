@@ -4,6 +4,7 @@ import os
 
 """
 Problem : https://en.wikipedia.org/wiki/Longest_common_subsequence_problem
+Algorithme non fonctionnel
 """
 
 def longest_common_subsequence(s1, s2):
@@ -37,6 +38,7 @@ if __name__ == "__main__":
     str1 = 'hasfgeaae'
     str2 = 'bafgekk'
     result = 'fge'
+    print(longest_common_subsequence(str1, str2))
     assert(longest_common_subsequence(str1, str2) == result)
 
 os.system("pause")

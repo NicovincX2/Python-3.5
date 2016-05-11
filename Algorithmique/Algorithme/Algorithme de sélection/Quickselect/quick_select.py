@@ -32,7 +32,7 @@ if __name__ == '__main__':
     # Note that this only work for odd arrays, since median in
     # even arrays is the mean of the two middle elements
     print(quickSelect(seq, k))
-    import numpy
-    print numpy.median(seq)
+    import numpy as numpy
+    print (numpy.median(seq))
 
 os.system("pause")

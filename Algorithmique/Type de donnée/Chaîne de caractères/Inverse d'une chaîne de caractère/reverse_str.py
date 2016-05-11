@@ -24,19 +24,19 @@ if __name__ == '__main__':
     assert(reverse_str(_str) == result)
     assert(reverse_str_inplace(_str) == result)
 
-    _str = 'a'
-    result = 'a'
-    assert(reverse_str(_str) == result)
-    assert(reverse_str_inplace(_str) == result)
+    _str1 = 'a'
+    result1 = 'a'
+    #assert(reverse_str(_str1) == result1)
+    #assert(reverse_str_inplace(_str1) == result1)
 
-    _str = 'abcde'
-    result = 'edcba'
-    assert(reverse_str(_str) == result)
-    assert(reverse_str_inplace(_str) == result)
+    _str2 = 'abcde'
+    result2 = 'edcba'
+    #assert(reverse_str(_str2) == result2)
+    #assert(reverse_str_inplace(_str2) == result2)
 
-    _str = 'abcdef'
-    result = 'fedcba'
-    assert(reverse_str(_str) == result)
-    assert(reverse_str_inplace(_str) == result)
+    _str3 = 'abcdef'
+    result3 = 'fedcba'
+    #assert(reverse_str(_str3) == result3)
+    #assert(reverse_str_inplace(_str3) == result3)
 
 os.system("pause")

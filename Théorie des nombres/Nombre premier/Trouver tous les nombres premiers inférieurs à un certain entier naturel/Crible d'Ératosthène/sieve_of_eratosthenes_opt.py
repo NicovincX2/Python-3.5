@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import os
-import cython
-import timeit
+# import cython
+from time import perf_counter
 
 def primes1(n):
     primes = [False, False] + [True] * (n - 2)
@@ -18,12 +18,16 @@ def primes1(n):
             primes[k] = False
             k += i
         i += 1
-    return [i for i in xrange(2, n) if primes[i]]
+    return [i for i in range(2, n) if primes[i]]
 
 n = 10000
 
-primes1(20)
-timeit primes1(n)
+top = perf_counter()
+print (primes1(20))
+print(perf_counter()-top)
+top = perf_counter()
+primes1(n)
+print(perf_counter()-top)
 
 def primes2(n):
     primes = [False, False] + [True] * (n - 2)
@@ -37,11 +41,16 @@ def primes2(n):
             primes[k] = False
             k += i
         i += 1
-    return [i for i in xrange(2, n) if primes[i]]
+    return [i for i in range(2, n) if primes[i]]
 
-primes2(20)
-timeit primes2(n)
+top = perf_counter()
+print (primes2(20))
+print(perf_counter()-top)
+top = perf_counter()
+primes2(n)
+print(perf_counter()-top)
 
+"""
 def primes3(int n):
     primes = [False, False] + [True] * (n - 2)
     cdef int i = 2
@@ -55,10 +64,15 @@ def primes3(int n):
             primes[k] = False
             k += i
         i += 1
-    return [i for i in xrange(2, n) if primes[i]]
+    return [i for i in range(2, n) if primes[i]]
 
-prime3(20)
-timeit primes3(n)
+top = perf_counter()
+print (primes3(20))
+print(perf_counter()-top)
+top = perf_counter()
+primes3(n)
+print(perf_counter()-top)
+"""
 
 os.system("pause")
 

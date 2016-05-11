@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-import timeit
-import time
+from time import perf_counter, clock
 
 def divisors(n):
     '''
@@ -24,17 +23,21 @@ def divisors2(n):
 print(divisors(36))
 print(sorted(divisors2(36)))
 
-timeit -n 100 divisors(10**4)
-timeit -n 100 divisors2(10**4)
+top = perf_counter()
+divisors(10**4)
+print(perf_counter()-top)
+top = perf_counter()
+divisors2(10**4)
+print(perf_counter()-top)
 
 n = 1234567890
-tic = time.clock()
+tic = clock()
 divisors(n)
-toc = time.clock()
+toc = clock()
 print("divisors: ",(toc-tic))
-tic = time.clock()
+tic = clock()
 divisors2(n)
-toc = time.clock()
+toc = clock()
 print("divisors2:",(toc-tic))
 
 os.system("pause")

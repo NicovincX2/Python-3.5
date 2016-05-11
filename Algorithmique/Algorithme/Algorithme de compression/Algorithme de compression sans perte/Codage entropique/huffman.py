@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-import numpy
+from numpy import mean
 
 def char_count(text):
     histogram = {}
@@ -10,7 +10,7 @@ def char_count(text):
     return histogram
 
 letter_count = char_count("live and let live")
-letter_count
+print(letter_count)
 
 def by_value(tup):
     return tup[1]
@@ -30,7 +30,7 @@ def build_huffman_tree(letter_count):
     return queue[0][0]
 
 tree = build_huffman_tree(letter_count)
-tree
+print(tree)
 
 def build_codebook(huff_tree, prefix=''):
     """ receives a Huffman tree with embedded encoding and a prefix of encodings.
@@ -65,7 +65,7 @@ def build_decoding_dict(codebook):
    return {v:k for k,v in codebook.items()}
 
 decodebook = build_decoding_dict(codebook)
-decodebook
+print(decodebook)
 
 def decompress(bits, decodebook):
    prefix = ''
@@ -89,12 +89,12 @@ def huffman_code(corpus):
 huffman_code('aaabbc')
 huffman_code('aaabbcc')
 codebook = huffman_code('qwertuioplkjhgfdsazxcvbnm')
-codebook
+print(codebook)
 
 mean([len(v) for v in codebook.values()])
 
 corpus = ''.join([ch*(i+1) for i,ch in enumerate('qwertuioplkjhgfdsazxcvbnm') ])
-corpus
+print(corpus)
 
 huffman_code(corpus)
 print(''.join([chr(c) for c in range(128)]))

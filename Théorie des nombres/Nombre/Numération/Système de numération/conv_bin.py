@@ -42,7 +42,7 @@ convert_base1(10,6)
 convert_base1(10,16)
 convert_base1(40,32)
 convert_base1(0,5)
-convert_base1(100,55)
+convert_base1(100,36)
 
 os.system("pause")
 

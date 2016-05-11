@@ -11,7 +11,7 @@ import os
 """
 import random
 
-from Arithmétique.Nombres premiers.primality_test import is_prime
+from primality_test import is_prime
 from fractions import gcd
 
 
@@ -52,8 +52,8 @@ def pollard_rho_rec(x, factors):
         return
 
     divisor = rho(int(x), random.randint(1, 10), random.randint(1, 10))
-    pollard_rho_rec(int(divisor), factors)
-    pollard_rho_rec(int(x/divisor), factors)
+    print(pollard_rho_rec(int(divisor), factors))
+    print(pollard_rho_rec(int(x/divisor), factors))
 
 
 def pollard_rho(x):

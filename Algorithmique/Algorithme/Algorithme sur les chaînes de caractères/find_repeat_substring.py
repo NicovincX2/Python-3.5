@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import os
-import timeit
-import hash_table
+from time import perf_counter
+from hash_table import *
 
 def repeat_naive(st, k):
     for i in range(len(st) - k + 1):
@@ -37,10 +37,13 @@ And how we found
 The same old fears. 
 Wish you were here.'''
 
+print ("Repeat_naive:")
+top = perf_counter()
 print(repeat_naive(song, 5))
-timeit -n 10 repeat_naive(song, 5)
+print(perf_counter()-top)
+top = perf_counter()
 print(repeat_naive(song, 30))
-timeit -n 10 repeat_naive(song, 30)
+print(perf_counter()-top)
 
 import urllib.request
 
@@ -48,10 +51,13 @@ with urllib.request.urlopen("http://www.gutenberg.org/cache/epub/74/pg74.txt") a
     book = r.read().decode('utf-8')
 print(book[:book.index('\n\r')])
 
+print ("Repeat_naive:")
+top = perf_counter()
 print(repeat_naive(book, 5))
-timeit -n 3 repeat_naive(book, 5)
+print(perf_counter()-top)
+top = perf_counter()
 print(repeat_naive(book, 30))
-timeit -n 1 repeat_naive(book, 30)
+print(perf_counter()-top)
 
 def repeat_hash1(st, k, m=0):
     if m == 0: # default hash table size is ~number of substrings to be inserted
@@ -64,12 +70,22 @@ def repeat_hash1(st, k, m=0):
             htable.insert(st[i : i + k])
     return False
 
-timeit -n 10 repeat_hash1(song, 5)
-timeit -n 10 repeat_hash1(song, 30)
-timeit -n 3 repeat_hash1(book, 5)
-timeit -n 1 repeat_hash1(book, 30)
+print ("Repeat_hash1:")
+top = perf_counter()
+print(repeat_hash1(song, 5))
+print(perf_counter()-top)
+top = perf_counter()
+print(repeat_hash1(song, 30))
+print(perf_counter()-top)
+top = perf_counter()
+print(repeat_hash1(book, 5))
+print(perf_counter()-top)
+top = perf_counter()
+print(repeat_hash1(book, 30))
+print(perf_counter()-top)
+top = perf_counter()
 print(repeat_hash1(book, 1000))
-timeit -n 1 repeat_hash1(book, 1000)
+print(perf_counter()-top)
 
 def repeat_hash2(st, k, m=0):
     htable = set() # Python sets use hash functions for fast lookup
@@ -80,11 +96,22 @@ def repeat_hash2(st, k, m=0):
             return True
     return False
 
-timeit -n 10 repeat_hash2(song, 5)
-timeit -n 10 repeat_hash2(song, 30)
-timeit -n 10 repeat_hash2(book, 5)
-timeit -n 10 repeat_hash2(book, 30)
-timeit -n 1 repeat_hash2(book, 1000)
+print ("Repeat_hash2:")
+top = perf_counter()
+print(repeat_hash2(song, 5))
+print(perf_counter()-top)
+top = perf_counter()
+print(repeat_hash2(song, 30))
+print(perf_counter()-top)
+top = perf_counter()
+print(repeat_hash2(book, 5))
+print(perf_counter()-top)
+top = perf_counter()
+print(repeat_hash2(book, 30))
+print(perf_counter()-top)
+top = perf_counter()
+print(repeat_hash2(book, 1000))
+print(perf_counter()-top)
 
 import urllib
 
@@ -95,10 +122,14 @@ print(lacZ)
 lacZ = str.join('',lacZ.split('\n')[2:]).upper()
 print(len(lacZ))
 
-print(repeat_hash2(lacZ, 10))
+print ("Repeat_hash1:")
+top = perf_counter()
+print(repeat_hash1(lacZ, 12))
+print(perf_counter()-top)
+print ("Repeat_hash2:")
+top = perf_counter()
 print(repeat_hash2(lacZ, 12))
-timeit -n 10 repeat_hash1(lacZ,12)
-timeit -n 10 repeat_hash2(lacZ,12)
+print(perf_counter()-top)
 
 os.system("pause")
 

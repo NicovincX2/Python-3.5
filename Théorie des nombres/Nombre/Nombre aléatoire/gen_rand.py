@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import os
+from numpy import rand
+from matplotlib.pyplot import *
 from random import random
 
 rands = []

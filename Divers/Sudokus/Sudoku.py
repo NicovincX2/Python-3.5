@@ -1,7 +1,7 @@
 #-*- coding: utf-8 -*-
 
 ## Solve Every Sudoku Puzzle
-import matplotlib, os
+import os
 ## See http://norvig.com/sudoku.html
 
 ## Throughout this program we have:

@@ -7,7 +7,7 @@ def ipow(a, b, n):
        results as Rabin-Miller requires"""
     A = a = long(a % n)
     yield A
-    t = 1L
+    t = 1
     while t <= b:
         t <<= 1
 

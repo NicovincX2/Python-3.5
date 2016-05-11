@@ -4,6 +4,7 @@ import os
 
 # test mathematical algorithms
 
+import numpy as numpy
 from mathematical import *
 
 assert(8192 == exponent(2,13))
