@@ -10,5 +10,6 @@
 >> - [Algorithme de recherche](https://fr.wikipedia.org/wiki/Algorithme_de_recherche)
 >> - [Algorithme de sélection](https://fr.wikipedia.org/wiki/Algorithme_de_s%C3%A9lection)
 >> - [Algorithme de tri](https://fr.wikipedia.org/wiki/Algorithme_de_tri)
+>> - Algorithme de calcul de la n-eme décimale de pi
 
 > - [Exponentiation rapide](https://fr.wikipedia.org/wiki/Exponentiation_rapide)

@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 
 import os
-
 from itertools import product
  
 # check permutations until we find the word 'crack'
 for x in product('ACRK', repeat=5):
     w = ''.join(x)
-    print w
+    print (w)
     if w.lower() == 'crack': break
 
 os.system("pause")

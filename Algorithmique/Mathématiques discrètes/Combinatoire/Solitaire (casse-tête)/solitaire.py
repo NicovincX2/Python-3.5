@@ -118,6 +118,6 @@ def solveSpecific(board):
     path = []
     solve (board, path)
     for move in path:
-        print move
+        print (move)
 
 os.system("pause")

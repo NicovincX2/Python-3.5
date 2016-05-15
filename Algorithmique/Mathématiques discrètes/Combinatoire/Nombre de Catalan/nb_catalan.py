@@ -8,6 +8,6 @@ def catalan_number(n):
       nm, dm = ( nm*(n+k), dm*k )
     return nm/dm
  
-print [catalan_number(n) for n in range(1, 16)]
+print ([catalan_number(n) for n in range(1, 16)])
 
 os.system("pause")

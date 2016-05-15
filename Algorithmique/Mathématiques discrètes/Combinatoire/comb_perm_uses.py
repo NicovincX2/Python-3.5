@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 
-import os
-
 from __future__ import print_function
- 
+import os
 from scipy.misc import factorial as fact
 from scipy.misc import comb
  

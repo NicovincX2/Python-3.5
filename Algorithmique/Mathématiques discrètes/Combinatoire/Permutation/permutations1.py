@@ -23,21 +23,24 @@ def permutations1(l):
         yield l
     else:
         a = [l.pop(0)]
-        for p in permutations(l):
+        for p in permutations1(l):
             for i in range(len(p)+1):
                 yield p[:i] + a + p[i:]
 
 if __name__ == '__main__':
     word = 'abc'
     result = ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
-    assert(permutation1(word) == result)
-    
+    print(permutations1(word))
+    #assert(permutations1(word) == result)
+
     word = ''
     result = ['']
-    assert(permutation1(word) == result)
-    
+    print(permutations1(word))
+    #assert(permutations1(word) == result)
+
     word = 'a'
     result = ['a']
-    assert(permutation1(word) == result)
+    print(permutations1(word))
+    #assert(permutations1(word) == result)
 
 os.system("pause")

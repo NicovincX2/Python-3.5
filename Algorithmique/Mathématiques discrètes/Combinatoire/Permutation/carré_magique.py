@@ -47,8 +47,8 @@ def output():
     """Output board"""
     for row in board:
         for val in row:
-            print ("{:2d}".format(val)),
-        print
+            print ("{:2d}".format(val))
+        print()
 
 def isValid(n):
     """Determine if board is valid"""
@@ -143,8 +143,8 @@ def up2():
     now = time()
     num = [0]
     count(4, 0, num)
-    print num, " solutions"
-    print time() - now
+    print (num, " solutions")
+    print (time() - now)
 
 def count(n, step=0, number=[0]):
     """Count number of solutions and return as first element in number."""

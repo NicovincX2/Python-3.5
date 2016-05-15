@@ -15,6 +15,6 @@ s="""1100001 1101001 1101110 1110100 1011111 1100001 1100110 1110010 1100001 110
 
 a = ''.join(chr(int(i, 2)) for i in s.replace("\n"," ").split(' '))
 
-print a
+print (a)
 
 os.system("pause")

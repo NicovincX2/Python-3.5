@@ -7,3 +7,4 @@
 >> - [Fonction](https://fr.wikipedia.org/wiki/Fonction_%28math%C3%A9matiques%29)
 >> - [Moyenne](https://fr.wikipedia.org/wiki/Moyenne)
 >> - [Suite](https://fr.wikipedia.org/wiki/Suite_%28math%C3%A9matiques%29)
+>> - [Dérivée](https://fr.wikipedia.org/wiki/D%C3%A9riv%C3%A9e)
