@@ -16,4 +16,5 @@
 > - [A+B](https://rosettacode.org/wiki/A%2BB#Python)
 > - [Problème de Josèphe](https://fr.wikipedia.org/wiki/Probl%C3%A8me_de_Jos%C3%A8phe)
 > - [Paradoxe du Duc de Toscane](http://probabilite.e-monsite.com/pages/le-paradoxe-du-grand-duc-de-toscane.html)
-> - Moyenne du nombre maximal de résultats consécutifs égaux
+> - Problème de l'insecte tournant
+> - Problème du chien

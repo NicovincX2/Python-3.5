@@ -1,0 +1,17 @@
+# Optique géométrique
+
+> - [Réfraction](https://fr.wikipedia.org/wiki/R%C3%A9fraction)
+> - [Rayon lumineux](https://fr.wikipedia.org/wiki/Rayon_lumineux)
+> - [Arc-en-ciel](https://fr.wikipedia.org/wiki/Arc-en-ciel)
+> - [Loi de Cauchy (optique)](https://fr.wikipedia.org/wiki/Loi_de_Cauchy_%28optique%29)
+> - [Lois de Snell-Descartes](https://fr.wikipedia.org/wiki/Lois_de_Snell-Descartes)
+> - [Réfractomètre à réflexion totale interne](https://fr.wikipedia.org/wiki/R%C3%A9fractom%C3%A8tre_%C3%A0_r%C3%A9flexion_totale_interne)
+> - [Réflexion totale](https://fr.wikipedia.org/wiki/R%C3%A9flexion_totale)
+> - [Lentille optique](https://fr.wikipedia.org/wiki/Lentille_optique)
+> - [Focale](https://fr.wikipedia.org/wiki/Focale)
+> - [Distorsion (optique)](https://fr.wikipedia.org/wiki/Distorsion_%28optique%29)
+> - [Approximation de Gauss](https://fr.wikipedia.org/wiki/Approximation_de_Gauss)
+> - [Règle des 4P (*Plus Plat Plus Près*)](http://www.labophysique.com/index.php?option=com_content&task=view&id=66&Itemid=50)
+> - [Centre optique](https://fr.wikipedia.org/wiki/Centre_optique)
+> - [Aberration chromatique](https://fr.wikipedia.org/wiki/Aberration_chromatique)
+> - [Aberration géométrique](https://fr.wikipedia.org/wiki/Aberration_g%C3%A9om%C3%A9trique)

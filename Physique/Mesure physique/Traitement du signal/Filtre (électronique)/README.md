@@ -1,0 +1,11 @@
+# Filtre (électronique)
+
+> - [Montages de base de l'amplificateur opérationnel](https://fr.wikipedia.org/wiki/Montages_de_base_de_l'amplificateur_op%C3%A9rationnel)
+> - [Montage intégrateur](https://fr.wikipedia.org/wiki/Montage_int%C3%A9grateur)
+> - [Filtre passe-bande](https://fr.wikipedia.org/wiki/Filtre_passe-bande)
+> - [Filtre passe-bas](https://fr.wikipedia.org/wiki/Filtre_passe-bas)
+> - [Filtre passe-haut](https://fr.wikipedia.org/wiki/Filtre_passe-haut)
+> - [Diagramme de Bode](https://fr.wikipedia.org/wiki/Diagramme_de_Bode)
+> - [Fonction de transfert](https://fr.wikipedia.org/wiki/Fonction_de_transfert)
+> - [Phase (onde)](https://fr.wikipedia.org/wiki/Phase_%28onde%29)
+> - [Amplitude](https://fr.wikipedia.org/wiki/Amplitude)

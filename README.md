@@ -10,6 +10,7 @@
 >> - [Algèbre](https://fr.wikipedia.org/wiki/Alg%C3%A8bre)
 >> - [Analyse (mathématiques)](https://fr.wikipedia.org/wiki/Analyse_%28math%C3%A9matiques%29)
 >> - [Animation](https://fr.wikipedia.org/wiki/Image_anim%C3%A9e)
+>> - [Chimie](https://fr.wikipedia.org/wiki/Chimie)
 >> - [Cryptologie](https://fr.wikipedia.org/wiki/Cryptologie)
 >> - [Génie logiciel](https://fr.wikipedia.org/wiki/G%C3%A9nie_logiciel)
 >> - [Géométrie](https://fr.wikipedia.org/wiki/G%C3%A9om%C3%A9trie)
