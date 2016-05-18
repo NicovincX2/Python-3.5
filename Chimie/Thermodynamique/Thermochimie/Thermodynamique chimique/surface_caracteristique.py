@@ -3,8 +3,8 @@
 import os
 
 """
-Visualisation 3D de l'équation d'état d'un gaz parfait en coordonnées (P,V,T) 
-ainsi que le tracé d'un cycle sur un tel diagramme. 
+Visualisation 3D de l'équation d'état d'un gaz parfait en coordonnées (P,V,T)
+ainsi que le tracé d'un cycle sur un tel diagramme.
 """
 
 import numpy as np

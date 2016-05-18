@@ -5,52 +5,52 @@ import numpy as np               # Les outils mathématiques
 import CoolProp.CoolProp as CP   # Les outils thermodynamiques
 import matplotlib.pyplot as plt  # Les outils graphiques
 
-""" 
-Fabrication d'un diagramme (P,v) avec CoolProp, ce qui n'est pas possible 
-en natif car ils travaillent en masse volumique et non en volume massique par 
+"""
+Fabrication d'un diagramme (P,v) avec CoolProp, ce qui n'est pas possible
+en natif car ils travaillent en masse volumique et non en volume massique par
 défaut.
 """
 
 def diagramme_Pv(fluide,dico={}):
-    """ Dessine le diagramme Pv pour le fluide demandé avec des 
-    choix par défaut qui peuvent être "overridden" en spécifiant ceux à 
+    """ Dessine le diagramme Pv pour le fluide demandé avec des
+    choix par défaut qui peuvent être "overridden" en spécifiant ceux à
     changer dans le dictionnaire 'dico'. Les options disponibles sont:
-    * 'vmin' et 'vmax' pour définir les limites des échantillonnages en volume 
+    * 'vmin' et 'vmax' pour définir les limites des échantillonnages en volume
     massique. Par défaut vtripleL et vtripleG * 10
     * 'Prange' pour l'intervalle de pression affiché
-    * 'T': une liste des températures pour lesquelles il faut tracer 
+    * 'T': une liste des températures pour lesquelles il faut tracer
     l'isotherme. (défaut à None)
-    * 'x': une liste des titres en vapeur pour lesquels il faut tracer la 
+    * 'x': une liste des titres en vapeur pour lesquels il faut tracer la
     courbe isotitre (défaut à np.linspace(0,1,11))
     * 'titre': le titre (textuel, hein...) à donner au graphique.
     * 'fichier': le nom du fichier dans lequel enregistrer la figure.
     * 'logx': Booléen indiquant si on veut un axe logarithmique en abscisse
     * 'logy': Booléen indiquant si on veut un axe logarithmique en ordonnée
     * 'legend': Booléen indiquant si on veut rajouter les légendes
-    * 'saturation': Booléen indiquant si on veut rajouter la courbe de 
+    * 'saturation': Booléen indiquant si on veut rajouter la courbe de
     saturation au tracé (défaut à True)
     """
-    # On récupère les valeurs critiques et triples, mais on les décale un peu 
+    # On récupère les valeurs critiques et triples, mais on les décale un peu
     # pour être sûr d'être bien sous la courbe de saturation.
     Pcritique = CP.PropsSI(fluide,'pcrit')-2  # Pression
     Tcritique = CP.PropsSI(fluide,'Tcrit')-2  # et température critique
-    Ptriple = CP.PropsSI(fluide,'ptriple')+2  # Pression 
+    Ptriple = CP.PropsSI(fluide,'ptriple')+2  # Pression
     Ttriple = CP.PropsSI(fluide,'Ttriple')+2  # et température au point triple
-    # On récupère les volumes massiques via les 'densités' (ie masses 
+    # On récupère les volumes massiques via les 'densités' (ie masses
     # volumiques) données par CoolProp
     vtripleL = 1/CP.PropsSI('D','P',Ptriple,'Q',0,fluide)
     vtripleG = 1/CP.PropsSI('D','P',Ptriple,'Q',1,fluide)
     vcritique= 1/CP.PropsSI('D','P',Pcritique,'T',Tcritique,fluide)
     P_sat= np.linspace(Ptriple,Pcritique,1000)
     # L'ensemble des valeurs par défaut.
-    DEFAUTS = {'vmin':vtripleL, 'vmax':vtripleG*10, 
-       'Prange': None, 
+    DEFAUTS = {'vmin':vtripleL, 'vmax':vtripleG*10,
+       'Prange': None,
        'T': None, 'x': np.linspace(0,1,11),
        'titre': "Diagramme $(P,v)$ pour le fluide {}".format(fluide),
-       'fichier': 'PNG/T2_diagramme_Pv_coolprop_{}.png'.format(fluide),
+       'fichier': 'T2_diagramme_Pv_coolprop_{}.png'.format(fluide),
        'logx': True, 'logy': True, 'legend': False,
        'saturation': False}
-    DEFAUTS.update(dico)      # Mise à jour des valeurs par défaut via 'dico' 
+    DEFAUTS.update(dico)      # Mise à jour des valeurs par défaut via 'dico'
     # L'échantillonnage sera différent
     if DEFAUTS['logx']:       # si l'axe est logarithmique
        v=np.logspace(np.log10(DEFAUTS['vmin']),np.log10(DEFAUTS['vmax']),1000)
@@ -86,11 +86,11 @@ fluide = 'Water'
 # Le diagramme "par défaut"
 diagramme_Pv(fluide)
 
-# Les valeurs suivantes ont été choisies suite à l'observation du diagramme 
-# par défaut. Il faudra certainement changer les valeurs si vous modifiez le 
+# Les valeurs suivantes ont été choisies suite à l'observation du diagramme
+# par défaut. Il faudra certainement changer les valeurs si vous modifiez le
 # fluide
 dico = {'Prange':(1e7,3e7),
-        'fichier':'PNG/T2_diagramme_Pv_coolprop_{}_lin.png'.format(fluide),
+        'fichier':'T2_diagramme_Pv_coolprop_{}_lin.png'.format(fluide),
         'logx':False, 'logy': False,
         'vmin': 1e-3, 'vmax':1e-2}
 diagramme_Pv(fluide,dico)

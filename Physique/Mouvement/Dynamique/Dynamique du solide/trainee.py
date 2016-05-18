@@ -2,11 +2,11 @@
 
 import os
 
-""" 
-Illustration de l'influence de la trainée pour une chute dans un champ de 
-pesanteur constant. 
+"""
+Illustration de l'influence de la trainée pour une chute dans un champ de
+pesanteur constant.
 
-Il faut penser à définir les valeurs voulue pour alpha et beta de sorte que la 
+Il faut penser à définir les valeurs voulue pour alpha et beta de sorte que la
 force s'écrive alpha*v ou beta*v**2 en norme.
 """
 
@@ -34,7 +34,7 @@ theta0 = -np.pi/2
 XLIM = False # (0,500)
 YLIM = False # (0,200)
 
-# On prend un parachutiste de 100kg. On suppose que la vitesse limite atteinte 
+# On prend un parachutiste de 100kg. On suppose que la vitesse limite atteinte
 # est de l'ordre de 200km/h.
 m = 100
 g = 9.81
@@ -45,7 +45,7 @@ beta  = m*g/vlim**2
 vx0,vz0  = v0*np.cos(theta0),v0*np.sin(theta0)
 
 def k(v,type="sans"):
-    """ Constante prévectorielle pour les frottements. v est supposée être la 
+    """ Constante prévectorielle pour les frottements. v est supposée être la
     norme de la vitesse de la particule. Différents cas sont disponibles:
     * "lineaire": k est constant égal à alpha, variable globale définie ailleurs
     * "quadratique": k est proportionnel à v, de coeff de proportionnalité beta défini ailleurs
@@ -60,9 +60,9 @@ def k(v,type="sans"):
 
 # Définition de la fonction permettant l'intégration
 def f(y,t,type):
-    """ Fonction d'intégration pour une chute libre. y est un "quadri"-vecteur 
-    contenant les positions et vitesses [x,z,vx,vz]. Le type permet de définir 
-    s'il on veut des frottements de type linéaire, quadratique ou pas de 
+    """ Fonction d'intégration pour une chute libre. y est un "quadri"-vecteur
+    contenant les positions et vitesses [x,z,vx,vz]. Le type permet de définir
+    s'il on veut des frottements de type linéaire, quadratique ou pas de
     frottement du tout. """
     x,z,vx,vz = y            # Récupération des positions et vitesses
     v = np.sqrt(vx**2+vz**2) # Norme de la vitesse

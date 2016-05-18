@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 
 import os
-from random import choice,randrange,seed
+from random import randrange,seed
 from time import perf_counter
 from math import log2
-from sys import setrecursionlimit
 
 def test(expr):
     global nbc
@@ -24,7 +23,7 @@ def fusionR(t1,t2):
         t=[t2[0]]
         t.extend(fusionR(t1,t2[1:]))
         return t
-    
+
 def fusion(t1,t2):
     i1,i2,n1,n2=0,0,len(t1),len(t2)
     t=[]
@@ -59,6 +58,6 @@ tt=tri(t)
 top=perf_counter()-top
 #print(tt)
 print(top,'s')
-print('Nb de comparaisons/(n*log2(n)) : ',nbc/(n*log2(n)))        
+print('Nb de comparaisons/(n*log2(n)) : ',nbc/(n*log2(n)))
 
 os.system("pause")

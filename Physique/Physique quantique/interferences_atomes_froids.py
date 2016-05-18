@@ -10,12 +10,11 @@ Résultat d'interférence lors d'expérience de lacher d'atome à travers des fe
 (ou de passage de photon unique à travers des fentes)
 """
 
-import random as r
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import animation
 
-# Tire N nombre au pif, calcule 1+cosinus et si c'est plus petit qu'un nombre 
+# Tire N nombre au pif, calcule 1+cosinus et si c'est plus petit qu'un nombre
 # aléatoire, on le garde. Ainsi on a une distribution de proba qui a l'air d'être
 # en 1+cos, mais on tire plein de nombres aléatoires pour rien
 N=500000
@@ -39,9 +38,9 @@ def animate(n):
     l.set_xdata(xdata[:i])
     l.set_ydata(ydata[:i])
     return l,
-    
+
 anim = animation.FuncAnimation(fig,animate,2000,interval=20,blit=False,repeat=False)
-#anim.save('PNG/S06_interferences_atomes_froids.mp4', fps=30,bitrate=50)
+#anim.save('S06_interferences_atomes_froids.mp4', fps=30,bitrate=50)
 plt.show()
 
 #fig=plt.figure(facecolor='w')

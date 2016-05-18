@@ -44,8 +44,8 @@ v_to_show = None                                       # On les affiche toutes.
 # Données pour les isobares (réparties de manière logarithmique par défaut)
 Pcrit = CP.PropsSI(fluide,'pcrit')                 # Pression critique
 exp_max = int(np.floor(np.log10(Pcrit)))+1         # Puissance de 10 proche
-Ptriple= 1/CP.PropsSI(fluide,'ptriple')            # Point triple 
-exp_min = int(np.ceil(np.log10(Ptriple)))+5          # Puissance de 10 
+Ptriple= 1/CP.PropsSI(fluide,'ptriple')            # Point triple
+exp_min = int(np.ceil(np.log10(Ptriple)))+5          # Puissance de 10
 # Les valeurs à prendre
 val_P = [a * 10**b for b in range(exp_min,exp_max+1) for a in [1,2,5]]
 P_to_show = None                                   # On les affiche toutes.
@@ -57,18 +57,18 @@ COLOR_MAP = {'T': 'Darkred',
              'P': 'DarkCyan',
              'H': 'DarkGreen',
              'V': 'DarkBlue',
-             'S': 'DarkOrange',   
+             'S': 'DarkOrange',
              'Q': 'black'}
 
 # On prépare un format pour impression sur A3 ou presque (dimensions en pouces)
 plt.figure(figsize=(30,21))
 
 def place_label(x,y,label,indice=None,cotan=False,color='k'):
-    """ Routine qui se débrouille pour mettre un label semi-transparent au 
-    niveau de la courbe données par ses coordonnées x et y. Si on sait que le 
-    label sera presque vertical avec possibilité de dépasser 90°, on peut 
-    utiliser cotan=True pour corriger (considération purement esthétique). 
-    'indice' correspond à la position dans les tableaux x et y où devra 
+    """ Routine qui se débrouille pour mettre un label semi-transparent au
+    niveau de la courbe données par ses coordonnées x et y. Si on sait que le
+    label sera presque vertical avec possibilité de dépasser 90°, on peut
+    utiliser cotan=True pour corriger (considération purement esthétique).
+    'indice' correspond à la position dans les tableaux x et y où devra
     s'afficher le label demandé. """
     print(x[0],y[0],label) # un peu de feedback pour savoir ce qu'on calcule
     N = len(x)//2          # Emplacement par défaut
@@ -79,7 +79,7 @@ def place_label(x,y,label,indice=None,cotan=False,color='k'):
     Ysize = yf - yi        # La hauteur puis la pente
     a = (y[N+1]-y[N-1])/(x[N+1]-x[N-1]) * Xsize/Ysize
     bbox = plt.gca().get_window_extent() # Récupération de la taille de la figure
-    a *= bbox.height / bbox.width        # Correction de la pente avec la taille 
+    a *= bbox.height / bbox.width        # Correction de la pente avec la taille
     rot = np.degrees(np.arctan(a))       # Calcul de l'angle de rotation
     if cotan and rot < 0: rot = 180 + rot             # Si on dépasse la     verticale
     if cotan : rot = 90 - np.degrees(np.arctan(1/a))
@@ -92,11 +92,11 @@ def fait_isolignes(type,valeurs,position=None,nb_points=1000,to_show=None,round_
     """ S'occupe du calcul et du tracé des isolignes. """
     if not(to_show):                        # Valeurs par défauts:
         to_show = list(range(len(valeurs))) # toutes !
-    Tmin,Tmax = plt.ylim()                  # On regarde les 
+    Tmin,Tmax = plt.ylim()                  # On regarde les
     smin,smax = plt.xlim()                  # limites du graphique
     # Par défaut, l'échantillonnage en T est linéaire
     val_T = np.linspace(Tmin,Tmax,nb_points)
-    # Pour chacune des valeurs demandées, 
+    # Pour chacune des valeurs demandées,
     nb_points_save = nb_points
     for val,i in zip(valeurs,range(len(valeurs))):
         nb_points = nb_points_save
@@ -141,7 +141,7 @@ if iso_x: # Les lignes isotitres sont un peu spéciales, donc ont leur code prop
         place_label(x,y,label,indice=4*len(x)//5,cotan=True)
 else: # On trace tout de même quelque chose (de déjà présent) pour s'assurer
     Ts_plot.draw_isolines('Q',[0,1],num=2)# une bonne sélection des bornes
-    
+
 
 # Ici, on fait toutes les autres isolignes (le boulot a été fait plus haut)
 if iso_P: fait_isolignes('P',val_P,position=0.8,to_show=P_to_show,round_nb=3)
@@ -149,7 +149,7 @@ if iso_h: fait_isolignes('H',val_h,position=0.8,to_show=h_to_show,round_nb=3)
 if iso_v: fait_isolignes('V',val_v,position=0.25,to_show=v_to_show,round_nb=3)
 
 plt.grid(which='both') # Rajout de la grille
-Ts_plot._draw_graph()  # On oblige le dessin avant la sauvegarde
-plt.savefig('PNG/T6_diagramme_Ts_coolprop_{}.png'.format(fluide))
+Ts_plot.draw()  # On oblige le dessin avant la sauvegarde
+plt.savefig('T6_diagramme_Ts_coolprop_{}.png'.format(fluide))
 
 os.system("pause")

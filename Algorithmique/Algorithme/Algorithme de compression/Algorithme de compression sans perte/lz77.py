@@ -168,11 +168,11 @@ from urllib.request import urlopen
 
 with urlopen("http://www.gutenberg.org/cache/epub/28233/pg28233.txt") as f:
     newton = f.read().decode('utf-8')
-print(newton[:newton.index('\n\r')])
+# print(newton[:newton.index('\n\r')])
 
 newton = ''.join(ch for ch in newton if ord(ch) < 128)
 
-len(newton), lz_ratio(newton[:len(newton)//100])
+# len(newton), lz_ratio(newton[:len(newton)//100])
 
 top = perf_counter()
 compress(welcome)

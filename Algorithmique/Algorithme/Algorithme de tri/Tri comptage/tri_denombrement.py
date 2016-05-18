@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-from random import randrange,seed
+from random import randrange
 
 def tab_alea(n,v_max):
     return [randrange(v_max) for k in range(n)]

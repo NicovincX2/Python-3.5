@@ -36,7 +36,7 @@ traces = []
 
 for i in df.index:
     tr = Scatter(
-        x=df.ix[i]['max_atmosphering_speed'], 
+        x=df.ix[i]['max_atmosphering_speed'],
         y=df.ix[i]['hyperdrive_rating'],
         name=df.ix[i]['name'],
         marker=Marker(
@@ -60,5 +60,5 @@ layout = Layout(
 
 fig = Figure(data=traces, layout=layout)
 py.iplot(fig, filename='SWAPI-Spaceships')
-    
+
 os.system("pause")

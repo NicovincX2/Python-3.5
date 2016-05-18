@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-import merge_sort
+from merge_sort import merge_sort
 
 def search(arr, item):
     """Performs binary search on an array
@@ -13,18 +13,18 @@ def search(arr, item):
     False
     """
 
-    arr = merge_sort(arr)
+    arr1 = merge_sort(arr)
 
     first = 0
-    last = len(arr) - 1
+    last = len(arr1) - 1
     found = False
 
     while first <= last and not found:
         midpoint = (first + last) // 2
-        if arr[midpoint] == item:
+        if arr1[midpoint] == item:
             found = True
         else:
-            if item < arr[midpoint]:
+            if item < arr1[midpoint]:
                 last = midpoint - 1
             else:
                 first = midpoint + 1

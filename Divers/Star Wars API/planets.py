@@ -18,6 +18,7 @@ while url:
     url = data['next']
 
 import pandas as pd
+import numpy
 
 df = pd.DataFrame(d)
 df = df[(df['diameter']!='unknown') & (df['population']!='unknown')]
@@ -27,6 +28,7 @@ df.head()
 
 
 import plotly.plotly as py
+from plotly.graph_objs import *
 from random import randrange, seed
 seed(456)
 
@@ -34,7 +36,7 @@ traces = []
 
 for i in df.index:
     tr = Scatter(
-        x=df.ix[i]['diameter'], 
+        x=df.ix[i]['diameter'],
         y=df.ix[i]['population'],
         name=df.ix[i]['name'],
         marker=Marker(

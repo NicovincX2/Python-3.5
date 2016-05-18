@@ -2,12 +2,12 @@
 
 import os
 
-""" 
-Travail inspiré à la fois par un script de Vincent Grenard (PCSI, Lycée 
-Poincaré, Nancy) et un autre de Jean-Pierre Simond (MPSI, Lycée Kléber, 
+"""
+Travail inspiré à la fois par un script de Vincent Grenard (PCSI, Lycée
+Poincaré, Nancy) et un autre de Jean-Pierre Simond (MPSI, Lycée Kléber,
 Strasbourg).
 
-L'idée est de présenter une animation de ce qui se passe quand on envoie des 
+L'idée est de présenter une animation de ce qui se passe quand on envoie des
 photons un par un dans un système de deux fentes fines.
 
 """
@@ -30,7 +30,7 @@ Ypixel=50 #Nombre de pixels selon Y
 Nbre_Photons=10000
 
 ####################################################
-# Densite de probabilite en x, elle est uniforme sur y (donc directement 
+# Densite de probabilite en x, elle est uniforme sur y (donc directement
 # donnée par rd.random()).
 
 # Profil voulu (non normalisé)
@@ -61,7 +61,7 @@ ListeY=[]
 #Tirage des valeurs de x et y pour tous les photons
 for i in range(Nbre_Photons):
     # Tirage des valeurs de x et y que l'on range dans deux listes:
-    # * x par la méthode de l'antécédent à partir d'une distribution uniforme 
+    # * x par la méthode de l'antécédent à partir d'une distribution uniforme
     # présentée dans le TP09 sur pcsi.kleber.free.fr/IPT/
     alea=rd.random()
     ListeX.append(HX(alea))
@@ -94,7 +94,7 @@ def init():
 
 N  = 1  # Compteur externe du nombre de photon
 dN = 1  # et l'incrément au départ du compteur
-    
+
 def animate(i):
     global N,dN
     if i == 100: dN = 10    # Une première accélération
@@ -118,14 +118,14 @@ def animate(i):
         ax3.clear()
         ax3.hist(ListeY[:N+1],bins=Ypixel,orientation='horizontal',range=(Ymin,Ymax))
         # On fait deux images pour faire joli dans py4phys.pdf
-        if i == 20: plt.savefig('PNG/S06_interferences_un_photon_debut.png')
-        if i == 250: plt.savefig('PNG/S06_interferences_un_photon_fin.png')
+        if i == 20: plt.savefig('S06_interferences_un_photon_debut.png')
+        if i == 250: plt.savefig('S06_interferences_un_photon_fin.png')
 
 # L'animation proprement dite
 anim = animation.FuncAnimation(fig,animate,frames=300,interval=1)
 
-# À décommenter pour sauvegarder dans un fichier .mp4 (il faut alors commenter 
-# plt.show() ou réinitialiser N et dN) 
+# À décommenter pour sauvegarder dans un fichier .mp4 (il faut alors commenter
+# plt.show() ou réinitialiser N et dN)
 #anim.save('PNG/S06_interferences_un_photon.mp4', fps=30)
 
 plt.show()

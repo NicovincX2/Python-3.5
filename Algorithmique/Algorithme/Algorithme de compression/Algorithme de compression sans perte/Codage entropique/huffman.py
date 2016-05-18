@@ -52,7 +52,7 @@ def compress(text, codebook):
   ''' compress text using codebook dictionary '''
   return ''.join(codebook[ch] for ch in text if ord(ch) <= 128)
 
-ch,ord(ch),'{:08b}'.format(ord(ch))
+# ch,ord(ch),'{:08b}'.format(ord(ch))
 
 bits_ascii = ''.join(['{:07b}'.format(ord(ch)) for ch in "live and let live" if ord(ch) <= 128])
 huff_bits = compress("live and let live", codebook)
@@ -109,26 +109,26 @@ from urllib.request import urlopen
 
 with urlopen("http://www.gutenberg.org/cache/epub/42745/pg42745.txt") as f:
     gauss = f.read().decode('utf-8')
-print(gauss[:gauss.index('\n\r')])
+# print(gauss[:gauss.index('\n\r')])
 
 with urlopen("http://www.gutenberg.org/files/25447/25447-0.txt") as f:
     russell = f.read().decode('utf-8')
-print(russell[:russell.index('\n\r')])
+# print(russell[:russell.index('\n\r')])
 
 with urlopen("http://www.gutenberg.org/files/42743/42743-0.txt") as f:
     table_ronde = f.read().decode('utf-8')
-print(table_ronde[:table_ronde.index('\n\r')])
+# print(table_ronde[:table_ronde.index('\n\r')])
 
 with urlopen("http://www.gutenberg.org/cache/epub/97/pg97.txt") as f:
     flatland_book = f.read().decode('utf-8')
-print(flatland_book[:flatland_book.index('\n\r')])
+# print(flatland_book[:flatland_book.index('\n\r')])
 
 print("self",compression_ratio(flatland_book, flatland_book))
 print("en",compression_ratio(flatland_book, russell))
 print("de",compression_ratio(flatland_book, gauss))
 print("fr",compression_ratio(flatland_book, table_ronde))
 
-import pydot # https://github.com/nlhepler/pydot-py3, http://pyparsing.wikispaces.com/Download+and+Installation
+import pydot2 # https://github.com/nlhepler/pydot-py3, http://pyparsing.wikispaces.com/Download+and+Installation
 
 def tree_to_str(tree):
     if isinstance(tree, str):

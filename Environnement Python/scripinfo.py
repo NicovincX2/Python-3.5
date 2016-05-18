@@ -17,7 +17,7 @@ def scriptinfo():
     If compiled by PyInstaller, "source" contains no meaningful information.
     '''
 
-    import os, sys, inspect
+    import sys, inspect
     #---------------------------------------------------------------------------
     # scan through call stack for caller information
     #---------------------------------------------------------------------------
@@ -28,7 +28,7 @@ def scriptinfo():
         if teil[1].upper().startswith(sys.exec_prefix.upper()):
             continue
         trc = teil[1]
-        
+
     # trc contains highest level calling script name
     # check if we have been compiled
     if getattr(sys, 'frozen', False):
@@ -48,5 +48,5 @@ def scriptinfo():
                "source": trc,
                "dir": scriptdir}
     return scr_dict
-    
+
 os.system("pause")

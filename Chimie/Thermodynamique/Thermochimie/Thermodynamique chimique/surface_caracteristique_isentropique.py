@@ -3,8 +3,8 @@
 import os
 
 """
-Visualisation 3D de l'équation d'état d'un gaz parfait en coordonnées (P,V,T) 
-ainsi que le tracé d'un cycle sur un tel diagramme. 
+Visualisation 3D de l'équation d'état d'un gaz parfait en coordonnées (P,V,T)
+ainsi que le tracé d'un cycle sur un tel diagramme.
 """
 
 import numpy as np
@@ -21,7 +21,7 @@ V2 = V1/10
 P2 = nR*T2/V2
 # Détente adiabatique
 # avec isochore pour finir
-V3 = V1 
+V3 = V1
 P3 = P2 * (V2/V3)**gamma
 T3 = P3*V3/nR
 

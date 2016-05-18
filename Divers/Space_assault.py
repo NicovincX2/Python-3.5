@@ -1,6 +1,5 @@
 from tkinter import *
 import random
-import time
 
 def MainMenu():
     self = Tk()
@@ -128,12 +127,12 @@ def MainMenu():
     self.btnMultiPlayer.bind('<Button>',MultiPlayerChooseDifficulty)
     self.btnTenWaveChallenge.bind('<Button>',TenWaveChallengeChooseMode)
     self.bind('<Escape>',Exit)
-    
+
     #Frame settings
     self.geometry("830x700")
     self.title("Space Assault")
     self.configure(bg="black")
-    
+
 def SinglePlayer():
     self = Tk()
 
@@ -244,7 +243,7 @@ def SinglePlayer():
     Enemies6Type = []
     Enemies6Dmg = []
     Explosions = []
-    
+
     #Score
     self.lbScore = Label(text="Wave: "+str(wave)+"  Next Wave: "+str(pace/1000)+"sec  Press 'p' to pause",bg="black",fg="white")
     self.lbScore.place(x=165,y=680,width=500,height=20)
@@ -1053,7 +1052,7 @@ def SinglePlayer():
                     enShotsYpos.append(enShotYpos)
                     enShotDir.append(enDir)
             cycle += 1
-            
+
     def ShotMove():
         global direction
         global en2Xpos
@@ -1315,7 +1314,7 @@ def SinglePlayer():
                         del enShots[cycle]
                         del enShotsXpos[cycle]
                         del enShotsYpos[cycle]
-                        del enShotDir[cycle] 
+                        del enShotDir[cycle]
                 cycle += 1
 
     def destroyEnemy():
@@ -1323,7 +1322,7 @@ def SinglePlayer():
         for self.explode in Explosions:
             self.explode.destroy()
             del Explosions[destroyed]
-            destroyed += 1            
+            destroyed += 1
 
     def Summon():
         global wave
@@ -1729,7 +1728,7 @@ def SinglePlayer():
     Generate()
     ShotMove()
     enShotMove()
-        
+
     #Frame settings
     self.geometry("830x700")
     self.title("Space Assault")
@@ -1855,7 +1854,7 @@ def MultiPlayer():
     Enemies6Type = []
     Enemies6Dmg = []
     Explosions = []
-    
+
     #Score
     self.lbScore = Label(text="Wave: "+str(wave)+"  Next Wave: "+str(pace/1000)+"sec  Press 'p' to pause",bg="black",fg="white")
     self.lbScore.place(x=165,y=680,width=500,height=20)
@@ -1876,7 +1875,7 @@ def MultiPlayer():
     PlayersXpos.append(X2pos)
     PlayersYpos.append(Y2pos)
     PlayersDir.append(direction2)
-    
+
     #Functions
     def LeftKey(event):
         global Xpos
@@ -3085,7 +3084,7 @@ def MultiPlayer():
                         enShotsYpos.append(enShotYpos)
                         enShotDir.append(enDir)
             cycle += 1
-            
+
     def ShotMove():
         global direction
         global en2Xpos
@@ -3349,7 +3348,7 @@ def MultiPlayer():
                         del enShots[cycle]
                         del enShotsXpos[cycle]
                         del enShotsYpos[cycle]
-                        del enShotDir[cycle] 
+                        del enShotDir[cycle]
                 cycle += 1
 
     def destroyEnemy():
@@ -3357,7 +3356,7 @@ def MultiPlayer():
         for self.explode in Explosions:
             self.explode.destroy()
             del Explosions[destroyed]
-            destroyed += 1            
+            destroyed += 1
 
     def Summon():
         global wave
@@ -3768,7 +3767,7 @@ def MultiPlayer():
     Generate()
     ShotMove()
     enShotMove()
-        
+
     #Frame settings
     self.geometry("830x700")
     self.title("Space Assault")
@@ -3974,7 +3973,7 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
     self.enemy6Down = Canvas(bg="black",highlightthickness=0)
     self.enemy6Down.place(x=690,y=350,width=30,height=30)
     self.enemy6Down.create_oval(0,0,30,30,fill="gray20")
-    
+
     #Functions
     def StartMainMenu(event):
         self.destroy()
@@ -4027,7 +4026,7 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         self.enemy4num.config(text=str(W1E4))
         self.enemy5num.config(text=str(W1E5))
         self.enemy6num.config(text=str(W1E6))
-        
+
     def Wave2(event):
         global W2E1
         global W2E2
@@ -4123,7 +4122,7 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         self.enemy4num.config(text=str(W3E4))
         self.enemy5num.config(text=str(W3E5))
         self.enemy6num.config(text=str(W3E6))
-    
+
     def Wave4(event):
         global W4E1
         global W4E2
@@ -4219,7 +4218,7 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         self.enemy4num.config(text=str(W5E4))
         self.enemy5num.config(text=str(W5E5))
         self.enemy6num.config(text=str(W5E6))
-    
+
     def Wave6(event):
         global W6E1
         global W6E2
@@ -4363,7 +4362,7 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         self.enemy4num.config(text=str(W8E4))
         self.enemy5num.config(text=str(W8E5))
         self.enemy6num.config(text=str(W8E6))
-    
+
     def Wave9(event):
         global W9E1
         global W9E2
@@ -4411,7 +4410,7 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         self.enemy4num.config(text=str(W9E4))
         self.enemy5num.config(text=str(W9E5))
         self.enemy6num.config(text=str(W9E6))
-    
+
     def Wave10(event):
         global W10E1
         global W10E2
@@ -4473,7 +4472,7 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         global W1E2
         W1E2 += 1
         self.enemy2num.config(text=str(W1E2))
-        
+
     def W1E3Up(event):
         global W1E3
         W1E3 += 1
@@ -4505,7 +4504,7 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         if W1E2 > 0:
             W1E2 -= 1
         self.enemy2num.config(text=str(W1E2))
-        
+
     def W1E3Down(event):
         global W1E3
         if W1E3 > 0:
@@ -4539,7 +4538,7 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         global W2E2
         W2E2 += 1
         self.enemy2num.config(text=str(W2E2))
-        
+
     def W2E3Up(event):
         global W2E3
         W2E3 += 1
@@ -4571,7 +4570,7 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         if W2E2 > 0:
             W2E2 -= 1
         self.enemy2num.config(text=str(W2E2))
-        
+
     def W2E3Down(event):
         global W2E3
         if W2E3 > 0:
@@ -4605,7 +4604,7 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         global W3E2
         W3E2 += 1
         self.enemy2num.config(text=str(W3E2))
-        
+
     def W3E3Up(event):
         global W3E3
         W3E3 += 1
@@ -4637,7 +4636,7 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         if W3E2 > 0:
             W3E2 -= 1
         self.enemy2num.config(text=str(W3E2))
-        
+
     def W3E3Down(event):
         global W3E3
         if W3E3 > 0:
@@ -4671,7 +4670,7 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         global W4E2
         W4E2 += 1
         self.enemy2num.config(text=str(W4E2))
-        
+
     def W4E3Up(event):
         global W4E3
         W4E3 += 1
@@ -4703,7 +4702,7 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         if W4E2 > 0:
             W4E2 -= 1
         self.enemy2num.config(text=str(W4E2))
-        
+
     def W4E3Down(event):
         global W4E3
         if W4E3 > 0:
@@ -4737,7 +4736,7 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         global W5E2
         W5E2 += 1
         self.enemy2num.config(text=str(W5E2))
-        
+
     def W5E3Up(event):
         global W5E3
         W5E3 += 1
@@ -4769,7 +4768,7 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         if W5E2 > 0:
             W5E2 -= 1
         self.enemy2num.config(text=str(W5E2))
-        
+
     def W5E3Down(event):
         global W5E3
         if W5E3 > 0:
@@ -4803,7 +4802,7 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         global W6E2
         W6E2 += 1
         self.enemy2num.config(text=str(W6E2))
-        
+
     def W6E3Up(event):
         global W6E3
         W6E3 += 1
@@ -4835,7 +4834,7 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         if W6E2 > 0:
             W6E2 -= 1
         self.enemy2num.config(text=str(W6E2))
-        
+
     def W6E3Down(event):
         global W6E3
         if W6E3 > 0:
@@ -4869,7 +4868,7 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         global W7E2
         W7E2 += 1
         self.enemy2num.config(text=str(W7E2))
-        
+
     def W7E3Up(event):
         global W7E3
         W7E3 += 1
@@ -4901,7 +4900,7 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         if W7E2 > 0:
             W7E2 -= 1
         self.enemy2num.config(text=str(W7E2))
-        
+
     def W7E3Down(event):
         global W7E3
         if W7E3 > 0:
@@ -4935,7 +4934,7 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         global W8E2
         W8E2 += 1
         self.enemy2num.config(text=str(W8E2))
-        
+
     def W8E3Up(event):
         global W8E3
         W8E3 += 1
@@ -4967,7 +4966,7 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         if W8E2 > 0:
             W8E2 -= 1
         self.enemy2num.config(text=str(W8E2))
-        
+
     def W8E3Down(event):
         global W8E3
         if W8E3 > 0:
@@ -5001,7 +5000,7 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         global W9E2
         W9E2 += 1
         self.enemy2num.config(text=str(W9E2))
-        
+
     def W9E3Up(event):
         global W9E3
         W9E3 += 1
@@ -5033,7 +5032,7 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         if W9E2 > 0:
             W9E2 -= 1
         self.enemy2num.config(text=str(W9E2))
-        
+
     def W9E3Down(event):
         global W9E3
         if W9E3 > 0:
@@ -5067,7 +5066,7 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         global W10E2
         W10E2 += 1
         self.enemy2num.config(text=str(W10E2))
-        
+
     def W10E3Up(event):
         global W10E3
         W10E3 += 1
@@ -5099,7 +5098,7 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         if W10E2 > 0:
             W10E2 -= 1
         self.enemy2num.config(text=str(W10E2))
-        
+
     def W10E3Down(event):
         global W10E3
         if W10E3 > 0:
@@ -5141,7 +5140,7 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
     self.lbWave10.bind('<Button>',Wave10)
     self.btnPlaySinglePlayer.bind('<Button>',StartTenWaveChallengeSinglePlayer)
     self.bind('<Escape>',Exit)
-        
+
     #Frame settings
     self.geometry("830x700")
     self.title("Space Assault")
@@ -5279,7 +5278,7 @@ def TenWaveChallengeSinglePlayer():
     global W10E4
     global W10E5
     global W10E6
-    
+
     #Lists
     Shots = []
     ShotsXpos = []
@@ -5314,7 +5313,7 @@ def TenWaveChallengeSinglePlayer():
     Enemies6Type = []
     Enemies6Dmg = []
     Explosions = []
-    
+
     #Score
     self.lbScore = Label(text="Wave: "+str(wave)+"  Press 'p' to pause",bg="black",fg="white")
     self.lbScore.place(x=165,y=680,width=500,height=20)
@@ -6123,7 +6122,7 @@ def TenWaveChallengeSinglePlayer():
                     enShotsYpos.append(enShotYpos)
                     enShotDir.append(enDir)
             cycle += 1
-            
+
     def ShotMove():
         global direction
         global en2Xpos
@@ -6385,7 +6384,7 @@ def TenWaveChallengeSinglePlayer():
                         del enShots[cycle]
                         del enShotsXpos[cycle]
                         del enShotsYpos[cycle]
-                        del enShotDir[cycle] 
+                        del enShotDir[cycle]
                 cycle += 1
 
     def destroyEnemy():
@@ -6393,7 +6392,7 @@ def TenWaveChallengeSinglePlayer():
         for self.explode in Explosions:
             self.explode.destroy()
             del Explosions[destroyed]
-            destroyed += 1            
+            destroyed += 1
 
     def Summon():
         global wave
@@ -6886,7 +6885,7 @@ def TenWaveChallengeSinglePlayer():
     Generate()
     ShotMove()
     enShotMove()
-        
+
     #Frame settings
     self.geometry("830x700")
     self.title("Space Assault")
@@ -7092,12 +7091,12 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
     self.enemy6Down = Canvas(bg="black",highlightthickness=0)
     self.enemy6Down.place(x=690,y=350,width=30,height=30)
     self.enemy6Down.create_oval(0,0,30,30,fill="gray20")
-    
+
     #Functions
     def StartMainMenu(event):
         self.destroy()
         MainMenu()
-    
+
     def Wave1(*args):
         global W1E1
         global W1E2
@@ -7145,7 +7144,7 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         self.enemy4num.config(text=str(W1E4))
         self.enemy5num.config(text=str(W1E5))
         self.enemy6num.config(text=str(W1E6))
-        
+
     def Wave2(event):
         global W2E1
         global W2E2
@@ -7241,7 +7240,7 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         self.enemy4num.config(text=str(W3E4))
         self.enemy5num.config(text=str(W3E5))
         self.enemy6num.config(text=str(W3E6))
-    
+
     def Wave4(event):
         global W4E1
         global W4E2
@@ -7337,7 +7336,7 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         self.enemy4num.config(text=str(W5E4))
         self.enemy5num.config(text=str(W5E5))
         self.enemy6num.config(text=str(W5E6))
-    
+
     def Wave6(event):
         global W6E1
         global W6E2
@@ -7481,7 +7480,7 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         self.enemy4num.config(text=str(W8E4))
         self.enemy5num.config(text=str(W8E5))
         self.enemy6num.config(text=str(W8E6))
-    
+
     def Wave9(event):
         global W9E1
         global W9E2
@@ -7529,7 +7528,7 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         self.enemy4num.config(text=str(W9E4))
         self.enemy5num.config(text=str(W9E5))
         self.enemy6num.config(text=str(W9E6))
-    
+
     def Wave10(event):
         global W10E1
         global W10E2
@@ -7591,7 +7590,7 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         global W1E2
         W1E2 += 1
         self.enemy2num.config(text=str(W1E2))
-        
+
     def W1E3Up(event):
         global W1E3
         W1E3 += 1
@@ -7623,7 +7622,7 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         if W1E2 > 0:
             W1E2 -= 1
         self.enemy2num.config(text=str(W1E2))
-        
+
     def W1E3Down(event):
         global W1E3
         if W1E3 > 0:
@@ -7657,7 +7656,7 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         global W2E2
         W2E2 += 1
         self.enemy2num.config(text=str(W2E2))
-        
+
     def W2E3Up(event):
         global W2E3
         W2E3 += 1
@@ -7689,7 +7688,7 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         if W2E2 > 0:
             W2E2 -= 1
         self.enemy2num.config(text=str(W2E2))
-        
+
     def W2E3Down(event):
         global W2E3
         if W2E3 > 0:
@@ -7723,7 +7722,7 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         global W3E2
         W3E2 += 1
         self.enemy2num.config(text=str(W3E2))
-        
+
     def W3E3Up(event):
         global W3E3
         W3E3 += 1
@@ -7755,7 +7754,7 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         if W3E2 > 0:
             W3E2 -= 1
         self.enemy2num.config(text=str(W3E2))
-        
+
     def W3E3Down(event):
         global W3E3
         if W3E3 > 0:
@@ -7789,7 +7788,7 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         global W4E2
         W4E2 += 1
         self.enemy2num.config(text=str(W4E2))
-        
+
     def W4E3Up(event):
         global W4E3
         W4E3 += 1
@@ -7821,7 +7820,7 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         if W4E2 > 0:
             W4E2 -= 1
         self.enemy2num.config(text=str(W4E2))
-        
+
     def W4E3Down(event):
         global W4E3
         if W4E3 > 0:
@@ -7855,7 +7854,7 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         global W5E2
         W5E2 += 1
         self.enemy2num.config(text=str(W5E2))
-        
+
     def W5E3Up(event):
         global W5E3
         W5E3 += 1
@@ -7887,7 +7886,7 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         if W5E2 > 0:
             W5E2 -= 1
         self.enemy2num.config(text=str(W5E2))
-        
+
     def W5E3Down(event):
         global W5E3
         if W5E3 > 0:
@@ -7921,7 +7920,7 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         global W6E2
         W6E2 += 1
         self.enemy2num.config(text=str(W6E2))
-        
+
     def W6E3Up(event):
         global W6E3
         W6E3 += 1
@@ -7953,7 +7952,7 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         if W6E2 > 0:
             W6E2 -= 1
         self.enemy2num.config(text=str(W6E2))
-        
+
     def W6E3Down(event):
         global W6E3
         if W6E3 > 0:
@@ -7987,7 +7986,7 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         global W7E2
         W7E2 += 1
         self.enemy2num.config(text=str(W7E2))
-        
+
     def W7E3Up(event):
         global W7E3
         W7E3 += 1
@@ -8019,7 +8018,7 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         if W7E2 > 0:
             W7E2 -= 1
         self.enemy2num.config(text=str(W7E2))
-        
+
     def W7E3Down(event):
         global W7E3
         if W7E3 > 0:
@@ -8053,7 +8052,7 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         global W8E2
         W8E2 += 1
         self.enemy2num.config(text=str(W8E2))
-        
+
     def W8E3Up(event):
         global W8E3
         W8E3 += 1
@@ -8085,7 +8084,7 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         if W8E2 > 0:
             W8E2 -= 1
         self.enemy2num.config(text=str(W8E2))
-        
+
     def W8E3Down(event):
         global W8E3
         if W8E3 > 0:
@@ -8119,7 +8118,7 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         global W9E2
         W9E2 += 1
         self.enemy2num.config(text=str(W9E2))
-        
+
     def W9E3Up(event):
         global W9E3
         W9E3 += 1
@@ -8151,7 +8150,7 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         if W9E2 > 0:
             W9E2 -= 1
         self.enemy2num.config(text=str(W9E2))
-        
+
     def W9E3Down(event):
         global W9E3
         if W9E3 > 0:
@@ -8185,7 +8184,7 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         global W10E2
         W10E2 += 1
         self.enemy2num.config(text=str(W10E2))
-        
+
     def W10E3Up(event):
         global W10E3
         W10E3 += 1
@@ -8217,7 +8216,7 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         if W10E2 > 0:
             W10E2 -= 1
         self.enemy2num.config(text=str(W10E2))
-        
+
     def W10E3Down(event):
         global W10E3
         if W10E3 > 0:
@@ -8259,7 +8258,7 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
     self.lbWave10.bind('<Button>',Wave10)
     self.btnPlayMultiPlayer.bind('<Button>',StartTenWaveChallengeMultiPlayer)
     self.bind('<Escape>',Exit)
-        
+
     #Frame settings
     self.geometry("830x700")
     self.title("Space Assault")
@@ -8442,7 +8441,7 @@ def TenWaveChallengeMultiPlayer():
     Enemies6Type = []
     Enemies6Dmg = []
     Explosions = []
-    
+
     #Score
     self.lbScore = Label(text="Wave: "+str(wave)+"  Press 'p' to pause",bg="black",fg="white")
     self.lbScore.place(x=165,y=680,width=500,height=20)
@@ -8463,7 +8462,7 @@ def TenWaveChallengeMultiPlayer():
     PlayersXpos.append(X2pos)
     PlayersYpos.append(Y2pos)
     PlayersDir.append(direction2)
-    
+
     #Functions
     def LeftKey(event):
         global Xpos
@@ -9672,7 +9671,7 @@ def TenWaveChallengeMultiPlayer():
                         enShotsYpos.append(enShotYpos)
                         enShotDir.append(enDir)
             cycle += 1
-            
+
     def ShotMove():
         global direction
         global en2Xpos
@@ -9936,7 +9935,7 @@ def TenWaveChallengeMultiPlayer():
                         del enShots[cycle]
                         del enShotsXpos[cycle]
                         del enShotsYpos[cycle]
-                        del enShotDir[cycle] 
+                        del enShotDir[cycle]
                 cycle += 1
 
     def destroyEnemy():
@@ -9944,7 +9943,7 @@ def TenWaveChallengeMultiPlayer():
         for self.explode in Explosions:
             self.explode.destroy()
             del Explosions[destroyed]
-            destroyed += 1            
+            destroyed += 1
 
     def Summon():
         global wave
@@ -10442,7 +10441,7 @@ def TenWaveChallengeMultiPlayer():
     Generate()
     ShotMove()
     enShotMove()
-        
+
     #Frame settings
     self.geometry("830x700")
     self.title("Space Assault")

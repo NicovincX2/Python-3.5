@@ -3,7 +3,7 @@
 import os
 import requests
 import json
-    
+
 d = {'name':[], 'mass':[], 'height':[]}
 
 url = "http://swapi.co/api/people/?page=1"
@@ -35,7 +35,7 @@ traces = []
 
 for i in df.index:
     tr = Scatter(
-        x=df.ix[i]['height'], 
+        x=df.ix[i]['height'],
         y=df.ix[i]['mass'],
         name=df.ix[i]['name'],
         marker=Marker(
@@ -57,6 +57,6 @@ layout = Layout(
             title='Height [cm]',))
 
 fig = Figure(data=traces, layout=layout)
-py.iplot(fig, filename='SWAPI-People')    
-    
+py.iplot(fig, filename='SWAPI-People')
+
 os.system("pause")

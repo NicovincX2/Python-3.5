@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-from random import choice,randrange,seed
+from random import randrange,seed
 from time import perf_counter
 from math import log
 

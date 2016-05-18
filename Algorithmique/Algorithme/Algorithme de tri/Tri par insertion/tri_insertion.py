@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-from random import randrange,seed
+from random import randrange
 from time import perf_counter
 
 def test(expr):
