@@ -456,6 +456,6 @@ if __name__== "__main__":
     a = mydata.getVarPtr("a")
     a[:] = numpy.exp(-(myg.x - 0.5)**2/0.1**2)
 
-    print mydata
+    print (mydata)
 
 os.system("pause")

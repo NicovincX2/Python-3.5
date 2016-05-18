@@ -2,7 +2,7 @@
 
 import os
 import numpy as np
-from timeit import Timer
+from time import process_time
 
 size = 200
 iterations = 100
@@ -27,8 +27,9 @@ import matplotlib.pyplot as plt
 plt.imshow(np.log(m), cmap=plt.cm.hot,);
 plt.xticks([]); plt.yticks([]);
 
-t1 = Timer(lambda: mandelbrot_python(m, size, iterations))
-t1.timeit()
+top = process_time()
+mandelbrot_python(m, size, iterations)
+print(top-process_time())
 
 import numba
 from numba import jit, complex128
@@ -49,8 +50,9 @@ def mandelbrot_numba(m, size, iterations):
 m = np.zeros((size, size))
 mandelbrot_numba(m, size, iterations)
 
-t2 = Timer(lambda: mandelbrot_numba(m, size, iterations))
-t2.timeit()
+top = process_time()
+mandelbrot_numba(m, size, iterations)
+print(top-process_time())
 
 """
 import cython

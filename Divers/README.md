@@ -14,3 +14,5 @@
 > - Code couleur d'une résistance
 > - [Découpe de tissu](http://michel.stainer.pagesperso-orange.fr/PSIx/Informatique/Devoirs/AlgoX/2007algoX.pdf)
 > - [Dépouillement d'élections](http://michel.stainer.pagesperso-orange.fr/PSIx/Informatique/Devoirs/AlgoX/2005algoX.pdf)
+> - Space Assault
+> - [Plan de remboursement](https://fr.wikipedia.org/wiki/Plan_de_remboursement)

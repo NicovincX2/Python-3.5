@@ -44,7 +44,7 @@ f_n = numpy.sin(2.0*math.pi*f_0*xx)
 
 f_k = dft(f_n)
 
-print f_k[0]
+print (f_k[0])
 
 # compute k
 k = numpy.arange(npts)/xmax

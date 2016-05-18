@@ -33,7 +33,7 @@ axis('scaled')
 areatot = 0.0
 for t in tlist:
     areatot += t.area()
-print 'total area: ',areatot
+print ('total area: ',areatot)
 
 os.system("pause")
 

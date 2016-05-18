@@ -241,7 +241,7 @@ def evolve(nx, nu, cfl, tmax, dovis=0):
             pylab.title("t = %f" % (t))
             pylab.draw()
 
-    print t
+    print (t)
     return u, gr.x
 
 

@@ -1,3 +1,0 @@
-# Classes
-
->> Multigrid class

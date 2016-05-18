@@ -10,9 +10,8 @@
 
 >> Documentation sur les modules communs utilisés.
 
-#### Classes
-
->> Différentes classes utilisées.
-
-#### Tests de performance
+> Catalogue de tous les programmes et de leurs dossiers.
+> Tri dans les fichiers "Readme.md".
+> Editer un fichier texte sans perdre l'original en cas d'erreur.
+> Informations sur un script : dir, name, source.
 

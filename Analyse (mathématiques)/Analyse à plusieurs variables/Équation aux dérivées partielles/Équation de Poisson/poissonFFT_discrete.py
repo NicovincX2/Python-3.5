@@ -61,12 +61,12 @@ y2d = numpy.transpose(y2d)
 
 # create the RHS
 f = frhs(x2d, y2d)
-print f
+print (f)
 
 # compatibility conditions require that the RHS sum to zero
-print "sum of RHS: ", numpy.sum(f)
+print ("sum of RHS: ", numpy.sum(f))
 
-print x2d.shape
+print (x2d.shape)
 
 # FFT of RHS
 F = numpy.fft.fft2(f)
@@ -110,6 +110,6 @@ pylab.savefig("poissonFFT.png")
 
 
 # error
-print Nx, Ny, numpy.sqrt(dx*dx*numpy.sum( ( (fsolution - true(x2d,y2d))**2).flat))
+print (Nx, Ny, numpy.sqrt(dx*dx*numpy.sum( ( (fsolution - true(x2d,y2d))**2).flat)))
 
 os.system("pause")

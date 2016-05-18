@@ -52,7 +52,7 @@ def smoothRun(nx):
 
     ng = 1
 
-    print nx
+    print (nx)
 
     # initialize the solution to zero.  Put one ghost cell on either end
     phi = numpy.zeros(nx + 2*ng, dtype=numpy.float64)
@@ -79,8 +79,8 @@ def smoothRun(nx):
     phi[ilo-1] = -phi[ilo]
     phi[ihi+1] = -phi[ihi]
 
-    print "source norm: ", error(ilo, ihi, dx, frhs)
-    print numpy.sum(frhs[ilo:ihi+1])
+    print ("source norm: ", error(ilo, ihi, dx, frhs))
+    print (numpy.sum(frhs[ilo:ihi+1]))
 
     for i in n:
 
@@ -96,8 +96,8 @@ def smoothRun(nx):
 
 
         # red-black Gauss-Seidel -- first do the odd, then even points
-        print phi[ilo:ihi+1:2]
-        print phi[ilo:ihi+1]
+        print (phi[ilo:ihi+1:2])
+        print (phi[ilo:ihi+1])
         phi[ilo:ihi+1:2] = \
             0.5*(-dx*dx*frhs[ilo:ihi+1:2] + \
                       phi[ilo+1:ihi+2:2] + phi[ilo-1:ihi:2])

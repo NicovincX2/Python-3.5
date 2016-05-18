@@ -226,7 +226,7 @@ errExpl = []
 
 for nx in N:
 
-    print nx
+    print (nx)
 
     # the present C-N discretization
     g = evolve(nx, k, t0, phi1, phi2, C, tmax)
@@ -249,9 +249,9 @@ pylab.clf()
 N = numpy.array(N, dtype=numpy.float64)
 err = numpy.array(err)
 
-print "err = ", err
-print "errFOimpl = ", errFOimpl
-print "errExpl = ", errExpl
+print ("err = ", err)
+print ("errFOimpl = ", errFOimpl)
+print ("errExpl = ", errExpl)
 
 pylab.scatter(N, err, color="r", label="C-N implicit diffusion")
 pylab.scatter(N, errFOimpl, color="b", label="backward-diff implicit diffusion")
@@ -300,7 +300,7 @@ errExpl = []
 
 for nx in N:
 
-    print nx
+    print (nx)
 
     # the present C-N discretization
     g = evolve(nx, k, t0, phi1, phi2, C, tmax)
@@ -319,8 +319,8 @@ pylab.clf()
 N = numpy.array(N, dtype=numpy.float64)
 err = numpy.array(err)
 
-print "err = ", err
-print "errFOimpl = ", errFOimpl
+print ("err = ", err)
+print ("errFOimpl = ", errFOimpl)
 
 pylab.scatter(N, err, color="r", label="C-N implicit diffusion")
 pylab.scatter(N, errFOimpl, color="b", label="backward-diff implicit diffusion")

@@ -96,8 +96,8 @@ class ccMG1d:
         nx_t = 2
 
         if (self.verbose):
-            print "alpha = ", self.alpha
-            print "beta  = ", self.beta
+            print ("alpha = ", self.alpha)
+            print ("beta  = ", self.beta)
 
         while (i < self.nlevels):
             
@@ -118,7 +118,7 @@ class ccMG1d:
             self.grids[i].create()
 
             if self.verbose:
-                print self.grids[i]        
+                print (self.grids[i])        
 
             nx_t = nx_t*2
 
@@ -186,7 +186,7 @@ class ccMG1d:
         self.sourceNorm = error(self.grids[self.nlevels-1].grid, f)
 
         if (self.verbose):
-            print "Source norm = ", self.sourceNorm
+            print ("Source norm = ", self.sourceNorm)
 
         # note: if we wanted to do inhomogeneous Dirichlet BCs, we 
         # would modify the source term, f, here to include a boundary
@@ -257,7 +257,7 @@ class ccMG1d:
         # achieve the L2 norm of the relative solution difference is <
         # rtol
         if self.verbose:
-            print "source norm = ", self.sourceNorm
+            print ("source norm = ", self.sourceNorm)
             
         oldSolution = self.grids[self.nlevels-1].getVarPtr("v").copy()
         
@@ -274,7 +274,7 @@ class ccMG1d:
 
             # descending part
             if self.verbose:
-                print "<<< beginning V-cycle (cycle %d) >>>\n" % cycle
+                print ("<<< beginning V-cycle (cycle %d) >>>\n" % cycle)
 
             level = self.nlevels-1
             while (level > 0):
@@ -288,10 +288,10 @@ class ccMG1d:
                 if self.verbose:
                     self.computeResidual(level)
 
-                    print "  level = %d, nx = %d" % (level, fP.grid.nx)
+                    print ("  level = %d, nx = %d" % (level, fP.grid.nx))
 
-                    print "  before G-S, residual L2 norm = %g" % \
-                          (error(fP.grid, r) )
+                    print ("  before G-S, residual L2 norm = %g" % \
+                          (error(fP.grid, r) ))
             
                 # smooth on the current level
                 self.smooth(level, self.nsmooth)
@@ -301,8 +301,8 @@ class ccMG1d:
                 self.computeResidual(level)
 
                 if self.verbose:
-                    print "  after G-S, residual L2 norm = %g\n" % \
-                          (error(fP.grid, r) )
+                    print ("  after G-S, residual L2 norm = %g\n" % \
+                          (error(fP.grid, r) ))
 
 
                 # restrict the residual down to the RHS of the coarser level
@@ -317,12 +317,12 @@ class ccMG1d:
             # since we are 2 zone by design at this point, we will
             # just smooth
             if self.verbose:
-                print "  bottom solve:"
+                print ("  bottom solve:")
 
             bP = self.grids[0]
 
             if self.verbose:
-                print "  level = %d, nx = %d\n" %  (level, bP.grid.nx)
+                print ("  level = %d, nx = %d\n" %  (level, bP.grid.nx))
 
             self.smooth(0, self.nbottomSmooth)
 
@@ -347,10 +347,10 @@ class ccMG1d:
                     self.computeResidual(level)
                     r = fP.getVarPtr("r")
 
-                    print "  level = %d, nx = %d" % (level, fP.grid.nx)
+                    print ("  level = %d, nx = %d" % (level, fP.grid.nx))
 
-                    print "  before G-S, residual L2 norm = %g" % \
-                          (error(fP.grid, r) )
+                    print ("  before G-S, residual L2 norm = %g" % \
+                          (error(fP.grid, r) ))
             
                 # smooth
                 self.smooth(level, self.nsmooth)
@@ -358,8 +358,8 @@ class ccMG1d:
                 if self.verbose:
                     self.computeResidual(level)
 
-                    print "  after G-S, residual L2 norm = %g\n" % \
-                          (error(fP.grid, r) )
+                    print ("  after G-S, residual L2 norm = %g\n" % \
+                          (error(fP.grid, r) ))
             
                 level += 1
 
@@ -393,8 +393,8 @@ class ccMG1d:
                 fP.fillBC("v")
                 
             if self.verbose:
-                print "cycle %d: relative err = %g, residual err = %g\n" % \
-                      (cycle, relativeError, residualError)
+                print ("cycle %d: relative err = %g, residual err = %g\n" % \
+                      (cycle, relativeError, residualError))
             
             cycle += 1
 

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import division
 import os
 import matplotlib.pyplot as plt
 import numpy as np
-from __future__ import division
 import utils
 import seaborn
 seaborn.set()

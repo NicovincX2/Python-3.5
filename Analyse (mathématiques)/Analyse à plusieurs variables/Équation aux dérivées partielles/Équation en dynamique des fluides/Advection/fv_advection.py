@@ -211,7 +211,7 @@ for nx in N:
 
     # compute the error
     err.append(g.norm(g.a - g.ainit))
-    print g.dx, nx, err[-1]
+    print (g.dx, nx, err[-1])
 
 
 pylab.clf()

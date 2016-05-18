@@ -228,7 +228,7 @@ def evolve(nx, kappa, tau, tmax, dovis=0, returnInit=0):
             pylab.ylim(0.0,1.0)
             pylab.draw()
 
-    print t
+    print (t)
 
     if returnInit==1:
         return phi, gr.x, phiInit
@@ -260,19 +260,19 @@ pylab.savefig("flame.png")
 xpos1 = interpolate(x1, phi1, 0.2)
 xpos2 = interpolate(x2, phi2, 0.2)
 
-print (xpos1 - xpos2)/(tmax1 - tmax2), numpy.sqrt(kappa/tau)
+print ((xpos1 - xpos2)/(tmax1 - tmax2), numpy.sqrt(kappa/tau))
 
 # estimate the speed -- interpolate to x corresponding to where phi > 0.5
 xpos1 = interpolate(x1, phi1, 0.5)
 xpos2 = interpolate(x2, phi2, 0.5)
 
-print (xpos1 - xpos2)/(tmax1 - tmax2), numpy.sqrt(kappa/tau)
+print ((xpos1 - xpos2)/(tmax1 - tmax2), numpy.sqrt(kappa/tau))
 
 # estimate the speed -- interpolate to x corresponding to where phi > 0.8
 xpos1 = interpolate(x1, phi1, 0.8)
 xpos2 = interpolate(x2, phi2, 0.8)
 
-print (xpos1 - xpos2)/(tmax1 - tmax2), numpy.sqrt(kappa/tau)
+print ((xpos1 - xpos2)/(tmax1 - tmax2), numpy.sqrt(kappa/tau))
 
 
 # make a pretty plot

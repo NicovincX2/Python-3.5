@@ -50,7 +50,7 @@ def tridiag(a, b, d):
           a_i x_{i-1} + b_i x_i  = d_i """
     N = len(a)
     if not (len(b)  == len(d) == N):
-        print "ERROR: vectors not the right size"
+        print ("ERROR: vectors not the right size")
         return None
 
     # forward elimination

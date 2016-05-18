@@ -63,7 +63,7 @@ v = a.getSolution()
 b = true(a.x)
 e = v - b
 
-print " L2 error from true solution = %g\n rel. err from previous cycle = %g\n num. cycles = %d" % \
-      (error(a.solnGrid, e), a.relativeError, a.numCycles)
+print (" L2 error from true solution = %g\n rel. err from previous cycle = %g\n num. cycles = %d" % \
+      (error(a.solnGrid, e), a.relativeError, a.numCycles))
 
 os.system("pause")

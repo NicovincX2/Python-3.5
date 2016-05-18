@@ -42,7 +42,7 @@ def main():
     ng = 1
 
     for i in range(len(nx)):
-        print "Calculating for [%d,%d] cells..." %(nx[i], ny[i])  
+        print ("Calculating for [%d,%d] cells..." %(nx[i], ny[i]))
         
         """ set the limits, grid limits   """
         ilo = ng
@@ -71,9 +71,9 @@ def main():
                
         doPartC(Ustar_final, phi_num, Ud, nx[i], ny[i], xmin, xmax, ymin, ymax, DO_PLOTS)
         phi_true_final = phi_true[ilo:ihiy+1]
-        print "The error is %.8f.\n" %(error(ilo, ihix, ihiy, dx, phi_num - phi_true_final))    
+        print ("The error is %.8f.\n" %(error(ilo, ihix, ihiy, dx, phi_num - phi_true_final)))    
     
-    print "\nDone!"
+    print ("\nDone!")
 
 if __name__ == "__main__":
     main()

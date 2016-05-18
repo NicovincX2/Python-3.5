@@ -188,7 +188,7 @@ for nx in N:
     phi_analytic = g.phi_a(tmax, k, t0, phi1, phi2)
 
     err.append(g.norm(g.phi - phi_analytic))
-    print g.dx, nx, err[-1]
+    print (g.dx, nx, err[-1])
 
     pylab.plot(g.x[g.ilo:g.ihi+1], g.phi[g.ilo:g.ihi+1], label="N = %d" % (nx))
 

@@ -15,10 +15,9 @@
 > - [Kernel (Noyau) regression](https://en.wikipedia.org/wiki/Kernel_regression)
 > - [Radial basis function (RBF) kernel](https://en.wikipedia.org/wiki/Radial_basis_function_kernel)
 > - [Polynomial kernel](https://en.wikipedia.org/wiki/Polynomial_kernel)
-
+> - [Ajustement de courbe (fitting)](https://fr.wikipedia.org/wiki/Ajustement_de_courbe)
 > - [Noyau (statistiques)](https://fr.wikipedia.org/wiki/Noyau_%28statistiques%29)
 > - [Machine à vecteurs de support (SVR)](https://fr.wikipedia.org/wiki/Machine_%C3%A0_vecteurs_de_support)
-
 > - [Ordinary least squares (OLS)](https://en.wikipedia.org/wiki/Ordinary_least_squares)
 > - [Automatic Relevance Determination Regression (ARD)](https://www.fmrib.ox.ac.uk/analysis/techrep/tr03mw2/tr03mw2/node14.html)
 

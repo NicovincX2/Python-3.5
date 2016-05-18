@@ -28,7 +28,7 @@ for c in clist:
     areatot += c.area()
     c.plot(1.0)
 axis('scaled')
-print 'total area: ',areatot
+print ('total area: ',areatot)
 
 os.system("pause")
 

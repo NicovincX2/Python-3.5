@@ -251,7 +251,7 @@ err = []
 
 for nx in N:
 
-    print nx
+    print (nx)
 
     # the present C-N discretization
     g, phi = evolve(nx, C, tmax)
@@ -266,7 +266,7 @@ pylab.clf()
 N = numpy.array(N, dtype=numpy.float64)
 err = numpy.array(err)
 
-print "err = ", err
+print ("err = ", err)
 
 pylab.scatter(N, err, color="r", label="C-N implicit diffusion")
 pylab.plot(N, err[len(N)-1]*(N[len(N)-1]/N)**2, color="k", label="$\mathcal{O}(\Delta x^2)$")

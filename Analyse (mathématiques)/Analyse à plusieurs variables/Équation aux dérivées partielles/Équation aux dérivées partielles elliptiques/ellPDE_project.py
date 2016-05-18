@@ -90,7 +90,7 @@ def smooth(gr, f, eps):
     je = gr.jhi
 
     fnorm = gr.norm(f)
-    print fnorm
+    print (fnorm)
 
     rnorm = 1.e10
 
@@ -312,8 +312,8 @@ pylab.savefig("project-u.png")
 eu = unew - udOrig
 ev = vnew - vdOrig
 
-print "Nx, Ny, L2 norm of error (u, v): ", nx, ny, \
+print ("Nx, Ny, L2 norm of error (u, v): ", nx, ny, \
     numpy.sqrt(gr.dx*gr.dy*numpy.sum((eu[gr.ilo:gr.ihi+1,gr.jlo:gr.jhi+1]**2).flat)), \
-    numpy.sqrt(gr.dx*gr.dy*numpy.sum((ev[gr.ilo:gr.ihi+1,gr.jlo:gr.jhi+1]**2).flat))
+    numpy.sqrt(gr.dx*gr.dy*numpy.sum((ev[gr.ilo:gr.ihi+1,gr.jlo:gr.jhi+1]**2).flat)))
 
 os.system("pause")

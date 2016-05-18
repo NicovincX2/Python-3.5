@@ -178,7 +178,7 @@ def smoothRun(Ustar, phi_true, nx, ny, ng, dx, dy,DO_PLOTS):
     """ ghetto way of unpadding"""
     phi_final = phi[ilo:ihix+1]
     
-    print "The total number of iterations for the desired |r| < %.8f is %d." %(norm_r, n)
+    print ("The total number of iterations for the desired |r| < %.8f is %d." %(norm_r, n))
     
     return phi_final
 

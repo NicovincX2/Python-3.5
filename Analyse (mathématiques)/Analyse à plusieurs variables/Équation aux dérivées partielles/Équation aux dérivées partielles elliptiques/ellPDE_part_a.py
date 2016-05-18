@@ -75,8 +75,8 @@ def doPartA(nx, ny, ng, dx, dy, DO_PLOTS):
     x = (numpy.arange(nx + 2.0*ng) -ng + 0.5) * dx
     y = (numpy.arange(ny + 2.0*ng) -ng + 0.5) * dy
 
-    print x
-    print y
+    print (x)
+    print (y)
 
     """ the bug in my code is here, but I cant figure it yet, I know
     it will disturb the gradient etc, but what the correct way? both
@@ -91,8 +91,8 @@ def doPartA(nx, ny, ng, dx, dy, DO_PLOTS):
     y2d.shape = (ny+2.0*ng, nx + 2.0*ng)
     y2d = numpy.transpose(y2d)
     
-    print x2d[:,0]
-    print y2d[0,:]
+    print (x2d[:,0])
+    print (y2d[0,:])
    
     """ calculate compoents """
     phi = scalarField(x2d ,y2d)

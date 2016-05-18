@@ -14,6 +14,7 @@
 >> - [Cryptologie](https://fr.wikipedia.org/wiki/Cryptologie)
 >> - [Génie logiciel](https://fr.wikipedia.org/wiki/G%C3%A9nie_logiciel)
 >> - [Géométrie](https://fr.wikipedia.org/wiki/G%C3%A9om%C3%A9trie)
+>> - [Informatique](https://fr.wikipedia.org/wiki/Informatique)
 >> - [Logique mathématique](https://fr.wikipedia.org/wiki/Logique_math%C3%A9matique)
 >> - [Physique](https://fr.wikipedia.org/wiki/Physique)
 >> - [Probabilités](https://fr.wikipedia.org/wiki/Probabilit%C3%A9)
