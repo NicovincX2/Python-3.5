@@ -18,7 +18,6 @@ while url:
     url = data['next']
 
 import pandas as pd
-import numpy
 
 df = pd.DataFrame(d)
 df = df[(df['diameter']!='unknown') & (df['population']!='unknown')]

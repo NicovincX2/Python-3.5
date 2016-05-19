@@ -128,7 +128,7 @@ print("en",compression_ratio(flatland_book, russell))
 print("de",compression_ratio(flatland_book, gauss))
 print("fr",compression_ratio(flatland_book, table_ronde))
 
-import pydot2 # https://github.com/nlhepler/pydot-py3, http://pyparsing.wikispaces.com/Download+and+Installation
+import pydot # https://github.com/nlhepler/pydot-py3, http://pyparsing.wikispaces.com/Download+and+Installation
 
 def tree_to_str(tree):
     if isinstance(tree, str):

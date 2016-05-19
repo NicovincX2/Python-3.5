@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-from random import choice,randrange,seed
+from random import randrange,seed
 from time import perf_counter
 
 def test(expr):
@@ -23,7 +23,7 @@ def tri_ins(t):
         return []
     else:
         return insere(t[-1],tri_ins(t[:-1]))
-        
+
 n=800
 n_max=100000
 t=[randrange(n_max) for k in range(n)]

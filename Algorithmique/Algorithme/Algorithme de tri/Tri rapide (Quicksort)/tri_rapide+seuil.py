@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-from random import choice,randrange,seed
+from random import randrange,seed
 from time import perf_counter
 from math import log
 
@@ -125,8 +125,8 @@ top=perf_counter()-top
 #print(tt)
 print('Seuil 1')
 print(top,'s')
-print('Nb de comparaisons : ',nbc)        
-print('Nb de comparaisons/(n*ln(n)) : ',nbc/(n*log(n)))        
+print('Nb de comparaisons : ',nbc)
+print('Nb de comparaisons/(n*ln(n)) : ',nbc/(n*log(n)))
 tt=t.copy()
 nbc=0
 top=perf_counter()
@@ -135,8 +135,8 @@ top=perf_counter()-top
 #print(tt)
 print('Seuil 2')
 print(top,'s')
-print('Nb de comparaisons : ',nbc)        
-print('Nb de comparaisons/(n*ln(n)) : ',nbc/(n*log(n)))        
+print('Nb de comparaisons : ',nbc)
+print('Nb de comparaisons/(n*ln(n)) : ',nbc/(n*log(n)))
 tt=t.copy()
 nbc=0
 top=perf_counter()
@@ -145,7 +145,7 @@ top=perf_counter()-top
 #print(tt)
 print('Seuil 3')
 print(top,'s')
-print('Nb de comparaisons : ',nbc)        
-print('Nb de comparaisons/(n*ln(n)) : ',nbc/(n*log(n)))        
+print('Nb de comparaisons : ',nbc)
+print('Nb de comparaisons/(n*ln(n)) : ',nbc/(n*log(n)))
 
 os.system("pause")

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-from random import choice,randrange,seed
+from random import randrange,seed
 from time import perf_counter
 from math import log2
 
@@ -9,7 +9,7 @@ def test(expr):
     global nbc
     nbc+=1
     return expr
-    
+
 def fusion(t1,t2):
     i1,i2,n1,n2=0,0,len(t1),len(t2)
     t=[]
@@ -40,11 +40,11 @@ def tri2(t):
         if test(t[0]<=t[1]):
             return t
         else:
-            return [t[1],t[0]]        
+            return [t[1],t[0]]
     else:
         m=len(t)//2
         return fusion(tri(t[:m]),tri(t[m:]))
-    
+
 def tri3(t):
     if len(t)<2:
         return t
@@ -84,8 +84,8 @@ top=perf_counter()-top
 #print(tt)
 print('Seuil 1')
 print(top,'s')
-print('Nb de comparaisons : ',nbc)        
-print('Nb de comparaisons/(n*log2(n)) : ',nbc/(n*log2(n)))        
+print('Nb de comparaisons : ',nbc)
+print('Nb de comparaisons/(n*log2(n)) : ',nbc/(n*log2(n)))
 nbc=0
 top=perf_counter()
 tt=tri2(t)
@@ -93,8 +93,8 @@ top=perf_counter()-top
 #print(tt)
 print('Seuil 2')
 print(top,'s')
-print('Nb de comparaisons : ',nbc)        
-print('Nb de comparaisons/(n*log2(n)) : ',nbc/(n*log2(n)))        
+print('Nb de comparaisons : ',nbc)
+print('Nb de comparaisons/(n*log2(n)) : ',nbc/(n*log2(n)))
 nbc=0
 top=perf_counter()
 tt=tri3(t)
@@ -102,7 +102,7 @@ top=perf_counter()-top
 #print(tt)
 print('Seuil 3')
 print(top,'s')
-print('Nb de comparaisons : ',nbc)        
-print('Nb de comparaisons/(n*log2(n)) : ',nbc/(n*log2(n)))        
+print('Nb de comparaisons : ',nbc)
+print('Nb de comparaisons/(n*log2(n)) : ',nbc/(n*log2(n)))
 
 os.system("pause")

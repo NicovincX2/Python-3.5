@@ -8,11 +8,10 @@ Travail proposé par Vincent Grenard (PCSI, Lycée Poincaré, Nancy)
 objectif : automatiser le tracé de rayon dans des lentilles
 et sortir le code pstricks
 
-je commence par une seule lentille, et on verra plus tard 
+je commence par une seule lentille, et on verra plus tard
 si j'en met plusieurs
 """
 
-import numpy as np
 import matplotlib.pyplot as plt
 
 #####   data    #####
@@ -104,7 +103,7 @@ plt.plot([x_deb,x_O,x_fin],[AB,AB,-(x_fin-x_O-f_p)/f_p*AB],'-b')
 plt.plot([x_O,x_A],[AB,AB],'--b') #si objet virtuel
 plt.plot([x_O,x_A_p],[AB,A_pB_p],'--b')
 
-#3e rayon facile : passe par F 
+#3e rayon facile : passe par F
 # seulement si x_A n'est pas en F
 if (abs(x_A-x_O+f_p)>2**(-8) * delta_x):
     plt.plot([x_deb,x_O,x_fin],[(x_deb-x_O+f_p)/(f_p)*A_pB_p,A_pB_p,A_pB_p],'-g')
@@ -186,8 +185,6 @@ print(r"")
 print(r"")
 print(r"")
 print(r"\end{pspicture*}")
-
-
 
 plt.show()
 
