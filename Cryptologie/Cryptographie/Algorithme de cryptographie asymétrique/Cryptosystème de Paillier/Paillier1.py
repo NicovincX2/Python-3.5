@@ -12,7 +12,7 @@ def invmod(a, p, maxiter=1000000):
         raise ValueError('0 has no inverse mod %d' % p)
     r = a
     d = 1
-    for i in xrange(min(p, maxiter)):
+    for i in range(min(p, maxiter)):
         d = ((p // r + 1) * d) % p
         r = (d * a) % p
         if r == 1:
@@ -53,7 +53,7 @@ def generate_keypair(bits):
 
 def encrypt(pub, plain):
     while True:
-        r = primes.generate_prime(long(round(math.log(pub.n, 2))))
+        r = primes.generate_prime(int(round(math.log(pub.n, 2))))
         if r > 0 and r < pub.n:
             break
     x = pow(r, pub.n, pub.n_sq)
@@ -80,31 +80,31 @@ def decrypt(priv, pub, cipher):
 
 if __name__ == '__main__':
 
-    print "Generating keypair..."
+    print ("Generating keypair...")
     priv, pub = generate_keypair(512)
 
     x = 3
-    print "x =", x
-    print "Encrypting x..."
+    print ("x =", x)
+    print ("Encrypting x...")
     cx = encrypt(pub, x)
-    print "cx =", cx
+    print ("cx =", cx)
 
     y = 5
-    print "y =", y
-    print "Encrypting y..."
+    print ("y =", y)
+    print ("Encrypting y...")
     cy = encrypt(pub, y)
-    print "cy =", cy
+    print ("cy =", cy)
 
-    print "Computing cx + cy..."
+    print ("Computing cx + cy...")
     cz = e_add(pub, cx, cy)
-    print "cz =", cz
+    print ("cz =", cz)
 
-    print "Decrypting cz..."
+    print ("Decrypting cz...")
     z = decrypt(priv, pub, cz)
-    print "z =", z
+    print ("z =", z)
 
-    print "Computing decrypt((cz + 2) * 3) ..."
-    print "result =", decrypt(priv, pub,
-                          e_mul_const(pub, e_add_const(pub, cz, 2), 3))
+    print ("Computing decrypt((cz + 2) * 3) ...")
+    print ("result =", decrypt(priv, pub,
+                          e_mul_const(pub, e_add_const(pub, cz, 2), 3)))
 
 os.system("pause")

@@ -26,10 +26,10 @@ def caesar(plaintext,shift):
 
 #Example useage
 plaintext="the cat sat on the mat"
-print "Plaintext:", plaintext
-print "Cipertext:",caesar(plaintext,3)
+print ("Plaintext:", plaintext)
+print ("Cipertext:",caesar(plaintext,3))
 #This will result in:
 #Plaintext: the cat sat on the mat
 #Cipertext: wkh fdw vdw rq wkh pdw
- 
- os.system("pause")
+
+os.system("pause")

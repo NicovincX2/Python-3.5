@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+import os
+
 # https://github.com/bt3gl/My-Gray-Hacker-Resources/blob/patch-1/Cryptography/Rotation-Ciphers/cesarCipher_simple_2.py
 
 __author__ = "Mari Wahl"
@@ -34,8 +36,8 @@ def main():
     MESSAGE = 'jxu qdimuh je jxyi ijqwu yi qdimuhxuhu'
     for k in range (13, 14):
 
-    #encrypted_msg = encrypt(MESSAGE, k)
-    #print("Encrypted message: " + encrypted_msg)
+        encrypted_msg = encrypt(MESSAGE, k)
+        print("Encrypted message: " + encrypted_msg)
 
 
         decrypted_msg = decrypt(MESSAGE, k)
@@ -44,4 +46,4 @@ def main():
 if __name__ == '__main__':
     main()
 
- os.system("pause")
+os.system("pause")

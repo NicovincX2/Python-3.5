@@ -37,15 +37,15 @@ def taste_like_english(dict_mean, word):
 # count number of letters
 def count_letters(FILE):
     dict_letters = defaultdict(int)
-    with open(FILE) as file:
+    with open(FILE, 'rb') as file:
         for line in file:
             for word in line.lower().split():
                     for c in word:
                         if c!='!' and c!="," and c!="-" and c!="."\
-                         and c!=";" and chardet.detect(c)['encoding'] == 'ascii':
+                         and c!=";" and chardet.detect(bytes(c))['encoding'] == 'ascii':
                             dict_letters[c] += 1
     return dict_letters
- 
+
 # calculate the frequency for the letters
 def calculate_mean(dict_letters):
     dict_mean = defaultdict(float)
@@ -65,7 +65,7 @@ def test_file():
     dict_letters = count_letters(FILE)
     dict_mean = calculate_mean(dict_letters)
     for key in sorted(dict_mean, key=dict_mean.get, reverse=True):
-        print(key + ' --> ' + str(dict_mean[key]))
+        print(key , ' --> ' + str(dict_mean[key]))
 
 if __name__ == '__main__':
     test_values()
@@ -73,4 +73,4 @@ if __name__ == '__main__':
     FILE = 'Ariel_Sylvia_Plath.txt'
     test_file()
 
- os.system("pause")
+os.system("pause")

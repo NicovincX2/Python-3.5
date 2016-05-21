@@ -10,9 +10,9 @@ def gen_key(nbits=1024):
     return key
 
 def check_key(key):
-    print key.can_encrypt()
-    print key.can_sign()
-    print key.has_private()
+    print (key.can_encrypt())
+    print (key.can_sign())
+    print (key.has_private())
 
 def get_pubk(key):
     return key.publickey()
@@ -31,10 +31,10 @@ if __name__ == '__main__':
     public_key = get_pubk(key)
 
     text = 'abcdefgh'
-    enc_data = encrypt(public_key, text, random=32)
-    print enc_data
+    enc_data = encrypt(public_key, text.encode('utf-8'), random=32)
+    print (enc_data)
 
     dec_data = decrypt(enc_data)
-    print dec_data
+    print (dec_data)
 
 os.system("pause")

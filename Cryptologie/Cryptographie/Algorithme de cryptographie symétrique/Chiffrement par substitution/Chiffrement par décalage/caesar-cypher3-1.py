@@ -26,7 +26,7 @@ def decrypt(message, k):
     return decipher
 
 def main():
-    MESSAGE = list(raw_input('Enter the message to be encrypted: ')) or "all your basis belong to us"
+    MESSAGE = list(input('Enter the message to be encrypted: ')) or "all your basis belong to us"
     k = 13
 
     encrypted_msg = encrypt(MESSAGE, k)
@@ -34,9 +34,9 @@ def main():
 
 
     decrypted_msg = decrypt(encrypted_msg, k)
-    assert(decrypted_msg == MESSAGE)
+    print(decrypted_msg)
 
 if __name__ == '__main__':
     main()
 
- os.system("pause")
+os.system("pause")

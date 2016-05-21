@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 
 import os
+from random import randrange
 
 def DH_exchange(p):
     """ generates a shared DH key """
     g = randrange(1,p-1)
     a = randrange(1,p-1) # Alice's secret
     b = randrange(1,p-1) # Bob's secret
-    x = pow(g,a,p) 
+    x = pow(g,a,p)
     y = pow(g,b,p)
     key_A = pow(y,a,p)
     key_B = pow(x,b,p)
@@ -20,13 +21,11 @@ def crack_DH(p, g, x):
     """find secret "a" that satisfies g**a%p == x
     Not feasible for large p"""
     for a in range(1,p-1):
-        if a % 100000 == 0: 
+        if a % 100000 == 0:
             print("Iteration",a) # progress bar
         if pow(g,a,p) == x:
             return a
     return None
-
-from random import randrange
 
 def is_prime(p):
     """probabilistic test for p's compositeness"""
@@ -65,4 +64,3 @@ print('g',g,'a',a,'b',b,'x',x,'y',y,'key_A',key_A,'key_B',key_B)
 print('a',crack_DH(p,g,x))
 
 os.system("pause")
-

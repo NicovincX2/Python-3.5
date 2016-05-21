@@ -6,6 +6,7 @@ __author__ = "bt3"
 
 from Crypto.Cipher import DES
 from Crypto import Random
+import os
 
 iv = Random.get_random_bytes(8)
 
@@ -14,7 +15,7 @@ des2 = DES.new('01234567', DES.MODE_CFB, iv)
 text = 'abcdefghijklmnop'
 
 cipher_text = des1.encrypt(text)
-print cipher_text
-print des2.decrypt(cipher_text)
+print (cipher_text)
+print (des2.decrypt(cipher_text))
 
 os.system("pause")
