@@ -36,6 +36,6 @@ if __name__ == '__main__':
             begin = val*l
             end = begin + l
             txt.append(table[i][begin:end])
-        print(("".join(txt)))
+        print("".join(txt))
 
 os.system("pause")

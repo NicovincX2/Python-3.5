@@ -147,7 +147,7 @@ def write_drive_catalog_file(drive_path, drive_name, catalog_path, affichage):
     entries = paths_to_entries(file_paths, drive_name)   
     write_catalog_file_entries(catalog_path, entries, affichage)
 
-def write_master_catalog_file(catalog_paths, master_catalog_path):
+def write_master_catalog_file(catalog_paths, master_catalog_path, affichage):
     println("write_master_catalog_file %s" % master_catalog_path)
     master_entries = []
     for catalog_path in catalog_paths:
@@ -161,12 +161,12 @@ def sample():
     affichage = Affichage(int(input('Affichage du catalogue: [1] --> Programmes, Disques, Répertoires \n\t\t\t[2] --> Disques, Répertoires, Programmes \n ')), input('Afficher les fichiers README.md: [Yes/No]'))
     if (affichage.readme == 'No' or affichage.readme == 'no' or affichage.readme == 'N' or affichage.readme == 'n'):
         affichage.readme = 'n'
-    # write_drive_catalog_file("j:\\", "SANSA2_1G", r"c:\SANSA2_1G.txt")
+    # write_drive_catalog_file("j:\\", "SANSA2_1G", r"c:\SANSA2_1G.txt", affichage)
     write_drive_catalog_file("C:\Python35", "Python35", r"C:\Python35\Environnement Python\Python3_catalog.txt", affichage)
-    # write_master_catalog_file([r"C:\Python35\Python35drive.txt"], r"C:\Python35\Python35master.txt")
+    # write_master_catalog_file([r"C:\Python35\Python35drive.txt"], r"C:\Python35\Python35master.txt", affichage)
     entries = read_catalog_file_entries(r"C:\Python35\Environnement Python\Python3_catalog.txt")
     for entry in entries:
-        println(entry_to_line(entry))
+        println(entry_to_line(entry, affichage))
 
 if __name__ == "__main__":
     print (__file__)
