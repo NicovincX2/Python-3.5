@@ -1,4 +1,4 @@
-Programmes                                                                  Disque          Répertoires
+Programmes                                                                  Disques         Répertoires
 01 Binary Search.pdf                                                        Python35        \Python35\Algorithmique\Algorithme\Algorithme de recherche\Algorithme de recherche binaire ou dichotomique
 01a Analysis Of Algorithms.pdf                                              Python35        \Python35\Algorithmique\Analyse de la complexité des algorithmes
 02 O(n log n) Behavior.pdf                                                  Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri
@@ -27,6 +27,7 @@ Programmes                                                                  Disq
 18.max_path_sum0.dat                                                        Python35        \Python35\Project Euler
 18.maximum_path_sum.py                                                      Python35        \Python35\Project Euler
 19.count_sundays.py                                                         Python35        \Python35\Project Euler
+1qlz.pdb                                                                    Python35        \Python35\Informatique\Bio-informatique
 2.sum_fib_numbers.py                                                        Python35        \Python35\Project Euler
 20.fact_digits_sum.py                                                       Python35        \Python35\Project Euler
 21.amicable_numbers_sum.py                                                  Python35        \Python35\Project Euler
@@ -98,6 +99,7 @@ ARC4.py                                                                     Pyth
 arc_en_ciel_turtle.py                                                       Python35        \Python35\Physique\Optique\Optique géométrique
 ard_ols.py                                                                  Python35        \Python35\Statistiques\Estimation (statistique)\Régression
 Ariel_Sylvia_Plath.txt                                                      Python35        \Python35\Cryptologie\Cryptanalyse\Analyse fréquentielle
+Ariel_Sylvia_Plath.txt                                                      Python35        \Python35\Cryptologie\Cryptographie\Algorithme de cryptographie symétrique\Chiffrement par substitution
 arith_geom_mean.py                                                          Python35        \Python35\Analyse (mathématiques)\Moyenne
 arith_geom_mean_multi-precision.py                                          Python35        \Python35\Analyse (mathématiques)\Moyenne
 arithmetic_expression_evaluation.py                                         Python35        \Python35\Théorie des nombres\Arithmétique\Opération arithmétique
@@ -173,7 +175,6 @@ bridge_test.py                                                              Pyth
 brown.py                                                                    Python35        \Python35\Probabilités\Processus stochastique\Mouvement Brownien
 brownian_tree.py                                                            Python35        \Python35\Géométrie\Fractales
 Brute_force_hexdigest_chars-example.py                                      Python35        \Python35\Cryptologie\Hachage\Algorithme de hachage\Fonction de hachage cryptographique\Message Digest (MD)\MD5
-brute_force_rotation.py                                                     Python35        \Python35\Cryptologie\Cryptanalyse\Attaque par force brute
 bst.py                                                                      Python35        \Python35\Algorithmique\Structure de données\Arbre (structure de données)\Arbre binaire\Arbre binaire de recherche
 bubble_sort.py                                                              Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri\Tri à bulles
 bubble_sort_improved.py                                                     Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri\Tri à bulles
@@ -184,7 +185,6 @@ bulls_cows_sol.py                                                           Pyth
 burger.py                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse à plusieurs variables\Équation aux dérivées partielles\Équation en dynamique des fluides\Équation de Burger
 burgervisc.py                                                               Python35        \Python35\Analyse (mathématiques)\Analyse à plusieurs variables\Équation aux dérivées partielles\Équation en dynamique des fluides\Équation de Burger
 bêta.py                                                                     Python35        \Python35\Probabilités\Loi de probabilité
-caesar-cypher1.py                                                           Python35        \Python35\Cryptologie\Cryptographie\Algorithme de cryptographie symétrique\Chiffrement par substitution\Chiffrement par décalage
 caesar-cypher2.py                                                           Python35        \Python35\Cryptologie\Cryptographie\Algorithme de cryptographie symétrique\Chiffrement par substitution\Chiffrement par décalage
 caesar-cypher3-1.py                                                         Python35        \Python35\Cryptologie\Cryptographie\Algorithme de cryptographie symétrique\Chiffrement par substitution\Chiffrement par décalage
 caesar-cypher3-2.py                                                         Python35        \Python35\Cryptologie\Cryptographie\Algorithme de cryptographie symétrique\Chiffrement par substitution\Chiffrement par décalage
@@ -274,6 +274,8 @@ cycle_de_carnot_reel_et_GP.py                                               Pyth
 damped_harm_osc.py                                                          Python35        \Python35\Physique\Mouvement\Dynamique\Systèmes oscillants\Oscillateur harmonique
 damped_pendulum.py                                                          Python35        \Python35\Physique\Mouvement\Dynamique\Systèmes oscillants\Pendule
 damped_pendulum_phase_portrait.py                                           Python35        \Python35\Physique\Mouvement\Dynamique\Systèmes oscillants\Pendule
+de_polignac_factorielle.py                                                  Python35        \Python35\Théorie des nombres
+decimal_to_base-n.py                                                        Python35        \Python35\Théorie des nombres\Nombre\Numération\Système de numération
 decision_tree_regression.py                                                 Python35        \Python35\Statistiques\Estimation (statistique)\Régression\Arbre de décision
 decision_tree_regression_adaboost.py                                        Python35        \Python35\Statistiques\Estimation (statistique)\Régression\Arbre de décision
 decision_trees.py                                                           Python35        \Python35\Statistiques\Science des données\Exploration de données
@@ -294,6 +296,7 @@ DES_(ECB)-example.py                                                        Pyth
 desktop.ini                                                                 Python35        \Python35
 determine_numerical_value_string.py                                         Python35        \Python35\Algorithmique\Type de donnée\Chaîne de caractères\Convertir une chaîne de caractères
 dft.py                                                                      Python35        \Python35\Analyse (mathématiques)\Analyse fonctionnelle\Analyse harmonique\Théorie de Fourier\Transformation de Fourier discrète (DFT)
+dft1.py                                                                     Python35        \Python35\Analyse (mathématiques)\Analyse fonctionnelle\Analyse harmonique\Théorie de Fourier\Transformation de Fourier discrète (DFT)
 DH_exchange-crack.py                                                        Python35        \Python35\Cryptologie\Cryptographie\Protocole cryptographique
 diagramme_Ph_coolprop.py                                                    Python35        \Python35\Chimie\Thermodynamique\Diagramme thermodynamique
 diagramme_Ph_coolprop_Fessenheim.py                                         Python35        \Python35\Chimie\Thermodynamique\Diagramme thermodynamique
@@ -336,7 +339,7 @@ earthQ_map_fin.py                                                           Pyth
 earthQ_map_magnitude.py                                                     Python35        \Python35\Cartes\Earthquake
 earthQ_map_magnitude_color.py                                               Python35        \Python35\Cartes\Earthquake
 earthQ_parse.py                                                             Python35        \Python35\Cartes\Earthquake
-eartquake_data.csv                                                          Python35        \Python35\Cartes\Earthquake
+earthquake_data.csv                                                         Python35        \Python35\Cartes\Earthquake
 eccentric_orbits_compare.py                                                 Python35        \Python35\Analyse (mathématiques)\Analyse fonctionnelle\Équation différentielle\Orbite
 ed25519.py                                                                  Python35        \Python35\Cryptologie\Cryptographie\Algorithme de cryptographie asymétrique
 ellPDE_main.py                                                              Python35        \Python35\Analyse (mathématiques)\Analyse à plusieurs variables\Équation aux dérivées partielles\Équation aux dérivées partielles elliptiques
@@ -366,6 +369,7 @@ exclusive_or.py                                                             Pyth
 exp_rap_it-rec.py                                                           Python35        \Python35\Algorithmique\Algorithme
 exponential_distr.py                                                        Python35        \Python35\Probabilités\Loi de probabilité
 exponentiation_order_example.py                                             Python35        \Python35\Théorie des nombres\Arithmétique\Opération arithmétique
+extended_euclidean_algorithm.py                                             Python35        \Python35\Algorithmique\Algorithme\Algorithme numérique\Algorithme d'Euclide étendu
 extended_gcd.py                                                             Python35        \Python35\Algorithmique\Algorithme\Algorithme numérique\Algorithme d'Euclide étendu
 facade.py                                                                   Python35        \Python35\Génie logiciel\Architecture logicielle\Patron de conception\Patron de structure
 fact.py                                                                     Python35        \Python35\Algorithmique\Mathématiques discrètes\Combinatoire
@@ -432,6 +436,7 @@ floyd_warshall.py                                                           Pyth
 Flux_qubit_wavefunctions.py                                                 Python35        \Python35\Physique\Physique quantique\Mécanique quantique\Fonction d'onde
 flyweight.py                                                                Python35        \Python35\Génie logiciel\Architecture logicielle\Patron de conception\Patron de structure
 flyweight_test.py                                                           Python35        \Python35\Génie logiciel\Architecture logicielle\Patron de conception\Patron de structure
+fps_precis.py                                                               Python35        \Python35\Divers
 freq_filter.py                                                              Python35        \Python35\Analyse (mathématiques)\Analyse fonctionnelle\Analyse harmonique\Théorie de Fourier\Transformation de Fourier rapide (FFT)
 FreqOfCheaters.py                                                           Python35        \Python35\Divers
 Frequency-English.py                                                        Python35        \Python35\Cryptologie\Cryptanalyse\Analyse fréquentielle
@@ -481,6 +486,7 @@ graph_search.py                                                             Pyth
 graph_test.py                                                               Python35        \Python35\Algorithmique\Mathématiques discrètes\Théorie des graphes
 Grapheur de fonctions mathématiques.py                                      Python35        \Python35\Analyse (mathématiques)\Fonction\Traceur de fonction
 greyscale_bars_display.py                                                   Python35        \Python35\Représentations graphiques
+guess_number_computer.py                                                    Python35        \Python35\Problèmes divers\Guess the number
 guess_number_sol.py                                                         Python35        \Python35\Problèmes divers\Guess the number
 guess_number_sol_bisect.py                                                  Python35        \Python35\Problèmes divers\Guess the number
 guess_the_number.py                                                         Python35        \Python35\Problèmes divers\Guess the number
@@ -511,6 +517,7 @@ heighway.py                                                                 Pyth
 hello_word_pygame.py                                                        Python35        \Python35\Animation
 hello_word_tkinter.py                                                       Python35        \Python35\Animation
 heron.py                                                                    Python35        \Python35\Algorithmique\Algorithme\Algorithme numérique\Algorithme de recherche d'un zéro d'une fonction
+hex_dump.py                                                                 Python35        \Python35\Informatique\Base de données
 hilbert_gauss_test.py                                                       Python35        \Python35\Analyse (mathématiques)\Analyse numérique\Analyse numérique matricielle\Élimination de Gauss-Jordan (Pivot de Gauss)
 hillis.py                                                                   Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Coevolution
 hinton_diagram.py                                                           Python35        \Python35\Statistiques\Science des données\Apprentissage automatique\Réseau de neurones artificiels
@@ -591,6 +598,7 @@ least_square_fitting.py                                                     Pyth
 legendre.py                                                                 Python35        \Python35\Algèbre\Algèbre linéaire\Polynôme\Polynôme remarquable\Polynôme de Legendre
 leibniz_pi.py                                                               Python35        \Python35\Analyse (mathématiques)\Suite\Série (mathématiques)\Série alternée
 lentilles_construction_graphique.py                                         Python35        \Python35\Physique\Optique\Lentille optique
+levenshtein.py                                                              Python35        \Python35\Algorithmique\Mathématiques discrètes\Théorie de l'information\Théorie des codes\Distance de Levenshtein
 LICENSE.md                                                                  Python35        \Python35
 lignes_champ_magnetique.py                                                  Python35        \Python35\Physique\Électromagnétisme\Magnétisme
 linear_fit.py                                                               Python35        \Python35\Statistiques\Estimation (statistique)\Régression\Régression linéaire
@@ -619,6 +627,7 @@ lz77.py                                                                     Pyth
 LZW.py                                                                      Python35        \Python35\Algorithmique\Algorithme\Algorithme de compression\Algorithme de compression sans perte
 mandelbrot.py                                                               Python35        \Python35\Géométrie\Fractales
 mandelbrot1.py                                                              Python35        \Python35\Géométrie\Fractales
+mandelbrot2.py                                                              Python35        \Python35\Géométrie\Fractales
 mathematical.cpython-34.pyc                                                 Python35        \Python35\Algèbre\Algèbre linéaire\Matrice\Exponentielle d'une matrice\__pycache__
 mathematical.py                                                             Python35        \Python35\Algèbre\Algèbre linéaire\Matrice\Exponentielle d'une matrice
 mathematical_test.py                                                        Python35        \Python35\Algèbre\Algèbre linéaire\Matrice\Exponentielle d'une matrice
@@ -689,6 +698,7 @@ multiplication_table.py                                                     Pyth
 multiswarm.py                                                               Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Optimisation par essaims particulaires\Moving Peaks Benchmark with Multiswarm PSO
 mvc.py                                                                      Python35        \Python35\Génie logiciel\Architecture logicielle\Patron de conception\Patron de structure
 naive insertInPlace.py                                                      Python35        \Python35\Algorithmique\Algorithme\Algorithme de recherche\Algorithme de recherche binaire ou dichotomique
+nb_carre_parfait.py                                                         Python35        \Python35\Théorie des nombres\Arithmétique
 nb_catalan.py                                                               Python35        \Python35\Algorithmique\Mathématiques discrètes\Combinatoire\Nombre de Catalan
 nb_catalan_3methods.py                                                      Python35        \Python35\Algorithmique\Mathématiques discrètes\Combinatoire\Nombre de Catalan
 neural_networks.py                                                          Python35        \Python35\Statistiques\Science des données\Apprentissage automatique\Réseau de neurones artificiels
@@ -776,6 +786,7 @@ perm_it.py                                                                  Pyth
 perm_rec.py                                                                 Python35        \Python35\Algorithmique\Mathématiques discrètes\Combinatoire\Permutation
 perm_rec1.py                                                                Python35        \Python35\Algorithmique\Mathématiques discrètes\Combinatoire\Permutation
 permutation.py                                                              Python35        \Python35\Algorithmique\Mathématiques discrètes\Combinatoire\Permutation
+permutation_nb_inversions.py                                                Python35        \Python35\Algorithmique\Mathématiques discrètes\Combinatoire\Permutation
 permutation_repetitions.py                                                  Python35        \Python35\Algorithmique\Mathématiques discrètes\Combinatoire\Permutation avec répétition
 permutations1.py                                                            Python35        \Python35\Algorithmique\Mathématiques discrètes\Combinatoire\Permutation
 persistent_queue.py                                                         Python35        \Python35\Environnement Python\Python\Structure de données
@@ -807,7 +818,10 @@ prim_bheap.py                                                               Pyth
 primality_test.cpython-34.pyc                                               Python35        \Python35\Théorie des nombres\Arithmétique\Théorie algébrique des nombres\Arithmétique modulaire\Algorithme de factorisation des entiers\__pycache__
 primality_test.py                                                           Python35        \Python35\Théorie des nombres\Arithmétique\Théorie algébrique des nombres\Arithmétique modulaire\Algorithme de factorisation des entiers
 primality_test.py                                                           Python35        \Python35\Théorie des nombres\Nombre premier\Test de primalité
+prime_factors.py                                                            Python35        \Python35\Théorie des nombres\Nombre premier
 prime_theorem.py                                                            Python35        \Python35\Théorie des nombres\Nombre premier\Test de primalité\Test de primalité de Fermat
+primes.cpython-35.pyc                                                       Python35        \Python35\Cryptologie\Cryptographie\Algorithme de cryptographie asymétrique\Cryptosystème de Paillier\__pycache__
+primes.py                                                                   Python35        \Python35\Cryptologie\Cryptographie\Algorithme de cryptographie asymétrique\Cryptosystème de Paillier
 primes.py                                                                   Python35        \Python35\Théorie des nombres\Nombre premier
 principe_de_superposition_lineaire.py                                       Python35        \Python35\Physique\Physique quantique\Mécanique quantique
 print_python.py                                                             Python35        \Python35\3D-ASCII
@@ -816,12 +830,15 @@ probleme_du_chien.py                                                        Pyth
 prod_mat_ord-bloc.py                                                        Python35        \Python35\Algèbre\Algèbre linéaire\Matrice\Produit matriciel
 project_merge.py                                                            Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri\Tri par fusion (Merge sort)
 projectile_motion.py                                                        Python35        \Python35\Physique\Mouvement
+protein_visualization.py                                                    Python35        \Python35\Informatique\Bio-informatique
 prototype.py                                                                Python35        \Python35\Génie logiciel\Architecture logicielle\Patron de conception\Patron de création
 proxy.py                                                                    Python35        \Python35\Génie logiciel\Architecture logicielle\Patron de conception\Patron de structure
+public_key_encryption_RSA.py                                                Python35        \Python35\Cryptologie\Cryptographie\Algorithme de cryptographie asymétrique\Chiffrement RSA
 publish_subscribe.py                                                        Python35        \Python35\Génie logiciel\Architecture logicielle\Patron de conception\Patron de comportement
 publish_subscribe_test.py                                                   Python35        \Python35\Génie logiciel\Architecture logicielle\Patron de conception\Patron de comportement
 py4phys.pdf                                                                 Python35        \Python35\Physique
 pygenere.py                                                                 Python35        \Python35\Cryptologie\Cryptographie\Algorithme de cryptographie symétrique\Chiffrement par substitution
+Python3_catalog.txt                                                         Python35        \Python35\Environnement Python
 quad_rules.py                                                               Python35        \Python35\Analyse (mathématiques)\Analyse numérique\Intégration numérique
 quasi-cristal.py                                                            Python35        \Python35\Géométrie
 quaternion_implementation.py                                                Python35        \Python35\Théorie des nombres\Nombre\Nombre hypercomplexe
@@ -845,607 +862,18 @@ ransac.py                                                                   Pyth
 rayleigh_distr_mle.py                                                       Python35        \Python35\Probabilités\Loi de probabilité
 reaction_diffusion.py                                                       Python35        \Python35\Analyse (mathématiques)\Analyse à plusieurs variables\Équation aux dérivées partielles\Système à réaction-diffusion
 reaction_diffusion_numpy.py                                                 Python35        \Python35\Analyse (mathématiques)\Analyse à plusieurs variables\Équation aux dérivées partielles\Système à réaction-diffusion
-README.md                                                                   Python35        \Python35
-README.md                                                                   Python35        \Python35\3D-ASCII
-README.md                                                                   Python35        \Python35\Algorithmique
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme d'ordonnancement
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de calcul de la n-eme décimale de π
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de compression
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de compression\Algorithme de compression sans perte
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de compression\Algorithme de compression sans perte\Codage entropique
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de la théorie des graphes
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de la théorie des graphes\Algorithme A étoile
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de la théorie des graphes\Algorithme de Bellman-Ford
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de la théorie des graphes\Algorithme de Dijkstra
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de la théorie des graphes\Algorithme de Floyd-Warshall
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de la théorie des graphes\Algorithme de Johnson
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de la théorie des graphes\Algorithme de parcours en largeur
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de la théorie des graphes\Algorithme de parcours en profondeur
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de la théorie des graphes\Algorithme de Prim
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de la théorie des graphes\Modélisation mathématique d'un labyrinthe
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de la théorie des graphes\Problèmes de cheminement
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de la théorie des graphes\Tri topologique
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de partitionnement de données
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de recherche
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de recherche\Algorithme de recherche binaire ou dichotomique
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de sélection
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de sélection\Médiane des médianes
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de sélection\Quickselect
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri\Tri cocktail
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri\Tri comptage
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri\Tri de Shell
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri\Tri par fusion (Merge sort)
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri\Tri par insertion
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri\Tri par paquets
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri\Tri par sélection
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri\Tri par tas (Heapsort)
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri\Tri rapide (Quicksort)
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri\Tri stupide
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri\Tri à bulles
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri\Tri à peigne
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme numérique
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme numérique\Algorithme d'Euclide
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme numérique\Algorithme d'Euclide étendu
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme numérique\Algorithme de Karatsuba
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme numérique\Algorithme de recherche d'un zéro d'une fonction
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme numérique\Algorithme de Schönhage-Strassen
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme numérique\Méthode de Ruffini-Horner
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme sur les chaînes de caractères
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme sur les chaînes de caractères\Algorithme de Boyer-Moore-Horspool (BMH)
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme sur les chaînes de caractères\Algorithme de Knuth-Morris-Pratt
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme sur les chaînes de caractères\Algorithme de Rabin-Karp
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme sur les chaînes de caractères\Algorithme de recherche de sous-chaîne
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Algorithme sur les chaînes de caractères\Plus longue sous-chaîne commune
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Détection et correction d'erreur
-README.md                                                                   Python35        \Python35\Algorithmique\Algorithme\Détection et correction d'erreur\Distance de Hamming
-README.md                                                                   Python35        \Python35\Algorithmique\Analyse de la complexité des algorithmes
-README.md                                                                   Python35        \Python35\Algorithmique\Mathématiques discrètes
-README.md                                                                   Python35        \Python35\Algorithmique\Mathématiques discrètes\Combinatoire
-README.md                                                                   Python35        \Python35\Algorithmique\Mathématiques discrètes\Combinatoire\Anagramme
-README.md                                                                   Python35        \Python35\Algorithmique\Mathématiques discrètes\Combinatoire\Coefficient binomial
-README.md                                                                   Python35        \Python35\Algorithmique\Mathématiques discrètes\Combinatoire\Combinaison
-README.md                                                                   Python35        \Python35\Algorithmique\Mathématiques discrètes\Combinatoire\Combinaison avec répétition
-README.md                                                                   Python35        \Python35\Algorithmique\Mathématiques discrètes\Combinatoire\Matrice de Pascal
-README.md                                                                   Python35        \Python35\Algorithmique\Mathématiques discrètes\Combinatoire\Nombre de Catalan
-README.md                                                                   Python35        \Python35\Algorithmique\Mathématiques discrètes\Combinatoire\Permutation
-README.md                                                                   Python35        \Python35\Algorithmique\Mathématiques discrètes\Combinatoire\Permutation aléatoire
-README.md                                                                   Python35        \Python35\Algorithmique\Mathématiques discrètes\Combinatoire\Permutation aléatoire\Mélange de Fisher-Yates
-README.md                                                                   Python35        \Python35\Algorithmique\Mathématiques discrètes\Combinatoire\Permutation avec répétition
-README.md                                                                   Python35        \Python35\Algorithmique\Mathématiques discrètes\Combinatoire\Solitaire (casse-tête)
-README.md                                                                   Python35        \Python35\Algorithmique\Mathématiques discrètes\Combinatoire\Triangle de Pascal
-README.md                                                                   Python35        \Python35\Algorithmique\Mathématiques discrètes\Théorie de l'information
-README.md                                                                   Python35        \Python35\Algorithmique\Mathématiques discrètes\Théorie de l'information\Théorie des codes
-README.md                                                                   Python35        \Python35\Algorithmique\Mathématiques discrètes\Théorie de l'information\Théorie des codes\Distance de Levenshtein
-README.md                                                                   Python35        \Python35\Algorithmique\Mathématiques discrètes\Théorie des graphes
-README.md                                                                   Python35        \Python35\Algorithmique\Mathématiques discrètes\Théorie des graphes\Graphe Eulérien
-README.md                                                                   Python35        \Python35\Algorithmique\Mathématiques discrètes\Théorie des graphes\Graphe non orienté
-README.md                                                                   Python35        \Python35\Algorithmique\Mathématiques discrètes\Théorie des graphes\Graphe orienté
-README.md                                                                   Python35        \Python35\Algorithmique\Mathématiques discrètes\Théorie des graphes\Structure de données en théorie des graphes
-README.md                                                                   Python35        \Python35\Algorithmique\Optimisation
-README.md                                                                   Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation
-README.md                                                                   Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique
-README.md                                                                   Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Algorithme génétique
-README.md                                                                   Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Algorithme génétique\Multi-objective optimization
-README.md                                                                   Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Algorithme génétique\Méthode des k plus proches voisins
-README.md                                                                   Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Algorithme génétique\One max problem
-README.md                                                                   Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Algorithme génétique\Problème du sac à dos
-README.md                                                                   Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Algorithme génétique\Problème du voyageur de commerce
-README.md                                                                   Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Algorithme génétique\Réseau de tri
-README.md                                                                   Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Algorithme à estimation de distribution
-README.md                                                                   Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Algorithme à évolution différentielle
-README.md                                                                   Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Coevolution
-README.md                                                                   Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Coevolution\Cooperative coevolution
-README.md                                                                   Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Optimisation par essaims particulaires
-README.md                                                                   Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Optimisation par essaims particulaires\Moving Peaks Benchmark with Multiswarm PSO
-README.md                                                                   Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Optimisation par essaims particulaires\Particle Swarm Optimization Basics
-README.md                                                                   Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Programmation génétique
-README.md                                                                   Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Programmation génétique\Artificial Ant Problem
-README.md                                                                   Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Programmation génétique\Even-Parity Problem
-README.md                                                                   Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Programmation génétique\Multiplexer 3-8 Problem
-README.md                                                                   Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Programmation génétique\Spambase Problem
-README.md                                                                   Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Programmation génétique\Symbolic Regression Problem
-README.md                                                                   Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Stratégie d'évolution
-README.md                                                                   Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Stratégie d'évolution\Controlling the Stopping Criteria (BI-POP CMA-ES)
-README.md                                                                   Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Stratégie d'évolution\Covariance Matrix Adaptation Evolution Strategy
-README.md                                                                   Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Stratégie d'évolution\Evolution Strategies Basics
-README.md                                                                   Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Stratégie d'évolution\One Fifth Rule
-README.md                                                                   Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Stratégie d'évolution\Plotting Important Data (Visualizing the CMA Strategy)
-README.md                                                                   Python35        \Python35\Algorithmique\Problème algorithmique
-README.md                                                                   Python35        \Python35\Algorithmique\Problème algorithmique\Plus longue sous-suite strictement croissante
-README.md                                                                   Python35        \Python35\Algorithmique\Structure de données
-README.md                                                                   Python35        \Python35\Algorithmique\Structure de données\Arbre (structure de données)
-README.md                                                                   Python35        \Python35\Algorithmique\Structure de données\Arbre (structure de données)\Arbre binaire
-README.md                                                                   Python35        \Python35\Algorithmique\Structure de données\Arbre (structure de données)\Arbre binaire\Arbre binaire de recherche
-README.md                                                                   Python35        \Python35\Algorithmique\Structure de données\Arbre (structure de données)\Arbre kd
-README.md                                                                   Python35        \Python35\Algorithmique\Structure de données\Arbre (structure de données)\Trie (informatique)
-README.md                                                                   Python35        \Python35\Algorithmique\Structure de données\Table de hachage
-README.md                                                                   Python35        \Python35\Algorithmique\Structure de données\Tableau
-README.md                                                                   Python35        \Python35\Algorithmique\Structure de données\Tableau\Tableau des suffixes
-README.md                                                                   Python35        \Python35\Algorithmique\Structure de données\Tas (Heap)
-README.md                                                                   Python35        \Python35\Algorithmique\Structure de données\Tas binaire
-README.md                                                                   Python35        \Python35\Algorithmique\Structure de données\Union-Find
-README.md                                                                   Python35        \Python35\Algorithmique\Type de donnée
-README.md                                                                   Python35        \Python35\Algorithmique\Type de donnée\Chaîne de caractères
-README.md                                                                   Python35        \Python35\Algorithmique\Type de donnée\Chaîne de caractères\Concaténation
-README.md                                                                   Python35        \Python35\Algorithmique\Type de donnée\Chaîne de caractères\Convertir une chaîne de caractères
-README.md                                                                   Python35        \Python35\Algorithmique\Type de donnée\Chaîne de caractères\Inverse d'une chaîne de caractère
-README.md                                                                   Python35        \Python35\Algorithmique\Type de donnée\Liste
-README.md                                                                   Python35        \Python35\Algèbre
-README.md                                                                   Python35        \Python35\Algèbre\Algèbre générale
-README.md                                                                   Python35        \Python35\Algèbre\Algèbre linéaire
-README.md                                                                   Python35        \Python35\Algèbre\Algèbre linéaire\Matrice
-README.md                                                                   Python35        \Python35\Algèbre\Algèbre linéaire\Matrice\Exponentielle d'une matrice
-README.md                                                                   Python35        \Python35\Algèbre\Algèbre linéaire\Matrice\Matrice inversible
-README.md                                                                   Python35        \Python35\Algèbre\Algèbre linéaire\Matrice\Matrice remarquable
-README.md                                                                   Python35        \Python35\Algèbre\Algèbre linéaire\Matrice\Matrice tridiagonale
-README.md                                                                   Python35        \Python35\Algèbre\Algèbre linéaire\Matrice\Produit matriciel
-README.md                                                                   Python35        \Python35\Algèbre\Algèbre linéaire\Matrice\Sous-matrice
-README.md                                                                   Python35        \Python35\Algèbre\Algèbre linéaire\Polynôme
-README.md                                                                   Python35        \Python35\Algèbre\Algèbre linéaire\Polynôme\Polynôme remarquable
-README.md                                                                   Python35        \Python35\Algèbre\Algèbre linéaire\Polynôme\Polynôme remarquable\Polynôme de Legendre
-README.md                                                                   Python35        \Python35\Algèbre\Algèbre linéaire\Polynôme\Polynôme remarquable\Polynôme de Tchebychev
-README.md                                                                   Python35        \Python35\Algèbre\Algèbre linéaire\Polynôme\Équation polynomiale
-README.md                                                                   Python35        \Python35\Algèbre\Algèbre linéaire\Polynôme\Équation polynomiale\Équation du second degré
-README.md                                                                   Python35        \Python35\Algèbre\Géométrie algébrique
-README.md                                                                   Python35        \Python35\Algèbre\Géométrie algébrique\Motif (géométrie algébrique)
-README.md                                                                   Python35        \Python35\Algèbre\Opération
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse fonctionnelle
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse fonctionnelle\Analyse harmonique
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse fonctionnelle\Analyse harmonique\Théorie de Fourier
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse fonctionnelle\Analyse harmonique\Théorie de Fourier\Transformation de Fourier discrète (DFT)
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse fonctionnelle\Analyse harmonique\Théorie de Fourier\Transformation de Fourier rapide (FFT)
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse fonctionnelle\Équation différentielle
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse fonctionnelle\Équation différentielle\Equations of motion of a pendulum
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse fonctionnelle\Équation différentielle\Orbite
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse fonctionnelle\Équation différentielle\Simple pendulum solver
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse fonctionnelle\Équation différentielle\Équation différentielle raide
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse numérique
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse numérique\Analyse numérique matricielle
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse numérique\Analyse numérique matricielle\Factorisation de Cholesky
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse numérique\Analyse numérique matricielle\Méthode de Gauss-Seidel
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse numérique\Analyse numérique matricielle\Élimination de Gauss-Jordan (Pivot de Gauss)
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse numérique\Conditionnement
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse numérique\Différentiation numérique
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse numérique\Extrapolation de Richardson
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse numérique\Interpolation numérique
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse numérique\Interpolation numérique\Interpolation polynomiale
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse numérique\Interpolation numérique\Interpolation polynomiale\Interpolation lagrangienne
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse numérique\Interpolation numérique\Interpolation spatiale
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse numérique\Interpolation numérique\Spline
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse numérique\Interpolation numérique\Spline\Spline cubique d'Hermite
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse numérique\Intégration numérique
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse numérique\Intégration numérique\Méthode de Gauss-Legendre
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse numérique\Intégration numérique\Méthode de Simpson
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse numérique\Intégration numérique\Méthode des trapèzes
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse numérique\Intégration numérique\Méthode du point médian
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse numérique\Équations différentielles numériques
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse numérique\Équations différentielles numériques\Méthode des différences finies
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse numérique\Équations différentielles numériques\Schéma de Lax-Wendroff
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse à plusieurs variables
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse à plusieurs variables\Analyse vectorielle
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse à plusieurs variables\Analyse vectorielle\Champ de vecteurs
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse à plusieurs variables\Équation aux dérivées partielles
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse à plusieurs variables\Équation aux dérivées partielles\Système à réaction-diffusion
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse à plusieurs variables\Équation aux dérivées partielles\Équation aux dérivées partielles elliptiques
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse à plusieurs variables\Équation aux dérivées partielles\Équation de Laplace
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse à plusieurs variables\Équation aux dérivées partielles\Équation de Poisson
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse à plusieurs variables\Équation aux dérivées partielles\Équation en dynamique des fluides
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse à plusieurs variables\Équation aux dérivées partielles\Équation en dynamique des fluides\Advection
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse à plusieurs variables\Équation aux dérivées partielles\Équation en dynamique des fluides\Équation de Burger
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Dérivée
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Fonction
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Fonction remarquable
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Fonction remarquable\Fonction d'Ackermann
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Fonction remarquable\Fonction d'Airy
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Fonction remarquable\Fonction de Bessel
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Fonction remarquable\Fonction de référence
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Fonction remarquable\Fonction de référence\Fonction carré (Square function)
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Fonction\Traceur de fonction
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Moyenne
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Suite
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Suite\Suite de nombres
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Suite\Suite de nombres\Suite d'entiers
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Suite\Suite de nombres\Suite d'entiers\Suite de Fibonacci
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Suite\Série (mathématiques)
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Suite\Série (mathématiques)\Série alternée
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Suite\Série (mathématiques)\Série divergente
-README.md                                                                   Python35        \Python35\Analyse (mathématiques)\Suite\Série (mathématiques)\Série divergente\Série harmonique
-README.md                                                                   Python35        \Python35\Animation
-README.md                                                                   Python35        \Python35\Animation\Illustration de sinus et cosinus
-README.md                                                                   Python35        \Python35\Audio - vidéo
-README.md                                                                   Python35        \Python35\Cartes
-README.md                                                                   Python35        \Python35\Cartes\Earthquake
-README.md                                                                   Python35        \Python35\Chimie
-README.md                                                                   Python35        \Python35\Chimie\Chimie physique
-README.md                                                                   Python35        \Python35\Chimie\Chimie physique\Cinétique chimique
-README.md                                                                   Python35        \Python35\Chimie\Thermodynamique
-README.md                                                                   Python35        \Python35\Chimie\Thermodynamique\Diagramme thermodynamique
-README.md                                                                   Python35        \Python35\Chimie\Thermodynamique\Thermochimie
-README.md                                                                   Python35        \Python35\Chimie\Thermodynamique\Thermochimie\Thermodynamique chimique
-README.md                                                                   Python35        \Python35\Chimie\Thermodynamique\Transformation thermodynamique
-README.md                                                                   Python35        \Python35\Chimie\Thermodynamique\Transformation thermodynamique\Cycle thermodynamique
-README.md                                                                   Python35        \Python35\Cryptologie
-README.md                                                                   Python35        \Python35\Cryptologie\Cryptanalyse
-README.md                                                                   Python35        \Python35\Cryptologie\Cryptanalyse\Analyse fréquentielle
-README.md                                                                   Python35        \Python35\Cryptologie\Cryptanalyse\Attaque par force brute
-README.md                                                                   Python35        \Python35\Cryptologie\Cryptographie
-README.md                                                                   Python35        \Python35\Cryptologie\Cryptographie\Algorithme de cryptographie asymétrique
-README.md                                                                   Python35        \Python35\Cryptologie\Cryptographie\Algorithme de cryptographie asymétrique\Chiffrement RSA
-README.md                                                                   Python35        \Python35\Cryptologie\Cryptographie\Algorithme de cryptographie asymétrique\Cryptosystème de Paillier
-README.md                                                                   Python35        \Python35\Cryptologie\Cryptographie\Algorithme de cryptographie symétrique
-README.md                                                                   Python35        \Python35\Cryptologie\Cryptographie\Algorithme de cryptographie symétrique\Algorithme de chiffrement par bloc
-README.md                                                                   Python35        \Python35\Cryptologie\Cryptographie\Algorithme de cryptographie symétrique\Algorithme de chiffrement par bloc\Advanced Encryption Standard (AES)
-README.md                                                                   Python35        \Python35\Cryptologie\Cryptographie\Algorithme de cryptographie symétrique\Algorithme de chiffrement par bloc\Data Encryption Standard (DES)
-README.md                                                                   Python35        \Python35\Cryptologie\Cryptographie\Algorithme de cryptographie symétrique\Algorithme de chiffrement par flot
-README.md                                                                   Python35        \Python35\Cryptologie\Cryptographie\Algorithme de cryptographie symétrique\Chiffrement par substitution
-README.md                                                                   Python35        \Python35\Cryptologie\Cryptographie\Algorithme de cryptographie symétrique\Chiffrement par substitution\Chiffre de Vigenère
-README.md                                                                   Python35        \Python35\Cryptologie\Cryptographie\Algorithme de cryptographie symétrique\Chiffrement par substitution\Chiffrement par décalage
-README.md                                                                   Python35        \Python35\Cryptologie\Cryptographie\Algorithme de cryptographie symétrique\ROT13
-README.md                                                                   Python35        \Python35\Cryptologie\Cryptographie\Protocole cryptographique
-README.md                                                                   Python35        \Python35\Cryptologie\Hachage
-README.md                                                                   Python35        \Python35\Cryptologie\Hachage\Algorithme de hachage
-README.md                                                                   Python35        \Python35\Cryptologie\Hachage\Algorithme de hachage\Fonction de hachage cryptographique
-README.md                                                                   Python35        \Python35\Cryptologie\Hachage\Algorithme de hachage\Fonction de hachage cryptographique\Message Digest (MD)
-README.md                                                                   Python35        \Python35\Cryptologie\Hachage\Algorithme de hachage\Fonction de hachage cryptographique\Message Digest (MD)\MD4
-README.md                                                                   Python35        \Python35\Cryptologie\Hachage\Algorithme de hachage\Fonction de hachage cryptographique\Message Digest (MD)\MD5
-README.md                                                                   Python35        \Python35\Cryptologie\Hachage\Algorithme de hachage\Fonction de hachage cryptographique\Secure Hash Algorithm
-README.md                                                                   Python35        \Python35\Cryptologie\Hachage\Algorithme de hachage\Fonction de hachage cryptographique\Secure Hash Algorithm\SHA-1
-README.md                                                                   Python35        \Python35\Cryptologie\Hachage\Algorithme de hachage\Fonction de hachage cryptographique\Secure Hash Algorithm\SHA-2
-README.md                                                                   Python35        \Python35\Divers
-README.md                                                                   Python35        \Python35\Divers\Handle a signal
-README.md                                                                   Python35        \Python35\Divers\Star Wars API
-README.md                                                                   Python35        \Python35\Divers\Sudokus
-README.md                                                                   Python35        \Python35\Divers\Trouver le jour correspondant à une date donnée
-README.md                                                                   Python35        \Python35\Environnement Python
-README.md                                                                   Python35        \Python35\Environnement Python\Modules
-README.md                                                                   Python35        \Python35\Environnement Python\Modules\Turtle
-README.md                                                                   Python35        \Python35\Environnement Python\Python
-README.md                                                                   Python35        \Python35\Environnement Python\Python\Classes
-README.md                                                                   Python35        \Python35\Environnement Python\Python\Exception
-README.md                                                                   Python35        \Python35\Environnement Python\Python\Flux
-README.md                                                                   Python35        \Python35\Environnement Python\Python\Fonction
-README.md                                                                   Python35        \Python35\Environnement Python\Python\Module
-README.md                                                                   Python35        \Python35\Environnement Python\Python\Structure de données
-README.md                                                                   Python35        \Python35\Environnement Python\Python\Type
-README.md                                                                   Python35        \Python35\Génie logiciel
-README.md                                                                   Python35        \Python35\Génie logiciel\Architecture logicielle
-README.md                                                                   Python35        \Python35\Génie logiciel\Architecture logicielle\Patron de conception
-README.md                                                                   Python35        \Python35\Génie logiciel\Architecture logicielle\Patron de conception\Patron de comportement
-README.md                                                                   Python35        \Python35\Génie logiciel\Architecture logicielle\Patron de conception\Patron de création
-README.md                                                                   Python35        \Python35\Génie logiciel\Architecture logicielle\Patron de conception\Patron de structure
-README.md                                                                   Python35        \Python35\Géométrie
-README.md                                                                   Python35        \Python35\Géométrie\Domaine de la géométrie
-README.md                                                                   Python35        \Python35\Géométrie\Domaine de la géométrie\Géométrie classique
-README.md                                                                   Python35        \Python35\Géométrie\Domaine de la géométrie\Géométrie classique\Géométrie du triangle
-README.md                                                                   Python35        \Python35\Géométrie\Fractales
-README.md                                                                   Python35        \Python35\Logique mathématique
-README.md                                                                   Python35        \Python35\Logique mathématique\Algèbre de Boole
-README.md                                                                   Python35        \Python35\Logique mathématique\Théorie des ensembles
-README.md                                                                   Python35        \Python35\Physique
-README.md                                                                   Python35        \Python35\Physique\Diffusion de la matière
-README.md                                                                   Python35        \Python35\Physique\Diffusion de la matière\Équation de diffusion
-README.md                                                                   Python35        \Python35\Physique\Mesure physique
-README.md                                                                   Python35        \Python35\Physique\Mesure physique\Traitement du signal
-README.md                                                                   Python35        \Python35\Physique\Mesure physique\Traitement du signal\Filtre (électronique)
-README.md                                                                   Python35        \Python35\Physique\Mesure physique\Traitement du signal\Traitement numérique du signal
-README.md                                                                   Python35        \Python35\Physique\Mesure physique\Unité de mesure
-README.md                                                                   Python35        \Python35\Physique\Mesure physique\Unité de mesure\Unité de mesure thermodynamique
-README.md                                                                   Python35        \Python35\Physique\Mouvement
-README.md                                                                   Python35        \Python35\Physique\Mouvement\Dynamique
-README.md                                                                   Python35        \Python35\Physique\Mouvement\Dynamique\Dynamique du solide
-README.md                                                                   Python35        \Python35\Physique\Mouvement\Dynamique\Systèmes oscillants
-README.md                                                                   Python35        \Python35\Physique\Mouvement\Dynamique\Systèmes oscillants\Oscillateur anharmonique
-README.md                                                                   Python35        \Python35\Physique\Mouvement\Dynamique\Systèmes oscillants\Oscillateur harmonique
-README.md                                                                   Python35        \Python35\Physique\Mouvement\Dynamique\Systèmes oscillants\Oscillateur électronique
-README.md                                                                   Python35        \Python35\Physique\Mouvement\Dynamique\Systèmes oscillants\Pendule
-README.md                                                                   Python35        \Python35\Physique\Mouvement\Dynamique\Systèmes oscillants\Système masse-ressort
-README.md                                                                   Python35        \Python35\Physique\Mouvement\Système dynamique
-README.md                                                                   Python35        \Python35\Physique\Onde
-README.md                                                                   Python35        \Python35\Physique\Onde\Mécanique ondulatoire
-README.md                                                                   Python35        \Python35\Physique\Onde\Mécanique ondulatoire\Acoustique
-README.md                                                                   Python35        \Python35\Physique\Onde\Mécanique ondulatoire\Propagation des ondes
-README.md                                                                   Python35        \Python35\Physique\Optique
-README.md                                                                   Python35        \Python35\Physique\Optique\Lentille optique
-README.md                                                                   Python35        \Python35\Physique\Optique\Optique géométrique
-README.md                                                                   Python35        \Python35\Physique\Optique\Optique physique (ondulatoire)
-README.md                                                                   Python35        \Python35\Physique\Optique\Optique physique (ondulatoire)\Diffraction
-README.md                                                                   Python35        \Python35\Physique\Physique quantique
-README.md                                                                   Python35        \Python35\Physique\Physique quantique\Mécanique quantique
-README.md                                                                   Python35        \Python35\Physique\Physique quantique\Mécanique quantique\Fonction d'onde
-README.md                                                                   Python35        \Python35\Physique\Physique quantique\Mécanique quantique\Oscillateur harmonique quantique
-README.md                                                                   Python35        \Python35\Physique\Simulation de phénomènes
-README.md                                                                   Python35        \Python35\Physique\Système physique
-README.md                                                                   Python35        \Python35\Physique\Électricité
-README.md                                                                   Python35        \Python35\Physique\Électricité\Circuit électrique
-README.md                                                                   Python35        \Python35\Physique\Électromagnétisme
-README.md                                                                   Python35        \Python35\Physique\Électromagnétisme\Magnétisme
-README.md                                                                   Python35        \Python35\Physique\Électromagnétisme\Électrostatique
-README.md                                                                   Python35        \Python35\Probabilités
-README.md                                                                   Python35        \Python35\Probabilités\Fonction de densité de probabilité
-README.md                                                                   Python35        \Python35\Probabilités\Fonction de répartition
-README.md                                                                   Python35        \Python35\Probabilités\Loi de probabilité
-README.md                                                                   Python35        \Python35\Probabilités\Processus stochastique
-README.md                                                                   Python35        \Python35\Probabilités\Processus stochastique\Mouvement Brownien
-README.md                                                                   Python35        \Python35\Probabilités\Théorème de la théorie des probabilités
-README.md                                                                   Python35        \Python35\Problèmes divers
-README.md                                                                   Python35        \Python35\Problèmes divers\100 doors
-README.md                                                                   Python35        \Python35\Problèmes divers\24 game
-README.md                                                                   Python35        \Python35\Problèmes divers\99 bottles of beer
-README.md                                                                   Python35        \Python35\Problèmes divers\ABC problem
-README.md                                                                   Python35        \Python35\Problèmes divers\Bandit manchot
-README.md                                                                   Python35        \Python35\Problèmes divers\Bulls and Cows
-README.md                                                                   Python35        \Python35\Problèmes divers\Coin change problem
-README.md                                                                   Python35        \Python35\Problèmes divers\Find the missing permutation
-README.md                                                                   Python35        \Python35\Problèmes divers\Guess the number
-README.md                                                                   Python35        \Python35\Problèmes divers\Tours de Hanoï
-README.md                                                                   Python35        \Python35\Project Euler
-README.md                                                                   Python35        \Python35\Représentations graphiques
-README.md                                                                   Python35        \Python35\Représentations graphiques\Bitmap
-README.md                                                                   Python35        \Python35\Statistiques
-README.md                                                                   Python35        \Python35\Statistiques\Algorithme du gradient stochastique
-README.md                                                                   Python35        \Python35\Statistiques\Estimation (statistique)
-README.md                                                                   Python35        \Python35\Statistiques\Estimation (statistique)\Régression
-README.md                                                                   Python35        \Python35\Statistiques\Estimation (statistique)\Régression\Arbre de décision
-README.md                                                                   Python35        \Python35\Statistiques\Estimation (statistique)\Régression\Gradient boosting
-README.md                                                                   Python35        \Python35\Statistiques\Estimation (statistique)\Régression\Lasso (statistiques)
-README.md                                                                   Python35        \Python35\Statistiques\Estimation (statistique)\Régression\Méthode des moindres carrés
-README.md                                                                   Python35        \Python35\Statistiques\Estimation (statistique)\Régression\Robust regression
-README.md                                                                   Python35        \Python35\Statistiques\Estimation (statistique)\Régression\Régression linéaire
-README.md                                                                   Python35        \Python35\Statistiques\Estimation (statistique)\Régression\Régression logistique
-README.md                                                                   Python35        \Python35\Statistiques\Estimation (statistique)\Régression\Régression non linéaire
-README.md                                                                   Python35        \Python35\Statistiques\Estimation (statistique)\Régression\Régularisation Tychonoff (Régression d'arête)
-README.md                                                                   Python35        \Python35\Statistiques\Fiabilité
-README.md                                                                   Python35        \Python35\Statistiques\Histogramme
-README.md                                                                   Python35        \Python35\Statistiques\Science des données
-README.md                                                                   Python35        \Python35\Statistiques\Science des données\Apprentissage automatique
-README.md                                                                   Python35        \Python35\Statistiques\Science des données\Apprentissage automatique\Réseau de neurones artificiels
-README.md                                                                   Python35        \Python35\Statistiques\Science des données\Exploration de données
-README.md                                                                   Python35        \Python35\Statistiques\Science des données\Exploration de données\Partitionnement de données
-README.md                                                                   Python35        \Python35\Statistiques\Science des données\Méthode de Monte-Carlo
-README.md                                                                   Python35        \Python35\Statistiques\Science des données\Méthode de Monte-Carlo\Calcul de Pi
-README.md                                                                   Python35        \Python35\Statistiques\Statistique descriptive
-README.md                                                                   Python35        \Python35\Statistiques\Statistique descriptive\Mode (statistiques)
-README.md                                                                   Python35        \Python35\Statistiques\Statistique descriptive\Médianne (statistiques)
-README.md                                                                   Python35        \Python35\Statistiques\Statistiques bayésienne
-README.md                                                                   Python35        \Python35\Statistiques\Test statistique
-README.md                                                                   Python35        \Python35\Statistiques\Validation croisée
-README.md                                                                   Python35        \Python35\Statistiques\Économétrie
-README.md                                                                   Python35        \Python35\Statistiques\Économétrie\Série temporelle
-README.md                                                                   Python35        \Python35\Statistiques\Économétrie\Série temporelle\Damped-driven pendulum
-README.md                                                                   Python35        \Python35\Théorie des nombres
-README.md                                                                   Python35        \Python35\Théorie des nombres\Arithmétique
-README.md                                                                   Python35        \Python35\Théorie des nombres\Arithmétique\Arithmétique élémentaire
-README.md                                                                   Python35        \Python35\Théorie des nombres\Arithmétique\Arithmétique élémentaire\Divisibilité et factorisation
-README.md                                                                   Python35        \Python35\Théorie des nombres\Arithmétique\Arithmétique élémentaire\Divisibilité et factorisation\Diviseur
-README.md                                                                   Python35        \Python35\Théorie des nombres\Arithmétique\Arithmétique élémentaire\Divisibilité et factorisation\Nombre parfait
-README.md                                                                   Python35        \Python35\Théorie des nombres\Arithmétique\Arithmétique élémentaire\Divisibilité et factorisation\Plus petit commun multiple (PPCM)
-README.md                                                                   Python35        \Python35\Théorie des nombres\Arithmétique\Opération arithmétique
-README.md                                                                   Python35        \Python35\Théorie des nombres\Arithmétique\Précision arithmétique
-README.md                                                                   Python35        \Python35\Théorie des nombres\Arithmétique\Théorie algébrique des nombres
-README.md                                                                   Python35        \Python35\Théorie des nombres\Arithmétique\Théorie algébrique des nombres\Arithmétique modulaire
-README.md                                                                   Python35        \Python35\Théorie des nombres\Arithmétique\Théorie algébrique des nombres\Arithmétique modulaire\Algorithme de factorisation des entiers
-README.md                                                                   Python35        \Python35\Théorie des nombres\Arithmétique\Théorie algébrique des nombres\Arithmétique multiprécision
-README.md                                                                   Python35        \Python35\Théorie des nombres\Nombre
-README.md                                                                   Python35        \Python35\Théorie des nombres\Nombre premier
-README.md                                                                   Python35        \Python35\Théorie des nombres\Nombre premier\Test de primalité
-README.md                                                                   Python35        \Python35\Théorie des nombres\Nombre premier\Test de primalité\Test de primalité de Fermat
-README.md                                                                   Python35        \Python35\Théorie des nombres\Nombre premier\Test de primalité\Test de primalité de Miller-Rabin
-README.md                                                                   Python35        \Python35\Théorie des nombres\Nombre premier\Trouver tous les nombres premiers inférieurs à un certain entier naturel
-README.md                                                                   Python35        \Python35\Théorie des nombres\Nombre premier\Trouver tous les nombres premiers inférieurs à un certain entier naturel\Crible d'Atkin
-README.md                                                                   Python35        \Python35\Théorie des nombres\Nombre premier\Trouver tous les nombres premiers inférieurs à un certain entier naturel\Crible d'Ératosthène
-README.md                                                                   Python35        \Python35\Théorie des nombres\Nombre\Grand nombre
-README.md                                                                   Python35        \Python35\Théorie des nombres\Nombre\Grand nombre\Notation des flèches de Knuth
-README.md                                                                   Python35        \Python35\Théorie des nombres\Nombre\Nombre aléatoire
-README.md                                                                   Python35        \Python35\Théorie des nombres\Nombre\Nombre aléatoire\Générateur de nombres pseudo-aléatoires
-README.md                                                                   Python35        \Python35\Théorie des nombres\Nombre\Nombre hypercomplexe
-README.md                                                                   Python35        \Python35\Théorie des nombres\Nombre\Nombre remarquable
-README.md                                                                   Python35        \Python35\Théorie des nombres\Nombre\Nombre remarquable\Constante mathématique
-README.md                                                                   Python35        \Python35\Théorie des nombres\Nombre\Numération
-README.md                                                                   Python35        \Python35\Théorie des nombres\Nombre\Numération\Système de numération
-README.md                                                                   Python35        \Python35\Théorie des nombres\Théorie des automates
-README.md                                                                   Python35        \Python35\Théorie des nombres\Théorie des automates\Automate cellulaire
-README.md                                                                   Python35        \Python35\Théorie des nombres\Théorie des automates\Automate cellulaire\Fourmi de Langton
-README.md                                                                   Python35        \Python35\Théorie des nombres\Théorie des automates\Automate cellulaire\Jeu de la vie (Conway)
-rech_dicho.py                                                               Python35        \Python35\Algorithmique\Algorithme\Algorithme de recherche\Algorithme de recherche binaire ou dichotomique
-rech_dicho_indice.py                                                        Python35        \Python35\Algorithmique\Algorithme\Algorithme de recherche\Algorithme de recherche binaire ou dichotomique
-rect.py                                                                     Python35        \Python35\Analyse (mathématiques)\Analyse numérique\Intégration numérique\Méthode du point médian
-Rectangle1.py                                                               Python35        \Python35\Géométrie\Domaine de la géométrie\Géométrie classique
-Rectangle2.py                                                               Python35        \Python35\Géométrie\Domaine de la géométrie\Géométrie classique
-red_matrix_row_echelon_form.py                                              Python35        \Python35\Algèbre\Algèbre linéaire\Matrice\Matrice remarquable
-reg_grid_inter.py                                                           Python35        \Python35\Analyse (mathématiques)\Analyse numérique\Interpolation numérique\Interpolation spatiale
-registry.py                                                                 Python35        \Python35\Génie logiciel\Architecture logicielle\Patron de conception\Patron de comportement
-reliability.py                                                              Python35        \Python35\Statistiques\Fiabilité
-reseau_d_isothermes_coolprop.py                                             Python35        \Python35\Chimie\Thermodynamique\Thermochimie
-resolution_cycle_diesel.py                                                  Python35        \Python35\Chimie\Thermodynamique
-reverse_str.py                                                              Python35        \Python35\Algorithmique\Type de donnée\Chaîne de caractères\Inverse d'une chaîne de caractère
-reverse_string_words.py                                                     Python35        \Python35\Algorithmique\Type de donnée\Chaîne de caractères\Inverse d'une chaîne de caractère
-ridge_regression.py                                                         Python35        \Python35\Statistiques\Estimation (statistique)\Régression\Régularisation Tychonoff (Régression d'arête)
-robust_fit.py                                                               Python35        \Python35\Statistiques\Estimation (statistique)\Régression\Robust regression
-role_facteur_Q_resonance_en_elongation.py                                   Python35        \Python35\Physique\Mouvement\Dynamique\Systèmes oscillants
-rolling_hash.py                                                             Python35        \Python35\Algorithmique\Algorithme\Algorithme sur les chaînes de caractères\Algorithme de Rabin-Karp
-roots_finding.py                                                            Python35        \Python35\Algorithmique\Algorithme\Algorithme numérique\Algorithme de recherche d'un zéro d'une fonction
-rot_13(1).py                                                                Python35        \Python35\Cryptologie\Cryptographie\Algorithme de cryptographie symétrique\ROT13
-rot_13(2).py                                                                Python35        \Python35\Cryptologie\Cryptographie\Algorithme de cryptographie symétrique\ROT13
-rot_13.py                                                                   Python35        \Python35\Cryptologie\Cryptographie\Algorithme de cryptographie symétrique\ROT13
-RSA.py                                                                      Python35        \Python35\Cryptologie\Cryptographie\Algorithme de cryptographie asymétrique\Chiffrement RSA
-RSA_sign.py                                                                 Python35        \Python35\Cryptologie\Cryptographie\Algorithme de cryptographie asymétrique\Chiffrement RSA
-runge.py                                                                    Python35        \Python35\Analyse (mathématiques)\Analyse numérique\Interpolation numérique\Interpolation polynomiale
-SAheart.data.txt                                                            Python35        \Python35\Statistiques\Science des données\Exploration de données
-SAheart.info.txt                                                            Python35        \Python35\Statistiques\Science des données\Exploration de données
 santafe_trail.txt                                                           Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Programmation génétique\Artificial Ant Problem\ant
-scalar_product.py                                                           Python35        \Python35\Algèbre\Opération
-scheduling.py                                                               Python35        \Python35\Algorithmique\Algorithme\Algorithme d'ordonnancement
-schema_de_verlet.py                                                         Python35        \Python35\Analyse (mathématiques)\Analyse numérique
-schema_de_verlet3D.py                                                       Python35        \Python35\Analyse (mathématiques)\Analyse numérique
-selection_deter.py                                                          Python35        \Python35\Algorithmique\Algorithme\Algorithme de sélection\Médiane des médianes
-selection_random.py                                                         Python35        \Python35\Algorithmique\Algorithme\Algorithme de sélection
-selection_sort.py                                                           Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri\Tri par sélection
-sgd_comparison.py                                                           Python35        \Python35\Statistiques\Algorithme du gradient stochastique
-sgd_separating_hyperplane.py                                                Python35        \Python35\Statistiques\Algorithme du gradient stochastique
-sgd_separating_hyperplane_unbalanced.py                                     Python35        \Python35\Statistiques\Algorithme du gradient stochastique
-sgd_weighted_samples.py                                                     Python35        \Python35\Statistiques\Algorithme du gradient stochastique
-SHA-1_implementation.py                                                     Python35        \Python35\Cryptologie\Hachage\Algorithme de hachage\Fonction de hachage cryptographique\Secure Hash Algorithm\SHA-1
-SHA-2_implementation.py                                                     Python35        \Python35\Cryptologie\Hachage\Algorithme de hachage\Fonction de hachage cryptographique\Secure Hash Algorithm\SHA-2
-sha-example.py                                                              Python35        \Python35\Cryptologie\Hachage\Algorithme de hachage\Fonction de hachage cryptographique\Secure Hash Algorithm
-shell_sort.py                                                               Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri\Tri de Shell
-show_array.py                                                               Python35        \Python35\Algèbre\Algèbre linéaire\Matrice
-show_array_aggregation.py                                                   Python35        \Python35\Algèbre\Algèbre linéaire\Matrice
-show_array_broadcasting.py                                                  Python35        \Python35\Algèbre\Algèbre linéaire\Matrice
-shrod_equ_solver.py                                                         Python35        \Python35\Physique\Physique quantique\Mécanique quantique
-shuffle.py                                                                  Python35        \Python35\Algorithmique\Mathématiques discrètes\Combinatoire\Permutation aléatoire
-sieve_atkin.py                                                              Python35        \Python35\Théorie des nombres\Nombre premier\Trouver tous les nombres premiers inférieurs à un certain entier naturel\Crible d'Atkin
 sieve_of_eratosthenes.cpython-34.pyc                                        Python35        \Python35\Théorie des nombres\Nombre premier\Trouver tous les nombres premiers inférieurs à un certain entier naturel\Crible d'Ératosthène\__pycache__
-sieve_of_eratosthenes.py                                                    Python35        \Python35\Théorie des nombres\Nombre premier\Trouver tous les nombres premiers inférieurs à un certain entier naturel\Crible d'Ératosthène
 sieve_of_eratosthenes1.cpython-34.pyc                                       Python35        \Python35\Théorie des nombres\Arithmétique\Théorie algébrique des nombres\Arithmétique modulaire\Algorithme de factorisation des entiers\__pycache__
 sieve_of_eratosthenes1.cpython-34.pyc                                       Python35        \Python35\Théorie des nombres\Nombre premier\Test de primalité\__pycache__
-sieve_of_eratosthenes1.py                                                   Python35        \Python35\Théorie des nombres\Arithmétique\Théorie algébrique des nombres\Arithmétique modulaire\Algorithme de factorisation des entiers
-sieve_of_eratosthenes1.py                                                   Python35        \Python35\Théorie des nombres\Nombre premier\Test de primalité
-sieve_of_eratosthenes1.py                                                   Python35        \Python35\Théorie des nombres\Nombre premier\Trouver tous les nombres premiers inférieurs à un certain entier naturel\Crible d'Ératosthène
-sieve_of_eratosthenes2.py                                                   Python35        \Python35\Théorie des nombres\Nombre premier\Trouver tous les nombres premiers inférieurs à un certain entier naturel\Crible d'Ératosthène
-sieve_of_eratosthenes_opt.py                                                Python35        \Python35\Théorie des nombres\Nombre premier\Trouver tous les nombres premiers inférieurs à un certain entier naturel\Crible d'Ératosthène
-sieve_test.py                                                               Python35        \Python35\Théorie des nombres\Nombre premier\Trouver tous les nombres premiers inférieurs à un certain entier naturel\Crible d'Ératosthène
-sigIntHandler.py                                                            Python35        \Python35\Divers\Handle a signal
-simpson_rule.py                                                             Python35        \Python35\Analyse (mathématiques)\Analyse numérique\Intégration numérique\Méthode de Simpson
-simpson_rule_odd.py                                                         Python35        \Python35\Analyse (mathématiques)\Analyse numérique\Intégration numérique\Méthode de Simpson
-simul_min_energy.py                                                         Python35        \Python35\Physique\Système physique
-singleton.py                                                                Python35        \Python35\Génie logiciel\Architecture logicielle\Patron de conception\Patron de création
-singly_linked_list_test.py                                                  Python35        \Python35\Environnement Python\Python\Structure de données
-singlylinkedlist.py                                                         Python35        \Python35\Environnement Python\Python\Structure de données
-sinus_cosinus_tkinter.py                                                    Python35        \Python35\Animation\Illustration de sinus et cosinus
-solitaire.py                                                                Python35        \Python35\Algorithmique\Mathématiques discrètes\Combinatoire\Solitaire (casse-tête)
-solve_poisson_(shooting).py                                                 Python35        \Python35\Analyse (mathématiques)\Analyse à plusieurs variables\Équation aux dérivées partielles\Équation de Poisson
-solve_poisson_(smooth-separate).py                                          Python35        \Python35\Analyse (mathématiques)\Analyse à plusieurs variables\Équation aux dérivées partielles\Équation de Poisson
-som_max.py                                                                  Python35        \Python35\Algorithmique\Type de donnée\Liste
-sorting.py                                                                  Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri
 sortingnetwork.cpython-35.pyc                                               Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Algorithme génétique\__pycache__
-sortingnetwork.py                                                           Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Algorithme génétique\Réseau de tri
-Space_assault.py                                                            Python35        \Python35\Divers
-spaceships.py                                                               Python35        \Python35\Divers\Star Wars API
-spambase.csv                                                                Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Programmation génétique\Spambase Problem
-spambase.py                                                                 Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Programmation génétique\Spambase Problem
-speciation.py                                                               Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Optimisation par essaims particulaires
-specification.py                                                            Python35        \Python35\Génie logiciel\Architecture logicielle\Patron de conception\Patron de comportement
-sphere.py                                                                   Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Algorithme à évolution différentielle
-sphere_ascii-art.py                                                         Python35        \Python35\Représentations graphiques
-sphere_pygame.py                                                            Python35        \Python35\Représentations graphiques
-sphere_vpython.py                                                           Python35        \Python35\Représentations graphiques
-spline_interpolation.py                                                     Python35        \Python35\Analyse (mathématiques)\Analyse numérique\Interpolation numérique\Spline
-square_funct.py                                                             Python35        \Python35\Analyse (mathématiques)\Fonction remarquable\Fonction de référence\Fonction carré (Square function)
-sssp.py                                                                     Python35        \Python35\Algorithmique\Algorithme\Algorithme de la théorie des graphes\Problèmes de cheminement
-sssp_test.py                                                                Python35        \Python35\Algorithmique\Algorithme\Algorithme de la théorie des graphes\Problèmes de cheminement
-stack-adt1.py                                                               Python35        \Python35\Environnement Python\Python\Structure de données
-stack-adt2.py                                                               Python35        \Python35\Environnement Python\Python\Structure de données
-stack_uses.py                                                               Python35        \Python35\Environnement Python\Python\Structure de données
-star_turtle.py                                                              Python35        \Python35\Représentations graphiques
-state.py                                                                    Python35        \Python35\Génie logiciel\Architecture logicielle\Patron de conception\Patron de comportement
-state_test.py                                                               Python35        \Python35\Génie logiciel\Architecture logicielle\Patron de conception\Patron de comportement
-std_normal_pdf.py                                                           Python35        \Python35\Probabilités\Fonction de densité de probabilité
-stiff_example.py                                                            Python35        \Python35\Analyse (mathématiques)\Analyse fonctionnelle\Équation différentielle\Équation différentielle raide
-stiff_linear_example.py                                                     Python35        \Python35\Analyse (mathématiques)\Analyse fonctionnelle\Équation différentielle\Équation différentielle raide
-stiff_nonlinear_example.py                                                  Python35        \Python35\Analyse (mathématiques)\Analyse fonctionnelle\Équation différentielle\Équation différentielle raide
-str_to_int.py                                                               Python35        \Python35\Algorithmique\Type de donnée\Chaîne de caractères\Convertir une chaîne de caractères
-strand_sort.py                                                              Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri\Tri par paquets
-strategy.py                                                                 Python35        \Python35\Génie logiciel\Architecture logicielle\Patron de conception\Patron de comportement
-strategy_test.py                                                            Python35        \Python35\Génie logiciel\Architecture logicielle\Patron de conception\Patron de comportement
-string_matching_boyer_moore_horspool.py                                     Python35        \Python35\Algorithmique\Algorithme\Algorithme sur les chaînes de caractères\Algorithme de Boyer-Moore-Horspool (BMH)
-string_matching_boyer_moore_horspool1.py                                    Python35        \Python35\Algorithmique\Algorithme\Algorithme sur les chaînes de caractères\Algorithme de Boyer-Moore-Horspool (BMH)
-string_matching_knuth_morris_pratt.py                                       Python35        \Python35\Algorithmique\Algorithme\Algorithme sur les chaînes de caractères\Algorithme de Knuth-Morris-Pratt
-string_matching_knuth_morris_pratt1.py                                      Python35        \Python35\Algorithmique\Algorithme\Algorithme sur les chaînes de caractères\Algorithme de Knuth-Morris-Pratt
-string_matching_naive.py                                                    Python35        \Python35\Algorithmique\Algorithme\Algorithme sur les chaînes de caractères\Algorithme de recherche de sous-chaîne
-string_matching_rabin_karp.py                                               Python35        \Python35\Algorithmique\Algorithme\Algorithme sur les chaînes de caractères\Algorithme de Rabin-Karp
-string_matching_rabin_karp1.py                                              Python35        \Python35\Algorithmique\Algorithme\Algorithme sur les chaînes de caractères\Algorithme de Rabin-Karp
-string_search_it-rec.py                                                     Python35        \Python35\Algorithmique\Algorithme\Algorithme sur les chaînes de caractères\Algorithme de recherche de sous-chaîne
-strioscopie.py                                                              Python35        \Python35\Physique\Optique\Optique physique (ondulatoire)
-substitution_cipher.py                                                      Python35        \Python35\Cryptologie\Cryptographie\Algorithme de cryptographie symétrique\Chiffrement par substitution
-Sudoku.py                                                                   Python35        \Python35\Divers\Sudokus
-sum_chiffre.py                                                              Python35        \Python35\Algèbre
-surface_caracteristique.py                                                  Python35        \Python35\Chimie\Thermodynamique\Thermochimie\Thermodynamique chimique
-surface_caracteristique_isentropique.py                                     Python35        \Python35\Chimie\Thermodynamique\Thermochimie\Thermodynamique chimique
-svr_lin_poly_rbf.py                                                         Python35        \Python35\Statistiques\Estimation (statistique)\Régression
-symbreg.py                                                                  Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Coevolution
-symbreg.py                                                                  Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Programmation génétique\Symbolic Regression Problem
-symbreg_harm.py                                                             Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Programmation génétique\Symbolic Regression Problem
-symbreg_numpy.py                                                            Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Programmation génétique\Symbolic Regression Problem
-tapis_sierpinski.py                                                         Python35        \Python35\Géométrie\Fractales
-tchebychev_1st-kind.py                                                      Python35        \Python35\Algèbre\Algèbre linéaire\Polynôme\Polynôme remarquable\Polynôme de Tchebychev
-template.py                                                                 Python35        \Python35\Génie logiciel\Architecture logicielle\Patron de conception\Patron de comportement
-theil-sen.py                                                                Python35        \Python35\Statistiques\Estimation (statistique)\Régression\Robust regression
-times_series_analysis.py                                                    Python35        \Python35\Statistiques\Économétrie\Série temporelle\Damped-driven pendulum
-tmp                                                                         Python35        \Python35\Algèbre\Algèbre linéaire\Matrice
-toscane.py                                                                  Python35        \Python35\Problèmes divers
-toscane.svg                                                                 Python35        \Python35\Problèmes divers
-tr_pascal.py                                                                Python35        \Python35\Algorithmique\Mathématiques discrètes\Combinatoire\Triangle de Pascal
-tr_pascal1.py                                                               Python35        \Python35\Algorithmique\Mathématiques discrètes\Combinatoire\Triangle de Pascal
-tr_pascal2.py                                                               Python35        \Python35\Algorithmique\Mathématiques discrètes\Combinatoire\Triangle de Pascal
-Tracer une courbe avec la méthode d'Euler.py                                Python35        \Python35\Analyse (mathématiques)\Fonction\Traceur de fonction
-Traceur de fonctions mathématiques.py                                       Python35        \Python35\Analyse (mathématiques)\Fonction\Traceur de fonction
-trainee.py                                                                  Python35        \Python35\Physique\Mouvement\Dynamique\Dynamique du solide
-trainee2.py                                                                 Python35        \Python35\Physique\Mouvement\Dynamique\Dynamique du solide
-trap.py                                                                     Python35        \Python35\Analyse (mathématiques)\Analyse numérique\Intégration numérique\Méthode des trapèzes
-tri_denombrement.py                                                         Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri\Tri comptage
-tri_fusion+seuil.py                                                         Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri\Tri par fusion (Merge sort)
-tri_fusion.py                                                               Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri\Tri par fusion (Merge sort)
-tri_insertion.py                                                            Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri\Tri par insertion
-tri_insertion_rec.py                                                        Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri\Tri par insertion
-tri_rapide+comparaisons.py                                                  Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri\Tri rapide (Quicksort)
-tri_rapide+mediane.py                                                       Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri\Tri rapide (Quicksort)
-tri_rapide+seuil.py                                                         Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri\Tri rapide (Quicksort)
-tri_rapide.py                                                               Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri\Tri rapide (Quicksort)
-tri_readme.py                                                               Python35        \Python35\Environnement Python
-tri_selection.py                                                            Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri\Tri par sélection
-tri_selection_rec.py                                                        Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri\Tri par sélection
-tri_tas.py                                                                  Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri\Tri par tas (Heapsort)
-tri_tas_en_place.py                                                         Python35        \Python35\Algorithmique\Algorithme\Algorithme de tri\Tri par tas (Heapsort)
-tri_topo.py                                                                 Python35        \Python35\Algorithmique\Algorithme\Algorithme de la théorie des graphes\Tri topologique
-trial_division.py                                                           Python35        \Python35\Théorie des nombres\Arithmétique\Théorie algébrique des nombres\Arithmétique modulaire\Algorithme de factorisation des entiers
-Triangle.py                                                                 Python35        \Python35\Géométrie\Domaine de la géométrie\Géométrie classique
-triangle_sierpinski.py                                                      Python35        \Python35\Géométrie\Fractales
-tridiag.py                                                                  Python35        \Python35\Algèbre\Algèbre linéaire\Matrice\Matrice tridiagonale
-trie.py                                                                     Python35        \Python35\Algorithmique\Structure de données\Arbre (structure de données)\Trie (informatique)
-Trouver la valeur d'une résistance via le code couleur.py                   Python35        \Python35\Divers
-Trouver_le_jour_correspondant_à_une_date_donnée1.py                         Python35        \Python35\Divers\Trouver le jour correspondant à une date donnée
-tsa_constants.py                                                            Python35        \Python35\Statistiques\Économétrie\Série temporelle\Damped-driven pendulum
-tsa_plotter.py                                                              Python35        \Python35\Statistiques\Économétrie\Série temporelle\Damped-driven pendulum
-tsp.py                                                                      Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Algorithme génétique\Problème du voyageur de commerce
-tsp1.py                                                                     Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Algorithme génétique\Problème du voyageur de commerce
-turing.py                                                                   Python35        \Python35\Analyse (mathématiques)\Analyse à plusieurs variables\Équation aux dérivées partielles\Système à réaction-diffusion
-turtle_drawing.py                                                           Python35        \Python35\Représentations graphiques
-turtle_ops.py                                                               Python35        \Python35\Environnement Python\Modules\Turtle
-types_uses.py                                                               Python35        \Python35\Environnement Python\Python\Type
-undamped_pendulum.py                                                        Python35        \Python35\Physique\Mouvement\Dynamique\Systèmes oscillants\Pendule
-undamped_pendulum_phase_portrait.py                                         Python35        \Python35\Physique\Mouvement\Dynamique\Systèmes oscillants\Pendule
-undirected_graph.py                                                         Python35        \Python35\Algorithmique\Mathématiques discrètes\Théorie des graphes\Graphe non orienté
-union_find_by_rank.py                                                       Python35        \Python35\Algorithmique\Structure de données\Union-Find
-union_find_with_path_compression.py                                         Python35        \Python35\Algorithmique\Structure de données\Union-Find
 unionfind.cpython-34.pyc                                                    Python35        \Python35\Algorithmique\Algorithme\Algorithme de la théorie des graphes\__pycache__
 unionfind.cpython-34.pyc                                                    Python35        \Python35\Algorithmique\Algorithme\Détection et correction d'erreur\Distance de Hamming\__pycache__
 unionfind.cpython-34.pyc                                                    Python35        \Python35\Algorithmique\Structure de données\Union-Find\__pycache__
-unionfind.py                                                                Python35        \Python35\Algorithmique\Algorithme\Algorithme de la théorie des graphes
-unionfind.py                                                                Python35        \Python35\Algorithmique\Algorithme\Détection et correction d'erreur\Distance de Hamming
-unionfind.py                                                                Python35        \Python35\Algorithmique\Structure de données\Union-Find
-unionfind_naive.py                                                          Python35        \Python35\Algorithmique\Structure de données\Union-Find
-unionfind_test.py                                                           Python35        \Python35\Algorithmique\Structure de données\Union-Find
 utils.cpython-35.pyc                                                        Python35        \Python35\Statistiques\__pycache__
 utils.py                                                                    Python35        \Python35\Physique\Physique quantique\Mécanique quantique\Fonction d'onde\wavefunction
-vector-scalar-mixte_product.py                                              Python35        \Python35\Algèbre\Opération
-verlet_converge.py                                                          Python35        \Python35\Analyse (mathématiques)\Analyse fonctionnelle\Équation différentielle\Equations of motion of a pendulum
-vigenere_cipher.py                                                          Python35        \Python35\Cryptologie\Cryptographie\Algorithme de cryptographie symétrique\Chiffrement par substitution\Chiffre de Vigenère
-vigenere_cipher_crack.py                                                    Python35        \Python35\Cryptologie\Cryptographie\Algorithme de cryptographie symétrique\Chiffrement par substitution\Chiffre de Vigenère
-visitor.py                                                                  Python35        \Python35\Génie logiciel\Architecture logicielle\Patron de conception\Patron de comportement
 wavefunction1d.py                                                           Python35        \Python35\Physique\Physique quantique\Mécanique quantique\Fonction d'onde\wavefunction
 wavefunction2d.py                                                           Python35        \Python35\Physique\Physique quantique\Mécanique quantique\Fonction d'onde\wavefunction
-Wavefunction_1D_quantum_harm_ osc.py                                        Python35        \Python35\Physique\Physique quantique\Mécanique quantique\Fonction d'onde
-Wavefunctions-eigenenergies_quantum_Morse_osc.py                            Python35        \Python35\Physique\Physique quantique\Mécanique quantique\Fonction d'onde
-Wavefunctions_current-biased_Josephson_qubit.py                             Python35        \Python35\Physique\Physique quantique\Mécanique quantique\Fonction d'onde
-Wavefunctions_flux-biased_Josephson_qubit.py                                Python35        \Python35\Physique\Physique quantique\Mécanique quantique\Fonction d'onde
-website_cleaner.py                                                          Python35        \Python35\Divers
-welcome.lz                                                                  Python35        \Python35\Algorithmique\Algorithme\Algorithme de compression\Algorithme de compression sans perte
-wishart.py                                                                  Python35        \Python35\Probabilités\Loi de probabilité
-write_safely.py                                                             Python35        \Python35\Environnement Python
-xkcd.py                                                                     Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Algorithme génétique
 zdt1_front.json                                                             Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Algorithme génétique\Multi-objective optimization\pareto_front
 zdt2_front.json                                                             Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Algorithme génétique\Multi-objective optimization\pareto_front
 zdt3_front.json                                                             Python35        \Python35\Algorithmique\Optimisation\Algorithme d'optimisation\Métaheuristique\Algorithme génétique\Multi-objective optimization\pareto_front

@@ -9,7 +9,7 @@ def show_array(shape, sel, filename=None):
     """Visualize indexing of arrays"""
 
     data = np.zeros(shape)
-    exec("data[%s] = 1" % sel)
+    exec("data[{sel}] = 1".format(sel=sel)
 
     fig, ax = plt.subplots(1, 1, figsize=shape)
 
@@ -26,7 +26,7 @@ def show_array(shape, sel, filename=None):
                              facecolor=color,
                              edgecolor=color)
         ax.add_patch(rect)
-        ax.text(m, n, "(%d, %d)" % (n, m), ha='center', va='center', fontsize=12)
+        ax.text(m, n, "({n}, {m})".format(n=n, m=m), ha='center', va='center', fontsize=12)
         
     ax.autoscale_view()
     ax.invert_yaxis()
@@ -34,7 +34,7 @@ def show_array(shape, sel, filename=None):
     if sel == ":, :":
         ax.set_title("data\n", fontsize=12)
     else:
-        ax.set_title("data[%s]\n" % sel, fontsize=12)
+        ax.set_title("data[{sel}]\n".format(sel=sel), fontsize=12)
     
     #fig.tight_layout()
     

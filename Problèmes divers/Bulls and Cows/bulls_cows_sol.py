@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import os
-
 from itertools import permutations
 from random import shuffle
  
@@ -41,7 +40,7 @@ while True:
     ans = choices[0]
     answers.append(ans)
     #print ("(Narrowed to %i possibilities)" % len(choices))
-    score = raw_input("Guess %2i is %*s. Answer (Bulls, cows)? "
+    score = input("Guess %2i is %*s. Answer (Bulls, cows)? "
                       % (len(answers), size, ''.join(ans)))
     score = parse_score(score)
     scores.append(score)

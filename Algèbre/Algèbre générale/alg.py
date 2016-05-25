@@ -2,7 +2,7 @@
 
 import os
 
-def big(loi , neutre )  :
+def big(loi, neutre )  :
     """
     - loi est une lci de type (a,a) -> a
     - neutre est le neutre de loi
@@ -27,7 +27,7 @@ def reduit(loi, collection, neutre) :
     """
     on fabrique reduce à partir de big
     """
-    return 0#avec big
+    return 0 #avec big
  
 def filtre(predicat, xs) :
     """
@@ -36,7 +36,7 @@ def filtre(predicat, xs) :
     >>> filtre(lambda x : x >= 3, [1, 2, 3, 4])
     [3, 4]
     """
-    return 0#reduit(???, xs, ???)
+    return 0 #reduit(???, xs, ???)
  
  
 def applique(fonc, xs) :
@@ -46,7 +46,7 @@ def applique(fonc, xs) :
     >>> applique(ord , ['a', 'b', 'c'])
     [97, 98, 99]
     """
-    return 0#reduit(???, xs, ???)
+    return 0 #reduit(???, xs, ???)
 
 os.system("pause")
 

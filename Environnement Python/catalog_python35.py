@@ -35,6 +35,11 @@ class CatalogEntry(object):
         self.name = name
         self.drive_name = drive_name
         self.dir_minus_drive = dir_minus_drive
+        
+class Affichage(object):
+    def __init__(self, choix, readme):
+        self.choix = choix
+        self.readme = readme
             
 ########################################################################
 def read_file(path):
@@ -60,12 +65,16 @@ def println(line):
     sys.stdout.write(line + "\n")
 
 ########################################################################
-def get_files_in_dir(dir_, onelevel=False):
+def get_files_in_dir(dir_, affichage, onelevel=False):
     paths = []
     for root, dirs, filenames in os.walk(dir_):
         for name in filenames:
-            #print (os.path.dirname(os.path.abspath(root)))
+            # print (os.path.dirname(os.path.abspath(root)))
+            # Enlever le répertoire .git du catalogue.
             if ('.git' in os.path.dirname(os.path.abspath(root))) == True or ('.COMMIT_EDITMSG' in name) == True:
+                break
+            # Afficher ou non README.md
+            elif affichage.readme == 'n' and ('README.md' in name) == True:
                 break
             else:
                 path = os.path.join(root, name)
@@ -73,11 +82,16 @@ def get_files_in_dir(dir_, onelevel=False):
         if onelevel:
             break
     return paths
+    
 
 ########################################################################
-def entry_to_line(entry):
-    line = "{} {} {}".format(entry.name.ljust(75), entry.drive_name.ljust(15), entry.dir_minus_drive)
-    return line
+def entry_to_line(entry, affichage): 
+    if affichage.choix == 1:
+        line = "{} {} {}".format(entry.name.ljust(75), entry.drive_name.ljust(15), entry.dir_minus_drive)
+        return line
+    elif affichage.choix == 2:
+        line = "{} {} {}".format(entry.drive_name.ljust(15), entry.dir_minus_drive.ljust(160), entry.name)
+        return line
 
 def line_to_entry(line):
     items = line.split(b"\t")
@@ -110,26 +124,28 @@ def read_catalog_file_entries(catalog_path):
             entries.append(entry)
     return entries
         
-def write_catalog_file_entries(catalog_path, entries):
+def write_catalog_file_entries(catalog_path, entries, affichage):
     println("write_catalog_file_entries %s" % catalog_path)
     lines = []
     for entry in entries:
-        line = entry_to_line(entry)
+        line = entry_to_line(entry, affichage)
         if line:
             lines.append(line)
     lines = sorted(lines, key=lambda s: s.lower())
-    nom = 'Programmes'
-    drive = 'Disque'
-    dir = 'Répertoires'
-    text = "{} {} {}".format(nom.ljust(75), drive.ljust(15), dir) +"\n"+ "\n".join(lines)
-    write_file(catalog_path, text, False)
+    nom, drive, dir = 'Programmes', 'Disques', 'Répertoires'
+    if affichage.choix == 1:
+        text = "{} {} {}".format(nom.ljust(75), drive.ljust(15), dir) +"\n"+ "\n".join(lines)
+        write_file(catalog_path, text, False)
+    elif affichage.choix == 2:
+        text = "{} {} {}".format(drive.ljust(15), dir.ljust(160), nom) +"\n"+ "\n".join(lines)
+        write_file(catalog_path, text, False)
         
 ########################################################################  
-def write_drive_catalog_file(drive_path, drive_name, catalog_path):
+def write_drive_catalog_file(drive_path, drive_name, catalog_path, affichage):
     println("write_drive_catalog_file %s -> %s" % (drive_path, catalog_path))
-    file_paths = get_files_in_dir(drive_path)   
+    file_paths = get_files_in_dir(drive_path, affichage)   
     entries = paths_to_entries(file_paths, drive_name)   
-    write_catalog_file_entries(catalog_path, entries)
+    write_catalog_file_entries(catalog_path, entries, affichage)
 
 def write_master_catalog_file(catalog_paths, master_catalog_path):
     println("write_master_catalog_file %s" % master_catalog_path)
@@ -142,9 +158,12 @@ def write_master_catalog_file(catalog_paths, master_catalog_path):
 ########################################################################
 def sample():
     """ Sample calls for drives located on J and K drives. """
-    #write_drive_catalog_file("j:\\", "SANSA2_1G", r"c:\SANSA2_1G.txt")
-    write_drive_catalog_file("C:\Python35", "Python35", r"C:\Python35\Environnement Python\Python3_catalog.txt")
-    #write_master_catalog_file([r"C:\Python35\Python35drive.txt"], r"C:\Python35\Python35master.txt")
+    affichage = Affichage(int(input('Affichage du catalogue: [1] --> Programmes, Disques, Répertoires \n\t\t\t[2] --> Disques, Répertoires, Programmes \n ')), input('Afficher les fichiers README.md: [Yes/No]'))
+    if (affichage.readme == 'No' or affichage.readme == 'no' or affichage.readme == 'N' or affichage.readme == 'n'):
+        affichage.readme = 'n'
+    # write_drive_catalog_file("j:\\", "SANSA2_1G", r"c:\SANSA2_1G.txt")
+    write_drive_catalog_file("C:\Python35", "Python35", r"C:\Python35\Environnement Python\Python3_catalog.txt", affichage)
+    # write_master_catalog_file([r"C:\Python35\Python35drive.txt"], r"C:\Python35\Python35master.txt")
     entries = read_catalog_file_entries(r"C:\Python35\Environnement Python\Python3_catalog.txt")
     for entry in entries:
         println(entry_to_line(entry))

@@ -20,23 +20,22 @@ table = [
     ]
 
 if __name__ == '__main__':
-    t = input("Enter the text to convert :\n")
+    t = eval(input("Enter the text to convert : "))
     if not t :
         t = "PYTHON"
-
     for i in range(h):
-        txt = ""
+        txt = []
         for char in t:
             # get dec value of T
             if char.isalpha():
                 val = ord(char.upper()) - 65
-            elif char == " ":
+            elif char == None:
                 val= 27
             else:
                 val = 26
             begin = val*l
-            end = val*l + l
-            txt += table[i][begin:end]
-        print (txt)
+            end = begin + l
+            txt.append(table[i][begin:end])
+        print(("".join(txt)))
 
 os.system("pause")

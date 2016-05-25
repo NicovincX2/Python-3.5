@@ -105,8 +105,8 @@ def display(values):
     width = 1+max(len(values[s]) for s in squares)
     line = '+'.join(['-'*(width*3)]*3)
     for r in rows:
-        print (''.join(values[r+c].center(width)+('|' if c in '36' else ''))
-                      for c in cols)
+        print (*(''.join(values[r+c].center(width)+('|' if c in '36' else ''))
+                      for c in cols), sep = '')
         if r in 'CF': print (line)
 
 ################ Search ################
@@ -198,7 +198,7 @@ if __name__ == '__main__':
 ## http://www2.warwick.ac.uk/fac/sci/moac/currentstudents/peter_cock/python/sudoku/
 
 hard1  = '...2..9545.9..3..7.......3.1.....67.9..3.1..5.84.....1.9.......2..6..1.3431..9...'
-solve_all([hard1])
-display(parse_grid(hard1))
+print(solve_all([hard1]))
+print(display(parse_grid(hard1)))
 
 os.system("pause")

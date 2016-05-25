@@ -12,3 +12,4 @@
 >> - [Tri stupide](https://fr.wikipedia.org/wiki/Tri_stupide)
 >> - [Tri à bulles](https://fr.wikipedia.org/wiki/Tri_%C3%A0_bulles)
 >> - [Tri à peigne - Tri de Dobosiewicz](https://fr.wikipedia.org/wiki/Tri_%C3%A0_peigne)
+>> - [Sleepsort](http://www.drgoulu.com/2011/06/19/le-sleep-sort/)

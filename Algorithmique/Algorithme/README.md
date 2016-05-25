@@ -13,3 +13,5 @@
 >> - Algorithme de calcul de la n-eme décimale de pi
 
 > - [Exponentiation rapide](https://fr.wikipedia.org/wiki/Exponentiation_rapide)
+> - [Asservissement](https://fr.wikipedia.org/wiki/Asservissement_%28automatique%29)
+> - [Régulateur PID](https://fr.wikipedia.org/wiki/R%C3%A9gulateur_PID)

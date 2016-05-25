@@ -1,14 +1,13 @@
 # Exploration de données
 
 >> - [Partitionnement de données](https://fr.wikipedia.org/wiki/Partitionnement_de_donn%C3%A9es)
+>> - [Classification naïve bayésienne](https://fr.wikipedia.org/wiki/Classification_na%C3%AFve_bay%C3%A9sienne)
 
 > - [Arbre de décision](https://fr.wikipedia.org/wiki/Arbre_de_d%C3%A9cision)
 > - [Forêt d'arbres décisionnels (random decision forest)](https://fr.wikipedia.org/wiki/For%C3%AAt_d'arbres_d%C3%A9cisionnels)
 > - [Out-of-bag error (OOB)](https://en.wikipedia.org/wiki/Out-of-bag_error)
-
 > - [Bootstrap - Bagging (statistiques)](https://fr.wikipedia.org/wiki/Bootstrap_%28statistiques%29)
 > - [Dilemme biais-variance](https://fr.wikipedia.org/wiki/Dilemme_biais-variance)
-
 > - [Analyse en composantes principales (ACP/PCA)](https://fr.wikipedia.org/wiki/Analyse_en_composantes_principales)
 > - [Kernel principal component analysis (KPCA)](https://en.wikipedia.org/wiki/Kernel_principal_component_analysis)
 > - [Analyse en composantes indépendantes (ICA)](https://fr.wikipedia.org/wiki/Analyse_en_composantes_ind%C3%A9pendantes)

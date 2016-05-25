@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+
+import os
+
 # Program to do drawing using Python turtle graphics.
 # turtle_drawing.py v0.1
 # Author: Vasudev Ram
@@ -66,3 +70,5 @@ t.onkey(quit, "Q")
 
 t.listen()
 t.mainloop()
+
+os.system("pause")

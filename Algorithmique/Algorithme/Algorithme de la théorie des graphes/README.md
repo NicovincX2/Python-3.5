@@ -14,10 +14,13 @@
 
 > - [Recherche de chemin](https://fr.wikipedia.org/wiki/Recherche_de_chemin)
 > - [Shortest path problem](https://en.wikipedia.org/wiki/Shortest_path_problem)
-
+> - [Algorithme de Tarjan](https://fr.wikipedia.org/wiki/Algorithme_de_Tarjan)
 > - [Kosaraju's algorithm](https://en.wikipedia.org/wiki/Kosaraju's_algorithm)
 > - [Connected components in an undirected graph](https://en.wikipedia.org/wiki/Connected_component_%28graph_theory%29)
 > - [Directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph)
 > - [Strongly connected components in a directed graph](https://en.wikipedia.org/wiki/Strongly_connected_component)
+> - [Composante fortement connexe](https://fr.wikipedia.org/wiki/Composante_fortement_connexe)
+> - [Plus petit ancêtre commun](https://fr.wikipedia.org/wiki/Plus_petit_anc%C3%AAtre_commun)
 > - [Algorithme de Kruskal](https://fr.wikipedia.org/wiki/Algorithme_de_Kruskal)
+> - [Erdos–Gallai theorem](https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93Gallai_theorem)
 

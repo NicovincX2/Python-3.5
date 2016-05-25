@@ -1,9 +1,10 @@
 # Divers
 
->> Tout ce qui n'a pas sa place ailleurs.
+>>>> Tout ce qui n'a pas sa place ailleurs.
 
 >> - Handle a signal: compteur + temps d'exécution.
 >> - [Star Wars API](http://swapi.co/)
+>> - [Mastermind](https://fr.wikipedia.org/wiki/Mastermind)
 
 > - Box the compass: cardinal directions + degree value.
 > - [Compass rose](https://en.wikipedia.org/wiki/Compass_rose)
@@ -16,3 +17,5 @@
 > - [Dépouillement d'élections](http://michel.stainer.pagesperso-orange.fr/PSIx/Informatique/Devoirs/AlgoX/2005algoX.pdf)
 > - Space Assault
 > - [Plan de remboursement](https://fr.wikipedia.org/wiki/Plan_de_remboursement)
+> - [Morse (alphabet)](https://fr.wikipedia.org/wiki/Morse_%28alphabet%29)
+> - Pong game

@@ -6,3 +6,4 @@
 >> - [Matrice tridiagonale](https://fr.wikipedia.org/wiki/Matrice_tridiagonale)
 >> - [Produit matriciel](https://fr.wikipedia.org/wiki/Produit_matriciel)
 >> - [Sous-matrice](https://fr.wikipedia.org/wiki/Sous-matrice)
+>> - [Matrice creuse](https://fr.wikipedia.org/wiki/Matrice_creuse)
