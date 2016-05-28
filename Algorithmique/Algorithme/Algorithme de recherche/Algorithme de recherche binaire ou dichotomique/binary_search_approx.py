@@ -2,11 +2,12 @@
 
 import os
 
+
 def binary_search(l, value):
     low = 0
-    high = len(l)-1
+    high = len(l) - 1
     while low + 1 < high:
-        mid = (low+high)//2
+        mid = (low + high) // 2
         if l[mid] > value:
             high = mid
         elif l[mid] < value:

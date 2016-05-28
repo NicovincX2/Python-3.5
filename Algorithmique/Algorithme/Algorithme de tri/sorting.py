@@ -2,6 +2,7 @@
 
 import os
 
+
 def mergesort(arr):
     """ perform mergesort on a list of numbers 
     >>> mergesort([5, 4, 1, 6, 2, 3, 9, 7])
@@ -10,10 +11,12 @@ def mergesort(arr):
     [1, 2, 2, 3, 4]
     """
     n = len(arr)
-    if n <= 1: return arr
-    a1 = mergesort(arr[:n/2])
-    a2 = mergesort(arr[n/2:])
+    if n <= 1:
+        return arr
+    a1 = mergesort(arr[:n / 2])
+    a2 = mergesort(arr[n / 2:])
     return merge(a1, a2)
+
 
 def merge(arr_a, arr_b):
     arr_c = []
@@ -25,9 +28,12 @@ def merge(arr_a, arr_b):
         else:
             arr_c.append(arr_b[j])
             j += 1
-    if arr_a[i:]: arr_c.extend(arr_a[i:])
-    if arr_b[j:]: arr_c.extend(arr_b[j:])
+    if arr_a[i:]:
+        arr_c.extend(arr_a[i:])
+    if arr_b[j:]:
+        arr_c.extend(arr_b[j:])
     return arr_c
+
 
 def quicksort(a):
     """ quicksort implementation in python
@@ -37,7 +43,7 @@ def quicksort(a):
     [1, 2, 4, 6, 8, 9, 10]
     """
     n = len(a)
-    if n<=1:
+    if n <= 1:
         return a
     else:
         from random import randrange
@@ -54,15 +60,16 @@ def selectionsort(a):
     """
     for i in range(len(a)):
         min = i
-        for j in range(i,len(a)):
-            if a[j] < a[min]: 
+        for j in range(i, len(a)):
+            if a[j] < a[min]:
                 min = j
-        a[i],a[min] = a[min], a[i]
+        a[i], a[min] = a[min], a[i]
     return a
+
 
 def bubblesort(a):
     """ bubble sort implementation
-    
+
     >>> bubblesort([6, 4, 8, 2, 1, 9, 10])
     [1, 2, 4, 6, 8, 9, 10]
     """
@@ -81,8 +88,8 @@ def insertionsort(a):
     for i in range(len(a)):
         item = a[i]
         j = i
-        while j > 0 and a[j-1] > item:
-            a[j] = a[j-1]
+        while j > 0 and a[j - 1] > item:
+            a[j] = a[j - 1]
             j -= 1
         a[j] = item
     return a

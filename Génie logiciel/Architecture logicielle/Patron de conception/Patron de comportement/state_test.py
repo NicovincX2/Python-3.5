@@ -6,6 +6,7 @@ if sys.version_info < (2, 7):
 else:
     import unittest
 
+
 class RadioTest(unittest.TestCase):
     """
     Attention: Test case results depend on test case execution. The test cases
@@ -59,4 +60,3 @@ class RadioTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

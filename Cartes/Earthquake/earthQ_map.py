@@ -28,16 +28,16 @@ from mpl_toolkits.basemap import Basemap
 import matplotlib.pyplot as plt
 import numpy as np
 
-eq_map = Basemap(projection='robin', resolution = 'l', area_thresh = 1000.0,
-              lat_0=0, lon_0=-130)
+eq_map = Basemap(projection='robin', resolution='l', area_thresh=1000.0,
+                 lat_0=0, lon_0=-130)
 eq_map.drawcoastlines()
 eq_map.drawcountries()
-eq_map.fillcontinents(color = 'gray')
+eq_map.fillcontinents(color='gray')
 eq_map.drawmapboundary()
 eq_map.drawmeridians(np.arange(0, 360, 30))
 eq_map.drawparallels(np.arange(-90, 90, 30))
 
-x,y = eq_map(lons, lats)
+x, y = eq_map(lons, lats)
 eq_map.plot(x, y, 'ro', markersize=6)
 
 plt.show()

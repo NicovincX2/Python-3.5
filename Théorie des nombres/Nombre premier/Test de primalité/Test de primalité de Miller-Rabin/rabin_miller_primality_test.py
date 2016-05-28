@@ -33,11 +33,11 @@ def is_probable_prime(n, k=7):
                     return False  # composite if we reached end of this loop
         return True  # probably prime if reached end of outer loop
 
-print (is_probable_prime(7))
-print (is_probable_prime(5915587277))
-print (is_probable_prime(48112959837082048697))
-print (is_probable_prime(671998030559713968361666935769))
-print (is_probable_prime(2425967623052370772757633156976982469681))
-print (is_probable_prime(22953686867719691230002707821868552601124472329079))
+print(is_probable_prime(7))
+print(is_probable_prime(5915587277))
+print(is_probable_prime(48112959837082048697))
+print(is_probable_prime(671998030559713968361666935769))
+print(is_probable_prime(2425967623052370772757633156976982469681))
+print(is_probable_prime(22953686867719691230002707821868552601124472329079))
 
 os.system("pause")

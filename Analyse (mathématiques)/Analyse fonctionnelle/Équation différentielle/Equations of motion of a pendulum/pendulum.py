@@ -9,7 +9,7 @@ import numpy
 import pylab
 import math
 
-# global parameters 
+# global parameters
 g = 9.81     # gravitational acceleration [m/s]
 L = 9.81     # length of pendulum [m]
 
@@ -24,8 +24,7 @@ class pendulumHistory:
 
     def energy(self):
         """ return the energy (per unit mass) """
-        return 0.5*L**2*self.omega**2 - g*L*numpy.cos(self.theta)
-        
+        return 0.5 * L**2 * self.omega**2 - g * L * numpy.cos(self.theta)
 
 
 def rhs(theta, omega):
@@ -33,18 +32,16 @@ def rhs(theta, omega):
         dtheta/dt = omega
         domega/dt = - (g/L) sin theta """
 
-    return omega, -(g/L)*numpy.sin(theta)
+    return omega, -(g / L) * numpy.sin(theta)
 
 
 def intEuler(theta0, dt, tmax, rhs):
     """ integrate the equations of motion using Euler's method """
-        
-    
+
     # initial conditions
     t = 0.0
     theta = theta0
     omega = 0.0    # at the maximum angle, the angular velocity is 0
-
 
     # store the history for plotting
     tPoints = [t]
@@ -57,8 +54,8 @@ def intEuler(theta0, dt, tmax, rhs):
         thetadot, omegadot = rhs(theta, omega)
 
         # advance
-        thetanew = theta + dt*thetadot
-        omeganew = omega + dt*omegadot
+        thetanew = theta + dt * thetadot
+        omeganew = omega + dt * omegadot
 
         t += dt
 
@@ -68,7 +65,8 @@ def intEuler(theta0, dt, tmax, rhs):
         omegaPoints.append(omeganew)
 
         # set for the next step
-        theta = thetanew; omega = omeganew
+        theta = thetanew
+        omega = omeganew
 
     # return a pendulumHistory object with the trajectory
     H = pendulumHistory()
@@ -79,16 +77,13 @@ def intEuler(theta0, dt, tmax, rhs):
     return H
 
 
-
 def intEC(theta0, dt, tmax, rhs):
     """ integrate the equations of motion using Euler-Cromer """
-        
-    
+
     # initial conditions
     t = 0.0
     theta = theta0
     omega = 0.0    # at the maximum angle, the angular velocity is 0
-
 
     # store the history for plotting
     tPoints = [t]
@@ -101,9 +96,8 @@ def intEC(theta0, dt, tmax, rhs):
         thetadot, omegadot = rhs(theta, omega)
 
         # advance
-        omeganew = omega + dt*omegadot
-        thetanew = theta + dt*omeganew
-
+        omeganew = omega + dt * omegadot
+        thetanew = theta + dt * omeganew
 
         t += dt
 
@@ -113,7 +107,8 @@ def intEC(theta0, dt, tmax, rhs):
         omegaPoints.append(omeganew)
 
         # set for the next step
-        theta = thetanew; omega = omeganew
+        theta = thetanew
+        omega = omeganew
 
     # return a pendulumHistory object with the trajectory
     H = pendulumHistory()
@@ -126,13 +121,11 @@ def intEC(theta0, dt, tmax, rhs):
 
 def intVVerlet(theta0, dt, tmax, rhs):
     """ integrate the equations of motion using Euler-Cromer """
-        
-    
+
     # initial conditions
     t = 0.0
     theta = theta0
     omega = 0.0    # at the maximum angle, the angular velocity is 0
-
 
     # store the history for plotting
     tPoints = [t]
@@ -144,14 +137,14 @@ def intVVerlet(theta0, dt, tmax, rhs):
         # get the RHS at time-level n
         thetadot, omegadot = rhs(theta, omega)
 
-        thetanew = theta + dt*thetadot + 0.5*dt**2*omegadot
+        thetanew = theta + dt * thetadot + 0.5 * dt**2 * omegadot
 
         # get the RHS with the updated theta -- omega doesn't matter
         # here, since we only need thetadot and omega doesn't affect
         # that.
         thetadot_np1, omegadot_np1 = rhs(thetanew, omega)
 
-        omeganew = omega + 0.5*dt*(omegadot + omegadot_np1)
+        omeganew = omega + 0.5 * dt * (omegadot + omegadot_np1)
 
         t += dt
 
@@ -161,7 +154,8 @@ def intVVerlet(theta0, dt, tmax, rhs):
         omegaPoints.append(omeganew)
 
         # set for the next step
-        theta = thetanew; omega = omeganew
+        theta = thetanew
+        omega = omeganew
 
     # return a pendulumHistory object with the trajectory
     H = pendulumHistory()
@@ -172,10 +166,8 @@ def intVVerlet(theta0, dt, tmax, rhs):
     return H
 
 
-
-
 # 10 degree pendulum
-theta0 = 10.0*math.pi/180.0
+theta0 = 10.0 * math.pi / 180.0
 dt = 0.1
 tmax = 30.0
 
@@ -230,12 +222,10 @@ pylab.tight_layout()
 pylab.savefig("pendulum-energy-10.png")
 
 
-
-
 # 100 degree pendulum
 pylab.clf()
 
-theta0 = 100.0*math.pi/180.0
+theta0 = 100.0 * math.pi / 180.0
 dt = 0.1
 tmax = 30.0
 

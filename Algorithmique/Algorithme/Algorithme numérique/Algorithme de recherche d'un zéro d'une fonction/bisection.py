@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import division
 import os
 from scipy import linalg as la
 from scipy import optimize
@@ -9,7 +10,6 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 mpl.rcParams["font.family"] = "serif"
 mpl.rcParams["font.size"] = "12"
-from __future__ import division
 
 # define a function, desired tolerance and starting interval [a, b]
 f = lambda x: np.exp(x) - 2
@@ -37,13 +37,13 @@ ax.text(b, fb + 0.5, r"$b$", ha='center', fontsize=18)
 
 n = 1
 while b - a > tol:
-    m = a + (b - a)/2
+    m = a + (b - a) / 2
     fm = f(m)
 
     ax.plot(m, fm, 'ko')
     ax.text(m, fm - 0.5, r"$m_%d$" % n, ha='center')
     n += 1
-    
+
     if np.sign(fa) == np.sign(fm):
         a, fa = m, fm
     else:
@@ -53,14 +53,12 @@ ax.plot(m, fm, 'r*', markersize=10)
 ax.annotate("Root approximately at %.3f" % m,
             fontsize=14, family="serif",
             xy=(a, fm), xycoords='data',
-            xytext=(-150, +50), textcoords='offset points', 
+            xytext=(-150, +50), textcoords='offset points',
             arrowprops=dict(arrowstyle="->", connectionstyle="arc3, rad=-.5"))
 
 ax.set_title("Bisection method")
 
 fig.tight_layout()
-fig.savefig('ch5-nonlinear-bisection.pdf')
-
+fig.savefig('nonlinear-bisection.pdf')
 
 os.system("pause")
-

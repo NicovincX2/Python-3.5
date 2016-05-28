@@ -4,7 +4,7 @@ import os
 
 # simple stiff ODE equation with analytic solution
 #
-# y' = -1.e3 (y - exp(-t) ) - exp(-t) 
+# y' = -1.e3 (y - exp(-t) ) - exp(-t)
 # y(0) = 0
 #
 # analytic solution is
@@ -19,16 +19,17 @@ import math
 import numpy
 import pylab
 
+
 def analytic(t):
-    return numpy.exp(-t) - numpy.exp(-1.e3*t)
+    return numpy.exp(-t) - numpy.exp(-1.e3 * t)
 
 
 def rhs(t, y):
-    return -1.e3*(y - numpy.exp(-t)) - numpy.exp(-t)
+    return -1.e3 * (y - numpy.exp(-t)) - numpy.exp(-t)
 
 
 def rk4(y0, dt, tmax):
-    
+
     tsol = [0.0]
     ysol = [y0]
 
@@ -37,11 +38,11 @@ def rk4(y0, dt, tmax):
 
     while (t < tmax):
         ydot1 = rhs(t, y)
-        ydot2 = rhs(t+0.5*dt, y+0.5*dt*ydot1)
-        ydot3 = rhs(t+0.5*dt, y+0.5*dt*ydot2)
-        ydot4 = rhs(t+dt, y+dt*ydot3)
+        ydot2 = rhs(t + 0.5 * dt, y + 0.5 * dt * ydot1)
+        ydot3 = rhs(t + 0.5 * dt, y + 0.5 * dt * ydot2)
+        ydot4 = rhs(t + dt, y + dt * ydot3)
 
-        y += (dt/6.0)*(ydot1 + 2.0*ydot2 + 2.0*ydot3 + ydot4)
+        y += (dt / 6.0) * (ydot1 + 2.0 * ydot2 + 2.0 * ydot3 + ydot4)
 
         t += dt
 
@@ -62,8 +63,8 @@ def backwardEuler(y0, dt, tmax):
     while (t < tmax):
         # an implicit discretication: y^{n+1} - y^n = dt ydot^{n+1}
         # and then solve analytically for y^{n+1}:
-        ynew = (y + 1.e3*dt*numpy.exp(-t) - dt*numpy.exp(-t))/ \
-               (1.0 + 1.e3*dt)
+        ynew = (y + 1.e3 * dt * numpy.exp(-t) - dt * numpy.exp(-t)) / \
+               (1.0 + 1.e3 * dt)
 
         y = ynew
         t += dt
@@ -72,8 +73,6 @@ def backwardEuler(y0, dt, tmax):
         ysol.append(y)
 
     return numpy.array(tsol), numpy.array(ysol)
-
-    
 
 
 y0 = 0.0
@@ -150,7 +149,7 @@ ax.yaxis.set_major_formatter(pylab.ScalarFormatter(useMathText=True))
 
 pylab.ylim(-1.e22, 0.0)
 
-#for i in range(len(tRK4)):
+# for i in range(len(tRK4)):
 #    print tRK4[i], yRK4[i]
 
 

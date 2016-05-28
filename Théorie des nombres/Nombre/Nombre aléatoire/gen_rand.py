@@ -9,12 +9,12 @@ rands = []
 for i in range(100):
     rands.append(random())
 plot(rands)
-    
+
 from random import gauss
 
 grands = []
 for i in range(100):
-    grands.append(gauss(0,1))
+    grands.append(gauss(0, 1))
 plot(grands)
 
 plot(rand(100))

@@ -2,6 +2,7 @@
 
 import os
 
+
 def merge_sort(l):
     """Sort list using merge sort.
     Complexity: O(n log n)
@@ -49,7 +50,7 @@ if __name__ == '__main__':
     array = [3, 1, 6, 0, 7, 19, 7, 2, 22]
     sorted = [0, 1, 2, 3, 6, 7, 7, 19, 22]
     assert(merge_sort(array) == sorted)
-    
+
     array = []
     assert(merge_sort(array) == array)
 

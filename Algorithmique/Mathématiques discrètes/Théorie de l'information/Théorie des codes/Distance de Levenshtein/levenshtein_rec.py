@@ -3,6 +3,7 @@
 import os
 from collections import Counter
 
+
 def call_counter(func):
     def helper(*args, **kwargs):
         helper.calls += 1
@@ -11,8 +12,10 @@ def call_counter(func):
         return func(*args, **kwargs)
     helper.c = Counter()
     helper.calls = 0
-    helper.__name__= func.__name__
+    helper.__name__ = func.__name__
     return helper
+
+
 @call_counter
 def LD(s, t):
     if s == "":
@@ -23,9 +26,9 @@ def LD(s, t):
         cost = 0
     else:
         cost = 1
-       
-    res = min([LD(s[:-1], t)+1,
-               LD(s, t[:-1])+1, 
+
+    res = min([LD(s[:-1], t) + 1,
+               LD(s, t[:-1]) + 1,
                LD(s[:-1], t[:-1]) + cost])
     return res
 print(LD("Python", "Peithen"))

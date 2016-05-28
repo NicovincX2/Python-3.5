@@ -31,12 +31,15 @@ except ImportError:
     # The izip_longest function was added in version 2.6
     # If we can't find it, use an equivalent implementation.
     from itertools import chain, repeat
+
     class ZipExhausted(Exception):
         pass
+
     def izip_longest(*args, **kwds):
         # izip_longest('ABCD', 'xy', fillvalue='-') --> Ax By C- D-
         fillvalue = kwds.get('fillvalue')
         counter = [len(args) - 1]
+
         def sentinel():
             if not counter[0]:
                 raise ZipExhausted
@@ -60,7 +63,7 @@ except ImportError:
 
 class SimplePolynomial(object):
 
-    def __init__(self, terms=[0,1]):
+    def __init__(self, terms=[0, 1]):
         """\
 >>> str(SimplePolynomial())
 'X'
@@ -90,7 +93,7 @@ Needs some work, but adequate.
                 c = - c
             else:
                 result.append('+')
-                
+
             if c == 1:
                 if i == 0:
                     result.append('1')
@@ -108,7 +111,7 @@ Needs some work, but adequate.
         if len(result) == 0:
             return '0'
         if result[0] == '-':
-            result[1] = '-'+result[1]
+            result[1] = '-' + result[1]
         del result[0]
         return ' '.join(result)
 
@@ -130,7 +133,7 @@ Needs some work, but adequate.
         return SimplePolynomial([
             add(*pair)
             for pair in izip_longest(self.terms, other.terms, fillvalue=0)
-            ])
+        ])
 
     # Since addition is commutative, reuse __add__
     __radd__ = __add__
@@ -169,10 +172,10 @@ Needs some work, but adequate.
 """
         if isinstance(other, Number):
             return SimplePolynomial([c * other for c in self.terms])
-        terms = [0]*(len(self.terms)+len(other.terms))
+        terms = [0] * (len(self.terms) + len(other.terms))
         for i1, c1 in enumerate(self.terms):
             for i2, c2 in enumerate(other.terms):
-                terms[i1+i2] += c1*c2
+                terms[i1 + i2] += c1 * c2
         return SimplePolynomial(terms)
 
     # Since multiplication is commutative, reuse __mul__
@@ -194,7 +197,7 @@ for details.
         if isinstance(other, Number):
             return SimplePolynomial([c / other for c in self.terms])
         if len(other.terms) == 1:
-            return self/other.terms[0]
+            return self / other.terms[0]
         assert len(other.terms) == 2
         dividend = self.terms[:]
         divisor = other.terms[:]
@@ -278,7 +281,7 @@ Evaluate the polynomial for the given value using the Horner scheme.
 >>> str(SimplePolynomial().derivative())
 '1'
 """
-        terms = [i*c for i, c in enumerate(self.terms)]
+        terms = [i * c for i, c in enumerate(self.terms)]
         return SimplePolynomial(terms[1:])
 
     def integrate(self, const=0):
@@ -287,7 +290,7 @@ Evaluate the polynomial for the given value using the Horner scheme.
 '0.5*X**2'
 """
         terms = [const]
-        terms.extend([c/(i+1) for i, c in enumerate(self.terms)])
+        terms.extend([c / (i + 1) for i, c in enumerate(self.terms)])
         return SimplePolynomial(terms)
 
 
@@ -295,8 +298,8 @@ if __name__ == '__main__':
     import doctest
     doctest.testmod()
     x = SimplePolynomial()
-    eq = (x-1)*(x*1)
-    print (eq)     # prints 'X**2 - 1'
-    print (eq(4))  # prints 15
+    eq = (x - 1) * (x * 1)
+    print(eq)     # prints 'X**2 - 1'
+    print(eq(4))  # prints 15
 
 os.system("pause")

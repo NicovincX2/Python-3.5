@@ -41,7 +41,7 @@ SPECIES_SIZE = coop_base.SPECIES_SIZE
 NUM_SPECIES = 4
 TARGET_SIZE = 30
 
-noise =      "*##*###*###*****##*##****#*##*###*#****##******##*#**#*#**######"
+noise = "*##*###*###*****##*##****#*##*###*#****##******##*#**#*#**######"
 schematas = ("1##1###1###11111##1##1111#1##1###1#1111##111111##1#11#1#11######",
              "1##1###1###11111##1##1000#0##0###0#0000##000000##0#00#0#00######",
              "0##0###0###00000##0##0000#0##0###0#0000##001111##1#11#1#11######")
@@ -50,6 +50,7 @@ toolbox = coop_base.toolbox
 if plt:
     # This will allow to plot the match strength of every target schemata
     toolbox.register("evaluate_nonoise", coop_base.matchSetStrengthNoNoise)
+
 
 def main(extended=True, verbose=True):
     target_set = []
@@ -67,7 +68,7 @@ def main(extended=True, verbose=True):
     g = 0
 
     for i in range(len(schematas)):
-        size = int(TARGET_SIZE/len(schematas))
+        size = int(TARGET_SIZE / len(schematas))
         target_set.extend(toolbox.target_set(schematas[i], size))
 
     species = [toolbox.species() for _ in range(NUM_SPECIES)]
@@ -87,7 +88,7 @@ def main(extended=True, verbose=True):
             s = algorithms.varAnd(s, toolbox, 0.6, 1.0)
 
             # Get the representatives excluding the current species
-            r = representatives[:i] + representatives[i+1:]
+            r = representatives[:i] + representatives[i + 1:]
             for ind in s:
                 ind.fitness.values = toolbox.evaluate([ind] + r, target_set)
 
@@ -107,11 +108,11 @@ def main(extended=True, verbose=True):
                 # Compute the match strength without noise for the
                 # representatives on the three schematas
                 t1.append(toolbox.evaluate_nonoise(representatives,
-                    toolbox.target_set(schematas[0], 1), noise)[0])
+                                                   toolbox.target_set(schematas[0], 1), noise)[0])
                 t2.append(toolbox.evaluate_nonoise(representatives,
-                    toolbox.target_set(schematas[1], 1), noise)[0])
+                                                   toolbox.target_set(schematas[1], 1), noise)[0])
                 t3.append(toolbox.evaluate_nonoise(representatives,
-                    toolbox.target_set(schematas[2], 1), noise)[0])
+                                                   toolbox.target_set(schematas[2], 1), noise)[0])
 
         representatives = next_repr
     if extended:

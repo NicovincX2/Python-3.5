@@ -22,7 +22,9 @@ import csv
 import operator
 import random
 
+
 class KNN(object):
+
     def __init__(self, k):
         self.k = k
         self.data = None
@@ -67,15 +69,16 @@ class KNN(object):
                 classes = dict((cls, 0) for cls in self.classes)
                 for n in nns[i, :self.k]:
                     classes[self.labels[n]] += 1
-                labels.append(sorted(classes.items(), key=operator.itemgetter(1))[-1][0])
+                labels.append(
+                    sorted(classes.items(), key=operator.itemgetter(1))[-1][0])
 
         return labels
 
 # Create a default internal KNN object
 # Read data from file
-FILE="heart_scale.csv"
-N_TRAIN=175
-K=1
+FILE = "heart_scale.csv"
+N_TRAIN = 175
+K = 1
 
 with open(FILE, "r") as data_csv:
     data = csv.reader(data_csv)
@@ -91,10 +94,11 @@ for row in rows:
 _knn = KNN(K)
 _knn.train(trainset[:N_TRAIN], trainlabels[:N_TRAIN])
 
+
 def classification_rate(features):
     """Returns the classification rate of the default KNN."""
     labels = _knn.predict(trainset[N_TRAIN:], features)
-    return sum(x == y for x, y in zip(labels, trainlabels[N_TRAIN:]))/float(len(trainlabels[N_TRAIN:]))
+    return sum(x == y for x, y in zip(labels, trainlabels[N_TRAIN:])) / float(len(trainlabels[N_TRAIN:]))
 
 if __name__ == "__main__":
     trainset = [[1, 0], [1, 1], [1, 2]]

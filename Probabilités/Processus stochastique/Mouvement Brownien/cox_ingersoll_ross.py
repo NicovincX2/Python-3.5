@@ -3,6 +3,7 @@
 import os
 import parameters
 
+
 def cox_ingersoll_ross_levels(param):
     """
     This method returns the rate levels of a mean-reverting cox ingersoll ross process. It is used to model interest
@@ -18,13 +19,14 @@ def cox_ingersoll_ross_levels(param):
     # Assumes output is in levels
     levels = [zero]
     for i in range(1, param.all_time):
-        drift = a * (mu - levels[i-1]) * param.all_delta
+        drift = a * (mu - levels[i - 1]) * param.all_delta
         # The main difference between this and the Ornstein Uhlenbeck model is that we multiply the 'random'
-        # component by the square-root of the previous level i.e. the process has level dependent interest rates.
+        # component by the square-root of the previous level i.e. the process
+        # has level dependent interest rates.
         randomness = math.sqrt(levels[i - 1]) * brownian_motion[i - 1]
         levels.append(levels[i - 1] + drift + randomness)
     return numpy.array(levels)
-    
+
 cir_examples = []
 for i in range(paths):
     cir_examples.append(cox_ingersoll_ross_levels(mp))

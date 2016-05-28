@@ -39,5 +39,5 @@ ax_f.set_ylabel('Fahrenheit')
 ax_c.set_ylabel('Celsius')
 
 plt.show()
-    
+
 os.system("pause")

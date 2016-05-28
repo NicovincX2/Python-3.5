@@ -3,6 +3,7 @@
 import os
 from merge_sort import merge_sort
 
+
 def search(arr, item):
     """Performs binary search on an array
     with the given item and returns True or
@@ -32,7 +33,7 @@ def search(arr, item):
     return found
 
 
-print (search([5, 4, 1, 6, 2, 3, 9, 7], 2))
-print (search([5, 4, 1, 6, 2, 3, 9, 7], 8))
+print(search([5, 4, 1, 6, 2, 3, 9, 7], 2))
+print(search([5, 4, 1, 6, 2, 3, 9, 7], 8))
 
 os.system("pause")

@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
+
 class StateMachine:
+
     def __init__(self):
         self.handlers = {}
         self.startState = None
@@ -21,12 +23,13 @@ class StateMachine:
         except:
             raise InitializationError("must call .set_start() before .run()")
         if not self.endStates:
-            raise  InitializationError("at least one state must be an end_state")
-    
+            raise InitializationError(
+                "at least one state must be an end_state")
+
         while True:
             (newState, cargo) = handler(cargo)
             if newState.upper() in self.endStates:
                 print("reached ", newState)
-                break 
+                break
             else:
-                handler = self.handlers[newState.upper()]              
+                handler = self.handlers[newState.upper()]

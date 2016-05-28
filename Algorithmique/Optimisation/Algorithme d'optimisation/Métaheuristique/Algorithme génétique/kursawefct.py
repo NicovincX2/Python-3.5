@@ -30,7 +30,8 @@ from deap import creator
 from deap import tools
 
 creator.create("FitnessMin", base.Fitness, weights=(-1.0, -1.0))
-creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessMin)
+creator.create("Individual", array.array, typecode='d',
+               fitness=creator.FitnessMin)
 
 toolbox = base.Toolbox()
 
@@ -38,8 +39,10 @@ toolbox = base.Toolbox()
 toolbox.register("attr_float", random.uniform, -5, 5)
 
 # Structure initializers
-toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, 3)
+toolbox.register("individual", tools.initRepeat,
+                 creator.Individual, toolbox.attr_float, 3)
 toolbox.register("population", tools.initRepeat, list, toolbox.individual)
+
 
 def checkBounds(min, max):
     def decorator(func):
@@ -62,6 +65,7 @@ toolbox.register("select", tools.selNSGA2)
 
 toolbox.decorate("mate", checkBounds(-5, 5))
 toolbox.decorate("mutate", checkBounds(-5, 5))
+
 
 def main():
     random.seed(64)

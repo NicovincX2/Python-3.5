@@ -45,13 +45,14 @@ IMPROVMENT_TRESHOLD = 0.5
 IMPROVMENT_LENGTH = 5
 EXTINCTION_TRESHOLD = 5.0
 
-noise =      "*##*###*###*****##*##****#*##*###*#****##******##*#**#*#**######"
+noise = "*##*###*###*****##*##****#*##*###*#****##******##*#**#*#**######"
 schematas = ("1##1###1###11111##1##1111#1##1###1#1111##111111##1#11#1#11######",
              "1##1###1###11111##1##1000#0##0###0#0000##000000##0#00#0#00######",
              "0##0###0###00000##0##0000#0##0###0#0000##001111##1#11#1#11######")
 
 toolbox = coop_base.toolbox
 toolbox.register("evaluateContribution", coop_base.matchSetContribution)
+
 
 def main(extended=True, verbose=True):
     target_set = []
@@ -70,7 +71,7 @@ def main(extended=True, verbose=True):
     g = 0
 
     for i in range(len(schematas)):
-        size = int(TARGET_SIZE/len(schematas))
+        size = int(TARGET_SIZE / len(schematas))
         target_set.extend(toolbox.target_set(schematas[i], size))
 
     species = [toolbox.species() for _ in range(NUM_SPECIES)]
@@ -94,7 +95,7 @@ def main(extended=True, verbose=True):
             s = algorithms.varAnd(s, toolbox, 0.6, 1.0)
 
             # Get the representatives excluding the current species
-            r = representatives[:i] + representatives[i+1:]
+            r = representatives[:i] + representatives[i + 1:]
             for ind in s:
                 # Evaluate and set the individual fitness
                 ind.fitness.values = toolbox.evaluate([ind] + r, target_set)
@@ -129,13 +130,14 @@ def main(extended=True, verbose=True):
         if plt and extended:
             for (i, rep), j in zip(enumerate(representatives), species_index):
                 contribs[j].append((toolbox.evaluateContribution(representatives,
-                    target_set, i)[0], g-1))
+                                                                 target_set, i)[0], g - 1))
 
         if diff < IMPROVMENT_TRESHOLD:
             if len(species) > 1:
                 contributions = []
                 for i in range(len(species)):
-                    contributions.append(toolbox.evaluateContribution(representatives, target_set, i)[0])
+                    contributions.append(toolbox.evaluateContribution(
+                        representatives, target_set, i)[0])
 
                 for i in reversed(range(len(species))):
                     if contributions[i] < EXTINCTION_TRESHOLD:
@@ -149,7 +151,7 @@ def main(extended=True, verbose=True):
             species_index.append(last_index_added)
             representatives.append(random.choice(species[-1]))
             if extended and plt:
-                stag_gen.append(g-1)
+                stag_gen.append(g - 1)
                 contribs.append([])
 
     if extended:
@@ -172,7 +174,8 @@ def main(extended=True, verbose=True):
         for s in stag_gen:
             plt.plot([s, s], [0, axis[-1]], "--", color="k")
 
-        plt.legend((line1, line2), ("Collaboration", "Contribution"), loc="center right")
+        plt.legend((line1, line2), ("Collaboration",
+                                    "Contribution"), loc="center right")
         plt.xlabel("Generations")
         plt.ylabel("Fitness")
         plt.show()

@@ -51,13 +51,15 @@ mpb = movingpeaks.MovingPeaks(dim=NDIM, **scenario)
 
 creator.create("FitnessMax", base.Fitness, weights=(1.0,))
 creator.create("Particle", list, fitness=creator.FitnessMax, speed=list,
-    best=None, bestfit=creator.FitnessMax)
+               best=None, bestfit=creator.FitnessMax)
 creator.create("Swarm", list, best=None, bestfit=creator.FitnessMax)
+
 
 def generate(pclass, dim, pmin, pmax, smin, smax):
     part = pclass(random.uniform(pmin, pmax) for _ in range(dim))
     part.speed = [random.uniform(smin, smax) for _ in range(dim)]
     return part
+
 
 def convertQuantum(swarm, rcloud, centre, dist):
     dim = len(swarm[0])
@@ -66,16 +68,19 @@ def convertQuantum(swarm, rcloud, centre, dist):
         dist = math.sqrt(sum(x**2 for x in position))
 
         if dist == "gaussian":
-            u = abs(random.gauss(0, 1.0/3.0))
-            part[:] = [(rcloud * x * u**(1.0/dim) / dist) + c for x, c in zip(position, centre)]
+            u = abs(random.gauss(0, 1.0 / 3.0))
+            part[:] = [(rcloud * x * u**(1.0 / dim) / dist) +
+                       c for x, c in zip(position, centre)]
 
         elif dist == "uvd":
             u = random.random()
-            part[:] = [(rcloud * x * u**(1.0/dim) / dist) + c for x, c in zip(position, centre)]
+            part[:] = [(rcloud * x * u**(1.0 / dim) / dist) +
+                       c for x, c in zip(position, centre)]
 
         elif dist == "nuvd":
-            u = abs(random.gauss(0, 1.0/3.0))
-            part[:] = [(rcloud * x * u / dist) + c for x, c in zip(position, centre)]
+            u = abs(random.gauss(0, 1.0 / 3.0))
+            part[:] = [(rcloud * x * u / dist) + c for x,
+                       c in zip(position, centre)]
 
         del part.fitness.values
         del part.bestfit.values
@@ -83,29 +88,32 @@ def convertQuantum(swarm, rcloud, centre, dist):
 
     return swarm
 
+
 def updateParticle(part, best, chi, c):
     ce1 = (c * random.uniform(0, 1) for _ in range(len(part)))
     ce2 = (c * random.uniform(0, 1) for _ in range(len(part)))
     ce1_p = map(operator.mul, ce1, map(operator.sub, best, part))
     ce2_g = map(operator.mul, ce2, map(operator.sub, part.best, part))
     a = map(operator.sub,
-                      map(operator.mul,
-                                    itertools.repeat(chi),
-                                    map(operator.add, ce1_p, ce2_g)),
-                      map(operator.mul,
-                                     itertools.repeat(1 - chi),
-                                     part.speed))
+            map(operator.mul,
+                itertools.repeat(chi),
+                map(operator.add, ce1_p, ce2_g)),
+            map(operator.mul,
+                itertools.repeat(1 - chi),
+                part.speed))
     part.speed = list(map(operator.add, part.speed, a))
     part[:] = list(map(operator.add, part, part.speed))
 
 toolbox = base.Toolbox()
 toolbox.register("particle", generate, creator.Particle, dim=NDIM,
-    pmin=BOUNDS[0], pmax=BOUNDS[1], smin=-(BOUNDS[1] - BOUNDS[0])/2.0,
-    smax=(BOUNDS[1] - BOUNDS[0])/2.0)
+                 pmin=BOUNDS[0], pmax=BOUNDS[1], smin=-
+                 (BOUNDS[1] - BOUNDS[0]) / 2.0,
+                 smax=(BOUNDS[1] - BOUNDS[0]) / 2.0)
 toolbox.register("swarm", tools.initRepeat, creator.Swarm, toolbox.particle)
 toolbox.register("update", updateParticle, chi=0.729843788, c=2.05)
 toolbox.register("convert", convertQuantum, dist="nuvd")
 toolbox.register("evaluate", mpb)
+
 
 def main(verbose=True):
     NSWARMS = 1
@@ -148,7 +156,7 @@ def main(verbose=True):
     generation = 1
     while mpb.nevals < 5e5:
         # Check for convergence
-        rexcl = (BOUNDS[1] - BOUNDS[0]) / (2 * len(population)**(1.0/NDIM))
+        rexcl = (BOUNDS[1] - BOUNDS[0]) / (2 * len(population)**(1.0 / NDIM))
 
         not_converged = 0
         worst_swarm_idx = None
@@ -157,7 +165,7 @@ def main(verbose=True):
             # Compute the diameter of the swarm
             for p1, p2 in itertools.combinations(swarm, 2):
                 d = math.sqrt(sum((x1 - x2)**2. for x1, x2 in zip(p1, p2)))
-                if d > 2*rexcl:
+                if d > 2 * rexcl:
                     not_converged += 1
                     # Search for the worst swarm according to its global best
                     if not worst_swarm or swarm.bestfit < worst_swarm.bestfit:
@@ -177,7 +185,8 @@ def main(verbose=True):
             # Check for change
             if swarm.best and toolbox.evaluate(swarm.best) != swarm.bestfit.values:
                 # Convert particles to quantum particles
-                swarm[:] = toolbox.convert(swarm, rcloud=RCLOUD, centre=swarm.best)
+                swarm[:] = toolbox.convert(
+                    swarm, rcloud=RCLOUD, centre=swarm.best)
                 swarm.best = None
                 del swarm.bestfit.values
 

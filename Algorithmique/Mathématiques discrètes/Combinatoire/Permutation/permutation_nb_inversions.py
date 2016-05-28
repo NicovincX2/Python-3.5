@@ -2,6 +2,7 @@
 
 import os
 
+
 def inversion(permList):
     """
     Description - This function returns the number of inversions in a
@@ -13,11 +14,11 @@ def inversion(permList):
     Input - permList : list
     Output - numInversions : int
     """
-    if len(permList)==1:
+    if len(permList) == 1:
         return 0
     else:
-        numInversion=len(permList)-permList.index(max(permList))-1
+        numInversion = len(permList) - permList.index(max(permList)) - 1
         permList.remove(max(permList))
-        return numInversion+inversion(permList)
+        return numInversion + inversion(permList)
 
 os.system("pause")

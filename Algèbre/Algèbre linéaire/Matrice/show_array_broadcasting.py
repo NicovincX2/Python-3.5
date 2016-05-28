@@ -5,11 +5,12 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
 
+
 def show_array_broadcasting(a, b, filename=None):
     """Visualize broadcasting of arrays"""
 
     c = a + b
-    
+
     fig, axes = plt.subplots(1, 3, figsize=(12, 4))
 
     data = a
@@ -26,11 +27,11 @@ def show_array_broadcasting(a, b, filename=None):
                              facecolor=color,
                              edgecolor=color)
         ax.add_patch(rect)
-        ax.text(m, n, "%d" % data[n, m], ha='center', va='center', fontsize=12)        
-    ax.text(2.8, 1, "+", ha='center', va='center', fontsize=22)        
+        ax.text(m, n, "%d" % data[n, m], ha='center', va='center', fontsize=12)
+    ax.text(2.8, 1, "+", ha='center', va='center', fontsize=22)
     ax.autoscale_view()
     ax.invert_yaxis()
-    
+
     data = np.zeros_like(a) + b
     ax = axes[1]
     ax.patch.set_facecolor('black')
@@ -53,12 +54,11 @@ def show_array_broadcasting(a, b, filename=None):
                                  facecolor=color,
                                  edgecolor=color)
             ax.add_patch(rect)
-        ax.text(m, n, "%d" % data[n, m], ha='center', va='center', fontsize=12)        
-    ax.text(2.8, 1, "=", ha='center', va='center', fontsize=22)        
+        ax.text(m, n, "%d" % data[n, m], ha='center', va='center', fontsize=12)
+    ax.text(2.8, 1, "=", ha='center', va='center', fontsize=22)
     ax.autoscale_view()
     ax.invert_yaxis()
 
-    
     data = c
     ax = axes[2]
     ax.patch.set_facecolor('black')
@@ -81,12 +81,12 @@ def show_array_broadcasting(a, b, filename=None):
                              facecolor=color,
                              edgecolor=color)
         ax.add_patch(rect)
-        ax.text(m, n, "%d" % data[n, m], ha='center', va='center', fontsize=12)        
+        ax.text(m, n, "%d" % data[n, m], ha='center', va='center', fontsize=12)
     ax.autoscale_view()
     ax.invert_yaxis()
-    
-    #fig.tight_layout()
-        
+
+    # fig.tight_layout()
+
     if filename:
         fig.savefig(filename + ".png", dpi=200)
         fig.savefig(filename + ".svg")
@@ -99,4 +99,3 @@ show_array_broadcasting(a, b, filename="array_broadcasting_1")
 show_array_broadcasting(a, b.T, filename="array_broadcasting_2")
 
 os.system("pause")
-

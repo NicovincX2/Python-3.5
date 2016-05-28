@@ -9,6 +9,7 @@ if version_info < (2, 7):
 else:
     import unittest
 
+
 class TestCard(unittest.TestCase):
 
     def test_instances_shall_reference_same_object(self):
@@ -38,4 +39,3 @@ class TestCard(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

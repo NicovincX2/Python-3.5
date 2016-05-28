@@ -16,7 +16,6 @@ for a, b in params:
     plt.fill_between(x, 0, y, alpha=0.2, color=lines[0].get_color())
     plt.autoscale(tight=True)
 plt.ylim(0)
-plt.legend(loc='upper left', title="(a,b)-parameters");
+plt.legend(loc='upper left', title="(a,b)-parameters")
 
 os.system("pause")
-

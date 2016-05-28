@@ -2,8 +2,10 @@
 
 import os
 
-def ToReducedRowEchelonForm( M):
-    if not M: return
+
+def ToReducedRowEchelonForm(M):
+    if not M:
+        return
     lead = 0
     rowCount = len(M)
     columnCount = len(M[0])
@@ -18,24 +20,24 @@ def ToReducedRowEchelonForm( M):
                 lead += 1
                 if columnCount == lead:
                     return
-        M[i],M[r] = M[r],M[i]
+        M[i], M[r] = M[r], M[i]
         lv = M[r][lead]
-        M[r] = [ mrx / float(lv) for mrx in M[r]]
+        M[r] = [mrx / float(lv) for mrx in M[r]]
         for i in range(rowCount):
             if i != r:
                 lv = M[i][lead]
-                M[i] = [ iv - lv*rv for rv,iv in zip(M[r],M[i])]
+                M[i] = [iv - lv * rv for rv, iv in zip(M[r], M[i])]
         lead += 1
 
 
 mtx = [
-   [ 1, 2, -1, -4],
-   [ 2, 3, -1, -11],
-   [-2, 0, -3, 22],]
+    [1, 2, -1, -4],
+    [2, 3, -1, -11],
+    [-2, 0, -3, 22], ]
 
-ToReducedRowEchelonForm( mtx )
+ToReducedRowEchelonForm(mtx)
 
 for rw in mtx:
-    print (', '.join( (str(rv) for rv in rw) ))
+    print(', '.join((str(rv) for rv in rw)))
 
 os.system("pause")

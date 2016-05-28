@@ -42,20 +42,25 @@ BOUNDS = [scenario["min_coord"], scenario["max_coord"]]
 
 mpb = movingpeaks.MovingPeaks(dim=NDIM, **scenario)
 
+
 def brown_ind(iclass, best, sigma):
     return iclass(random.gauss(x, sigma) for x in best)
 
 creator.create("FitnessMax", base.Fitness, weights=(1.0,))
-creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessMax)
+creator.create("Individual", array.array, typecode='d',
+               fitness=creator.FitnessMax)
 
 toolbox = base.Toolbox()
 toolbox.register("attr_float", random.uniform, BOUNDS[0], BOUNDS[1])
-toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, NDIM)
-toolbox.register("brownian_individual", brown_ind, creator.Individual, sigma=0.3)
+toolbox.register("individual", tools.initRepeat,
+                 creator.Individual, toolbox.attr_float, NDIM)
+toolbox.register("brownian_individual", brown_ind,
+                 creator.Individual, sigma=0.3)
 toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 toolbox.register("select", random.sample, k=4)
 toolbox.register("best", tools.selBest, k=1)
 toolbox.register("evaluate", mpb)
+
 
 def main(verbose=True):
     NPOP = 10   # Should be equal to the number of peaks
@@ -73,7 +78,8 @@ def main(verbose=True):
     logbook.header = "gen", "evals", "error", "offline_error", "avg", "max"
 
     # Initialize populations
-    populations = [toolbox.population(n=regular + brownian) for _ in range(NPOP)]
+    populations = [toolbox.population(n=regular + brownian)
+                   for _ in range(NPOP)]
 
     # Evaluate the individuals
     for idx, subpop in enumerate(populations):
@@ -96,7 +102,7 @@ def main(verbose=True):
                 del individual.fitness.values
 
         # Apply exclusion
-        rexcl = (BOUNDS[1] - BOUNDS[0]) / (2 * NPOP**(1.0/NDIM))
+        rexcl = (BOUNDS[1] - BOUNDS[0]) / (2 * NPOP**(1.0 / NDIM))
         for i, j in itertools.combinations(range(NPOP), 2):
             if bests[i].fitness.valid and bests[j].fitness.valid:
                 d = sum((bests[i][k] - bests[j][k])**2 for k in range(NDIM))
@@ -111,7 +117,8 @@ def main(verbose=True):
                     populations[k] = toolbox.population(n=regular + brownian)
 
         # Evaluate the individuals with an invalid fitness
-        invalid_ind = [ind for ind in itertools.chain(*populations) if not ind.fitness.valid]
+        invalid_ind = [ind for ind in itertools.chain(
+            *populations) if not ind.fitness.valid]
         fitnesses = toolbox.map(toolbox.evaluate, invalid_ind)
         for ind, fit in zip(invalid_ind, fitnesses):
             ind.fitness.values = fit
@@ -133,7 +140,8 @@ def main(verbose=True):
                 index = random.randrange(NDIM)
                 for i, value in enumerate(individual):
                     if i == index or random.random() < CR:
-                        offspring[i] = xbest[i] + F * (x1[i] + x2[i] - x3[i] - x4[i])
+                        offspring[i] = xbest[i] + F * \
+                            (x1[i] + x2[i] - x3[i] - x4[i])
                 offspring.fitness.values = toolbox.evaluate(offspring)
                 if offspring.fitness >= individual.fitness:
                     newpop.append(offspring)
@@ -141,7 +149,8 @@ def main(verbose=True):
                     newpop.append(individual)
 
             # Apply Brownian to the last part of the population
-            newpop.extend(toolbox.brownian_individual(xbest) for _ in range(brownian))
+            newpop.extend(toolbox.brownian_individual(xbest)
+                          for _ in range(brownian))
 
             # Evaluate the brownian individuals
             for individual in newpop[-brownian:]:

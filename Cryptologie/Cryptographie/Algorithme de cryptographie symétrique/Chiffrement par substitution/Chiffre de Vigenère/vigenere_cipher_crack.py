@@ -5,6 +5,7 @@ import os
 from string import ascii_uppercase
 from operator import itemgetter
 
+
 def vigenere_decrypt(target_freqs, input):
     nchars = len(ascii_uppercase)
     ordA = ord('A')
@@ -104,8 +105,8 @@ def main():
         0.00978, 0.02360, 0.00150, 0.01974, 0.00074]
 
     (key, decoded) = vigenere_decrypt(english_frequences, encoded)
-    print ("Key:", key)
-    print ("\nText:", decoded)
+    print("Key:", key)
+    print("\nText:", decoded)
 
 main()
 

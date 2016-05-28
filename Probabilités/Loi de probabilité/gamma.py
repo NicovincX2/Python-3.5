@@ -15,7 +15,6 @@ for alpha, beta in parameters:
     plt.fill_between(x, 0, y, alpha=0.2, color=lines[0].get_color())
     plt.autoscale(tight=True)
 
-plt.legend(title=r"$\alpha, \beta$ - parameters");
+plt.legend(title=r"$\alpha, \beta$ - parameters")
 
 os.system("pause")
-

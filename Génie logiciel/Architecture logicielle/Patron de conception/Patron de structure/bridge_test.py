@@ -11,13 +11,14 @@ else:
 
 from unittest.mock import patch
 
+
 class BridgeTest(unittest.TestCase):
 
     def test_bridge_shall_draw_with_concrete_implementation(cls):
         ci1 = DrawingAPI1()
         ci2 = DrawingAPI2()
         with patch.object(ci1, 'draw_circle') as mock_ci1_draw_circle,\
-             patch.object(ci2, 'draw_circle') as mock_ci2_draw_circle:
+                patch.object(ci2, 'draw_circle') as mock_ci2_draw_circle:
             sh1 = CircleShape(1, 2, 3, ci1)
             sh1.draw()
             cls.assertEqual(mock_ci1_draw_circle.call_count, 1)
@@ -36,4 +37,3 @@ class BridgeTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

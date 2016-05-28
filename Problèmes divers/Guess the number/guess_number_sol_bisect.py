@@ -3,16 +3,20 @@
 import os
 
 import bisect
-try: input = raw_input
-except: pass
- 
+try:
+    input = raw_input
+except:
+    pass
+
+
 class GuessNumberFakeList(object):
+
     def __getitem__(self, i):
         s = input("Is your number less than or equal to %d?" % i)
         return 0 if s.lower().startswith('y') else -1
- 
+
 LOWER, UPPER = 0, 100
- 
+
 if __name__ == "__main__":
     print("""Instructions:
 Think of integer number from %d (inclusive) to %d (exclusive) and

@@ -28,16 +28,17 @@ def singleFreqSine(npts):
     # signal
     f_0 = 0.2
 
-    xmax = 10.0/f_0
+    xmax = 10.0 / f_0
 
     xx = numpy.linspace(0.0, xmax, npts, endpoint=False)
 
     # input frequency
     f_0 = 0.2
 
-    f = numpy.sin(2.0*math.pi*f_0*xx)
-    
+    f = numpy.sin(2.0 * math.pi * f_0 * xx)
+
     return xx, f
+
 
 def singleFreqSinePlusShift(npts):
 
@@ -45,16 +46,17 @@ def singleFreqSinePlusShift(npts):
     # signal
     f_0 = 0.2
 
-    xmax = 10.0/f_0
+    xmax = 10.0 / f_0
 
     xx = numpy.linspace(0.0, xmax, npts, endpoint=False)
 
     # input frequency
     f_0 = 0.2
 
-    f = numpy.sin(2.0*math.pi*f_0*xx + math.pi/4)
-    
+    f = numpy.sin(2.0 * math.pi * f_0 * xx + math.pi / 4)
+
     return xx, f
+
 
 def twoFreqSine(npts):
 
@@ -63,16 +65,18 @@ def twoFreqSine(npts):
     f_0 = 0.2
     f_1 = 0.5
 
-    xmax = 10.0/f_0
+    xmax = 10.0 / f_0
 
     xx = numpy.linspace(0.0, xmax, npts, endpoint=False)
 
     # input frequency
     f_0 = 0.2
 
-    f = 0.5*(numpy.sin(2.0*math.pi*f_0*xx) + numpy.sin(2.0*math.pi*f_1*xx))
-    
+    f = 0.5 * (numpy.sin(2.0 * math.pi * f_0 * xx) +
+               numpy.sin(2.0 * math.pi * f_1 * xx))
+
     return xx, f
+
 
 def singleFreqCosine(npts):
 
@@ -80,16 +84,17 @@ def singleFreqCosine(npts):
     # signal
     f_0 = 0.2
 
-    xmax = 10.0/f_0
+    xmax = 10.0 / f_0
 
     xx = numpy.linspace(0.0, xmax, npts, endpoint=False)
 
     # input frequency
     f_0 = 0.2
 
-    f = numpy.cos(2.0*math.pi*f_0*xx)
-    
+    f = numpy.cos(2.0 * math.pi * f_0 * xx)
+
     return xx, f
+
 
 def plotFFT(xx, f, outfile):
 
@@ -104,11 +109,11 @@ def plotFFT(xx, f, outfile):
 
     # Normalization -- the '2' here comes from the fact that we are
     # neglecting the negative portion of the frequency space, since
-    # the FFT of a real function contains redundant information, so 
+    # the FFT of a real function contains redundant information, so
     # we are only dealing with 1/2 of the frequency space.
-    norm = 2.0/npts
+    norm = 2.0 / npts
 
-    fk = fk*norm
+    fk = fk * norm
 
     # element 0 of fk is the DC component -- we don't want to plot that
     fk_r = fk.real
@@ -117,24 +122,23 @@ def plotFFT(xx, f, outfile):
     # the fftfreq returns the postive and negative (and 0) frequencies
     # the newer versions of numpy (>=1.8) have an rfftfreq() function
     # that really does what we want.
-    k = numpy.fft.fftfreq(len(xx))[range(0,npts/2+1)]
+    k = numpy.fft.fftfreq(len(xx))[range(0, npts / 2 + 1)]
 
     # the last element is negative, because of the symmetry, but should
-    # be positive (see http://docs.scipy.org/doc/numpy-dev/reference/generated/numpy.fft.rfftfreq.html)
+    # be positive (see
+    # http://docs.scipy.org/doc/numpy-dev/reference/generated/numpy.fft.rfftfreq.html)
     k[-1] *= -1
 
-    kfreq = k*npts/max(xx)
-
+    kfreq = k * npts / max(xx)
 
     # Inverse transform: F(k) -> f(x) -- without the normalization
-    fkinv = numpy.fft.irfft(fk/norm)
+    fkinv = numpy.fft.irfft(fk / norm)
 
     pylab.subplot(411)
 
     pylab.plot(xx, f)
     pylab.xlabel("x")
     pylab.ylabel("f(x)")
-
 
     pylab.subplot(412)
 
@@ -151,7 +155,6 @@ def plotFFT(xx, f, outfile):
     pylab.xlabel(r"$\nu_k$")
     pylab.ylabel(r"|F(k)|")
 
-
     pylab.subplot(414)
 
     pylab.plot(xx, fkinv.real)
@@ -161,7 +164,6 @@ def plotFFT(xx, f, outfile):
     pylab.tight_layout()
 
     pylab.savefig(outfile)
-
 
 
 #-----------------------------------------------------------------------------

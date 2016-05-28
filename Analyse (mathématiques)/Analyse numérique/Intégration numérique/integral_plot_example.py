@@ -53,5 +53,5 @@ ax.set_xticklabels(('$a$', '$b$'))
 ax.set_yticks([])
 
 plt.show()
-    
+
 os.system("pause")

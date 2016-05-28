@@ -2,6 +2,7 @@
 
 import os
 
+
 def strongly_connected_components_path(vertices, edges):
     """
     Find the strongly connected components of a directed graph.
@@ -92,7 +93,7 @@ def strongly_connected_components_path(vertices, edges):
 
         for w in edges[v]:
             if w not in index:
-                yield from dfs(w)"
+                yield from dfs(w)
                 # for scc in dfs(w):
                 #     yield scc
             elif w not in identified:

@@ -10,13 +10,14 @@ from scipy import interpolate
 import matplotlib.pyplot as plt
 from scipy import linalg
 
-def runge(x):
-    return 1/(1 + 25 * x**2)
 
-	def runge_interpolate(n):
-    x = np.linspace(-1, 1, n+1)
-    p = P.Polynomial.fit(x, runge(x), deg=n)
-    return x, p
+def runge(x):
+    return 1 / (1 + 25 * x**2)
+
+    def runge_interpolate(n):
+        x = np.linspace(-1, 1, n + 1)
+        p = P.Polynomial.fit(x, runge(x), deg=n)
+        return x, p
 
 xx = np.linspace(-1, 1, 250)
 
@@ -42,7 +43,6 @@ ax.set_ylabel(r"$y$", fontsize=18)
 ax.set_xlabel(r"$x$", fontsize=18)
 
 fig.tight_layout()
-fig.savefig('ch7-polynomial-interpolation-runge.pdf');
-	
-os.system("pause")
+fig.savefig('ch7-polynomial-interpolation-runge.pdf')
 
+os.system("pause")

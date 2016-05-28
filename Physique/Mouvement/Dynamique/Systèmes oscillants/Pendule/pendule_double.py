@@ -34,7 +34,7 @@ import scipy.integrate as integrate
 import matplotlib.animation as animation
 
 # Malheureusement, Xkcd ne fonctionne pas sur mon ordi... :o(
-#plt.xkcd()  # XKCD-style requires matplotlib 1.3+
+# plt.xkcd()  # XKCD-style requires matplotlib 1.3+
 
 
 class DoublePendulum:
@@ -44,21 +44,22 @@ class DoublePendulum:
     where theta1, omega1 is the angular position and velocity of the first
     pendulum arm, and theta2, omega2 is that of the second pendulum arm
     """
+
     def __init__(self,
-                 init_state = [120, 0, -20, 0],
+                 init_state=[120, 0, -20, 0],
                  L1=1.0,  # length of pendulum 1 in m
                  L2=1.0,  # length of pendulum 2 in m
                  M1=1.0,  # mass of pendulum 1 in kg
                  M2=1.0,  # mass of pendulum 2 in kg
                  G=9.8,  # acceleration due to gravity, in m/s^2
-                 origin=(0, 0)): 
+                 origin=(0, 0)):
         self.init_state = np.asarray(init_state, dtype='float')
         self.params = (L1, L2, M1, M2, G)
         self.origin = origin
         self.time_elapsed = 0
 
         self.state = self.init_state * np.pi / 180.
-    
+
     def position(self):
         """compute the current x,y positions of the pendulum arms"""
         (L1, L2, M1, M2, G) = self.params
@@ -86,14 +87,14 @@ class DoublePendulum:
 
         U = G * (M1 * y[0] + M2 * y[1])
         K = 0.5 * (M1 * np.dot(vx, vx) + M2 * np.dot(vy, vy))
-        # Correction JJ: vx donne *les* vitesses suivant x pour les deux 
-        # masses et non la vitesse de la masse 1. Malheureusement, cela ne 
-        # suffit pas à résoudre le problème de non conservation de l'énergie, 
-        # peut-être un problème lors de l'intégration ? On va essayer de 
-        # reprendre le problème "from scratsh" dans un autre fichier pour 
+        # Correction JJ: vx donne *les* vitesses suivant x pour les deux
+        # masses et non la vitesse de la masse 1. Malheureusement, cela ne
+        # suffit pas à résoudre le problème de non conservation de l'énergie,
+        # peut-être un problème lors de l'intégration ? On va essayer de
+        # reprendre le problème "from scratsh" dans un autre fichier pour
         # voir.
-        masses = np.array([M1,M2])
-        K = 0.5*np.sum(masses * (vx**2 + vy**2))
+        masses = np.array([M1, M2])
+        K = 0.5 * np.sum(masses * (vx**2 + vy**2))
         return U + K
 
     def dstate_dt(self, state, t):
@@ -118,7 +119,7 @@ class DoublePendulum:
                    + (M1 + M2) * G * sin(state[0]) * cos_delta
                    - (M1 + M2) * L1 * state[1] * state[1] * sin_delta
                    - (M1 + M2) * G * sin(state[2])) / den2
-        
+
         return dydx
 
     def step(self, dt):
@@ -129,8 +130,8 @@ class DoublePendulum:
 #------------------------------------------------------------
 # set up initial state and global variables
 pendulum = DoublePendulum([180., 0.0, -20., 0.0])
-pendulum2= DoublePendulum([180., 0.01,-20., 0.0])
-dt = 1./30 # 30 fps
+pendulum2 = DoublePendulum([180., 0.01, -20., 0.0])
+dt = 1. / 30  # 30 fps
 
 #------------------------------------------------------------
 # set up figure and animation
@@ -140,10 +141,11 @@ ax = fig.add_subplot(111, aspect='equal', autoscale_on=False,
 ax.grid()
 
 line, = ax.plot([], [], 'o-', lw=2)
-line2,= ax.plot([], [], 'o-', lw=2)
+line2, = ax.plot([], [], 'o-', lw=2)
 time_text = ax.text(0.02, 0.95, '', transform=ax.transAxes)
 energy_text = ax.text(0.02, 0.90, '', transform=ax.transAxes)
-energy2_text= ax.text(0.02, 0.85, '', transform=ax.transAxes)
+energy2_text = ax.text(0.02, 0.85, '', transform=ax.transAxes)
+
 
 def init():
     """initialize animation"""
@@ -154,12 +156,13 @@ def init():
     energy2_text.set_text('')
     return line, line2, time_text, energy_text, energy2_text
 
+
 def animate(i):
     """perform animation step"""
     global pendulum, pendulum2, dt
     pendulum.step(dt)
     pendulum2.step(dt)
-    
+
     line.set_data(*pendulum.position())
     line2.set_data(*pendulum2.position())
     time_text.set_text('time = %.1f' % pendulum.time_elapsed)

@@ -21,7 +21,7 @@ def hinton(matrix, max_weight=None, ax=None):
     ax = ax if ax is not None else plt.gca()
 
     if not max_weight:
-        max_weight = 2**np.ceil(np.log(np.abs(matrix).max())/np.log(2))
+        max_weight = 2**np.ceil(np.log(np.abs(matrix).max()) / np.log(2))
 
     ax.patch.set_facecolor('gray')
     ax.set_aspect('equal', 'box')
@@ -42,5 +42,5 @@ def hinton(matrix, max_weight=None, ax=None):
 if __name__ == '__main__':
     hinton(np.random.rand(20, 20) - 0.5)
     plt.show()
-    
+
 os.system("pause")

@@ -26,7 +26,8 @@ def hello():
     return "hello world"
 
 if __name__ == '__main__':
-    print('result:{}   name:{}   doc:{}'.format(hello(), hello.__name__, hello.__doc__))
+    print('result:{}   name:{}   doc:{}'.format(
+        hello(), hello.__name__, hello.__doc__))
 
 ### OUTPUT ###
 # result:<b><i>hello world</i></b>   name:hello   doc:a decorated hello world

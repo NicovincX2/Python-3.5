@@ -23,38 +23,45 @@ t.showturtle()
 step = 160
 angle = 45
 
+
 def forward():
     '''Move forward step positions.'''
-    print "forward", step
+    print("forward", step)
     t.forward(step)
+
 
 def back():
     '''Move back step positions.'''
-    print "back", step
+    print("back", step)
     t.back(step)
+
 
 def left():
     '''Turn left by angle degrees.'''
-    print "left", angle
+    print("left", angle)
     t.left(angle)
+
 
 def right():
     '''Turn right by angle degrees.'''
-    print "right", angle
+    print("right", angle)
     t.right(angle)
+
 
 def home():
     '''Go to turtle home.'''
-    print "home"
+    print("home")
     t.home()
+
 
 def clear():
     '''Clear drawing.'''
-    print "clear"
+    print("clear")
     t.clear()
 
+
 def quit():
-    print "quit"
+    print("quit")
     t.bye()
 
 t.onkey(forward, "Up")

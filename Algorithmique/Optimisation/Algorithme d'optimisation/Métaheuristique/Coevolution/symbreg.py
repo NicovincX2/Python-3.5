@@ -36,14 +36,17 @@ creator.create("IndGA", list, fitness=creator.FitnessMax)
 toolbox_ga = base.Toolbox()
 
 toolbox_ga.register("float", random.uniform, -1, 1)
-toolbox_ga.register("individual", tools.initRepeat, creator.IndGA, toolbox_ga.float, 10)
-toolbox_ga.register("population", tools.initRepeat, list, toolbox_ga.individual)
+toolbox_ga.register("individual", tools.initRepeat,
+                    creator.IndGA, toolbox_ga.float, 10)
+toolbox_ga.register("population", tools.initRepeat,
+                    list, toolbox_ga.individual)
 
 toolbox_ga.register("select", tools.selTournament, tournsize=3)
 toolbox_ga.register("mate", tools.cxTwoPoint)
 toolbox_ga.register("mutate", tools.mutGaussian, mu=0, sigma=0.01, indpb=0.05)
 
 toolbox_gp = symbreg.toolbox
+
 
 def main():
     pop_ga = toolbox_ga.population(n=200)
@@ -84,7 +87,6 @@ def main():
         off_gp = toolbox_gp.select(pop_gp, len(pop_gp))
         off_ga = [toolbox_ga.clone(ind) for ind in off_ga]
         off_gp = [toolbox_gp.clone(ind) for ind in off_gp]
-
 
         # Apply crossover and mutation
         for ind1, ind2 in zip(off_ga[::2], off_ga[1::2]):
@@ -127,10 +129,8 @@ def main():
         logbook.record(gen=g, type='gp', evals=len(pop_gp), **record)
         print(logbook.stream)
 
-
         best_ga = tools.selBest(pop_ga, 1)[0]
         best_gp = tools.selBest(pop_gp, 1)[0]
-
 
     print("Best individual GA is %s, %s" % (best_ga, best_ga.fitness.values))
     print("Best individual GP is %s, %s" % (best_gp, best_gp.fitness.values))

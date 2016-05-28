@@ -52,8 +52,9 @@ toolbox.register("attr_item", random.randrange, NBR_ITEMS)
 
 # Structure initializers
 toolbox.register("individual", tools.initRepeat, creator.Individual,
-    toolbox.attr_item, IND_INIT_SIZE)
+                 toolbox.attr_item, IND_INIT_SIZE)
 toolbox.register("population", tools.initRepeat, list, toolbox.individual)
+
 
 def evalKnapsack(individual):
     weight = 0.0
@@ -65,6 +66,7 @@ def evalKnapsack(individual):
         return 10000, 0             # Ensure overweighted bags are dominated
     return weight, value
 
+
 def cxSet(ind1, ind2):
     """Apply a crossover operation on input sets. The first child is the
     intersection of the two sets, the second child is the difference of the
@@ -74,6 +76,7 @@ def cxSet(ind1, ind2):
     ind1 &= ind2                    # Intersection (inplace)
     ind2 ^= temp                    # Symmetric Difference (inplace)
     return ind1, ind2
+
 
 def mutSet(individual):
     """Mutation that pops or add an element."""
@@ -88,6 +91,7 @@ toolbox.register("evaluate", evalKnapsack)
 toolbox.register("mate", cxSet)
 toolbox.register("mutate", mutSet)
 toolbox.register("select", tools.selNSGA2)
+
 
 def main():
     random.seed(64)

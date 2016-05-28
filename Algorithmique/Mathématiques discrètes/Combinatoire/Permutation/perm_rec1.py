@@ -2,8 +2,10 @@
 
 import os
 
+
 def perm2(n):
     a = list(range(n))
+
     def sub(i):
         if i == n - 1:
             yield tuple(a)
@@ -17,6 +19,7 @@ def perm2(n):
             a[n - 1] = x
     yield from sub(0)
 
-for u in perm2(3): print(u)
+for u in perm2(3):
+    print(u)
 
 os.system("pause")

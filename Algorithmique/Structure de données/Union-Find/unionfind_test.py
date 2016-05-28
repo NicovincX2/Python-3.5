@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 
-import os, sys
+import os
+import sys
 sys.path.append(os.path.join(os.getcwd(), os.path.pardir))
 import unittest
 from unionfind import UnionFind
+
 
 class test_unionfind(unittest.TestCase):
 

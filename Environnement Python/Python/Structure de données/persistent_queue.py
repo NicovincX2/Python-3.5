@@ -1,12 +1,20 @@
 # -*- coding: utf-8 -*-
 
-import os, sys, marshal, glob, thread
+import os
+import sys
+import marshal
+import glob
+import thread
 
 # Filename used for index files, must not contain numbers
 INDEX_FILENAME = 'index'
 
 # Exception thrown when calling get() on an empty queue
-class Empty(Exception):  pass
+
+
+class Empty(Exception):
+    pass
+
 
 class PersistentQueue:
 
@@ -25,7 +33,7 @@ class PersistentQueue:
         self.cache_size = cache_size
         self.marshal = marshal
         self.index_file = os.path.join(name, INDEX_FILENAME)
-        self.temp_file = os.path.join(name, 'tempfile')        
+        self.temp_file = os.path.join(name, 'tempfile')
         self.mutex = thread.allocate_lock()
         self._init_index()
 
@@ -39,6 +47,7 @@ class PersistentQueue:
             index_file.close()
         else:
             self.head, self.tail = 0, 1
+
         def _load_cache(cache, num):
             name = os.path.join(self.name, str(num))
             mode = 'rb+' if os.path.exists(name) else 'wb+'
@@ -117,8 +126,8 @@ class PersistentQueue:
         """
         self.mutex.acquire()
         try:
-            return (((self.tail-self.head)-1)*self.cache_size) + \
-                    len(self.put_cache) + len(self.get_cache)
+            return (((self.tail - self.head) - 1) * self.cache_size) + \
+                len(self.put_cache) + len(self.get_cache)
         finally:
             self.mutex.release()
 
@@ -178,24 +187,24 @@ class PersistentQueue:
         finally:
             self.mutex.release()
 
-## Tests
+# Tests
 if __name__ == "__main__":
     ELEMENTS = 1000
     p = PersistentQueue('test', 10)
-    print ('Enqueueing %d items, cache size = %d' % (ELEMENTS,
+    print('Enqueueing %d items, cache size = %d' % (ELEMENTS,
                                                     p.cache_size))
     for a in range(ELEMENTS):
         p.put(str(a))
     p.sync()
-    print ('Queue length (using __len__):', len(p))
-    print ('Dequeueing %d items' % (ELEMENTS/2))
-    for a in range(ELEMENTS/2):
+    print('Queue length (using __len__):', len(p))
+    print('Dequeueing %d items' % (ELEMENTS / 2))
+    for a in range(ELEMENTS / 2):
         p.get()
-    print ('Queue length (using __len__):', len(p))
-    print ('Dequeueing %d items' % (ELEMENTS/2))
-    for a in range(ELEMENTS/2):
+    print('Queue length (using __len__):', len(p))
+    print('Dequeueing %d items' % (ELEMENTS / 2))
+    for a in range(ELEMENTS / 2):
         p.get()
-    print ('Queue length (using __len__):', len(p))
+    print('Queue length (using __len__):', len(p))
     p.sync()
     p.close()
 

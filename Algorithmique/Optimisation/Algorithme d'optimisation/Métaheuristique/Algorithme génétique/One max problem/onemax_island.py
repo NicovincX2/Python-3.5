@@ -31,7 +31,8 @@ from deap import creator
 from deap import tools
 
 creator.create("FitnessMax", base.Fitness, weights=(1.0,))
-creator.create("Individual", array.array, typecode='b', fitness=creator.FitnessMax)
+creator.create("Individual", array.array, typecode='b',
+               fitness=creator.FitnessMax)
 
 toolbox = base.Toolbox()
 
@@ -40,11 +41,13 @@ toolbox.register("attr_bool", random.randint, 0, 1)
 
 # Structure initializers
 toolbox.register("individual", tools.initRepeat, creator.Individual,
-    toolbox.attr_bool, 100)
+                 toolbox.attr_bool, 100)
 toolbox.register("population", tools.initRepeat, list, toolbox.individual)
+
 
 def evalOneMax(individual):
     return sum(individual),
+
 
 def migPipe(deme, k, pipein, pipeout, selection, replacement=None):
     """Migration using pipes between initialized processes. It first selects
@@ -83,10 +86,11 @@ toolbox.register("mate", tools.cxTwoPoint)
 toolbox.register("mutate", tools.mutFlipBit, indpb=0.05)
 toolbox.register("select", tools.selTournament, tournsize=3)
 
+
 def main(procid, pipein, pipeout, sync, seed=None):
     random.seed(seed)
     toolbox.register("migrate", migPipe, k=5, pipein=pipein, pipeout=pipeout,
-        selection=tools.selBest, replacement=random.sample)
+                     selection=tools.selBest, replacement=random.sample)
 
     MU = 300
     NGEN = 40
@@ -149,7 +153,8 @@ if __name__ == "__main__":
 
     e = Event()
 
-    processes = [Process(target=main, args=(i, ipipe, opipe, e, random.random())) for i, (ipipe, opipe) in enumerate(zip(pipes_in, pipes_out))]
+    processes = [Process(target=main, args=(i, ipipe, opipe, e, random.random()))
+                 for i, (ipipe, opipe) in enumerate(zip(pipes_in, pipes_out))]
 
     for proc in processes:
         proc.start()

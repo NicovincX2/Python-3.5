@@ -11,7 +11,8 @@ from scipy.optimize import curve_fit
 scatter(x_pop, y_pop, facecolor='none')
 l, r = xlim()
 xx = linspace(l, r, 200)
-# Loop over each bootstrap iteration and compute that models prediction for all of the x values
+# Loop over each bootstrap iteration and compute that models prediction
+# for all of the x values
 y_model = []
 for i, w in enumerate(w_ols_boot):
     y_i = dot(xx, w_ols_boot[i][0]) + w_ols_boot[i][1]
@@ -30,26 +31,25 @@ for i, w in enumerate(w_nonlin_boot):
     y_model_nlin.append(y_i)
 plot(xx, median(y_model_nlin, axis=0))
 nlin_ci = moss.percentiles(y_model_nlin, pcts, axis=0)
-fill_between(xx, *nlin_ci, color=colors[1], alpha=.2);
+fill_between(xx, *nlin_ci, color=colors[1], alpha=.2)
 
 scatter(x_pop, y_pop, facecolor='none')
 plot(xx, mean(y_model_nlin, 0), label="mean", color=colors[3])
 plot(xx, median(y_model_nlin, 0), label="median", color=colors[4])
-legend(loc="best");
+legend(loc="best")
 
 figure(figsize=(9, 9))
 plot_type = ["slope", "exponent", "constant"]
 for pi in range(3):
     subplot(3, 1, pi + 1)
     hist(w_nonlin_boot[:, pi], 25, color=colors[pi])
-    title(plot_type[pi]);
-	
+    title(plot_type[pi])
+
 figure(figsize=(9, 6))
 plot_type = ["slope", "constant"]
 for pi in range(2):
     subplot(2, 1, pi + 1)
     hist(w_ols_boot[:, pi], 25, color=colors[pi])
-    title(plot_type[pi]);
+    title(plot_type[pi])
 
 os.system("pause")
-

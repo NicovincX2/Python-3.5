@@ -28,15 +28,16 @@ import pylab
 import scipy
 from scipy.integrate import ode
 
+
 def rhs(t, Y):
     """ RHS of the system -- using 0-based indexing """
     y1 = Y[0]
     y2 = Y[1]
     y3 = Y[2]
 
-    dy1dt = -0.04*y1 + 1.e4*y2*y3
-    dy2dt =  0.04*y1 - 1.e4*y2*y3 - 3.e7*y2**2
-    dy3dt =                         3.e7*y2**2
+    dy1dt = -0.04 * y1 + 1.e4 * y2 * y3
+    dy2dt = 0.04 * y1 - 1.e4 * y2 * y3 - 3.e7 * y2**2
+    dy3dt = 3.e7 * y2**2
 
     return numpy.array([dy1dt, dy2dt, dy3dt])
 
@@ -47,22 +48,22 @@ def jac(t, Y):
     y1 = Y[0]
     y2 = Y[1]
     y3 = Y[2]
-    
+
     df1dy1 = -0.04
-    df1dy2 = 1.e4*y3
-    df1dy3 = 1.e4*y2
+    df1dy2 = 1.e4 * y3
+    df1dy3 = 1.e4 * y2
 
     df2dy1 = 0.04
-    df2dy2 = -1.e4*y3 - 6.e7*y2
-    df2dy3 = -1.e4*y2
+    df2dy2 = -1.e4 * y3 - 6.e7 * y2
+    df2dy3 = -1.e4 * y2
 
     df3dy1 = 0.0
-    df3dy2 = 6.e7*y2
+    df3dy2 = 6.e7 * y2
     df3dy3 = 0.0
 
-    return numpy.array([ [ df1dy1, df1dy2, df1dy3 ],
-                         [ df2dy1, df2dy2, df2dy3 ],
-                         [ df3dy1, df3dy2, df3dy3 ] ])
+    return numpy.array([[df1dy1, df1dy2, df1dy3],
+                        [df2dy1, df2dy2, df2dy3],
+                        [df3dy1, df3dy2, df3dy3]])
 
 
 def VODEIntegrate(Y0, dt, tmax):
@@ -70,10 +71,10 @@ def VODEIntegrate(Y0, dt, tmax):
         increase by 10x after each call until we reach tmax.  This is 
         the behavior used in the DVODE Fortran source. """
 
-    r = ode(rhs, jac).set_integrator("vode", method="bdf", 
+    r = ode(rhs, jac).set_integrator("vode", method="bdf",
                                      with_jacobian=True,
                                      atol=1.e-10, rtol=1.e-10,
-                                     nsteps = 15000, order=5) #, min_step=dt)
+                                     nsteps=15000, order=5)  # , min_step=dt)
 
     t = 0.0
     r.set_initial_value(Y0, t)
@@ -84,18 +85,17 @@ def VODEIntegrate(Y0, dt, tmax):
     y3out = [Y0[2]]
 
     while r.successful() and r.t < tmax:
-        r.integrate(r.t+dt)
+        r.integrate(r.t + dt)
 
         tout.append(r.t)
         y1out.append(r.y[0])
         y2out.append(r.y[1])
         y3out.append(r.y[2])
 
-        dt = 10.0*dt
+        dt = 10.0 * dt
 
     return numpy.array(tout), \
         numpy.array(y1out), numpy.array(y2out), numpy.array(y3out)
-
 
 
 Y0 = numpy.array([1.0, 0.0, 0.0])
@@ -120,7 +120,7 @@ pylab.plot(t, y1, label=r"$y_1$", color="r")
 pylab.plot(t, y2, label=r"$y_2$", color="g")
 pylab.plot(t, y3, label=r"$y_3$", color="b")
 
-pylab.scatter(t_single, y1_single, color="r", 
+pylab.scatter(t_single, y1_single, color="r",
               label="r$y_1$ from single VODE call")
 
 pylab.scatter(t_single, y2_single, color="g",

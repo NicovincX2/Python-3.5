@@ -1,16 +1,19 @@
 # -*- coding: utf-8 -*-
 
-import os, sys
+import os
+import sys
 sys.path.append(os.path.join(os.getcwd(), os.path.pardir))
 import unittest
 from digraph import digraph
+
 
 class test_graph(unittest.TestCase):
 
     def setUp(self):
         self.gr = digraph()
         self.gr.add_nodes(["a", "b", "c", "d", "e", "f"])
-        self.gr.add_edges([("a","b"), ("b", "c"), ("a", "d"), ("d", "e"), ("d", "f")])
+        self.gr.add_edges(
+            [("a", "b"), ("b", "c"), ("a", "d"), ("d", "e"), ("d", "f")])
         self.gr.add_edge(("f", "b"))
 
     def test_nodes_method(self):

@@ -15,8 +15,10 @@ import multigrid
 import pylab
 
 # the analytic solution
+
+
 def true(x):
-    return -numpy.sin(x) + x*numpy.sin(1.0)
+    return -numpy.sin(x) + x * numpy.sin(1.0)
 
 
 # the L2 error norm
@@ -24,14 +26,14 @@ def error(myg, r):
 
     # L2 norm of elements in r, multiplied by dx to
     # normalize
-    return numpy.sqrt(myg.dx*numpy.sum((r[myg.ilo:myg.ihi+1]**2)))
+    return numpy.sqrt(myg.dx * numpy.sum((r[myg.ilo:myg.ihi + 1]**2)))
 
 
 # the righthand side
 def f(x):
     return numpy.sin(x)
 
-                
+
 # test the multigrid solver
 nx = 64
 
@@ -54,16 +56,16 @@ a.initRHS(rhs)
 a.solve(rtol=1.e-11)
 
 # alternately, we can just use smoothing by uncommenting the following
-#a.smooth(a.nlevels-1,50000)
+# a.smooth(a.nlevels-1,50000)
 
-# get the solution 
+# get the solution
 v = a.getSolution()
 
 # compute the error from the analytic solution
 b = true(a.x)
 e = v - b
 
-print (" L2 error from true solution = %g\n rel. err from previous cycle = %g\n num. cycles = %d" % \
+print(" L2 error from true solution = %g\n rel. err from previous cycle = %g\n num. cycles = %d" %
       (error(a.solnGrid, e), a.relativeError, a.numCycles))
 
 os.system("pause")

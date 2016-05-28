@@ -14,7 +14,6 @@ for i in range(10):
                cmap=plt.cm.hot)
     ax.axis("off")
 
-plt.suptitle("Random matrices from a Wishart Distribution");
+plt.suptitle("Random matrices from a Wishart Distribution")
 
 os.system("pause")
-

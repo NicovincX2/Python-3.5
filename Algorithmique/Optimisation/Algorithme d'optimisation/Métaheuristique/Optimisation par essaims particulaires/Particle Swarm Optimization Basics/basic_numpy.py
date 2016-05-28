@@ -29,7 +29,8 @@ from deap import tools
 
 creator.create("FitnessMax", base.Fitness, weights=(1.0,))
 creator.create("Particle", numpy.ndarray, fitness=creator.FitnessMax, speed=list,
-    smin=None, smax=None, best=None)
+               smin=None, smax=None, best=None)
+
 
 def generate(size, pmin, pmax, smin, smax):
     part = creator.Particle(numpy.random.uniform(pmin, pmax, size))
@@ -37,6 +38,7 @@ def generate(size, pmin, pmax, smin, smax):
     part.smin = smin
     part.smax = smax
     return part
+
 
 def updateParticle(part, best, phi1, phi2):
     u1 = numpy.random.uniform(0, phi1, len(part))
@@ -52,10 +54,12 @@ def updateParticle(part, best, phi1, phi2):
     part += part.speed
 
 toolbox = base.Toolbox()
-toolbox.register("particle", generate, size=2, pmin=-6, pmax=6, smin=-3, smax=3)
+toolbox.register("particle", generate, size=2,
+                 pmin=-6, pmax=6, smin=-3, smax=3)
 toolbox.register("population", tools.initRepeat, list, toolbox.particle)
 toolbox.register("update", updateParticle, phi1=2.0, phi2=2.0)
 toolbox.register("evaluate", benchmarks.h1)
+
 
 def main():
     pop = toolbox.population(n=5)

@@ -8,6 +8,7 @@ _tick2_frame = 0
 _tick2_fps = 20000000   # real raw FPS
 _tick2_t0 = time.time()
 
+
 def tick1(fps=60):
     global _tick2_frame, _tick2_fps, _tick2_t0
     n = _tick2_fps / fps
@@ -25,7 +26,8 @@ while True:
      print(_tick2_fps)   # see adjustment in action
      print(time.time())
 """
-################################################################################
+##########################################################################
+
 
 def tick(fps, callback):
     frame = 0
@@ -39,11 +41,12 @@ def tick(fps, callback):
         if differ < 0:
             raise ValueError('callback was too slow')
         time.sleep(differ)
-        
+
 """
 tick(60, lambda: print(time.time()))
 """
-################################################################################
+##########################################################################
+
 
 class Timer:
 

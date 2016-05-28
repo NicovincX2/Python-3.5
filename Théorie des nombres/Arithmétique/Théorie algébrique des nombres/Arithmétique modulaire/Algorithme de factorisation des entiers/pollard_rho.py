@@ -18,7 +18,7 @@ from fractions import gcd
 def f(x):
     """
     """
-    return x*x+1
+    return x * x + 1
 
 
 def rho(n, x1=2, x2=2):
@@ -30,7 +30,7 @@ def rho(n, x1=2, x2=2):
     while True:
         x1 = f(x1) % n
         x2 = f(f(x2)) % n
-        divisor = gcd(abs(x1-x2), n)
+        divisor = gcd(abs(x1 - x2), n)
         i += 1
         if(divisor != 1):
             break
@@ -53,7 +53,7 @@ def pollard_rho_rec(x, factors):
 
     divisor = rho(int(x), random.randint(1, 10), random.randint(1, 10))
     print(pollard_rho_rec(int(divisor), factors))
-    print(pollard_rho_rec(int(x/divisor), factors))
+    print(pollard_rho_rec(int(x / divisor), factors))
 
 
 def pollard_rho(x):

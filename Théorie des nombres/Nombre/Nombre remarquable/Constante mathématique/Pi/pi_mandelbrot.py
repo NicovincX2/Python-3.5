@@ -2,13 +2,14 @@
 
 import os
 
+
 def pi(err, abs=abs):
     'Approximation of pi +/- err using the Mandlebrot set'
     n = 0
     z = c = complex(-0.75, err)
     while abs(z) < 2.0:
-            n += 1
-            z = z * z + c
+        n += 1
+        z = z * z + c
     return n * err
 
 if __name__ == '__main__':

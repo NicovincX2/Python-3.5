@@ -3,6 +3,7 @@
 import os
 import parameters
 
+
 def heston_construct_correlated_path(param, brownian_motion_one):
     """
     This method is a simplified version of the Cholesky decomposition method for just two assets. It does not make use
@@ -16,9 +17,11 @@ def heston_construct_correlated_path(param, brownian_motion_one):
     brownian_motion_two = []
     for i in range(param.all_time - 1):
         term_one = param.cir_rho * brownian_motion_one[i]
-        term_two = math.sqrt(1 - math.pow(param.cir_rho, 2.0)) * random.normalvariate(0, sqrt_delta)
+        term_two = math.sqrt(1 - math.pow(param.cir_rho, 2.0)) * \
+            random.normalvariate(0, sqrt_delta)
         brownian_motion_two.append(term_one + term_two)
     return numpy.array(brownian_motion_one), numpy.array(brownian_motion_two)
+
 
 def get_correlated_geometric_brownian_motions(param, correlation_matrix, n):
     """
@@ -36,7 +39,8 @@ def get_correlated_geometric_brownian_motions(param, correlation_matrix, n):
     for i in range(param.all_time):
         uncorrelated_random_numbers = []
         for j in range(n):
-            uncorrelated_random_numbers.append(random.normalvariate(0, sqrt_delta_sigma))
+            uncorrelated_random_numbers.append(
+                random.normalvariate(0, sqrt_delta_sigma))
         uncorrelated_paths.append(numpy.array(uncorrelated_random_numbers))
     uncorrelated_matrix = numpy.matrix(uncorrelated_paths)
     correlated_matrix = uncorrelated_matrix * decomposition
@@ -45,11 +49,12 @@ def get_correlated_geometric_brownian_motions(param, correlation_matrix, n):
     extracted_paths = []
     for i in range(1, n + 1):
         extracted_paths.append([])
-    for j in range(0, len(correlated_matrix)*n - n, n):
+    for j in range(0, len(correlated_matrix) * n - n, n):
         for i in range(n):
             extracted_paths[i].append(correlated_matrix.item(j + i))
     return extracted_paths
-    
+
+
 def cox_ingersoll_ross_heston(param):
     """
     This method returns the rate levels of a mean-reverting cox ingersoll ross process. It is used to model interest
@@ -61,14 +66,18 @@ def cox_ingersoll_ross_heston(param):
     """
     # We don't multiply by sigma here because we do that in heston
     sqrt_delta_sigma = math.sqrt(param.all_delta) * param.all_sigma
-    brownian_motion_volatility = nrand.normal(loc=0, scale=sqrt_delta_sigma, size=param.all_time)
+    brownian_motion_volatility = nrand.normal(
+        loc=0, scale=sqrt_delta_sigma, size=param.all_time)
     a, mu, zero = param.heston_a, param.heston_mu, param.heston_vol0
     volatilities = [zero]
     for i in range(1, param.all_time):
-        drift = a * (mu - volatilities[i-1]) * param.all_delta
-        randomness = math.sqrt(max(volatilities[i - 1], 0.05)) * brownian_motion_volatility[i - 1]
-        volatilities.append(max(volatilities[i - 1], 0.05) + drift + randomness)
+        drift = a * (mu - volatilities[i - 1]) * param.all_delta
+        randomness = math.sqrt(
+            max(volatilities[i - 1], 0.05)) * brownian_motion_volatility[i - 1]
+        volatilities.append(
+            max(volatilities[i - 1], 0.05) + drift + randomness)
     return numpy.array(brownian_motion_volatility), numpy.array(volatilities)
+
 
 def heston_model_levels(param):
     """
@@ -83,23 +92,29 @@ def heston_model_levels(param):
     # Get two correlated brownian motion sequences for the volatility parameter and the underlying asset
     # brownian_motion_market, brownian_motion_vol = get_correlated_paths_simple(param)
     brownian, cir_process = cox_ingersoll_ross_heston(param)
-    brownian, brownian_motion_market = heston_construct_correlated_path(param, brownian)
+    brownian, brownian_motion_market = heston_construct_correlated_path(
+        param, brownian)
 
     heston_market_price_levels = [param.all_s0]
     for i in range(1, param.all_time):
-        drift = param.gbm_mu * heston_market_price_levels[i - 1] * param.all_delta
-        vol = cir_process[i - 1] * heston_market_price_levels[i - 1] * brownian_motion_market[i - 1]
-        heston_market_price_levels.append(heston_market_price_levels[i - 1] + drift + vol)
+        drift = param.gbm_mu * \
+            heston_market_price_levels[i - 1] * param.all_delta
+        vol = cir_process[
+            i - 1] * heston_market_price_levels[i - 1] * brownian_motion_market[i - 1]
+        heston_market_price_levels.append(
+            heston_market_price_levels[i - 1] + drift + vol)
     return numpy.array(heston_market_price_levels), numpy.array(cir_process)
 
 stochastic_volatility_examples = []
 for i in range(paths):
     stochastic_volatility_examples.append(heston_model_levels(mp)[0])
-plot_stochastic_processes(stochastic_volatility_examples, "Stochastic Volatility Geometric Brownian Motion (Heston)")
+plot_stochastic_processes(stochastic_volatility_examples,
+                          "Stochastic Volatility Geometric Brownian Motion (Heston)")
 
 stochastic_volatility_examples = []
 for i in range(paths):
     stochastic_volatility_examples.append(heston_model_levels(mp)[1])
-plot_stochastic_processes(stochastic_volatility_examples, "Stochastic Volatility Geometric Brownian Motion (Heston)")
-    
+plot_stochastic_processes(stochastic_volatility_examples,
+                          "Stochastic Volatility Geometric Brownian Motion (Heston)")
+
 os.system("pause")

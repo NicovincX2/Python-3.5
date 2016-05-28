@@ -42,15 +42,18 @@ IND_INIT_SIZE = 3
 # each menu item, random was called to generate a time.
 ITEMS_NAME = "Mixed Fruit", "French Fries", "Side Salad", "Hot Wings", "Mozzarella Sticks", "Sampler Plate"
 ITEMS_PRICE = 2.15, 2.75, 3.35, 3.55, 4.2, 5.8
-ITEMS = dict((name, (price, random.uniform(1, 5))) for name, price in zip(ITEMS_NAME, ITEMS_PRICE))
+ITEMS = dict((name, (price, random.uniform(1, 5)))
+             for name, price in zip(ITEMS_NAME, ITEMS_PRICE))
 
 creator.create("Fitness", base.Fitness, weights=(-1.0, -1.0))
 creator.create("Individual", Counter, fitness=creator.Fitness)
 
 toolbox = base.Toolbox()
 toolbox.register("attr_item", random.choice, ITEMS_NAME)
-toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_item, IND_INIT_SIZE)
+toolbox.register("individual", tools.initRepeat,
+                 creator.Individual, toolbox.attr_item, IND_INIT_SIZE)
 toolbox.register("population", tools.initRepeat, list, toolbox.individual)
+
 
 def evalXKCD(individual, target_price):
     """Evaluates the fitness and return the error on the price and the time
@@ -62,12 +65,14 @@ def evalXKCD(individual, target_price):
         times.append(ITEMS[item][1])
     return abs(price - target_price), max(times)
 
+
 def cxCounter(ind1, ind2, indpb):
     """Swaps the number of perticular items between two individuals"""
     for key in ITEMS.keys():
         if random.random() < indpb:
             ind1[key], ind2[key] = ind2[key], ind1[key]
     return ind1, ind2
+
 
 def mutCounter(individual):
     """Adds or remove an item from an individual"""
@@ -84,6 +89,7 @@ toolbox.register("evaluate", evalXKCD, target_price=15.05)
 toolbox.register("mate", cxCounter, indpb=0.5)
 toolbox.register("mutate", mutCounter)
 toolbox.register("select", tools.selNSGA2)
+
 
 def main():
     NGEN = 40

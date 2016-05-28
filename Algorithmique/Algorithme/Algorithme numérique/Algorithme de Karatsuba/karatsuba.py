@@ -2,6 +2,7 @@
 
 import os
 
+
 def karatsuba(x, y, b=10):
     """ returns product of x, y. Uses base b
     in karatsuba algorithm
@@ -20,7 +21,7 @@ def karatsuba(x, y, b=10):
     z1 = karatsuba(x1, y1, b)
     z3 = karatsuba(x0, y0, b)
     z2 = karatsuba(x1 + x0, y1 + y0, b) - z1 - z3
-    return (bm**2)*z1 + bm*z2 + z3
+    return (bm**2) * z1 + bm * z2 + z3
 
 if __name__ == "__main__":
     import doctest

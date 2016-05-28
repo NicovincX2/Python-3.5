@@ -2,6 +2,7 @@
 
 import os
 
+
 def scriptinfo():
     '''
     Returns a dictionary with information about the running top level Python
@@ -17,10 +18,11 @@ def scriptinfo():
     If compiled by PyInstaller, "source" contains no meaningful information.
     '''
 
-    import sys, inspect
-    #---------------------------------------------------------------------------
+    import sys
+    import inspect
+    #-------------------------------------------------------------------------
     # scan through call stack for caller information
-    #---------------------------------------------------------------------------
+    #-------------------------------------------------------------------------
     for teil in inspect.stack():
         # skip system calls
         if teil[1].startswith("<"):
@@ -44,9 +46,9 @@ def scriptinfo():
     if not scriptdir:
         scriptdir = os.getcwd()
 
-    scr_dict ={"name": trc,
-               "source": trc,
-               "dir": scriptdir}
+    scr_dict = {"name": trc,
+                "source": trc,
+                "dir": scriptdir}
     return scr_dict
 
 os.system("pause")

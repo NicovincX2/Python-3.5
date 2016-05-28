@@ -4,7 +4,9 @@ import os
 
 __author__ = "bt3"
 
+
 class HashTable(object):
+
     def __init__(self, slots=10):
         self.slots = slots
         self.table = []
@@ -12,9 +14,9 @@ class HashTable(object):
 
     # Get the slot
     def hash_key(self, value):
-        return hash(value)%self.slots
+        return hash(value) % self.slots
 
-    # When creating the table, add list struct 
+    # When creating the table, add list struct
     # to each slot
     def create_table(self):
         for i in range(self.slots):
@@ -28,13 +30,13 @@ class HashTable(object):
     # Aux: print table
     def print_table(self):
         for key in range(self.slots):
-            print ("Key is {0}, value is {1}.".format(key, self.table[key]))
+            print("Key is {0}, value is {1}.".format(key, self.table[key]))
 
     # Aux: find item
     def find_item(self, item):
         item_hash = self.hash_key(item)
         return item in self.table[item_hash]
-        
+
 if __name__ == '__main__':
     dic = HashTable(5)
     for i in range(1, 40, 2):

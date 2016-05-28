@@ -15,10 +15,11 @@ Algorithm :
 * Find GCD(Y,R) using the Euclidean algorithm since GCD(X,Y) = GCD(Y,R).
 """
 
-def greatest_common_divisor(x,y):
-    return x if y == 0 else greatest_common_divisor(y,x%y)
+
+def greatest_common_divisor(x, y):
+    return x if y == 0 else greatest_common_divisor(y, x % y)
 
 if __name__ == "__main__":
-    print(greatest_common_divisor(20,25))
+    print(greatest_common_divisor(20, 25))
 
 os.system("pause")

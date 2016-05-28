@@ -2,8 +2,10 @@
 
 import os
 
+
 class Stack(object):
     """ A simple stack ADT with top as the end of a list """
+
     def __init__(self):
         self.items = []
 
@@ -20,16 +22,20 @@ class Stack(object):
         return self.items.pop()
 
     def top(self):
-        if self.isEmpty(): return None
+        if self.isEmpty():
+            return None
         return self.items[-1]
+
 
 def string_reverse(s):
     stack = Stack()
     rev = []
-    for c in s: stack.push(c)
+    for c in s:
+        stack.push(c)
     while not stack.isEmpty():
         rev.append(stack.pop())
     return "".join(rev)
+
 
 def match_paren(parens):
     """ returns true or false if parenthesis
@@ -38,15 +44,16 @@ def match_paren(parens):
     for b in parens:
         if b == "(":
             stack.push(1)
-        else: # b == ")"
+        else:  # b == ")"
             if not stack.isEmpty():
                 stack.pop()
             else:
                 return False
     return stack.isEmpty()
 
+
 def infix_to_postfix(infixexpr):
-    prec = { '+': 2, '-': 2, '*': 3, '/': 3,'(': 1 } # denoting precedence
+    prec = {'+': 2, '-': 2, '*': 3, '/': 3, '(': 1}  # denoting precedence
     operator_stack = Stack()
     operators = "+-*/()"
     output_list = []
@@ -60,9 +67,9 @@ def infix_to_postfix(infixexpr):
             while topToken != "(":
                 output_list.append(topToken)
                 topToken = operator_stack.pop()
-        else: # an operator
+        else:  # an operator
             while (not operator_stack.isEmpty()) and \
-                (prec[operator_stack.top()] >= prec[token]):
+                    (prec[operator_stack.top()] >= prec[token]):
                 output_list.append(operator_stack.pop())
             operator_stack.push(token)
 
@@ -75,6 +82,6 @@ def infix_to_postfix(infixexpr):
 if __name__ == "__main__":
     expr = ["A * B + C * D", "( A + B ) * C - ( D - E ) * ( F + G )"]
     for e in expr:
-        print infix_to_postfix(e)
+        print(infix_to_postfix(e))
 
 os.system("pause")

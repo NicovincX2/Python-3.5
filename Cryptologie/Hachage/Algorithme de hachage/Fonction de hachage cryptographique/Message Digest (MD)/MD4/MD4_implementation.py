@@ -65,25 +65,33 @@ class MD4():
         for i in range(16):
             k = (i // 4) + (i % 4) * 4
             if i % 4 == 0:
-                A = lrot((A + self._G(B, C, D) + X[k] + 0x5a827999) & 0xffffffff, 3)
+                A = lrot((A + self._G(B, C, D) +
+                          X[k] + 0x5a827999) & 0xffffffff, 3)
             elif i % 4 == 1:
-                D = lrot((D + self._G(A, B, C) + X[k] + 0x5a827999) & 0xffffffff, 5)
+                D = lrot((D + self._G(A, B, C) +
+                          X[k] + 0x5a827999) & 0xffffffff, 5)
             elif i % 4 == 2:
-                C = lrot((C + self._G(D, A, B) + X[k] + 0x5a827999) & 0xffffffff, 9)
+                C = lrot((C + self._G(D, A, B) +
+                          X[k] + 0x5a827999) & 0xffffffff, 9)
             elif i % 4 == 3:
-                B = lrot((B + self._G(C, D, A) + X[k] + 0x5a827999) & 0xffffffff, 13)
+                B = lrot((B + self._G(C, D, A) +
+                          X[k] + 0x5a827999) & 0xffffffff, 13)
 
         order = [0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15]
         for i in range(16):
             k = order[i]
             if i % 4 == 0:
-                A = lrot((A + self._H(B, C, D) + X[k] + 0x6ed9eba1) & 0xffffffff, 3)
+                A = lrot((A + self._H(B, C, D) +
+                          X[k] + 0x6ed9eba1) & 0xffffffff, 3)
             elif i % 4 == 1:
-                D = lrot((D + self._H(A, B, C) + X[k] + 0x6ed9eba1) & 0xffffffff, 9)
+                D = lrot((D + self._H(A, B, C) +
+                          X[k] + 0x6ed9eba1) & 0xffffffff, 9)
             elif i % 4 == 2:
-                C = lrot((C + self._H(D, A, B) + X[k] + 0x6ed9eba1) & 0xffffffff, 11)
+                C = lrot((C + self._H(D, A, B) +
+                          X[k] + 0x6ed9eba1) & 0xffffffff, 11)
             elif i % 4 == 3:
-                B = lrot((B + self._H(C, D, A) + X[k] + 0x6ed9eba1) & 0xffffffff, 15)
+                B = lrot((B + self._H(C, D, A) +
+                          X[k] + 0x6ed9eba1) & 0xffffffff, 15)
 
         self.A = (self.A + A) & 0xffffffff
         self.B = (self.B + B) & 0xffffffff

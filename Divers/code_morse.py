@@ -4,14 +4,14 @@ import os
 from time import sleep
 from winsound import Beep
 
-################################################################################
+##########################################################################
 
 # CONSTANTS DEFINED BY USER
 
 FQC = 800
 DOT = 0.1
 
-################################################################################
+##########################################################################
 
 # CONSTANTS DEFINED BY STANDARD
 
@@ -67,9 +67,10 @@ CODE = {' ': ' ',
         'Z': '--..',
         '_': '..--.-'}
 
-################################################################################
+##########################################################################
 
 # MAIN PROGRAM FUNCTIONS
+
 
 def main():
     "Loop while getting, compiling, and executing given text."
@@ -77,6 +78,7 @@ def main():
     while data:
         _execute(_compile(data))
         data = input()
+
 
 def _compile(data):
     "Format string as a series of timing codes for execution."
@@ -89,12 +91,13 @@ def _compile(data):
         code[-1] = SEP
     return tuple(code)
 
+
 def _execute(code, ops=(lambda t: Beep(FQC, round(t * 1000)), sleep)):
     "Run timing codes with 'Beep' and 'sleep' by their order."
     for i, time in enumerate(code):
         ops[i & 1](time)
 
-################################################################################
+##########################################################################
 
 # STANDARD CONDITIONAL EXECUTION
 

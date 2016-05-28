@@ -109,7 +109,8 @@ def keygen(n, public=None):
         public = multinv(totient, private)
     else:
         private = multinv(totient, public)
-    assert public * private % totient == gcd(public, totient) == gcd(private, totient) == 1
+    assert public * \
+        private % totient == gcd(public, totient) == gcd(private, totient) == 1
     assert pow(pow(1234567, public, composite), private, composite) == 1234567
     return KeyPair(Key(public, composite), Key(private, composite))
 

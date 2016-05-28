@@ -2,6 +2,7 @@
 
 import os
 
+
 def string_matching_boyer_moore_horspool(text='', pattern=''):
     """Returns positions where pattern is found in text.
     O(n)
@@ -20,7 +21,7 @@ def string_matching_boyer_moore_horspool(text='', pattern=''):
     skip = []
     for k in range(256):
         skip.append(m)
-    for k in range(m-1):
+    for k in range(m - 1):
         skip[ord(pattern[k])] = m - k - 1
     skip = tuple(skip)
     k = m - 1

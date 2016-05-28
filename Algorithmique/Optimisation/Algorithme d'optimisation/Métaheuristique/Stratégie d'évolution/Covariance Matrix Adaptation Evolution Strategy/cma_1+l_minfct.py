@@ -28,24 +28,29 @@ from deap import cma
 from deap import creator
 from deap import tools
 
-N=5
+N = 5
 creator.create("FitnessMin", base.Fitness, weights=(-1.0,))
-creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessMin)
+creator.create("Individual", array.array, typecode='d',
+               fitness=creator.FitnessMin)
 
 # See http://www.lri.fr/~hansen/cmaes_inmatlab.html for more details about
 # the rastrigin and other tests for CMA-ES
 toolbox = base.Toolbox()
 toolbox.register("evaluate", benchmarks.sphere)
 
+
 def main():
     numpy.random.seed()
 
-    # The CMA-ES One Plus Lambda algorithm takes a initialized parent as argument
-    parent = creator.Individual((numpy.random.rand() * 5) - 1 for _ in range(N))
+    # The CMA-ES One Plus Lambda algorithm takes a initialized parent as
+    # argument
+    parent = creator.Individual(
+        (numpy.random.rand() * 5) - 1 for _ in range(N))
     parent.fitness.values = toolbox.evaluate(parent)
 
     strategy = cma.StrategyOnePlusLambda(parent, sigma=5.0, lambda_=10)
-    toolbox.register("generate", strategy.generate, ind_init=creator.Individual)
+    toolbox.register("generate", strategy.generate,
+                     ind_init=creator.Individual)
     toolbox.register("update", strategy.update)
 
     hof = tools.HallOfFame(1)

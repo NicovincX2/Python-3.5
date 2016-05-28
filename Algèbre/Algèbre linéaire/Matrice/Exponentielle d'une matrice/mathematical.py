@@ -8,6 +8,7 @@ import numpy
 import random
 from time import time
 
+
 def exponent(x, n):
     """Returns the value of x raised to the nth power"""
 
@@ -17,9 +18,10 @@ def exponent(x, n):
         return x
 
     if n % 2:
-        return x * exponent (x*x, (n-1)/2)
+        return x * exponent(x * x, (n - 1) / 2)
 
-    return exponent (x*x, n/2)
+    return exponent(x * x, n / 2)
+
 
 def exponent_nonr(x, n):
     """Non-recursive implementation of exponentiation"""
@@ -40,6 +42,7 @@ def exponent_nonr(x, n):
 
     return val
 
+
 def compareTrials_nonr(trials):
     """Compare performance on a number of runs"""
 
@@ -56,9 +59,10 @@ def compareTrials_nonr(trials):
         timeN += (time() - now)
 
         if check1 != check2:
-            raise Exception ("Invalid result")
+            raise Exception("Invalid result")
 
     return (timeR, timeN)
+
 
 def trialTable_nonr():
     """Output table of results for comparing nonr vs. recursive"""
@@ -66,9 +70,10 @@ def trialTable_nonr():
     trial = 2
     while trial <= 2048:
         result = compareTrials_nonr(trial)
-        print (trial, '\t', result[0], '\t', result[1])
+        print(trial, '\t', result[0], '\t', result[1])
 
         trial *= 2
+
 
 def exponent_mod(x, n, m):
     """Returns the value of x raised to the nth power modulo m"""
@@ -79,9 +84,10 @@ def exponent_mod(x, n, m):
         return x % m
 
     if n % 2:
-        return x * exponent_mod (x*x % m, (n-1)/2, m) % m
+        return x * exponent_mod(x * x % m, (n - 1) / 2, m) % m
 
-    return exponent_mod (x*x, n/2, m) % m
+    return exponent_mod(x * x, n / 2, m) % m
+
 
 def compareTrials(trials):
     """Compare performance on a number of runs"""
@@ -100,9 +106,10 @@ def compareTrials(trials):
         timeN += (time() - now)
 
         if check1 != check2:
-            raise Exception ("Invalid result")
+            raise Exception("Invalid result")
 
     return (timeR, timeN)
+
 
 def trialTable():
     """Output table of results for comparison"""
@@ -110,9 +117,10 @@ def trialTable():
     trial = 2
     while trial <= 2048:
         result = compareTrials(trial)
-        print (trial, '\t', result[0], '\t', result[1])
+        print(trial, '\t', result[0], '\t', result[1])
 
         trial *= 2
+
 
 def randomMatrix(n):
     """Return a random nxn matrix"""
@@ -120,8 +128,9 @@ def randomMatrix(n):
     for i in range(n):
         r.append([random.random() for i in range(n)])
 
-    base = numpy.array(r).reshape((n,n))
+    base = numpy.array(r).reshape((n, n))
     return base
+
 
 def exponent_mat(x, n):
     """Returns the value of x raised to the nth power"""
@@ -131,9 +140,9 @@ def exponent_mat(x, n):
         return x
 
     if n % 2:
-        return x.dot(exponent_mat (x.dot(x), (n-1)/2))
+        return x.dot(exponent_mat(x.dot(x), (n - 1) / 2))
 
-    return exponent_mat (x.dot(x), n/2)
+    return exponent_mat(x.dot(x), n / 2)
 
 
 def compareTrials_mat(trials, size):
@@ -153,8 +162,8 @@ def compareTrials_mat(trials, size):
             check2 = check2.dot(base)
         timeN += (time() - now)
 
-
     return (timeR, timeN)
+
 
 def trialTable_mat():
     """Output table of results for comparison"""
@@ -163,7 +172,7 @@ def trialTable_mat():
     size = 33
     while trial <= 512:
         result = compareTrials_mat(trial, size)
-        print (trial, '\t', result[0], '\t', result[1])
+        print(trial, '\t', result[0], '\t', result[1])
 
         trial *= 2
 

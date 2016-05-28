@@ -4,12 +4,13 @@
     Define the global constants for the problem.
 """
 
-import math, os
+import math
+import os
 
 q = 0.5
-b0 = 0.9 
-omegad = 2.0/3.0
-l = 9.8 
+b0 = 0.9
+omegad = 2.0 / 3.0
+l = 9.8
 m = 1.0
 g = 9.8
 tmax = 1000

@@ -2,6 +2,7 @@
 
 import os
 
+
 def nextperm(a):
     n = len(a)
     i = n - 1
@@ -21,7 +22,8 @@ def nextperm(a):
             j += 1
         a[i - 1], a[j] = a[j], a[i - 1]
         return True
- 
+
+
 def perm3(n):
     if type(n) is int:
         if n < 1:
@@ -33,7 +35,8 @@ def perm3(n):
     while nextperm(a):
         u.append(tuple(a))
     return u
- 
-for p in perm3(3): print(p)
+
+for p in perm3(3):
+    print(p)
 
 os.system("pause")

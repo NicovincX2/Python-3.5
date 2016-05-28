@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import division
 import os
 from scipy import linalg as la
 from scipy import optimize
@@ -9,7 +10,6 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 mpl.rcParams["font.family"] = "serif"
 mpl.rcParams["font.size"] = "12"
-from __future__ import division
 
 # define a function, desired tolerance and starting point xk
 tol = 0.01
@@ -24,12 +24,13 @@ fp = lambda x: sympy.lambdify(s_x, sympy.diff(s_f, s_x), 'numpy')(x)
 x = np.linspace(-1, 2.1, 1000)
 
 # setup a graph for visualizing the root finding steps
-fig, ax = plt.subplots(1, 1, figsize=(12,4))
+fig, ax = plt.subplots(1, 1, figsize=(12, 4))
 
 ax.plot(x, f(x))
 ax.axhline(0, ls=':', color='k')
 
-# repeat Newton's method until convergence to the desired tolerance has been reached
+# repeat Newton's method until convergence to the desired tolerance has
+# been reached
 n = 0
 while f(xk) > tol:
     xk_new = xk - f(xk) / fp(xk)
@@ -46,7 +47,7 @@ ax.plot(xk, f(xk), 'r*', markersize=15)
 ax.annotate("Root approximately at %.3f" % xk,
             fontsize=14, family="serif",
             xy=(xk, f(xk)), xycoords='data',
-            xytext=(-150, +50), textcoords='offset points', 
+            xytext=(-150, +50), textcoords='offset points',
             arrowprops=dict(arrowstyle="->", connectionstyle="arc3, rad=-.5"))
 
 ax.set_title("Newton's method")
@@ -55,4 +56,3 @@ fig.tight_layout()
 fig.savefig('ch5-nonlinear-newton.pdf')
 
 os.system("pause")
-

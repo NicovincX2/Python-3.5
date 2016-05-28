@@ -9,32 +9,35 @@ Evaluate the sum of all the amicable numbers under 10000.
 
 import os
 
+
 def find_sum_proper_divisors(n):
     sum_proper_div = 0
     for i in range(1, n):
-        if n%i == 0:
+        if n % i == 0:
             sum_proper_div += i
     return sum_proper_div
 
+
 def amicable_numbers(N):
-    sum_div_list = [find_sum_proper_divisors(i) for i in range(1, N+1)]
+    sum_div_list = [find_sum_proper_divisors(i) for i in range(1, N + 1)]
     sum_amicable_numbers = 0
-    set_div = set()    
+    set_div = set()
     for a in range(1, N):
-        da = sum_div_list[a-1]
+        da = sum_div_list[a - 1]
         if da < N:
             b = da
-            db = sum_div_list[b-1]
+            db = sum_div_list[b - 1]
             if a != b and db == a and a not in set_div and b not in set_div:
                 sum_amicable_numbers += a + b
                 set_div.add(a)
                 set_div.add(b)
     return sum_amicable_numbers
-    
+
+
 def main():
     print(amicable_numbers(10000))
     print('Tests Passed!')
-                   
+
 if __name__ == '__main__':
     main()
 

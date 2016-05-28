@@ -14,23 +14,24 @@ import matplotlib.pyplot as plt  # Pour les dessins
 
 omega0 = 1   # On définit la pulsation propre
 
-def equadiff(y,t):
+
+def equadiff(y, t):
     '''Renvoie l'action du système dx/dt = vx et dvx/dt = -omega0**2 * x 
     soit bien l'oscillateur harmonique x'' + omega0**2 * x = 0'''
-    x,vx = y                     # y contient position et vitesse
-    return [vx,- omega0**2 * x]  # On renvoie un doublet pour [dx/dt,dvx/dt]
+    x, vx = y                     # y contient position et vitesse
+    return [vx, - omega0**2 * x]  # On renvoie un doublet pour [dx/dt,dvx/dt]
 
-nb_CI = 10 # Nombre de conditions initiales explorées
+nb_CI = 10  # Nombre de conditions initiales explorées
 
-t = np.linspace(0,10,1000)       # Le temps total d'intégration
-x0= np.linspace(-5,5,nb_CI)      # Les positions initiales choisies
-v0= [0]*nb_CI                    # Les vitesses  initiales choisies
-    
+t = np.linspace(0, 10, 1000)       # Le temps total d'intégration
+x0 = np.linspace(-5, 5, nb_CI)      # Les positions initiales choisies
+v0 = [0] * nb_CI                    # Les vitesses  initiales choisies
+
 for i in range(nb_CI):           # Pour chaque condition initiale
                                  # L'intégration proprement dite
-    sol = sp.integrate.odeint(equadiff,[x0[i],v0[i]],t)
-    x = sol[:,0]                 # Récupération de la position
-    plt.plot(t,x)                # et affichage
+    sol = sp.integrate.odeint(equadiff, [x0[i], v0[i]], t)
+    x = sol[:, 0]                 # Récupération de la position
+    plt.plot(t, x)                # et affichage
 
 # Il ne reste que le traitement cosmétique
 

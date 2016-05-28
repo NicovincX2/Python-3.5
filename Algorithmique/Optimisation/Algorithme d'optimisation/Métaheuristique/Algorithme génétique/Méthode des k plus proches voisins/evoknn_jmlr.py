@@ -17,8 +17,10 @@ import os
 #    You should have received a copy of the GNU Lesser General Public
 #    License along with DEAP. If not, see <http://www.gnu.org/licenses/>.
 
-import knn, random
+import knn
+import random
 from deap import algorithms, base, creator, tools
+
 
 def evalFitness(individual):
     return knn.classification_rate(features=individual), sum(individual)
@@ -30,7 +32,8 @@ toolbox = base.Toolbox()
 toolbox.register("bit", random.randint, 0, 1)
 toolbox.register("individual", tools.initRepeat, creator.Individual,
                  toolbox.bit, n=13)
-toolbox.register("population", tools.initRepeat, list, toolbox.individual, n=100)
+toolbox.register("population", tools.initRepeat,
+                 list, toolbox.individual, n=100)
 toolbox.register("evaluate", evalFitness)
 toolbox.register("mate", tools.cxUniform, indpb=0.1)
 toolbox.register("mutate", tools.mutFlipBit, indpb=0.05)
@@ -42,7 +45,8 @@ for fit, ind in zip(fits, population):
     ind.fitness.values = fit
 
 for gen in range(50):
-    offspring = algorithms.varOr(population, toolbox, lambda_=100, cxpb=0.5,mutpb=0.1)
+    offspring = algorithms.varOr(
+        population, toolbox, lambda_=100, cxpb=0.5, mutpb=0.1)
     fits = toolbox.map(toolbox.evaluate, offspring)
     for fit, ind in zip(fits, offspring):
         ind.fitness.values = fit

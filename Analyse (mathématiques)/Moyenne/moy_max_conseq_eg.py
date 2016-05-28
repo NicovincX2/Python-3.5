@@ -9,12 +9,15 @@ from collections import Counter
 from itertools import groupby
 from numpy.random import randint
 
+
 def plus_gd_paquet(liste):
     return max([len(list(groupe)) for cle, groupe in groupby(liste)])
 
+
 def dic_paquet(n):
-    s = [plus_gd_paquet(randint(0,2,size = 10) ) for k in range(n)]
-    return  Counter(s)
+    s = [plus_gd_paquet(randint(0, 2, size=10)) for k in range(n)]
+    return Counter(s)
+
 
 def moyenne_paquet(n):
     c = dic_paquet(n)

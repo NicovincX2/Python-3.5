@@ -42,4 +42,3 @@ mcmc = pm.MCMC([p_A, p_B, delta, obs_A, obs_B])
 mcmc.sample(20000, 1000)
 
 os.system("pause")
-

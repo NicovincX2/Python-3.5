@@ -6,6 +6,7 @@ if sys.version_info < (2, 7):
 else:
     import unittest
 
+
 class BorgTest(unittest.TestCase):
 
     @classmethod

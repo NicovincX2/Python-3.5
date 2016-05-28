@@ -9,15 +9,15 @@ from project_apsp.py import *
 
 assert(89 == fibonacci(10))
 
-dist,pred = allPairsShortestPath(graph)
+dist, pred = allPairsShortestPath(graph)
 assert(7 == dist[0][3])
 
-assert([0,4,3] == constructShortestPath(0,3,pred))
+assert([0, 4, 3] == constructShortestPath(0, 3, pred))
 
 assert(15 == dist[1][0])
-assert([1, 2, 4, 3, 0] == constructShortestPath(1,0,pred))
+assert([1, 2, 4, 3, 0] == constructShortestPath(1, 0, pred))
 
-assert([2] == constructShortestPath(2,2,pred))
+assert([2] == constructShortestPath(2, 2, pred))
 
 assert(0 == minEditDistance('test', 'test'))
 assert(4 == minEditDistance('test', ''))

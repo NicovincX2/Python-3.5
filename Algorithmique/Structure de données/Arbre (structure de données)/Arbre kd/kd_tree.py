@@ -3,6 +3,8 @@
 import os
 
 # Makes the KD-Tree far fast lookup
+
+
 def make_kd_tree(points, dim, i=0):
     if len(points) > 1:
         points.sort(key=lambda x: x[i])
@@ -16,6 +18,8 @@ def make_kd_tree(points, dim, i=0):
         return (None, None, points[0])
 
 # K nearest neighbors. The heap is a bounded priority queue.
+
+
 def get_knn(kd_node, point, k, dim, dist_func, return_distances=False, i=0, heap=None):
     import heapq
     is_root = not heap
@@ -41,6 +45,8 @@ def get_knn(kd_node, point, k, dim, dist_func, return_distances=False, i=0, heap
         return neighbors if return_distances else [n[1] for n in neighbors]
 
 # For the closest neighbor
+
+
 def get_nearest(kd_node, point, dim, dist_func, return_distances=False, i=0, best=None):
     if kd_node:
         dist = dist_func(point, kd_node[2])
@@ -62,27 +68,28 @@ def get_nearest(kd_node, point, dim, dist_func, return_distances=False, i=0, bes
 
 import random
 
+
 def rand_point(dim):
     return [random.uniform(-1, 1) for d in range(dim)]
 
 dim = 3  # 3 dimensions
 points = [rand_point(dim) for x in range(5000)]  # 5k random points
-kd_tree = make_kd_tree(points=points, dim=dim) # make the kd tree
+kd_tree = make_kd_tree(points=points, dim=dim)  # make the kd tree
 
 # If you need labeled points, checkout my other recipe on adding attributes to python list
 # https://code.activestate.com/recipes/users/4192908/
 
-print (get_knn(
-    kd_node=kd_tree, 
-    point=[0] * dim, 
-    k=8, 
-    dim=dim, 
-    dist_func=lambda a, b: sum((a[i] - b[i]) ** 2 for i in xrange(dim)))) # Euclidean distance
+print(get_knn(
+    kd_node=kd_tree,
+    point=[0] * dim,
+    k=8,
+    dim=dim,
+    dist_func=lambda a, b: sum((a[i] - b[i]) ** 2 for i in xrange(dim))))  # Euclidean distance
 
-print (get_nearest(
+print(get_nearest(
     kd_node=kd_tree,
     point=[0] * dim,
     dim=dim,
-    dist_func=lambda a, b: sum((a[i] - b[i]) ** 2 for i in xrange(dim)))) # Euclidean distance
+    dist_func=lambda a, b: sum((a[i] - b[i]) ** 2 for i in xrange(dim))))  # Euclidean distance
 
 os.system("pause")

@@ -2,6 +2,7 @@
 
 import os
 
+
 def line(self, x0, y0, x1, y1):
     "Bresenham's line algorithm"
     dx = abs(x1 - x0)
@@ -26,15 +27,15 @@ def line(self, x0, y0, x1, y1):
             if err < 0:
                 x += sx
                 err += dy
-            y += sy        
+            y += sy
     self.set(x, y)
 Bitmap.line = line
- 
-bitmap = Bitmap(17,17)
-for points in ((1,8,8,16),(8,16,16,8),(16,8,8,1),(8,1,1,8)):
+
+bitmap = Bitmap(17, 17)
+for points in ((1, 8, 8, 16), (8, 16, 16, 8), (16, 8, 8, 1), (8, 1, 1, 8)):
     bitmap.line(*points)
 bitmap.chardisplay()
- 
+
 '''
 The origin, 0,0; is the lower left, with x increasing to the right,
 and Y increasing upwards.

@@ -15,12 +15,13 @@ import math
 ##  Python 2 vs 3 Compatibility Functions  #################################
 
 if not hasattr(math, 'isclose'):
-    math.isclose = lambda x, y, rel_tol=1e-09: abs(x/y - 1.0) <= rel_tol
+    math.isclose = lambda x, y, rel_tol=1e-09: abs(x / y - 1.0) <= rel_tol
 
 if not hasattr(math, 'log2'):
     math.log2 = lambda x: math.log(x) / math.log(2.0)
 
 ##  Dual Number Class  #####################################################
+
 
 class Num(float):
     ''' The auto-differentiation number class works likes a float
@@ -78,7 +79,8 @@ class Num(float):
     __slots__ = ['dx']
 
     def __new__(cls, value, dx=0.0):
-        if isinstance(value, cls): return value
+        if isinstance(value, cls):
+            return value
         inst = float.__new__(cls, value)
         inst.dx = dx
         return inst
@@ -100,7 +102,7 @@ class Num(float):
     def __pow__(u, v):
         u, v, du, dv = float(u), float(v), d(u), d(v)
         return Num(u ** v,
-                   (v * u ** (v - 1.0) * du  if du else 0.0) +
+                   (v * u ** (v - 1.0) * du if du else 0.0) +
                    (math.log(u) * u ** v * dv if dv else 0.0))
 
     def __mod__(u, v):
@@ -161,7 +163,7 @@ hypot = lambda u, v: Num(math.hypot(u, v),
                          (u * d(u) + v * d(v)) / math.hypot(u, v))
 fsum = lambda u: Num(math.fsum(map(float, u)), math.fsum(map(d, u)))
 copysign = lambda u, v: Num(math.copysign(u, v),
-            d(u) if math.copysign(1.0, float(u) * float(v)) > 0.0  else -d(u))
+                            d(u) if math.copysign(1.0, float(u) * float(v)) > 0.0 else -d(u))
 ceil = lambda u: Num(math.ceil(u), 0.0)
 floor = lambda u: Num(math.floor(u), 0.0)
 trunc = lambda u: Num(math.trunc(u), 0.0)
@@ -171,6 +173,7 @@ fabs = abs
 fmod = lambda u, v: u % v
 
 ##  Vector Functions  ######################################################
+
 
 def partial(func, point, index):
     ''' Partial derivative at a given point
@@ -183,7 +186,8 @@ def partial(func, point, index):
         2.5
 
     '''
-    return d(func(*[Num(x, i==index) for i, x in enumerate(point)]))
+    return d(func(*[Num(x, i == index) for i, x in enumerate(point)]))
+
 
 def gradient(func, point):
     ''' Vector of the partial derivatives of a scalar field
@@ -197,6 +201,7 @@ def gradient(func, point):
 
     '''
     return tuple(partial(func, point, index) for index in range(len(point)))
+
 
 def directional_derivative(func, point, direction):
     ''' The dot product of the gradient and a direction vector.
@@ -216,6 +221,7 @@ def directional_derivative(func, point, direction):
 
     '''
     return d(func(*map(Num, point, direction)))
+
 
 def divergence(F, point):
     ''' Sum of the partial derivatives of a vector field
@@ -239,8 +245,9 @@ def divergence(F, point):
         -1.0826822658929016
 
     '''
-    return math.fsum(d(F(*[Num(x, i==index) for i, x in enumerate(point)])[index])
+    return math.fsum(d(F(*[Num(x, i == index) for i, x in enumerate(point)])[index])
                      for index in range(len(point)))
+
 
 def curl(F, point):
     ''' Rotation around a vector field
@@ -282,7 +289,7 @@ if __name__ == '__main__':
     W = 20     # width of river in meters
     C = 0.1    # max flow divided by (W/2)**2
     F = lambda x, y=0, z=0:  (0.0, C * x * (W - x), 0.0)
-    for x in range(W+1):
+    for x in range(W + 1):
         print('%d --> %r' % (x, curl(F, (x, 0.0, 0.0))))
 
     def numeric_derivative(func, x, eps=0.001):
@@ -313,7 +320,7 @@ if __name__ == '__main__':
         return (x / 3.5) ** sin(3.5 * x)
 
     def test_hyperbolics(x):
-        return 3 * cosh(1/x) + 5 * sinh(x/2.5) ** 2 - 0.7 * tanh(1.7/x) ** 1.5
+        return 3 * cosh(1 / x) + 5 * sinh(x / 2.5) ** 2 - 0.7 * tanh(1.7 / x) ** 1.5
 
     def test_sqrt(x):
         return cos(sqrt(abs(sin(x) + 5)))
@@ -343,7 +350,8 @@ if __name__ == '__main__':
     def test_fsum(x):
         import random
         random.seed(8675309)
-        data = [Num(random.random()**x, random.random()**x) for i in range(100)]
+        data = [Num(random.random()**x, random.random()**x)
+                for i in range(100)]
         return fsum(data)
 
     def test_inv_hyperbolics(x):
@@ -364,10 +372,10 @@ if __name__ == '__main__':
                 sqrt(radians(log(x) + 1.7)) + e / x + expm1(x / pi))
 
     x_array = [2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5]
-    tests =   [test_combined, test_pow_const_base, test_pow_const_exp,
-               test_pow_general, test_hyperbolics, test_sqrt, test_copysign,
-               test_inv_trig, test_conversions, test_hypot, test_rounders,
-               test_inv_hyperbolics, test_mod, test_logs, test_fsum]
+    tests = [test_combined, test_pow_const_base, test_pow_const_exp,
+             test_pow_general, test_hyperbolics, test_sqrt, test_copysign,
+             test_inv_trig, test_conversions, test_hypot, test_rounders,
+             test_inv_hyperbolics, test_mod, test_logs, test_fsum]
     test(x_array, *tests)
 
     # Run doctests when the underlying C math library matches the one used to

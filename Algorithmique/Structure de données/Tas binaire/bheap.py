@@ -2,7 +2,7 @@
 
 # BinaryHeap implementation (with decreaseKey operation)
 
-# Each element is a list of two elements (priority, element)   
+# Each element is a list of two elements (priority, element)
 PRIORITY = 0
 ID = 1
 
@@ -10,14 +10,15 @@ ID = 1
 # identifiers (drawn from set [0, n-1]) and an associated integer priority
 # where lower values imply greater importance
 
+
 class BHeap:
 
     def __init__(self, size):
         """initialize Binary Heap to given number of elements"""
-        self.size      = size
-        self.n         = 0
-        self.elements  = [[0, None] for i in range(size+1)]
-        self.positions = [0 for i in range(size+1)]
+        self.size = size
+        self.n = 0
+        self.elements = [[0, None] for i in range(size + 1)]
+        self.positions = [0 for i in range(size + 1)]
 
     def isEmpty(self):
         """Determine whether Binary Heap is empty"""
@@ -26,7 +27,7 @@ class BHeap:
     def smallest(self):
         """Extract and return smallest element in heap"""
         id = self.elements[1][ID]
-        
+
         # heap will have one less entry, so place final one appropriately
         last = self.elements[self.n]
         self.n -= 1
@@ -38,7 +39,7 @@ class BHeap:
             # select smaller of two children
             sm = self.elements[child]
             if child < self.n:
-                if sm[PRIORITY] > self.elements[child+1][PRIORITY]:
+                if sm[PRIORITY] > self.elements[child + 1][PRIORITY]:
                     child += 1
                     sm = self.elements[child]
 
@@ -49,19 +50,18 @@ class BHeap:
             self.positions[sm[ID]] = pIdx
 
             pIdx = child
-            child = 2*pIdx
+            child = 2 * pIdx
 
         self.elements[pIdx] = last
         self.positions[last[ID]] = pIdx
         return id
-    
 
     def insert(self, id, priority):
         """Insert item into heap with given priority"""
         self.n += 1
         i = self.n
         while i > 1:
-            pIdx = int(i/2)
+            pIdx = int(i / 2)
             p = self.elements[pIdx]
 
             if priority > p[PRIORITY]:
@@ -73,7 +73,7 @@ class BHeap:
 
         self.elements[i] = [priority, id]
         self.positions[id] = i
-        
+
     def decreaseKey(self, id, newPriority):
         """Reduce the priority for the given item"""
 

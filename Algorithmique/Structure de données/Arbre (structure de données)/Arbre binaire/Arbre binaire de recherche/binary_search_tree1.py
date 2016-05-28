@@ -100,7 +100,8 @@ class BinarySearchTree(object):
         else:
             node.val = val
 
-        node.size_of_subtree = self._size(node.left) + self._size(node.right)+1
+        node.size_of_subtree = self._size(
+            node.left) + self._size(node.right) + 1
         return node
 
     def put(self, key, val):
@@ -300,7 +301,8 @@ class BinarySearchTree(object):
                 node = self._ceiling_node(key, node.right)
                 node.right = self._delete_min(old_node.right)
                 node.left = old_node.left
-        node.size_of_subtree = self._size(node.left) + self._size(node.right)+1
+        node.size_of_subtree = self._size(
+            node.left) + self._size(node.right) + 1
         return node
 
     def delete(self, key):
@@ -316,7 +318,8 @@ class BinarySearchTree(object):
             return node.right
 
         node.left = self._delete_min(node.left)
-        node.size_of_subtree = self._size(node.left) + self._size(node.right)+1
+        node.size_of_subtree = self._size(
+            node.left) + self._size(node.right) + 1
         return node
 
     def delete_min(self):
@@ -332,7 +335,8 @@ class BinarySearchTree(object):
             return node.left
 
         node.right = self._delete_max(node.right)
-        node.size_of_subtree = self._size(node.left) + self._size(node.right)+1
+        node.size_of_subtree = self._size(
+            node.left) + self._size(node.right) + 1
         return node
 
     def delete_max(self):

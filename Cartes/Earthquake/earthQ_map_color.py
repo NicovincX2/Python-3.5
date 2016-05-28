@@ -2,7 +2,7 @@
 
 import os
 
-###highlight=[47,48,53]
+# highlight=[47,48,53]
 import csv
 
 # Open the earthquake data file.
@@ -34,6 +34,7 @@ from mpl_toolkits.basemap import Basemap
 import matplotlib.pyplot as plt
 import numpy as np
 
+
 def get_marker_color(magnitude):
     # Returns green for small earthquakes, yellow for moderate
     #  earthquakes, and red for significant earthquakes.
@@ -44,8 +45,8 @@ def get_marker_color(magnitude):
     else:
         return ('ro')
 
-eq_map = Basemap(projection='robin', resolution = 'l', area_thresh = 1000.0,
-              lat_0=0, lon_0=-130)
+eq_map = Basemap(projection='robin', resolution='l', area_thresh=1000.0,
+                 lat_0=0, lon_0=-130)
 eq_map.drawcoastlines()
 eq_map.drawcountries()
 #eq_map.fillcontinents(color = 'gray')
@@ -56,7 +57,7 @@ eq_map.drawparallels(np.arange(-90, 90, 30))
 
 min_marker_size = 2.25
 for lon, lat, mag in zip(lons, lats, magnitudes):
-    x,y = eq_map(lon, lat)
+    x, y = eq_map(lon, lat)
     msize = mag * min_marker_size
     marker_string = get_marker_color(mag)
     eq_map.plot(x, y, marker_string, markersize=msize)

@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import math
+
+
 class minheap(object):
     """
     Heap class - made of keys and items
@@ -30,7 +32,7 @@ class minheap(object):
     def parent(self, i):
         if i == 0:
             return -1
-        elif i % 2 != 0: # odd
+        elif i % 2 != 0:  # odd
             return (i - 1) / 2
         return (i - 2) / 2
 
@@ -49,7 +51,8 @@ class minheap(object):
         if r < self.max_elements() and self.heap[r] < self.heap[smallest]:
             smallest = r
         if smallest != i:
-            self.heap[i], self.heap[smallest] = self.heap[smallest], self.heap[i]
+            self.heap[i], self.heap[smallest] = self.heap[
+                smallest], self.heap[i]
             self.heapify(smallest)
 
     def build_heap(self, elem):
@@ -66,7 +69,8 @@ class minheap(object):
         self.heap.append(x)
         parent = self.parent(i)
         while parent != -1 and self.heap[int(i)] < self.heap[int(parent)]:
-            self.heap[int(i)], self.heap[int(parent)] = self.heap[int(parent)], self.heap[int(i)]
+            self.heap[int(i)], self.heap[int(parent)] = self.heap[
+                int(parent)], self.heap[int(i)]
             i = parent
             parent = self.parent(i)
 

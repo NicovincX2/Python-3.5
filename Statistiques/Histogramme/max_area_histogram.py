@@ -25,7 +25,7 @@ steps -
 
 def find_Li(hist, i):
     left_edge = 0
-    for j in range(i-1, -1, -1):
+    for j in range(i - 1, -1, -1):
         if hist[j] >= hist[i]:
             left_edge += 1
         else:
@@ -83,6 +83,6 @@ def max_rectangle_area(histogram):
 
     return max_area
 
-print max_rectangle_area(histogram)
+print(max_rectangle_area(histogram))
 
 os.system("pause")

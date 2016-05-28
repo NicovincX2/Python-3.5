@@ -12,6 +12,7 @@ By Nick Craig-Wood <nick@craig-wood.com>
 
 from time import time
 
+
 def arctan(x, one=1000000):
     """
     Calculate arctan(1/x)
@@ -34,6 +35,7 @@ def arctan(x, one=1000000):
         total += delta
     return total
 
+
 def arctan_euler(x, one=1000000):
     """
     Calculate arctan(1/x) using euler's accelerated formula
@@ -52,7 +54,7 @@ def arctan_euler(x, one=1000000):
     total = term
     two_n = 2
     while 1:
-        divisor = (two_n+1) * x_squared_plus_1
+        divisor = (two_n + 1) * x_squared_plus_1
         term *= two_n
         term += divisor // 2    # round the division
         term = term // divisor
@@ -62,48 +64,56 @@ def arctan_euler(x, one=1000000):
         two_n += 2
     return total
 
+
 def pi_machin(one):
-    return 4*(4*arctan(5, one) - arctan(239, one))
+    return 4 * (4 * arctan(5, one) - arctan(239, one))
+
+
 def pi_machin_euler(one):
-    return 4*(4*arctan_euler(5, one) - arctan_euler(239, one))
+    return 4 * (4 * arctan_euler(5, one) - arctan_euler(239, one))
+
 
 def pi_ferguson(one):
-    return 4*(3*arctan(4, one) + arctan(20, one) + arctan(1985, one))
+    return 4 * (3 * arctan(4, one) + arctan(20, one) + arctan(1985, one))
+
 
 def pi_hutton(one):
-    return 4*(2*arctan(3, one) + arctan(7, one))
+    return 4 * (2 * arctan(3, one) + arctan(7, one))
+
 
 def pi_gauss(one):
-    return 4*(12*arctan(18, one) + 8*arctan(57, one) - 5*arctan(239, one))
+    return 4 * (12 * arctan(18, one) + 8 * arctan(57, one) - 5 * arctan(239, one))
+
+
 def pi_gauss_euler(one):
-    return 4*(12*arctan_euler(18, one) + 8*arctan_euler(57, one) - 5*arctan_euler(239, one))
+    return 4 * (12 * arctan_euler(18, one) + 8 * arctan_euler(57, one) - 5 * arctan_euler(239, one))
 
 if __name__ == "__main__":
-    for log10_digits in range(1,7):
+    for log10_digits in range(1, 7):
         digits = 10**log10_digits
         one = 10**digits
 
-        start =time()
+        start = time()
         pi = pi_machin(one)
-        #print(pi)
-        print("machin: digits",digits,"time",time()-start)
+        # print(pi)
+        print("machin: digits", digits, "time", time() - start)
 
-        start =time()
+        start = time()
         pi = pi_machin_euler(one)
-        #print(pi)
-        print("machin euler: digits",digits,"time",time()-start)
+        # print(pi)
+        print("machin euler: digits", digits, "time", time() - start)
 
-        start =time()
+        start = time()
         pi = pi_gauss(one)
-        #print(pi)
-        print("gauss: digits",digits,"time",time()-start)
+        # print(pi)
+        print("gauss: digits", digits, "time", time() - start)
 
-        start =time()
+        start = time()
         pi = pi_gauss_euler(one)
-        #print(pi)
-        print("gauss euler: digits",digits,"time",time()-start)
-    #print(pi_ferguson(one))
-    #print(pi_hutton(one))
-    #print(pi_gauss(one))
+        # print(pi)
+        print("gauss euler: digits", digits, "time", time() - start)
+    # print(pi_ferguson(one))
+    # print(pi_hutton(one))
+    # print(pi_gauss(one))
 
 os.system("pause")

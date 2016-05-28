@@ -14,8 +14,9 @@ import networkx as nx
 # where A is the sparse matrix for the 1d poisson problem
 import time
 
+
 def setup(N):
-    A = sp.diags([1,-2,1], [1,0,-1], shape=[N, N], format='csr')
+    A = sp.diags([1, -2, 1], [1, 0, -1], shape=[N, N], format='csr')
     b = -np.ones(N)
     return A, A.todense(), b
 
@@ -28,13 +29,13 @@ for idx, N in enumerate(N_vec):
     t = time.time()
     for r in range(reps):
         x = np.linalg.solve(A_dense, b)
-    t_dense[idx] = (time.time() - t)/reps
+    t_dense[idx] = (time.time() - t) / reps
     t = time.time()
     for r in range(reps):
         #x = la.solve(A_dense, b)
         x = sp.linalg.spsolve(A, b, use_umfpack=True)
-    t_sparse[idx] = (time.time() - t)/reps
-    
+    t_sparse[idx] = (time.time() - t) / reps
+
 fig, ax = plt.subplots(figsize=(8, 4))
 ax.plot(N_vec, t_dense * 1e3, '.-', label="dense")
 ax.plot(N_vec, t_sparse * 1e3, '.-', label="sparse")
@@ -45,4 +46,3 @@ fig.tight_layout()
 fig.savefig("ch10-sparse-vs-dense.pdf")
 
 os.system("pause")
-

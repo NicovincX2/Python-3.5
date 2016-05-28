@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+
 class UnionFind(object):
     """ Disjoint Set data structure supporting union and find operations used
     for Kruskal's MST algorithm 
@@ -35,11 +36,12 @@ class UnionFind(object):
                 # a is not already in any set
                 self.leader[a] = a
                 self.group[a] = set([a])
-                return 
+                return
 
         if leadera is not None:
             if leaderb is not None:
-                if leadera == leaderb: return # Do nothing
+                if leadera == leaderb:
+                    return  # Do nothing
                 self.make_union(leadera, leaderb)
             else:
                 # leaderb is none
@@ -66,14 +68,15 @@ class UnionFind(object):
         """ takes union of two sets with leaders, leadera and leaderb
         in O(nlogn) time """
         if leadera not in self.group or leaderb not in self.group:
-            raise Exception("Invalid leader specified leadera -%s, leaderb - %s" % (leadera, leaderb))
+            raise Exception(
+                "Invalid leader specified leadera -%s, leaderb - %s" % (leadera, leaderb))
         groupa = self.group[leadera]
         groupb = self.group[leaderb]
         if len(groupa) < len(groupb):
             # swap a and b if a is a smaller set
             leadera, groupa, leaderb, groupb = leaderb, groupb, leadera, groupa
-        groupa |= groupb # taking union of a with b
-        del self.group[leaderb] # delete b
+        groupa |= groupb  # taking union of a with b
+        del self.group[leaderb]  # delete b
         for k in groupb:
             self.leader[k] = leadera
 

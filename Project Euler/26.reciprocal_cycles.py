@@ -18,17 +18,19 @@ Answer: 983
 
 import os
 
+
 def recurring_cycle(n, d):
     for dd in range(1, d):
         if 1 == 10**dd % d:
             return dd
     return 0
 
+
 def main():
-  n = 1
-  limit = 1000
-  longest = max(recurring_cycle(n, i) for i in range(2, limit+1))
-  print [i for i in range(2, limit+1) if recurring_cycle(n, i) == longest][0]
+    n = 1
+    limit = 1000
+    longest = max(recurring_cycle(n, i) for i in range(2, limit + 1))
+    print([i for i in range(2, limit + 1) if recurring_cycle(n, i) == longest][0])
 
 if __name__ == '__main__':
     main()

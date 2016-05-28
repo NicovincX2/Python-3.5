@@ -2,6 +2,7 @@
 
 import os
 
+
 def find_max_sub(l):
     """Find subset with higest sum.
     Example: [-2, 3, -4, 5, 1, -5] -> (3,4), 6
@@ -23,7 +24,7 @@ def find_max_sub(l):
             bounds = (s, i)
         elif m < 0:
             m = 0
-            s = i+1
+            s = i + 1
     return bounds, max
 
 os.system("pause")

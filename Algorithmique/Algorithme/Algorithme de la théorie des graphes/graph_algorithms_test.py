@@ -1,17 +1,20 @@
 # -*- coding: utf-8 -*-
 
-import os, sys
+import os
+import sys
 sys.path.append(os.path.join(os.getcwd(), os.path.pardir))
 import unittest
 from digraph import digraph
 from graph import graph
 from graph_algorithms import *
 
+
 class test_graph(unittest.TestCase):
 
     def setUp(self):
         self.gr = graph()
-        self.gr.add_nodes(["s", "a", "b", "c", "d", "e", "f", "g", "h", "j", "k", "l"])
+        self.gr.add_nodes(["s", "a", "b", "c", "d", "e",
+                           "f", "g", "h", "j", "k", "l"])
         self.gr.add_edges([("s", "a"), ("s", "b"), ("a", "c"), ("c", "e")])
         self.gr.add_edges([("e", "d"), ("d", "b"), ("a", "b"), ("c", "d")])
         self.gr.add_edges([("g", "h"), ("f", "g")])
@@ -57,16 +60,18 @@ class test_graph(unittest.TestCase):
 
     def test_undirected_connected_component(self):
         self.assertEqual(len(undirected_connected_components(self.gr)), 3)
-        self.assertRaises(Exception, undirected_connected_components, self.digr)
+        self.assertRaises(
+            Exception, undirected_connected_components, self.digr)
 
     def test_topological_ordering(self):
-        dag = digraph() # directed acyclic graph
+        dag = digraph()  # directed acyclic graph
         dag.add_nodes(["a", "b", "c", "d", "e", "f", "g", "h"])
         dag.add_edges([("a", "b"), ("a", "c"), ("a", "e"), ("d", "a")])
-        dag.add_edges([("g", "b"), ("g", "f"), ("f", "e"), ("h", "f"), ("h", "a")])
+        dag.add_edges(
+            [("g", "b"), ("g", "f"), ("f", "e"), ("h", "f"), ("h", "a")])
         order = {o[0]: o[1] for o in topological_ordering(dag)}
         self.assertEqual(sum([order[u] < order[v] for (u, v) in
-                         dag.edges()]), len(dag.edges())) # all comparisons are True
+                              dag.edges()]), len(dag.edges()))  # all comparisons are True
 
     def test_directed_connected_components(self):
         digr = digraph()
@@ -76,10 +81,14 @@ class test_graph(unittest.TestCase):
         digr.add_edges([("g", "h"), ("h", "i"), ("i", "g")])
         self.assertEqual(len(directed_connected_components(digr)), 3)
         digr2 = digraph()
-        digr2.add_nodes(["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k"])
-        digr2.add_edges([("a", "b"), ("b", "c"), ("c", "a"), ("b", "d"), ("d", "e")])
-        digr2.add_edges([("e", "f"), ("f", "g"), ("g", "e"), ("d", "g"), ("i", "f")])
-        digr2.add_edges([("h", "g"), ("c", "h"), ("c", "k"), ("h", "i"), ("i", "j")])
+        digr2.add_nodes(
+            ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k"])
+        digr2.add_edges(
+            [("a", "b"), ("b", "c"), ("c", "a"), ("b", "d"), ("d", "e")])
+        digr2.add_edges(
+            [("e", "f"), ("f", "g"), ("g", "e"), ("d", "g"), ("i", "f")])
+        digr2.add_edges(
+            [("h", "g"), ("c", "h"), ("c", "k"), ("h", "i"), ("i", "j")])
         digr2.add_edges([("h", "j"), ("j", "k"), ("k", "h")])
         self.assertEqual(len(directed_connected_components(digr2)), 4)
 

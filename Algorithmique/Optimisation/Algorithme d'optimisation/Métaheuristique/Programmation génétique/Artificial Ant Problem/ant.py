@@ -63,21 +63,26 @@ from deap import creator
 from deap import tools
 from deap import gp
 
+
 def progn(*args):
     for arg in args:
         arg()
 
+
 def prog2(out1, out2):
-    return partial(progn,out1,out2)
+    return partial(progn, out1, out2)
+
 
 def prog3(out1, out2, out3):
-    return partial(progn,out1,out2,out3)
+    return partial(progn, out1, out2, out3)
+
 
 def if_then_else(condition, out1, out2):
     out1() if condition() else out2()
 
+
 class AntSimulator(object):
-    direction = ["north","east","south","west"]
+    direction = ["north", "east", "south", "west"]
     dir_row = [1, 0, -1, 0]
     dir_col = [0, 1, 0, -1]
 
@@ -126,7 +131,7 @@ class AntSimulator(object):
     def if_food_ahead(self, out1, out2):
         return partial(if_then_else, self.sense_food, out1, out2)
 
-    def run(self,routine):
+    def run(self, routine):
         self._reset()
         while self.moves < self.max_moves:
             routine()
@@ -168,8 +173,10 @@ toolbox = base.Toolbox()
 toolbox.register("expr_init", gp.genFull, pset=pset, min_=1, max_=2)
 
 # Structure initializers
-toolbox.register("individual", tools.initIterate, creator.Individual, toolbox.expr_init)
+toolbox.register("individual", tools.initIterate,
+                 creator.Individual, toolbox.expr_init)
 toolbox.register("population", tools.initRepeat, list, toolbox.individual)
+
 
 def evalArtificialAnt(individual):
     # Transform the tree expression to functionnal Python code
@@ -184,11 +191,12 @@ toolbox.register("mate", gp.cxOnePoint)
 toolbox.register("expr_mut", gp.genFull, min_=0, max_=2)
 toolbox.register("mutate", gp.mutUniform, expr=toolbox.expr_mut, pset=pset)
 
+
 def main():
     random.seed(69)
 
-    with  open("ant/santafe_trail.txt") as trail_file:
-      ant.parse_matrix(trail_file)
+    with open("ant/santafe_trail.txt") as trail_file:
+        ant.parse_matrix(trail_file)
 
     pop = toolbox.population(n=300)
     hof = tools.HallOfFame(1)

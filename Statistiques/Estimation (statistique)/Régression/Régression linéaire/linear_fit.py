@@ -2,33 +2,37 @@
 
 from __future__ import division
 import os
-import matplotlib.pyplot as plt
-import numpy as np
-import utils
+from matplotlib.pyplot import *
+from numpy import *
+from numpy.random import *
+from numpy.linalg import *
+# import utils
 import seaborn
 seaborn.set()
 colors = seaborn.color_palette()
 
+
 # For example if we have some data X
 X1 = randn(100, 2)
-plot(X1[:, 0], X1[:, 1], "o");
+plot(X1[:, 0], X1[:, 1], "o")
 
 # And we multiple that data by a matrix A
 A = array([[1, .5], [.5, 1]])
 X2 = dot(X1, A)
-plot(X2[:, 0], X2[:, 1], "o");
+plot(X2[:, 0], X2[:, 1], "o")
 
 # Multiplying by the inverse of matrix A will undue the
 # linear transformation of X that was obtained by multiplying by A
 Ainv = inv(A)
 X1b = dot(X2, Ainv)
-plot(X1b[:, 0], X1b[:, 1], "o");
+plot(X1b[:, 0], X1b[:, 1], "o")
 
 # We can check this assertion formally in Python with the caveat that there
 # is some very small numerical rounding errors.
 assert all(X1 - X1b < 1e-5), "Matrix 1 does not equal matrix 2"
 
-# We can also get built-in assertion with consideration of floating point precision
+# We can also get built-in assertion with consideration of floating point
+# precision
 from numpy.testing import assert_array_almost_equal
 assert_array_almost_equal(X1, X1b)
 
@@ -45,11 +49,12 @@ X = randn(100, 4)
 noise = randn(100) * 10
 y = 1 * X[:, 0] + 7 * X[:, 1] + 3 * X[:, 2] + 5 * X[:, 3] + 7 + noise
 
-# To capture the constant term, we will add a column of 1s to our regressor matrix
+# To capture the constant term, we will add a column of 1s to our
+# regressor matrix
 X = column_stack((X, ones(100)))
 
 # Fit the model based on the ordinary last squares (OLS) formula
-w_ols = dot(dot(inv(dot(X.T, X)), X.T), y) 
+w_ols = dot(dot(inv(dot(X.T, X)), X.T), y)
 
 # Note how the lack of builtin matrix multiplication for arrays is a bit annoying
 # We can also use matrix objects
@@ -67,7 +72,8 @@ w_lstsq, residue, rnk, s = lstsq(X, y)
 # You can also do
 w_lstsq = lstsq(X, y)[0]
 
-# If you are following the MATLAB tutorial, note that the argument order for lstsq is backward relative to regress
+# If you are following the MATLAB tutorial, note that the argument order
+# for lstsq is backward relative to regress
 
 # These are also identical
 assert_array_almost_equal(w_ols, w_lstsq)
@@ -79,11 +85,12 @@ modelprediction = dot(X, w_ols)
 # The imperfections arise from the noise we added to the data
 plot(modelprediction, y, "o", color=colors[1])
 xlabel("model prediction")
-ylabel("original data");
+ylabel("original data")
 
-# Then we subract the model prediction from the measured data, square that difference and take the mean
+# Then we subract the model prediction from the measured data, square that
+# difference and take the mean
 mse_ols = mean((y - modelprediction) ** 2)
-print ("Our mean squared error is %.4f using ordinary least squares regression" % mse_ols)
+print("Our mean squared error is %.4f using ordinary least squares regression" % mse_ols)
 
 # Various solvers live in the optimize package
 from scipy import optimize
@@ -102,11 +109,10 @@ optsol = optimize.fmin(costfunc, seed, maxfun=inf)
 axes(aspect="equal")
 plot(w_ols, optsol, "D", color=colors[2], markersize=7)
 xlabel("OLS solution")
-ylabel("Optimize solution");
+ylabel("Optimize solution")
 
 mse_optim = mean(square(y - dot(X, optsol)))
-print ("OLS MSE: %.4f" % mse_ols)
-print ("Optimized MSE: %.4f " % mse_optim)
+print("OLS MSE: %.4f" % mse_ols)
+print("Optimized MSE: %.4f " % mse_optim)
 
 os.system("pause")
-

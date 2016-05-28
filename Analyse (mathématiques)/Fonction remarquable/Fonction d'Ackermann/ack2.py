@@ -2,6 +2,7 @@
 
 import os
 
+
 def ack2(M, N):
     if M == 0:
         return N + 1

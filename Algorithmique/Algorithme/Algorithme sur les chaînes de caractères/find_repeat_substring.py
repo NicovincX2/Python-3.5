@@ -4,10 +4,11 @@ import os
 from time import perf_counter
 from hash_table import *
 
+
 def repeat_naive(st, k):
     for i in range(len(st) - k + 1):
         for j in range(i + 1, len(st) - k + 1):
-            if st[i : i + k] == st[j : j + k]:
+            if st[i: i + k] == st[j: j + k]:
                 return True
     return False
 
@@ -37,13 +38,13 @@ And how we found
 The same old fears. 
 Wish you were here.'''
 
-print ("Repeat_naive:")
+print("Repeat_naive:")
 top = perf_counter()
 print(repeat_naive(song, 5))
-print(perf_counter()-top)
+print(perf_counter() - top)
 top = perf_counter()
 print(repeat_naive(song, 30))
-print(perf_counter()-top)
+print(perf_counter() - top)
 
 import urllib.request
 
@@ -51,67 +52,69 @@ with urllib.request.urlopen("http://www.gutenberg.org/cache/epub/74/pg74.txt") a
     book = r.read().decode('utf-8')
 print(book[:book.index('\n\r')])
 
-print ("Repeat_naive:")
+print("Repeat_naive:")
 top = perf_counter()
 print(repeat_naive(book, 5))
-print(perf_counter()-top)
+print(perf_counter() - top)
 top = perf_counter()
 print(repeat_naive(book, 30))
-print(perf_counter()-top)
+print(perf_counter() - top)
+
 
 def repeat_hash1(st, k, m=0):
-    if m == 0: # default hash table size is ~number of substrings to be inserted
+    if m == 0:  # default hash table size is ~number of substrings to be inserted
         m = len(st) - k
     htable = MyHashtable(m)
     for i in range(len(st) - k + 1):
-        if htable.find(st[i : i + k]):
+        if htable.find(st[i: i + k]):
             return True
-        else: 
-            htable.insert(st[i : i + k])
+        else:
+            htable.insert(st[i: i + k])
     return False
 
-print ("Repeat_hash1:")
+print("Repeat_hash1:")
 top = perf_counter()
 print(repeat_hash1(song, 5))
-print(perf_counter()-top)
+print(perf_counter() - top)
 top = perf_counter()
 print(repeat_hash1(song, 30))
-print(perf_counter()-top)
+print(perf_counter() - top)
 top = perf_counter()
 print(repeat_hash1(book, 5))
-print(perf_counter()-top)
+print(perf_counter() - top)
 top = perf_counter()
 print(repeat_hash1(book, 30))
-print(perf_counter()-top)
+print(perf_counter() - top)
 top = perf_counter()
 print(repeat_hash1(book, 1000))
-print(perf_counter()-top)
+print(perf_counter() - top)
+
 
 def repeat_hash2(st, k, m=0):
-    htable = set() # Python sets use hash functions for fast lookup
+    htable = set()  # Python sets use hash functions for fast lookup
     for i in range(len(st) - k + 1):
-        if st[i : i + k] not in htable:
-            htable.add(st[i : i + k])
-        else: 
+        if st[i: i + k] not in htable:
+            htable.add(st[i: i + k])
+        else:
             return True
     return False
 
-print ("Repeat_hash2:")
+print("Repeat_hash2:")
 top = perf_counter()
 print(repeat_hash2(song, 5))
-print(perf_counter()-top)
+print(perf_counter() - top)
 top = perf_counter()
 print(repeat_hash2(song, 30))
-print(perf_counter()-top)
+print(perf_counter() - top)
 top = perf_counter()
 print(repeat_hash2(book, 5))
-print(perf_counter()-top)
+print(perf_counter() - top)
 top = perf_counter()
 print(repeat_hash2(book, 30))
-print(perf_counter()-top)
+print(perf_counter() - top)
 top = perf_counter()
 print(repeat_hash2(book, 1000))
-print(perf_counter()-top)
+print(perf_counter() - top)
 
 import urllib
 
@@ -119,17 +122,16 @@ with urllib.request.urlopen("http://berry.engin.umich.edu/gene2oligo/lacZ.txt") 
     lacZ = r.read().decode('utf-8')
 print(lacZ)
 
-lacZ = str.join('',lacZ.split('\n')[2:]).upper()
+lacZ = str.join('', lacZ.split('\n')[2:]).upper()
 print(len(lacZ))
 
-print ("Repeat_hash1:")
+print("Repeat_hash1:")
 top = perf_counter()
 print(repeat_hash1(lacZ, 12))
-print(perf_counter()-top)
-print ("Repeat_hash2:")
+print(perf_counter() - top)
+print("Repeat_hash2:")
 top = perf_counter()
 print(repeat_hash2(lacZ, 12))
-print(perf_counter()-top)
+print(perf_counter() - top)
 
 os.system("pause")
-

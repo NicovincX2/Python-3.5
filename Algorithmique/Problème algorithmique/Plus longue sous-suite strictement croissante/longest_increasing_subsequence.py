@@ -5,6 +5,8 @@ import os
 """
 Problem: http://www.geeksforgeeks.org/dynamic-programming-set-3-longest-increasing-subsequence/
 """
+
+
 def longest_increasing_subsequence(nums):
     # array used to store the length of the longest subsequence found
     cache = [1] * len(nums)
@@ -20,7 +22,7 @@ def longest_increasing_subsequence(nums):
                     cache[i] = cache[j] + 1
                     location[i] = j
 
-    # finding the max in the cache gives us the 
+    # finding the max in the cache gives us the
     # answer - i.e. length of the LIS
     max_value = max(cache)
 
@@ -29,7 +31,7 @@ def longest_increasing_subsequence(nums):
     solution = []
     i = cache.index(max_value)
 
-    # we start with the max value i.e. the index of the 
+    # we start with the max value i.e. the index of the
     # location where the max LIS exists and then
     # keep backtracking to build up the solution
     while location[i] > -1:
@@ -43,14 +45,17 @@ def longest_increasing_subsequence(nums):
     return max_value, solution[::-1]
 
 if __name__ == "__main__":
-    assert longest_increasing_subsequence([3, 4, -1, 0, 6, 2, 3]) == (4, [-1, 0, 2, 3])
-    assert longest_increasing_subsequence([10, 22, 9, 33, 21, 50, 41, 60, 80]) == (6, [10, 22, 33, 50, 60, 80])
-    assert longest_increasing_subsequence([5,0,1,2,3,4,5,6,7,8,9,10,11,12, 2, 8, 10, 3, 6, 9, 7]) == (13, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
-    
+    assert longest_increasing_subsequence(
+        [3, 4, -1, 0, 6, 2, 3]) == (4, [-1, 0, 2, 3])
+    assert longest_increasing_subsequence(
+        [10, 22, 9, 33, 21, 50, 41, 60, 80]) == (6, [10, 22, 33, 50, 60, 80])
+    assert longest_increasing_subsequence([5, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 2, 8, 10, 3, 6, 9, 7]) == (
+        13, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
+
     seq = [10, -12, 2, 3, -3, 5, -1, 2, -10]
     result = [-12, 2, 3]
     assert(longest_increasing_subsequence(seq) == result)
-    
+
     seq = [2]
     result = [2]
     assert(longest_increasing_subsequence(seq) == result)

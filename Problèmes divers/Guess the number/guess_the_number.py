@@ -3,9 +3,9 @@
 import os
 
 import random
- 
+
 inclusive_range = (1, 100)
- 
+
 print("Guess my target number that is between %i and %i (inclusive).\n"
       % inclusive_range)
 target = random.randint(*inclusive_range)
@@ -24,9 +24,11 @@ while answer != target:
     if answer == target:
         print("  Ye-Haw!!")
         break
-    if answer < target: print("  Too low.")
-    if answer > target: print("  Too high.")
- 
+    if answer < target:
+        print("  Too low.")
+    if answer > target:
+        print("  Too high.")
+
 print("\nThanks for playing.")
 
 os.system("pause")

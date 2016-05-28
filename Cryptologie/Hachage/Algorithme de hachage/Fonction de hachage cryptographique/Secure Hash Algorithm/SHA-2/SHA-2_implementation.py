@@ -23,12 +23,14 @@ import math
 rrot = lambda x, n: (x >> n) | (x << (32 - n))
 
 from itertools import count, islice
-primes = lambda n: islice((k for k in count(2) if all(k % d for d in range(2, k))), 0, n)
+primes = lambda n: islice(
+    (k for k in count(2) if all(k % d for d in range(2, k))), 0, n)
+
 
 class _SHA2_32():
 
     # (first 32 bits of the fractional parts of the cube roots of the first 64 primes 2..311)
-    _k = [int(math.modf(x ** (1.0/3))[0] * (1 << 32)) for x in primes(64)]
+    _k = [int(math.modf(x ** (1.0 / 3))[0] * (1 << 32)) for x in primes(64)]
 
     def __init__(self, message):
         length = struct.pack('>Q', len(message) * 8)
@@ -94,6 +96,7 @@ class SHA2_256(_SHA2_32):
         return struct.pack('>IIIIIIII', self._h0, self._h1, self._h2,
                            self._h3, self._h4, self._h5, self._h6, self._h7)
 
+
 class SHA2_224(_SHA2_32):
 
     # (second 32 bits of the fractional parts of the square roots of the 9..16 primes 23..53)
@@ -109,10 +112,11 @@ class SHA2_224(_SHA2_32):
 class _SHA2_64():
 
     # (first 64 bits of the fractional parts of the cube roots of the first 80 primes)
-    _k = [int(math.modf(x ** (1.0/3))[0] * (1 << 80)) for x in primes(80)]
+    _k = [int(math.modf(x ** (1.0 / 3))[0] * (1 << 80)) for x in primes(80)]
 
     def __init__(self, message):
-        length = struct.pack('>QQ', (len(message) * 8) >> 32, (len(message) * 8) & 0xffffffff)
+        length = struct.pack('>QQ', (len(message) * 8) >>
+                             32, (len(message) * 8) & 0xffffffff)
         while len(message) > 128:
             self._handle(message[:128])
             message = message[128:]

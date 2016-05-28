@@ -2,13 +2,16 @@
 
 import os
 
+
 def group(a, *ns):
     for n in ns:
-        a = [a[i:i+n] for i in range(0, len(a), n)]
+        a = [a[i:i + n] for i in range(0, len(a), n)]
     return a
+
 
 def join(a, *cs):
     return [cs[0].join(join(t, *cs[1:])) for t in a] if cs else a
+
 
 def hexdump(data):
     toHex = lambda c: '{:02X}'.format(c)
@@ -17,7 +20,7 @@ def hexdump(data):
     hs = make(toHex, '  ', ' ')
     cs = make(toChr, ' ', '')
     for i, (h, c) in enumerate(zip(hs, cs)):
-        print ('{:010X}: {:48}  {:16}'.format(i * 16, h, c))
+        print('{:010X}: {:48}  {:16}'.format(i * 16, h, c))
 
 """
 with (open ('xxx.py','br')) as file:

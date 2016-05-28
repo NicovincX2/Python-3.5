@@ -17,10 +17,10 @@ v2 = rand(3, 1)
 
 # And scale them to unit length
 v1 = v1 / norm(v1)
-v2 = v2 / norm(v2) 
+v2 = v2 / norm(v2)
 
 # Plot the vectors
-o = zeros(3) # origin
+o = zeros(3)  # origin
 
 # We'll use the object oriented plotting interface
 f = figure(figsize=(8, 8))
@@ -29,7 +29,7 @@ ax.plot(*[[o[i], v1[i]] for i in range(3)], linewidth=3, label="vector1")
 ax.plot(*[[o[i], v2[i]] for i in range(3)], linewidth=3, label="vector2")
 for axisl in ["x", "y", "z"]:
     getattr(ax, "set_%slabel" % axisl)(axisl)  # Here's a fun trick
-legend();
+legend()
 
 f = figure(figsize=(8, 8))
 ax = f.add_subplot(111, projection="3d", axisbg="white")
@@ -49,17 +49,18 @@ for i in range(100):
 # We can find a vector that is orthogonal to the plane defined by v1 and v2
 # by taking the vector cross product.  See the wikipedia page for a
 # definition of cross product
-v3 = cross(v1.reshape(1, 3), v2.reshape(1, 3)).squeeze()  # Must be right shape for cross()
-ax.plot(*[[o[i], v3[i]] for i in range(3)], linewidth=3, label="orthogonal vector")
-legend();
+# Must be right shape for cross()
+v3 = cross(v1.reshape(1, 3), v2.reshape(1, 3)).squeeze()
+ax.plot(*[[o[i], v3[i]] for i in range(3)],
+        linewidth=3, label="orthogonal vector")
+legend()
 
-print (v3[0] * v1[0] + v3[1] * v1[1] + v3[2] * v1[2])
-print (dot(v3, v1))
+print(v3[0] * v1[0] + v3[1] * v1[1] + v3[2] * v1[2])
+print(dot(v3, v1))
 
 theta = arccos(dot(v2.T, v1)).squeeze()
 # and radians can be converted to degrees
 theta_deg = theta * (180 / pi)
-print (theta, theta_deg)
+print(theta, theta_deg)
 
 os.system("pause")
-

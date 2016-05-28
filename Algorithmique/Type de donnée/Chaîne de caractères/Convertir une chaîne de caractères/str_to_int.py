@@ -2,6 +2,7 @@
 
 import os
 
+
 def str_to_int(s):
     """Convert string to integer without doing int(s).
     '123' -> 123

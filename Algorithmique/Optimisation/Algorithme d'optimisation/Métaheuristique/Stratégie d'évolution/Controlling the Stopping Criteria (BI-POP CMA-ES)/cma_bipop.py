@@ -40,6 +40,7 @@ N = 30
 creator.create("FitnessMin", base.Fitness, weights=(-1.0,))
 creator.create("Individual", list, fitness=creator.FitnessMin)
 
+
 def main(verbose=True):
     NRESTARTS = 10  # Initialization + 9 I-POP restarts
     SIGMA0 = 2.0    # 1/5th of the domain [-5 5]
@@ -68,7 +69,8 @@ def main(verbose=True):
         # The second regime is run if its allocated budget is smaller than the allocated
         # large population regime budget
         if i > 0 and i < (NRESTARTS + nsmallpopruns) - 1 and sum(smallbudget) < sum(largebudget):
-            lambda_ = int(lambda0 * (0.5 * (2**(i - nsmallpopruns) * lambda0) / lambda0)**(numpy.random.rand()**2))
+            lambda_ = int(lambda0 * (0.5 * (2**(i - nsmallpopruns)
+                                            * lambda0) / lambda0)**(numpy.random.rand()**2))
             sigma = 2 * 10**(-2 * numpy.random.rand())
             nsmallpopruns += 1
             regime = 2
@@ -102,19 +104,21 @@ def main(verbose=True):
         mins = deque(maxlen=TOLHISTFUN_ITER)
 
         # We start with a centroid in [-4, 4]**D
-        strategy = cma.Strategy(centroid=numpy.random.uniform(-4, 4, N), sigma=sigma, lambda_=lambda_)
+        strategy = cma.Strategy(
+            centroid=numpy.random.uniform(-4, 4, N), sigma=sigma, lambda_=lambda_)
         toolbox.register("generate", strategy.generate, creator.Individual)
         toolbox.register("update", strategy.update)
 
         logbooks.append(tools.Logbook())
         logbooks[-1].header = "gen", "evals", "restart", "regime", "std", "min", "avg", "max"
 
-        conditions = {"MaxIter" : False, "TolHistFun" : False, "EqualFunVals" : False,
-                      "TolX" : False, "TolUpSigma" : False, "Stagnation" : False,
-                      "ConditionCov" : False, "NoEffectAxis" : False, "NoEffectCoor" : False}
+        conditions = {"MaxIter": False, "TolHistFun": False, "EqualFunVals": False,
+                      "TolX": False, "TolUpSigma": False, "Stagnation": False,
+                      "ConditionCov": False, "NoEffectAxis": False, "NoEffectCoor": False}
 
         # Run the current regime until one of the following is true:
-        ## Note that the algorithm won't stop by itself on the optimum (0.0 on rastrigin).
+        # Note that the algorithm won't stop by itself on the optimum (0.0 on
+        # rastrigin).
         while not any(conditions.values()):
             # Generate a new population
             population = toolbox.generate()
@@ -126,7 +130,8 @@ def main(verbose=True):
 
             halloffame.update(population)
             record = stats.compile(population)
-            logbooks[-1].record(gen=t, evals=lambda_, restart=i, regime=regime, **record)
+            logbooks[-1].record(gen=t, evals=lambda_,
+                                restart=i, regime=regime, **record)
             if verbose:
                 print(logbooks[-1].stream)
 
@@ -140,7 +145,8 @@ def main(verbose=True):
 
             # Log the best and median value of this population
             bestvalues.append(population[-1].fitness.values)
-            medianvalues.append(population[int(round(len(population)/2.))].fitness.values)
+            medianvalues.append(
+                population[int(round(len(population) / 2.))].fitness.values)
 
             # First run does not count into the budget
             if regime == 1 and i > 0:
@@ -149,7 +155,8 @@ def main(verbose=True):
                 smallbudget[-1] += lambda_
 
             t += 1
-            STAGNATION_ITER = int(numpy.ceil(0.2 * t + 120 + 30. * N / lambda_))
+            STAGNATION_ITER = int(numpy.ceil(
+                0.2 * t + 120 + 30. * N / lambda_))
             NOEFFECTAXIS_INDEX = t % N
 
             if t >= MAXITER:
@@ -162,11 +169,13 @@ def main(verbose=True):
                 conditions["TolHistFun"] = True
 
             if t > N and sum(equalfunvalues[-N:]) / float(N) > EQUALFUNVALS:
-                # In 1/3rd of the last N iterations the best and k'th best solutions are equal
+                # In 1/3rd of the last N iterations the best and k'th best
+                # solutions are equal
                 conditions["EqualFunVals"] = True
 
             if all(strategy.pc < TOLX) and all(numpy.sqrt(numpy.diag(strategy.C)) < TOLX):
-                # All components of pc and sqrt(diag(C)) are smaller than the threshold
+                # All components of pc and sqrt(diag(C)) are smaller than the
+                # threshold
                 conditions["TolX"] = True
 
             if strategy.sigma / sigma > strategy.diagD[-1]**2 * TOLUPSIGMA:
@@ -192,7 +201,8 @@ def main(verbose=True):
                 conditions["NoEffectCoor"] = True
 
         stop_causes = [k for k, v in conditions.items() if v]
-        print("Stopped because of condition%s %s" % ((":" if len(stop_causes) == 1 else "s:"), ",".join(stop_causes)))
+        print("Stopped because of condition%s %s" %
+              ((":" if len(stop_causes) == 1 else "s:"), ",".join(stop_causes)))
         i += 1
 
     return halloffame

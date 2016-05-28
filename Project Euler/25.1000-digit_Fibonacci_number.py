@@ -23,33 +23,37 @@ Answer: 4782
 
 import os
 
+
 def fib(num=1, num_before=1):
-  found = False
+    found = False
 
-  num_before, num = num, num + num_before
+    num_before, num = num, num + num_before
 
-  if count_digits(num) == 1000: found = True
+    if count_digits(num) == 1000:
+        found = True
 
-  return num, num_before, found
+    return num, num_before, found
+
 
 def count_digits(num):
-  num_str = str(num)
-  return len(num_str)
+    num_str = str(num)
+    return len(num_str)
+
 
 def main():
-  found = False
-  num = 1
-  num_before = 1
-  count = 2
+    found = False
+    num = 1
+    num_before = 1
+    count = 2
 
-  while not found:
-    num, num_before, found = fib(num, num_before)
-    count +=1
+    while not found:
+        num, num_before, found = fib(num, num_before)
+        count += 1
 
-  print(count)
-  print('Done!')
+    print(count)
+    print('Done!')
 
 if __name__ == '__main__':
-  main()
+    main()
 
 os.system("pause")

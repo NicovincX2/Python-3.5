@@ -24,8 +24,8 @@ def sort(seq):
     i = 1
     last = 0
     while i < len(seq):
-        if seq[i] < seq[i-1]:
-            seq[i], seq[i-1] = seq[i-1], seq[i]
+        if seq[i] < seq[i - 1]:
+            seq[i], seq[i - 1] = seq[i - 1], seq[i]
             if i > 1:
                 if last == 0:
                     last = i

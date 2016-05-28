@@ -10,9 +10,9 @@ text = 'abcdefgh'.encode('utf-8')
 
 
 hash = SHA256.new(text).digest()
-print (hash)
+print(hash)
 
 signature = key.sign(hash, '')
-print (signature)
+print(signature)
 
 os.system("pause")

@@ -2,6 +2,7 @@
 
 from copy import deepcopy
 
+
 class graph(object):
     """
     Graph class - made of nodes and edges
@@ -49,10 +50,11 @@ class graph(object):
         u, v = edge
         if (v not in self.node_neighbors[u] and u not in self.node_neighbors[v]):
             self.node_neighbors[u][v] = wt
-            if (u!=v):
+            if (u != v):
                 self.node_neighbors[v][u] = wt
         else:
-            raise Exception("Edge (%s, %s) already added in the graph" % (u, v))
+            raise Exception(
+                "Edge (%s, %s) already added in the graph" % (u, v))
 
     def add_edges(self, edges):
         """ Adds multiple edges in one go. Edges, here, is a list of
@@ -100,7 +102,7 @@ class graph(object):
         if not self.has_edge(edge):
             raise Exception("Edge (%s, %s) not an existing edge" % (u, v))
         del self.node_neighbors[u][v]
-        if (u!=v):
+        if (u != v):
             del self.node_neighbors[v][u]
 
     def node_order(self, node):
@@ -108,7 +110,6 @@ class graph(object):
         Return the order or degree of a node
         """
         return len(self.neighbors(node))
-
 
     def edges(self):
         """
@@ -147,7 +148,8 @@ class graph(object):
                     edge_list.append((self.node_neighbors[u][v], (u, v)))
                     unique_list.setdefault(u, set()).add(v)
         return edge_list
-        
+
+
 class digraph(graph):
     """
     Directed Graph class - made of nodes and edges
@@ -175,7 +177,8 @@ class digraph(graph):
         if (v not in self.node_neighbors[u]):
             self.node_neighbors[u][v] = wt
         else:
-            raise Exception("Edge (%s, %s) already added in the graph" % (u, v))
+            raise Exception(
+                "Edge (%s, %s) already added in the graph" % (u, v))
 
     def del_edge(self, edge):
         """

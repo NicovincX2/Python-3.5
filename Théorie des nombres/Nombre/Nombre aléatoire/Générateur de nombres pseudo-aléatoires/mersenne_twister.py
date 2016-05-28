@@ -14,6 +14,7 @@ import os
 
 
 class MersenneTwister:
+
     def __init__(self):
         self.state = []
         self.index = 0
@@ -27,7 +28,8 @@ class MersenneTwister:
         self.index = 0
         self.state.append(seed)
         for i in range(1, 624):
-            n = (0x6c078965 * (self.state[i-1] ^ (self.state[i-1] >> 30)) + i)
+            n = (0x6c078965 * (self.state[i - 1]
+                               ^ (self.state[i - 1] >> 30)) + i)
             n &= 0xffffffff
             self.state.append(n)
 
@@ -54,8 +56,8 @@ class MersenneTwister:
         """
         for i in range(624):
             n = self.state[i] & 0x80000000
-            n += self.state[(i+1) % 624] & 0x7fffffff
-            self.state[i] = self.state[(i+397) % 624] ^ (n >> 1)
+            n += self.state[(i + 1) % 624] & 0x7fffffff
+            self.state[i] = self.state[(i + 397) % 624] ^ (n >> 1)
             if n % 2 != 0:
                 self.state[i] ^= 0x9908b0df
 

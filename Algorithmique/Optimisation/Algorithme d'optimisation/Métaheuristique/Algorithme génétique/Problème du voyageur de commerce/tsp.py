@@ -37,7 +37,8 @@ distance_map = tsp["DistanceMatrix"]
 IND_SIZE = tsp["TourSize"]
 
 creator.create("FitnessMin", base.Fitness, weights=(-1.0,))
-creator.create("Individual", array.array, typecode='i', fitness=creator.FitnessMin)
+creator.create("Individual", array.array, typecode='i',
+               fitness=creator.FitnessMin)
 
 toolbox = base.Toolbox()
 
@@ -45,8 +46,10 @@ toolbox = base.Toolbox()
 toolbox.register("indices", random.sample, range(IND_SIZE), IND_SIZE)
 
 # Structure initializers
-toolbox.register("individual", tools.initIterate, creator.Individual, toolbox.indices)
+toolbox.register("individual", tools.initIterate,
+                 creator.Individual, toolbox.indices)
 toolbox.register("population", tools.initRepeat, list, toolbox.individual)
+
 
 def evalTSP(individual):
     distance = distance_map[individual[-1]][individual[0]]
@@ -58,6 +61,7 @@ toolbox.register("mate", tools.cxPartialyMatched)
 toolbox.register("mutate", tools.mutShuffleIndexes, indpb=0.05)
 toolbox.register("select", tools.selTournament, tournsize=3)
 toolbox.register("evaluate", evalTSP)
+
 
 def main():
     random.seed(169)

@@ -18,16 +18,16 @@ import scipy as sp               # Simple alias
 import scipy.interpolate         # Pour l'interpolation (interp1d)
 import scipy.integrate           # Pour l'intégration (cumtrapz et quad)
 import matplotlib.pyplot as plt  # Boîte à outils graphiques
-from matplotlib import animation # Pour l'animation progressive
+from matplotlib import animation  # Pour l'animation progressive
 
 ####################################################
 # Les limites du champ de vue
-Xmin,Xmax =-5,5
-Ymin,Ymax =-1,1
-extent = Xmin,Xmax,Ymin,Ymax
-Xpixel=50 #Nombre de pixels selon X
-Ypixel=50 #Nombre de pixels selon Y
-Nbre_Photons=10000
+Xmin, Xmax = -5, 5
+Ymin, Ymax = -1, 1
+extent = Xmin, Xmax, Ymin, Ymax
+Xpixel = 50  # Nombre de pixels selon X
+Ypixel = 50  # Nombre de pixels selon Y
+Nbre_Photons = 10000
 
 ####################################################
 # Densite de probabilite en x, elle est uniforme sur y (donc directement
@@ -35,94 +35,107 @@ Nbre_Photons=10000
 
 # Profil voulu (non normalisé)
 
+
 def pb(x):
-    #return  1 + np.cos(2*np.pi*x) # Version interférences simples
+    # return  1 + np.cos(2*np.pi*x) # Version interférences simples
     # Version en incluant la difraction
-    return (1 + np.cos(2*np.pi*x)) * (np.sin(x)/(x+1e-4))**2
+    return (1 + np.cos(2 * np.pi * x)) * (np.sin(x) / (x + 1e-4))**2
 
 # Normalisation (calculée à part pour économiser des calculs)
-pb_norm = sp.integrate.quad(pb,Xmin,Xmax)[0]
+pb_norm = sp.integrate.quad(pb, Xmin, Xmax)[0]
 
 # Probabilité normalisée
+
+
 def p(x): return pb(x) / pb_norm
 
 # On va échantillonner la proba normalisée pour pouvoir l'intégrer
-X = np.linspace(Xmin,Xmax,10000)
-pX= p(X)
-PX= sp.integrate.cumtrapz(pX,X,initial=0)  # Densite de probabilite cumulee en x
+X = np.linspace(Xmin, Xmax, 10000)
+pX = p(X)
+# Densite de probabilite cumulee en x
+PX = sp.integrate.cumtrapz(pX, X, initial=0)
 # La fonction réciproque (cf le TP09 sur pcsi.kleber.free.fr/IPT/)
-HX= lambda x: float(sp.interpolate.interp1d(PX,X)(x))
+HX = lambda x: float(sp.interpolate.interp1d(PX, X)(x))
 
 
 ####################################################
-#initialisation des listes des positions des photons
-ListeX=[]
-ListeY=[]
-#Tirage des valeurs de x et y pour tous les photons
+# initialisation des listes des positions des photons
+ListeX = []
+ListeY = []
+# Tirage des valeurs de x et y pour tous les photons
 for i in range(Nbre_Photons):
     # Tirage des valeurs de x et y que l'on range dans deux listes:
     # * x par la méthode de l'antécédent à partir d'une distribution uniforme
     # présentée dans le TP09 sur pcsi.kleber.free.fr/IPT/
-    alea=rd.random()
+    alea = rd.random()
     ListeX.append(HX(alea))
     # * y par une simple distribution uniforme
-    ListeY.append(Ymin+(Ymax-Ymin)*rd.random())
+    ListeY.append(Ymin + (Ymax - Ymin) * rd.random())
 # Conversion en np.array pour les facilités de slicing
 ListeX = np.array(ListeX)
 ListeY = np.array(ListeY)
 
 # La figure globale
-fig = plt.figure(figsize=(8,7.76))
+fig = plt.figure(figsize=(8, 7.76))
 # L'image des interférences
-ax1= plt.subplot2grid((3,3),(0,0),colspan=2,rowspan=2)
-Image = np.zeros((Xpixel,Ypixel))
-im = ax1.imshow(Image,cmap='gray',extent=extent,aspect='auto')
+ax1 = plt.subplot2grid((3, 3), (0, 0), colspan=2, rowspan=2)
+Image = np.zeros((Xpixel, Ypixel))
+im = ax1.imshow(Image, cmap='gray', extent=extent, aspect='auto')
 plt.ylabel('$y$')
 # La figure du bas
-ax2= plt.subplot2grid((3,3),(2,0),colspan=2,sharex=ax1)
+ax2 = plt.subplot2grid((3, 3), (2, 0), colspan=2, sharex=ax1)
 plt.xlabel('$x$')
-histX = plt.hist([1,0,1],bins=Xpixel,range=(Xmin,Xmax))
+histX = plt.hist([1, 0, 1], bins=Xpixel, range=(Xmin, Xmax))
 
 # La figure de droite
-ax3= plt.subplot2grid((3,3),(0,2),rowspan=2,sharey=ax1)
-histY = plt.hist([1,0,1],bins=Ypixel,orientation='horizontal',range=(Ymin,Ymax))
+ax3 = plt.subplot2grid((3, 3), (0, 2), rowspan=2, sharey=ax1)
+histY = plt.hist([1, 0, 1], bins=Ypixel,
+                 orientation='horizontal', range=(Ymin, Ymax))
+
 
 def init():
     im.set_data(Image)
     im.autoscale()
 
 
-N  = 1  # Compteur externe du nombre de photon
+N = 1  # Compteur externe du nombre de photon
 dN = 1  # et l'incrément au départ du compteur
 
+
 def animate(i):
-    global N,dN
-    if i == 100: dN = 10    # Une première accélération
-    if i == 200: dN = 100   # Une seconde accélération
+    global N, dN
+    if i == 100:
+        dN = 10    # Une première accélération
+    if i == 200:
+        dN = 100   # Une seconde accélération
     N += dN                 # Incrémentation du nombre de photons à afficher
     if N < Nbre_Photons:    # Tant qu'on ne va pas trop loin...
-        ax1.set_title('{} photons'.format(N)) # Un peu de feedback
-        for j in range(dN): # On regarde où tapent les photons du lot considéré
+        ax1.set_title('{} photons'.format(N))  # Un peu de feedback
+        for j in range(dN):  # On regarde où tapent les photons du lot considéré
             # Calcul de la Position X et Y du photon reçu (en pixel)
-            # C'est un facteur d'échelle pour passer de [Xmin,Xmax] à [0,Xpixel]
-            PositionX=int(Xpixel*(ListeX[N-j]-Xmin)/(Xmax-Xmin))
+            # C'est un facteur d'échelle pour passer de [Xmin,Xmax] à
+            # [0,Xpixel]
+            PositionX = int(Xpixel * (ListeX[N - j] - Xmin) / (Xmax - Xmin))
             # Pareil en Y
-            PositionY=int(Ypixel*(ListeY[N-j]-Ymin)/(Ymax-Ymin))
+            PositionY = int(Ypixel * (ListeY[N - j] - Ymin) / (Ymax - Ymin))
             # Incrémentation de la valeur du pixel où arrive le photon.
-            Image[PositionY][PositionX]+=1
+            Image[PositionY][PositionX] += 1
         im.set_data(Image)  # Mise à jour de l'image
         im.autoscale()      # Et adaptation de la luminosité
         # On refait les histogrammes
         ax2.clear()
-        ax2.hist(ListeX[:N+1],bins=Xpixel,range=(Xmin,Xmax))
+        ax2.hist(ListeX[:N + 1], bins=Xpixel, range=(Xmin, Xmax))
         ax3.clear()
-        ax3.hist(ListeY[:N+1],bins=Ypixel,orientation='horizontal',range=(Ymin,Ymax))
+        ax3.hist(ListeY[:N + 1], bins=Ypixel,
+                 orientation='horizontal', range=(Ymin, Ymax))
         # On fait deux images pour faire joli dans py4phys.pdf
-        if i == 20: plt.savefig('S06_interferences_un_photon_debut.png')
-        if i == 250: plt.savefig('S06_interferences_un_photon_fin.png')
+        if i == 20:
+            plt.savefig('S06_interferences_un_photon_debut.png')
+        if i == 250:
+            plt.savefig('S06_interferences_un_photon_fin.png')
 
 # L'animation proprement dite
-anim = animation.FuncAnimation(fig,animate,frames=300,interval=1)
+anim = animation.FuncAnimation(fig, animate, frames=300, interval=1)
 
 # À décommenter pour sauvegarder dans un fichier .mp4 (il faut alors commenter
 # plt.show() ou réinitialiser N et dN)

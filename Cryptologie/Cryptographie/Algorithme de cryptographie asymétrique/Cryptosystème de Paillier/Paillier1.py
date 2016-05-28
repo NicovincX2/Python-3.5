@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
-import math, os
+import math
+import os
 import primes
+
 
 def invmod(a, p, maxiter=1000000):
     """The multiplicitive inverse of a in the integers modulo p:
@@ -21,6 +23,7 @@ def invmod(a, p, maxiter=1000000):
         raise ValueError('%d has no inverse mod %d' % (a, p))
     return d
 
+
 def modpow(base, exponent, modulus):
     """Modular exponent:
          c = b ^ e mod m
@@ -34,22 +37,28 @@ def modpow(base, exponent, modulus):
         base = (base * base) % modulus
     return result
 
+
 class PrivateKey(object):
+
     def __init__(self, p, q, n):
-        self.l = (p-1) * (q-1)
+        self.l = (p - 1) * (q - 1)
         self.m = invmod(self.l, n)
 
+
 class PublicKey(object):
+
     def __init__(self, n):
         self.n = n
         self.n_sq = n * n
         self.g = n + 1
+
 
 def generate_keypair(bits):
     p = primes.generate_prime(bits / 2)
     q = primes.generate_prime(bits / 2)
     n = p * q
     return PrivateKey(p, q, n), PublicKey(n)
+
 
 def encrypt(pub, plain):
     while True:
@@ -60,17 +69,21 @@ def encrypt(pub, plain):
     cipher = (pow(pub.g, plain, pub.n_sq) * x) % pub.n_sq
     return cipher
 
+
 def e_add(pub, a, b):
     """Add one encrypted integer to another"""
     return a * b % pub.n_sq
+
 
 def e_add_const(pub, a, n):
     """Add constant n to an encrypted integer"""
     return a * modpow(pub.g, n, pub.n_sq) % pub.n_sq
 
+
 def e_mul_const(pub, a, n):
     """Multiplies an ancrypted integer by a constant"""
     return modpow(a, n, pub.n_sq)
+
 
 def decrypt(priv, pub, cipher):
     x = pow(cipher, priv.l, pub.n_sq) - 1
@@ -80,31 +93,31 @@ def decrypt(priv, pub, cipher):
 
 if __name__ == '__main__':
 
-    print ("Generating keypair...")
+    print("Generating keypair...")
     priv, pub = generate_keypair(512)
 
     x = 3
-    print ("x =", x)
-    print ("Encrypting x...")
+    print("x =", x)
+    print("Encrypting x...")
     cx = encrypt(pub, x)
-    print ("cx =", cx)
+    print("cx =", cx)
 
     y = 5
-    print ("y =", y)
-    print ("Encrypting y...")
+    print("y =", y)
+    print("Encrypting y...")
     cy = encrypt(pub, y)
-    print ("cy =", cy)
+    print("cy =", cy)
 
-    print ("Computing cx + cy...")
+    print("Computing cx + cy...")
     cz = e_add(pub, cx, cy)
-    print ("cz =", cz)
+    print("cz =", cz)
 
-    print ("Decrypting cz...")
+    print("Decrypting cz...")
     z = decrypt(priv, pub, cz)
-    print ("z =", z)
+    print("z =", z)
 
-    print ("Computing decrypt((cz + 2) * 3) ...")
-    print ("result =", decrypt(priv, pub,
-                          e_mul_const(pub, e_add_const(pub, cz, 2), 3)))
+    print("Computing decrypt((cz + 2) * 3) ...")
+    print("result =", decrypt(priv, pub,
+                              e_mul_const(pub, e_add_const(pub, cz, 2), 3)))
 
 os.system("pause")

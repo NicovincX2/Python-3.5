@@ -29,6 +29,8 @@ from deap import gp
 from deap import tools
 
 # Define new functions
+
+
 def protectedDiv(left, right):
     try:
         return left / right
@@ -102,13 +104,14 @@ func_cycle = [toolbox.MAIN, toolbox.ADF0, toolbox.ADF1, toolbox.ADF2]
 toolbox.register('individual', tools.initCycle, creator.Individual, func_cycle)
 toolbox.register('population', tools.initRepeat, list, toolbox.individual)
 
+
 def evalSymbReg(individual):
     # Transform the tree expression in a callable function
     func = toolbox.compile(individual)
     # Evaluate the sum of squared difference between the expression
     # and the real function : x**4 + x**3 + x**2 + x
-    values = (x/10. for x in range(-10, 10))
-    diff_func = lambda x: (func(x)-(x**4 + x**3 + x**2 + x))**2
+    values = (x / 10. for x in range(-10, 10))
+    diff_func = lambda x: (func(x) - (x**4 + x**3 + x**2 + x))**2
     diff = sum(map(diff_func, values))
     return diff,
 
@@ -118,6 +121,7 @@ toolbox.register('select', tools.selTournament, tournsize=3)
 toolbox.register('mate', gp.cxOnePoint)
 toolbox.register('expr', gp.genFull, min_=1, max_=2)
 toolbox.register('mutate', gp.mutUniform, expr=toolbox.expr)
+
 
 def main():
     random.seed(1024)

@@ -24,66 +24,65 @@
 """
 
 
-
-
 import orthopoly as op
 import numpy as np
 
-def pkdo(p,x,y):
+
+def pkdo(p, x, y):
     """
     Evaluate the Vandermonde matrix of PKDO polynomials up to order on the set of points (x,y) 
     as well as the Vandermondes containing the x and y derivatives of the polynomials
     """
     Nx = len(x)
-    Np = (p+1)*(p+2)/2
+    Np = (p + 1) * (p + 2) / 2
     s = -np.ones(Nx)
     t = y
-    dex = np.abs(y-1) > 1e-10
-    s[dex] = 2*(1+x[dex])/(1-y[dex])-1
+    dex = np.abs(y - 1) > 1e-10
+    s[dex] = 2 * (1 + x[dex]) / (1 - y[dex]) - 1
 
     # Vandermonde
-    V = np.zeros((Nx,Np))
+    V = np.zeros((Nx, Np))
 
     # Derivative w.r.t. x
-    Vx = np.zeros((Nx,Np))
+    Vx = np.zeros((Nx, Np))
 
     # Derivative w.r.t. y
-    Vy = np.zeros((Nx,Np))
+    Vy = np.zeros((Nx, Np))
 
     ll = 0
 
     tfact0 = np.zeros(Nx)
-    tfact  = np.ones(Nx)
+    tfact = np.ones(Nx)
 
-    Ps = op.jacobi(p,0,0,s)
-    Psder = op.jacobiD(p,0,0,s)
- 
-    for jj in range(p+1):
+    Ps = op.jacobi(p, 0, 0, s)
+    Psder = op.jacobiD(p, 0, 0, s)
 
-        Pt = op.jacobi(p+1,2*jj+1,0,t)
-        Ptder = op.jacobiD(p+1,2*jj+1,0,t)
+    for jj in range(p + 1):
 
-        for kk in range(p+1-jj):
-            
-            nfact = np.sqrt((jj+0.5)*(jj+kk+1))                
-            V[:,ll] = nfact*Ps[:,jj]*Pt[:,kk]*tfact
-            Vx[:,ll] = Psder[:,jj]*Pt[:,kk]
-            Vy[:,ll] = Vx[:,ll]*(1+s)/2
+        Pt = op.jacobi(p + 1, 2 * jj + 1, 0, t)
+        Ptder = op.jacobiD(p + 1, 2 * jj + 1, 0, t)
 
-            u = Ptder[:,kk]*tfact
+        for kk in range(p + 1 - jj):
 
-            if jj>0:
+            nfact = np.sqrt((jj + 0.5) * (jj + kk + 1))
+            V[:, ll] = nfact * Ps[:, jj] * Pt[:, kk] * tfact
+            Vx[:, ll] = Psder[:, jj] * Pt[:, kk]
+            Vy[:, ll] = Vx[:, ll] * (1 + s) / 2
 
-                Vx[:,ll] *= nfact*tfact0
-                Vy[:,ll] *= tfact0
-                u -= 0.5*jj*Pt[:,kk]*tfact0
+            u = Ptder[:, kk] * tfact
 
-            Vy[:,ll] += Ps[:,jj]*u
-            Vy[:,ll] *= nfact
-              
+            if jj > 0:
+
+                Vx[:, ll] *= nfact * tfact0
+                Vy[:, ll] *= tfact0
+                u -= 0.5 * jj * Pt[:, kk] * tfact0
+
+            Vy[:, ll] += Ps[:, jj] * u
+            Vy[:, ll] *= nfact
+
             ll += 1
-        
-        tfact0 = tfact        
-        tfact = tfact0*(1-t)/2
 
-    return V,Vx,Vy
+        tfact0 = tfact
+        tfact = tfact0 * (1 - t) / 2
+
+    return V, Vx, Vy

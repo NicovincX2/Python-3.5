@@ -3,6 +3,7 @@
 import os
 import parameters
 
+
 def jump_diffusion_process(param):
     """
     This method produces a sequence of Jump Sizes which represent a jump diffusion process. These jumps are combined
@@ -21,10 +22,12 @@ def jump_diffusion_process(param):
         for j in range(0, param.all_time):
             if time * param.all_delta <= s_n * param.all_delta <= (j + 1) * param.all_delta:
                 # print("was true")
-                jump_sizes[j] += random.normalvariate(param.jumps_mu, param.jumps_sigma)
+                jump_sizes[
+                    j] += random.normalvariate(param.jumps_mu, param.jumps_sigma)
                 break
         time += 1
     return jump_sizes
+
 
 def geometric_brownian_motion_jump_diffusion_log_returns(param):
     """
@@ -47,10 +50,12 @@ def geometric_brownian_motion_jump_diffusion_levels(param):
     :return: the price levels
     """
     return convert_to_prices(param, geometric_brownian_motion_jump_diffusion_log_returns(param))
-    
+
 jump_diffusion_examples = []
 for i in range(paths):
-    jump_diffusion_examples.append(geometric_brownian_motion_jump_diffusion_levels(mp))
-plot_stochastic_processes(jump_diffusion_examples, "Jump Diffusion Geometric Brownian Motion (Merton)")
-    
+    jump_diffusion_examples.append(
+        geometric_brownian_motion_jump_diffusion_levels(mp))
+plot_stochastic_processes(jump_diffusion_examples,
+                          "Jump Diffusion Geometric Brownian Motion (Merton)")
+
 os.system("pause")

@@ -2,6 +2,7 @@
 
 import os
 
+
 def string_matching_naive(text='', pattern=''):
     """Returns positions where pattern is found in text.
     We slide the string to match 'pattern' over the text
@@ -16,8 +17,8 @@ def string_matching_naive(text='', pattern=''):
     n = len(text)
     m = len(pattern)
     offsets = []
-    for i in range(n-m+1):
-        if pattern == text[i:i+m]:
+    for i in range(n - m + 1):
+        if pattern == text[i:i + m]:
             offsets.append(i)
 
     return offsets

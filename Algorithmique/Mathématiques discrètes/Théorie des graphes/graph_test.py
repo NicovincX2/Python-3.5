@@ -1,21 +1,23 @@
 # -*- coding: utf-8 -*-
 
-import os, sys
+import os
+import sys
 sys.path.append(os.path.join(os.getcwd(), os.path.pardir))
 import unittest
 from graph import graph
 
+
 class test_graph(unittest.TestCase):
-    
+
     def setUp(self):
         self.gr = graph()
         self.gr.add_nodes(["a", "b", "c", "d", "e", "f"])
-        self.gr.add_edge(("a","b"))
-        self.gr.add_edge(("a","f"))
-        self.gr.add_edge(("b","c"))
-        self.gr.add_edge(("c","e"))
-        self.gr.add_edge(("c","d"))
-        self.gr.add_edge(("d","f"))
+        self.gr.add_edge(("a", "b"))
+        self.gr.add_edge(("a", "f"))
+        self.gr.add_edge(("b", "c"))
+        self.gr.add_edge(("c", "e"))
+        self.gr.add_edge(("c", "d"))
+        self.gr.add_edge(("d", "f"))
 
     def test_nodes_method(self):
         self.assertEqual(len(self.gr.nodes()), 6)
@@ -61,7 +63,7 @@ class test_graph(unittest.TestCase):
         self.assertFalse(self.gr.has_edge(("a", "a")))
 
     def test_edges_method(self):
-        self.assertEqual(len(self.gr.edges()), 2*6)
+        self.assertEqual(len(self.gr.edges()), 2 * 6)
 
     def test_add_edges_method(self):
         self.gr.add_edges([("a", "c"), ("c", "f"), ("d", "e")])

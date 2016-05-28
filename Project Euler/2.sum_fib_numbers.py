@@ -8,16 +8,18 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 
 import os
 
+
 def even_fib_num(limit):
     a, b = 0, 1
     while a < limit:
         yield a
         a, b = b, a + b
 
+
 def main():
     print(sum(n for n in even_fib_num(4e6) if not (n & 1)))
     print('Tests Passed!')
-                   
+
 if __name__ == '__main__':
     main()
 

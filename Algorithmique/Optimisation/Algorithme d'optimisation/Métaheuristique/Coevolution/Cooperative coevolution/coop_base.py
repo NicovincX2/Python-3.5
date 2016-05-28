@@ -32,6 +32,7 @@ from deap import tools
 IND_SIZE = 64
 SPECIES_SIZE = 50
 
+
 def initTargetSet(schemata, size):
     """Initialize a target set with noisy string to match based on the
     schematas provided.
@@ -47,16 +48,19 @@ def initTargetSet(schemata, size):
         test_set.append(test)
     return test_set
 
+
 def matchStrength(x, y):
     """Compute the match strength for the individual *x* on the string *y*.
     """
     return sum(xi == yi for xi, yi in zip(x, y))
+
 
 def matchStrengthNoNoise(x, y, n):
     """Compute the match strength for the individual *x* on the string *y*
     excluding noise *n*.
     """
     return sum(xi == yi for xi, yi, ni in zip(x, y, n) if ni != "#")
+
 
 def matchSetStrength(match_set, target_set):
     """Compute the match strength of a set of strings on the target set of
@@ -67,6 +71,7 @@ def matchSetStrength(match_set, target_set):
         sum += max(matchStrength(m, t) for m in match_set)
     return sum / len(target_set),
 
+
 def matchSetStrengthNoNoise(match_set, target_set, noise):
     """Compute the match strength of a set of strings on the target set of
     strings. The strength is the maximum of all match string on each target
@@ -76,6 +81,7 @@ def matchSetStrengthNoNoise(match_set, target_set, noise):
     for t in target_set:
         sum += max(matchStrengthNoNoise(m, t, noise) for m in match_set)
     return sum / len(target_set),
+
 
 def matchSetContribution(match_set, target_set, index):
     """Compute the contribution of the string at *index* in the match set.
@@ -100,12 +106,14 @@ creator.create("Individual", list, fitness=creator.FitnessMax)
 toolbox = base.Toolbox()
 
 toolbox.register("bit", random.randint, 0, 1)
-toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.bit, IND_SIZE)
-toolbox.register("species", tools.initRepeat, list, toolbox.individual, SPECIES_SIZE)
+toolbox.register("individual", tools.initRepeat,
+                 creator.Individual, toolbox.bit, IND_SIZE)
+toolbox.register("species", tools.initRepeat, list,
+                 toolbox.individual, SPECIES_SIZE)
 toolbox.register("target_set", initTargetSet)
 
 toolbox.register("mate", tools.cxTwoPoint)
-toolbox.register("mutate", tools.mutFlipBit, indpb=1./IND_SIZE)
+toolbox.register("mutate", tools.mutFlipBit, indpb=1. / IND_SIZE)
 toolbox.register("select", tools.selTournament, tournsize=3)
 toolbox.register("get_best", tools.selBest, k=1)
 toolbox.register("evaluate", matchSetStrength)

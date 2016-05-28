@@ -7,6 +7,7 @@ import weakref
 
 
 class FlyweightMeta(type):
+
     def __new__(mcs, name, parents, dct):
         """
 

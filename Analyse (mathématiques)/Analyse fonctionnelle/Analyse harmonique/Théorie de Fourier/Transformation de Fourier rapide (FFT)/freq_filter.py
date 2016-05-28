@@ -28,7 +28,7 @@ def twoFreqSine(npts):
     f_0 = 0.2
     f_1 = 0.5
 
-    xmax = 10.0/f_0
+    xmax = 10.0 / f_0
 
     # we call with endpoint=False -- if we include the endpoint, then for
     # a periodic function, the first and last point are identical -- this
@@ -38,11 +38,10 @@ def twoFreqSine(npts):
     # input frequency
     f_0 = 0.2
 
-    f = 0.5*(numpy.sin(2.0*math.pi*f_0*xx) + numpy.sin(2.0*math.pi*f_1*xx))
-    
+    f = 0.5 * (numpy.sin(2.0 * math.pi * f_0 * xx) +
+               numpy.sin(2.0 * math.pi * f_1 * xx))
+
     return xx, f
-
-
 
 
 npts = 256
@@ -54,8 +53,8 @@ xx, f = twoFreqSine(npts)
 # normalization factor: the 2 here comes from the fact that we neglect
 # the negative portion of frequency space because our input function
 # is real
-norm = 2.0/npts   
-fk = norm*numpy.fft.rfft(f)
+norm = 2.0 / npts
+fk = norm * numpy.fft.rfft(f)
 
 ofk_r = fk.real.copy()
 ofk_i = fk.imag.copy()
@@ -64,16 +63,17 @@ ofk_i = fk.imag.copy()
 # the fftfreq returns the postive and negative (and 0) frequencies
 # the newer versions of numpy (>=1.8) have an rfftfreq() function
 # that really does what we want.
-k = numpy.fft.fftfreq(len(xx))[range(0,npts/2+1)]
+k = numpy.fft.fftfreq(len(xx))[range(0, npts / 2 + 1)]
 
 # the last element is negative, because of the symmetry, but should
-# be positive (see http://docs.scipy.org/doc/numpy-dev/reference/generated/numpy.fft.rfftfreq.html)
+# be positive (see
+# http://docs.scipy.org/doc/numpy-dev/reference/generated/numpy.fft.rfftfreq.html)
 k[-1] *= -1
 
 
 # since we don't include the endpoint in xx, to normalize things, we need
 # max(xx) + dx to get the true range
-kfreq = k*npts/(max(xx) + xx[1])
+kfreq = k * npts / (max(xx) + xx[1])
 
 
 # filter all frequencies > 0.4
@@ -85,8 +85,8 @@ fk_r = fk.real
 fk_i = fk.imag
 
 
-# Inverse transform: F(k) -> f(x)    
-fkinv = numpy.fft.irfft(fk/norm)
+# Inverse transform: F(k) -> f(x)
+fkinv = numpy.fft.irfft(fk / norm)
 
 # PLOT
 pylab.rc("font", size=9)
@@ -106,7 +106,7 @@ pylab.plot(kfreq, ofk_i, ls=":")
 pylab.xlabel(r"$\nu_k$")
 pylab.ylabel("original F(k)")
 
-#pylab.xlim(0,1)
+# pylab.xlim(0,1)
 
 pylab.subplot(413)
 
@@ -125,7 +125,7 @@ pylab.ylabel(r"inverse filtered F(k)")
 pylab.tight_layout()
 
 f = pylab.gcf()
-f.set_size_inches(9.0,8.0)
+f.set_size_inches(9.0, 8.0)
 
 pylab.savefig("simple-filter.png", bbox_inches='tight', pad_inches=0.33)
 

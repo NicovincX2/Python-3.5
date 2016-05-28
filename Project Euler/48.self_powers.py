@@ -7,9 +7,10 @@ Find the last ten digits of the series, 1^1 + 2^2 + 3^3 + ... + 1000^1000.
 
 import os
 
+
 def self_powers(power, digits):
     sum_total = 0
-    for pow in range(1, power+1):
+    for pow in range(1, power + 1):
         sum_total += pow**pow
     sum_total_str = str(sum_total)
     last_digits = ''
@@ -17,17 +18,17 @@ def self_powers(power, digits):
         last_digits += c
     return int(last_digits)
 
+
 def main():
     import time
-    start = time.time() 
-    
-    
+    start = time.time()
+
     assert(self_powers(10, len('10405071317')) == 10405071317)
     print(self_powers(1000, 10))
-    
+
     elapsed = (time.time() - start)
-    print('Tests Passed!\n It took %s seconds to run them.' % (elapsed))   
-                   
+    print('Tests Passed!\n It took %s seconds to run them.' % (elapsed))
+
 if __name__ == '__main__':
     main()
 

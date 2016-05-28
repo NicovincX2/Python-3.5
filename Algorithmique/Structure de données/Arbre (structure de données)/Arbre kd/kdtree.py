@@ -8,15 +8,16 @@ maxValue = 2147483647
 minValue = -2147483648
 
 HORIZONTAL = 0
-VERTICAL   = 1
+VERTICAL = 1
 
 X_ = 0
 Y_ = 1
 
+
 class Region:
     """Represents region in Cartesian space"""
 
-    def __init__(self, xmin,ymin, xmax,ymax):
+    def __init__(self, xmin, ymin, xmax, ymax):
         """Creates region from (xmin,ymin) to (xmax,ymax)"""
 
         self.x_min = xmin
@@ -31,14 +32,15 @@ class Region:
 # default maximum region
 maxRegion = Region(minValue, minValue, maxValue, maxValue)
 
+
 class KDNode:
 
-    def __init__(self, pt, orient, region = maxRegion):
+    def __init__(self, pt, orient, region=maxRegion):
         """Create empty KDNode"""
-        self.point  = pt
+        self.point = pt
         self.orient = orient
-        self.above  = None
-        self.below  = None
+        self.above = None
+        self.below = None
         self.region = region
 
     def createChild(self, pt, below):
@@ -56,7 +58,7 @@ class KDNode:
             else:
                 r.y_min = self.point[Y_]
 
-        return KDNode(pt, 1-self.orient, r)
+        return KDNode(pt, 1 - self.orient, r)
 
     def distance(self, pt):
         """Compute distance from self to pt"""
@@ -99,7 +101,7 @@ class KDNode:
         if (d < mind):
             result = self
             mind = d
-            
+
         if self.orient == VERTICAL:
             dp = abs(self.point[X_] - p[X_])
         else:
@@ -114,7 +116,7 @@ class KDNode:
                         result = pt
                         mind = md
             if self.below:
-                pt = self.below.nearest(mind,p)
+                pt = self.below.nearest(mind, p)
                 if pt:
                     md = pt.distance(p)
                     if md < mind:
@@ -145,9 +147,8 @@ class KDTree:
             self.root.add(pt)
         else:
             self.root = KDNode(pt, VERTICAL)
-            
 
-    def find(self,p):
+    def find(self, p):
         """Find point in KD tree within 5 units"""
 
         n = self.root
@@ -159,14 +160,15 @@ class KDTree:
                 n = n.below
             else:
                 n = n.above
-    
+
         return n
 
-    def nearest(self,p):
+    def nearest(self, p):
         """Return closest node in KD tree to given point"""
 
-        if self.root is None: return None
-        
+        if self.root is None:
+            return None
+
         # find node which would have been parent of point
         n = self.root
         while n.point != p:
@@ -181,11 +183,10 @@ class KDTree:
                 else:
                     break
 
-        
         mind = n.distance(p)
         better = self.root.nearest(mind, p)
         if better:
-           return better
+            return better
         return n
 
 """

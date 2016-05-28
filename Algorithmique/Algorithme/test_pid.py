@@ -7,7 +7,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.interpolate import spline
 
-def test_pid(P = 0.2,  I = 0.0, D= 0.0, L=100):
+
+def test_pid(P=0.2,  I=0.0, D=0.0, L=100):
     """Self-test PID class
     .. note::
         ...
@@ -23,7 +24,7 @@ def test_pid(P = 0.2,  I = 0.0, D= 0.0, L=100):
     """
     pid = PID.PID(P, I, D)
 
-    pid.SetPoint=0.0
+    pid.SetPoint = 0.0
     pid.setSampleTime(0.01)
 
     END = L
@@ -37,8 +38,8 @@ def test_pid(P = 0.2,  I = 0.0, D= 0.0, L=100):
         pid.update(feedback)
         output = pid.output
         if pid.SetPoint > 0:
-            feedback += (output - (1/i))
-        if i>9:
+            feedback += (output - (1 / i))
+        if i > 9:
             pid.SetPoint = 1
         time.sleep(0.02)
 
@@ -53,12 +54,12 @@ def test_pid(P = 0.2,  I = 0.0, D= 0.0, L=100):
     plt.plot(time_smooth, feedback_smooth)
     plt.plot(time_list, setpoint_list)
     plt.xlim((0, L))
-    plt.ylim((min(feedback_list)-0.5, max(feedback_list)+0.5))
+    plt.ylim((min(feedback_list) - 0.5, max(feedback_list) + 0.5))
     plt.xlabel('time (s)')
     plt.ylabel('PID (PV)')
     plt.title('TEST PID')
 
-    plt.ylim((1-0.5, 1+0.5))
+    plt.ylim((1 - 0.5, 1 + 0.5))
 
     plt.grid(True)
     plt.show()

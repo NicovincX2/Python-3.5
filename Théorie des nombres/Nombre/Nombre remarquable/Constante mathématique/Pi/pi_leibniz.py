@@ -12,6 +12,7 @@ By Nick Craig-Wood <nick@craig-wood.com>
 
 import math
 
+
 def pi_gregory(n):
     """
     Calculate n iterations of Gregory's series
@@ -25,11 +26,12 @@ def pi_gregory(n):
         sign = -sign
     return 4 * result
 
+
 def main():
     """
     Try Gregory's series
     """
-    for log_n in range(1,8):
+    for log_n in range(1, 8):
         n = 10**log_n
         result = pi_gregory(n)
         error = result - math.pi
@@ -38,4 +40,4 @@ def main():
 if __name__ == "__main__":
     main()
 
-os.system("pause")   
+os.system("pause")

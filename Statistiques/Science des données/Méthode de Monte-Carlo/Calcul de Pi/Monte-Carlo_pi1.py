@@ -13,13 +13,15 @@ p=(aire du cercle)/(aire du carré)=Pi/4
 Soit n, le nombre points effectivement dans le cercle, il vient alors:
 p=n/N=Pi/4 d'où  Pi=4*(n/N)
 """
-import os, random, math
+import os
+import random
+import math
 import matplotlib.pyplot as plt
 
 x_inner, y_inner = [], []
 x_outer, y_outer = [], []
 for i in range(100000):
-    a, b = random.uniform(-1.,1.), random.uniform(-1.,1.)
+    a, b = random.uniform(-1., 1.), random.uniform(-1., 1.)
     length = math.sqrt(a**2 + b**2)
     if length < 1:
         x_inner.append(a)
@@ -27,9 +29,10 @@ for i in range(100000):
     else:
         x_outer.append(a)
         y_outer.append(b)
-plt.scatter(x_inner, y_inner,c= 'red', marker = '.', s=200)
-plt.scatter(x_outer, y_outer,c= 'blue', marker = '.', s=200)
-print ('La valeur de pi approchée :',4*len(x_inner)/float(len(x_inner) + len(x_outer)),'\nLa valeur de pi exacte :', math.pi)
+plt.scatter(x_inner, y_inner, c='red', marker='.', s=200)
+plt.scatter(x_outer, y_outer, c='blue', marker='.', s=200)
+print('La valeur de pi approchée :', 4 * len(x_inner) /
+      float(len(x_inner) + len(x_outer)), '\nLa valeur de pi exacte :', math.pi)
 plt.axis('equal')
 plt.savefig('Monte-Carlo_pi_color.png')
 plt.show()

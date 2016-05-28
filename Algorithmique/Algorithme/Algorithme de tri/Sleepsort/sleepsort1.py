@@ -4,10 +4,12 @@ import os
 from threading import Thread
 import time
 
+
 def worker(n, emit):
     time.sleep(n)
     emit(n)
     print(n)
+
 
 def sleep_sort(s):
     # Idea inspired by: http://dis.4chan.org/read/prog/1295544154
@@ -25,7 +27,7 @@ if __name__ == '__main__':
 
     s = list(range(10))
     random.shuffle(s)
-    print ('Shuffled:', s)
-    print ('Sorted:', sleep_sort(s))
+    print('Shuffled:', s)
+    print('Sorted:', sleep_sort(s))
 
 os.system("pause")

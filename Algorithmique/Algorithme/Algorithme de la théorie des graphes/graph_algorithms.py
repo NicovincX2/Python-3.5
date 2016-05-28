@@ -5,6 +5,7 @@ from copy import deepcopy
 from unionfind import UnionFind
 from heapq import heappush, heappop, heapify
 
+
 def BFS(gr, s):
     """ Breadth first search 
     Returns a list of nodes that are "findable" from s """
@@ -12,13 +13,14 @@ def BFS(gr, s):
         raise Exception("Node %s not in graph" % s)
     nodes_explored = set([s])
     q = deque([s])
-    while len(q)!=0:
+    while len(q) != 0:
         node = q.popleft()
         for each in gr.neighbors(node):
             if each not in nodes_explored:
                 nodes_explored.add(each)
                 q.append(each)
     return nodes_explored
+
 
 def shortest_hops(gr, s):
     """ Finds the shortest number of hops required
@@ -32,8 +34,10 @@ def shortest_hops(gr, s):
         q = deque([s])
         nodes_explored = set([s])
         for n in gr.nodes():
-            if n == s: dist[n] = 0
-            else: dist[n] = float('inf')
+            if n == s:
+                dist[n] = 0
+            else:
+                dist[n] = float('inf')
         while len(q) != 0:
             node = q.popleft()
             for each in gr.neighbors(node):
@@ -42,6 +46,7 @@ def shortest_hops(gr, s):
                     q.append(each)
                     dist[each] = dist[node] + 1
         return dist
+
 
 def undirected_connected_components(gr):
     """ Returns a list of connected components
@@ -57,20 +62,24 @@ def undirected_connected_components(gr):
             explored |= reachable_nodes
     return con_components
 
+
 def DFS(gr, s):
     """ Depth first search wrapper """
     path = set([])
     depth_first_search(gr, s, path)
     return path
 
+
 def depth_first_search(gr, s, path):
     """ Depth first search 
     Returns a list of nodes "findable" from s """
-    if s in path: return False
+    if s in path:
+        return False
     path.add(s)
     for each in gr.neighbors(s):
         if each not in path:
             depth_first_search(gr, each, path)
+
 
 def topological_ordering(digr_ori):
     """ Returns a topological ordering for a 
@@ -87,6 +96,7 @@ def topological_ordering(digr_ori):
         n -= 1
     return ordering
 
+
 def find_sink_node(digr):
     """ Finds a sink node (node with all incoming arcs) 
     in the directed graph. Valid for a acyclic graph only """
@@ -95,6 +105,7 @@ def find_sink_node(digr):
     while digr.neighbors(node):
         node = list(digr.neighbors(node))[0]
     return node
+
 
 def directed_connected_components(digr):
     """ Returns a list of strongly connected components
@@ -112,43 +123,47 @@ def directed_connected_components(digr):
             connected_components.append(component)
     return connected_components
 
+
 def outer_dfs(digr, node, nodes_explored, path):
-    if node in path or node in nodes_explored: 
+    if node in path or node in nodes_explored:
         return False
     path.append(node)
     for each in digr.neighbors(node):
         if each not in path or each not in nodes_explored:
             outer_dfs(digr, each, nodes_explored, path)
 
+
 def DFS_loop(digr):
     """ Core DFS loop used to find strongly connected components
     in a directed graph """
-    node_explored = set([]) # list for keeping track of nodes explored
-    finishing_times = [] # list for adding nodes based on their finishing times
+    node_explored = set([])  # list for keeping track of nodes explored
+    finishing_times = []  # list for adding nodes based on their finishing times
     for node in digr.nodes():
         if node not in node_explored:
             leader_node = node
             inner_DFS(digr, node, node_explored, finishing_times)
-    return finishing_times 
+    return finishing_times
+
 
 def inner_DFS(digr, node, node_explored, finishing_times):
     """ Inner DFS used in DFS loop method """
-    node_explored.add(node) # mark explored
+    node_explored.add(node)  # mark explored
     for each in digr.neighbors(node):
         if each not in node_explored:
             inner_DFS(digr, each, node_explored, finishing_times)
     global finishing_counter
     # adds nodes based on increasing order of finishing times
-    finishing_times.append(node) 
+    finishing_times.append(node)
+
 
 def shortest_path(digr, s):
     """ Finds the shortest path from s to every other vertex findable
     from s using Dijkstra's algorithm in O(mlogn) time. Uses heaps
     for super fast implementation """
     nodes_explored = set([s])
-    nodes_unexplored = DFS(digr, s) # all accessible nodes from s
+    nodes_unexplored = DFS(digr, s)  # all accessible nodes from s
     nodes_unexplored.remove(s)
-    dist = {s:0}
+    dist = {s: 0}
     node_heap = []
 
     for n in nodes_unexplored:
@@ -166,10 +181,12 @@ def shortest_path(digr, s):
             if v in nodes_unexplored:
                 for i in range(len(node_heap)):
                     if node_heap[i][1] == v:
-                        node_heap[i] = (compute_min_dist(digr, v, nodes_explored, dist), v)
+                        node_heap[i] = (compute_min_dist(
+                            digr, v, nodes_explored, dist), v)
                         heapify(node_heap)
 
     return dist
+
 
 def compute_min_dist(digr, n, nodes_explored, dist):
     """ Computes the min dist of node n from a set of
@@ -178,20 +195,22 @@ def compute_min_dist(digr, n, nodes_explored, dist):
     for v in nodes_explored:
         if digr.has_edge((v, n)):
             d = dist[v] + digr.get_edge_weight((v, n))
-            if d < min: min = d
+            if d < min:
+                min = d
     return min
+
 
 def minimum_spanning_tree(gr):
     """ Uses prim's algorithm to return the minimum 
     cost spanning tree in a undirected connected graph.
     Works only with undirected and connected graphs """
-    s = list(gr.nodes())[0] 
+    s = list(gr.nodes())[0]
     nodes_explored = set([s])
     nodes_unexplored = list(gr.nodes())
     nodes_unexplored.remove(s)
     min_cost, node_heap = 0, []
 
-    #computes the key for each vertex in unexplored
+    # computes the key for each vertex in unexplored
     for n in nodes_unexplored:
         min = compute_key(gr, n, nodes_explored)
         heappush(node_heap, (min, n))
@@ -212,6 +231,7 @@ def minimum_spanning_tree(gr):
                         heapify(node_heap)
     return min_cost
 
+
 def compute_key(gr, n, nodes_explored):
     """ computes minimum key for node n from a set of nodes_explored
     in graph gr. Used in Prim's implementation """
@@ -219,8 +239,10 @@ def compute_key(gr, n, nodes_explored):
     for v in gr.neighbors(n):
         if v in nodes_explored:
             w = gr.get_edge_weight((n, v))
-            if w < min: min = w
+            if w < min:
+                min = w
     return min
+
 
 def kruskal_MST(gr):
     """ computes minimum cost spanning tree in a undirected, 
@@ -236,18 +258,20 @@ def kruskal_MST(gr):
             min_cost += w
     return min_cost
 
+
 def max_k_clustering(gr, k):
     sorted_edges = sorted(gr.get_edge_weights())
     uf = UnionFind()
-    #initialize each node as its cluster
-    for n in gr.nodes(): 
+    # initialize each node as its cluster
+    for n in gr.nodes():
         uf.insert(n)
     for (w, (u, v)) in sorted_edges:
-        if uf.count_groups() <= k: 
+        if uf.count_groups() <= k:
             return uf.get_sets()
         if uf.get_leader(u) != uf.get_leader(v):
             uf.make_union(uf.get_leader(u), uf.get_leader(v))
-    
+
+
 def compute_spacing(c1, c2):
     min = float('inf')
     for n in c1:
@@ -257,12 +281,13 @@ def compute_spacing(c1, c2):
                 min = cost
     return min
 
+
 def get_max_spacing(clusters):
     min = float('inf')
     for u in clusters:
         for v in clusters:
-            if u!= v:
-                spacing = compute_spacing(u,v)
+            if u != v:
+                spacing = compute_spacing(u, v)
                 if spacing < min:
                     min = spacing
     return min

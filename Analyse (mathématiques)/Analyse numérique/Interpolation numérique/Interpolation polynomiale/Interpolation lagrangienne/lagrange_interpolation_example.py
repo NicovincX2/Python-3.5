@@ -14,6 +14,7 @@ points = "fixed"  # can be variable or fixed
 
 npts = 15
 
+
 def fun_exact(x):
     """ the exact function that we sample to get the points to
     interpolate through """
@@ -21,7 +22,7 @@ def fun_exact(x):
     if func_type == "sine":
         return numpy.sin(x)
     elif func_type == "tanh":
-        return 0.5*(1.0+numpy.tanh((x-1.0)/0.1))
+        return 0.5 * (1.0 + numpy.tanh((x - 1.0) / 0.1))
 
 
 def get_interp_points(N, xmin, xmax):
@@ -31,23 +32,24 @@ def get_interp_points(N, xmin, xmax):
 
     elif points == "variable":
         # the Chebyshev nodes
-        x = 0.5*(xmin + xmax) + \
-            0.5*(xmax - xmin)*numpy.cos(2.0*numpy.arange(N)*math.pi/(2*N))
+        x = 0.5 * (xmin + xmax) + \
+            0.5 * (xmax - xmin) * numpy.cos(2.0 *
+                                            numpy.arange(N) * math.pi / (2 * N))
 
     return x
-    
-    
+
+
 def lagrange_poly(x, xp, fp):
     """ given points (xp, fp), fit a lagrange polynomial and return
         the value at point x """
 
     f = 0.0
-    
+
     # sum over points
     m = 0
     while (m < len(xp)):
 
-        # create the Lagrange basis polynomial for point m        
+        # create the Lagrange basis polynomial for point m
         l = None
 
         n = 0
@@ -57,14 +59,13 @@ def lagrange_poly(x, xp, fp):
                 continue
 
             if l == None:
-                l = (x - xp[n])/(xp[m] - xp[n])
+                l = (x - xp[n]) / (xp[m] - xp[n])
             else:
-                l *= (x - xp[n])/(xp[m] - xp[n])
+                l *= (x - xp[n]) / (xp[m] - xp[n])
 
             n += 1
 
-        
-        f += fp[m]*l
+        f += fp[m] * l
 
         m += 1
 
@@ -73,12 +74,10 @@ def lagrange_poly(x, xp, fp):
 
 if func_type == "sine":
     xmin = 0.0
-    xmax = 2.0*math.pi
+    xmax = 2.0 * math.pi
 elif func_type == "tanh":
     xmin = 0.0
     xmax = 2.0
-
-
 
 
 # xp, fp are the points that we build the interpolant from
@@ -102,7 +101,7 @@ fexact = fun_exact(xx)
 
 
 # error
-e = fexact-ff
+e = fexact - ff
 
 
 pylab.subplot(211)

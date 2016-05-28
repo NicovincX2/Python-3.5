@@ -2,10 +2,11 @@
 
 import os
 
-import os, sys
+import os
+import sys
 sys.path.append(os.path.join(os.getcwd(), os.path.pardir))
-from Graphes import graph
-from Structures de données import UnionFind
+from graph import graph
+from unionfind import UnionFind
 
 data = """1 2 6808
 1 3 5250
@@ -199,18 +200,20 @@ data = """1 2 6808
 19 20 1143
 """
 
+
 def max_k_clustering(gr, k):
     sorted_edges = sorted(gr.get_edge_weights())
     uf = UnionFind()
-    #initialize each node as its cluster
-    for n in gr.nodes(): 
+    # initialize each node as its cluster
+    for n in gr.nodes():
         uf.insert(n)
     for (w, (u, v)) in sorted_edges:
-        if uf.count_groups() <= k: 
+        if uf.count_groups() <= k:
             return uf.get_sets()
         if uf.get_leader(u) != uf.get_leader(v):
             uf.make_union(uf.get_leader(u), uf.get_leader(v))
-    
+
+
 def compute_spacing(c1, c2):
     min = float('inf')
     for n in c1:
@@ -220,12 +223,13 @@ def compute_spacing(c1, c2):
                 min = cost
     return min
 
+
 def get_max_spacing(clusters):
     min = float('inf')
     for u in clusters:
         for v in clusters:
-            if u!= v:
-                spacing = compute_spacing(u,v)
+            if u != v:
+                spacing = compute_spacing(u, v)
                 if spacing < min:
                     min = spacing
     return min
@@ -241,6 +245,6 @@ if __name__ == "__main__":
             gr.add_node(v)
         gr.add_edge((u, v), int(w))
 
-    print "Min Spacing - %s " % (get_max_spacing(max_k_clustering(gr, 4)))
+    print("Min Spacing - %s " % (get_max_spacing(max_k_clustering(gr, 4))))
 
 os.system("pause")

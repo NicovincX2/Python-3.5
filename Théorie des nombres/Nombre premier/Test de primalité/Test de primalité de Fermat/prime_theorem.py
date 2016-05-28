@@ -4,6 +4,7 @@ import os
 from fermat_little_theorem import isPrime
 from random import randrange
 
+
 def prob_prime(n):
     """evaluate the probability of an n-bit long integer to be prime"""
     count = 0
@@ -18,4 +19,3 @@ print(1 / 20)
 print((0.07423 - 0.05) / 0.05)
 
 os.system("pause")
-

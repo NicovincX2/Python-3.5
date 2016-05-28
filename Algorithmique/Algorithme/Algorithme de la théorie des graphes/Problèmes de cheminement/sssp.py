@@ -8,21 +8,22 @@ from bheap import BHeap
 import sys
 
 # sample graph with edge weights
-graph = { 0: {1: 6, 3: 18, 2: 8},
-          1: {4: 11},
-          2: {3: 9},
-          3: {},
-          4: {5: 3},
-          5: {3: 4, 2: 7}
+graph = {0: {1: 6, 3: 18, 2: 8},
+         1: {4: 11},
+         2: {3: 9},
+         3: {},
+         4: {5: 3},
+         5: {3: 4, 2: 7}
          }
-          
+
+
 def singleSourceShortestPath(graph, s):
     """Compute and return (dist, pred) matrices of computation"""
 
     pq = BHeap(len(graph))
     dist = {}
     pred = {}
-    
+
     for v in graph:
         dist[v] = sys.maxint
         pred[v] = None
@@ -41,8 +42,9 @@ def singleSourceShortestPath(graph, s):
                 pq.decreaseKey(v, newLen)
                 dist[v] = newLen
                 pred[v] = u
-                
+
     return (dist, pred)
+
 
 def solution(s, v, dist, pred):
     """Return path and total information for shortest path from s to v"""

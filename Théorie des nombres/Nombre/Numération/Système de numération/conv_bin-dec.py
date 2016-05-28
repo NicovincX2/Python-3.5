@@ -3,11 +3,11 @@
 import os
 
 x_bin = "11110"
-x_bin = x_bin[::-1] # reverse it so that LSB is on the left for the iteration
+x_bin = x_bin[::-1]  # reverse it so that LSB is on the left for the iteration
 x_dec = 0
 for k in range(len(x_bin)):
     bit = int(x_bin[k])
-    print(k,bit)
+    print(k, bit)
     x_dec += bit * 2**k
 print(x_dec)
 
@@ -20,9 +20,8 @@ while x_dec > 0:
 print(x_bin)
 
 bin(42)
-int('101010',2)
+int('101010', 2)
 hex(42)
-int('2a',16)
+int('2a', 16)
 
 os.system("pause")
-

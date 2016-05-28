@@ -12,8 +12,9 @@ from scipy import linalg
 
 x = y = np.linspace(-2, 2, 10)
 
+
 def f(x, y):
-    return np.exp(-(x + .5)**2 - 2*(y + .5)**2) - np.exp(-(x - .5)**2 - 2*(y - .5)**2)
+    return np.exp(-(x + .5)**2 - 2 * (y + .5)**2) - np.exp(-(x - .5)**2 - 2 * (y - .5)**2)
 
 X, Y = np.meshgrid(x, y)
 
@@ -62,7 +63,6 @@ cb = fig.colorbar(c, ax=ax)
 cb.set_label(r"$z$", fontsize=20)
 
 fig.tight_layout()
-#fig.savefig('ch7-multivariate-interpolation-regular-grid.pdf')
+# fig.savefig('ch7-multivariate-interpolation-regular-grid.pdf')
 
 os.system("pause")
-

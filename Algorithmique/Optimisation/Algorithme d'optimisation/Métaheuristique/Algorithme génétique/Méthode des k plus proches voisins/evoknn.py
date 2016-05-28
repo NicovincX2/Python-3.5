@@ -30,9 +30,9 @@ from deap import tools
 
 # kNN parameters
 import knn
-FILE="heart_scale.csv"
-N_TRAIN=175
-K=1
+FILE = "heart_scale.csv"
+N_TRAIN = 175
+K = 1
 
 # Read data from file
 with open(FILE, "r") as data_csv:
@@ -49,10 +49,11 @@ for row in rows:
 classifier = knn.KNN(K)
 classifier.train(trainset[:N_TRAIN], trainlabels[:N_TRAIN])
 
+
 def evalClassifier(individual):
     labels = classifier.predict(trainset[N_TRAIN:], individual)
     return sum(x == y for x, y in zip(labels, trainlabels[N_TRAIN:]))  / float(len(trainlabels[N_TRAIN:])), \
-           sum(individual) / float(classifier.ndim)
+        sum(individual) / float(classifier.ndim)
 
 creator.create("FitnessMulti", base.Fitness, weights=(1.0, -1.0))
 creator.create("Individual", list, fitness=creator.FitnessMulti)
@@ -61,7 +62,8 @@ toolbox = base.Toolbox()
 # Attribute generator
 toolbox.register("attr_bool", random.randint, 0, 1)
 # Structure initializers
-toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_bool, classifier.ndim)
+toolbox.register("individual", tools.initRepeat,
+                 creator.Individual, toolbox.attr_bool, classifier.ndim)
 toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
 # Operator registering

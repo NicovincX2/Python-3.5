@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from minheap import minheap
+
+
 class maxheap(minheap):
     """
     Heap class - made of keys and items
@@ -30,6 +32,7 @@ class maxheap(minheap):
         self.heap.append(x)
         parent = self.parent(i)
         while parent != -1 and self.heap[int(i)] > self.heap[int(parent)]:
-            self.heap[int(i)], self.heap[int(parent)] = self.heap[int(parent)], self.heap[int(i)]
+            self.heap[int(i)], self.heap[int(parent)] = self.heap[
+                int(parent)], self.heap[int(i)]
             i = parent
             parent = self.parent(i)

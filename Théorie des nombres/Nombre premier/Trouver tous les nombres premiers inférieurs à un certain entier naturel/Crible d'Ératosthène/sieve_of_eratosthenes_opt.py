@@ -4,6 +4,7 @@ import os
 # import cython
 from time import perf_counter
 
+
 def primes1(n):
     primes = [False, False] + [True] * (n - 2)
     i = 2
@@ -23,11 +24,12 @@ def primes1(n):
 n = 10000
 
 top = perf_counter()
-print (primes1(20))
-print(perf_counter()-top)
+print(primes1(20))
+print(perf_counter() - top)
 top = perf_counter()
 primes1(n)
-print(perf_counter()-top)
+print(perf_counter() - top)
+
 
 def primes2(n):
     primes = [False, False] + [True] * (n - 2)
@@ -44,11 +46,11 @@ def primes2(n):
     return [i for i in range(2, n) if primes[i]]
 
 top = perf_counter()
-print (primes2(20))
-print(perf_counter()-top)
+print(primes2(20))
+print(perf_counter() - top)
 top = perf_counter()
 primes2(n)
-print(perf_counter()-top)
+print(perf_counter() - top)
 
 """
 def primes3(int n):
@@ -75,4 +77,3 @@ print(perf_counter()-top)
 """
 
 os.system("pause")
-

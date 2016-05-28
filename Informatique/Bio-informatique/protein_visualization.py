@@ -2,11 +2,11 @@
 
 import os
 
-__author__  = "Devashish Das"
+__author__ = "Devashish Das"
 __contact__ = "+91-9964218681"
 __email__ = "deavshish.das@educept.com"
 
-#http://www.educept.com
+# http://www.educept.com
 
 Store_all = []
 with open("1qlz.pdb") as protein:
@@ -19,12 +19,12 @@ with open("1qlz.pdb") as protein:
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-x,y,z = zip(*Store_all)
+x, y, z = zip(*Store_all)
 
 fig = plt.figure()
 ax = Axes3D(fig)
 
-ax.plot(x,y,z, "o")
+ax.plot(x, y, z, "o")
 ax.axis("off")
 
 plt.show()

@@ -28,14 +28,15 @@ NOTE: As there are only 16384 routes, it is possible to solve this problem by tr
 
 import os
 
+
 def max_path_sum(t):
     root = t[0][0]
     height, width, index, large_num = 1, 0, 0, 0
     max_sum = root
     heights = len(t[:])
-    
-    while height < heights:      
-        values_here = t[height][index:index+2]
+
+    while height < heights:
+        values_here = t[height][index:index + 2]
         if values_here[0] > values_here[1]:
             large_num = values_here[0]
         else:
@@ -45,8 +46,9 @@ def max_path_sum(t):
         pivot = large_num
         width, large_num = 0, 0
         height += 1
-    
+
     return max_sum
+
 
 def edit_input(filename):
     output = []
@@ -59,21 +61,22 @@ def edit_input(filename):
             output[i][j] = int(c)
     return(output)
 
+
 def main():
     import time
-    start = time.time() 
-    
+    start = time.time()
+
     filename = '18.max_path_sum0.dat'
     t1 = edit_input(filename)
-    print('Little pir: ',max_path_sum(t1))
-    
+    print('Little pir: ', max_path_sum(t1))
+
     filename = '18.max_path_sum.dat'
     t2 = edit_input(filename)
-    print('Big pir: ', max_path_sum(t2))    
-    
+    print('Big pir: ', max_path_sum(t2))
+
     elapsed = (time.time() - start)
-    print('Tests Passed!\n It took %s seconds to run them.' % (elapsed))   
-                   
+    print('Tests Passed!\n It took %s seconds to run them.' % (elapsed))
+
 if __name__ == '__main__':
     main()
 

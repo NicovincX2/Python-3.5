@@ -9,29 +9,33 @@ __email__ = "marina.w4hl@gmail.com"
 Cesar Ecrypt
 '''
 
-import sys, os
+import sys
+import os
+
 
 def encrypt(message, k):
     alphabet = list('abcdefghijklmnopqrstuvwxyz ')
     cipher = ''
     for c in message:
-        cipher += alphabet[(alphabet.index(c) + k)%(len(alphabet))]
+        cipher += alphabet[(alphabet.index(c) + k) % (len(alphabet))]
     return cipher
+
 
 def decrypt(message, k):
     alphabet = list('abcdefghijklmnopqrstuvwxyz ')
     decipher = ''
     for c in message:
-        decipher += alphabet[(alphabet.index(c) - k)%(len(alphabet))]
+        decipher += alphabet[(alphabet.index(c) - k) % (len(alphabet))]
     return decipher
 
+
 def main():
-    MESSAGE = list(input('Enter the message to be encrypted: ')) or "all your basis belong to us"
+    MESSAGE = list(input('Enter the message to be encrypted: ')
+                   ) or "all your basis belong to us"
     k = 13
 
     encrypted_msg = encrypt(MESSAGE, k)
     print("Encrypted message: " + encrypted_msg)
-
 
     decrypted_msg = decrypt(encrypted_msg, k)
     print(decrypted_msg)

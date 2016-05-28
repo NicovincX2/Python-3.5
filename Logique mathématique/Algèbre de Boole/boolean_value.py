@@ -17,7 +17,7 @@ not not 0
 not 1234
 bool(0.0)
 bool(0j)
-bool(1+2j)
+bool(1 + 2j)
 
 # Collections as booleans
 bool([])

@@ -5,14 +5,16 @@ from collections import defaultdict
 from heapq import *
 import itertools
 import copy
-from lib.unionfind import  (
+from lib.unionfind import (
     UnionFind
 )
 from lib.prioritydict import (
     priorityDictionary
 )
 
+
 class Vertex:
+
     def __init__(self, id):
         self.id = id
         self.neighbours = {}
@@ -24,13 +26,14 @@ class Vertex:
         return str(self.id) + ': ' + str(self.neighbours.keys())
 
     def getNeighbours(self):
-        return self.neighbours #.keys()
+        return self.neighbours  # .keys()
 
     def getName(self):
         return self.id
 
     def getWeight(self, id):
         return self.neighbours[id]
+
 
 class Graph:
 
@@ -51,7 +54,8 @@ class Graph:
     def __contains__(self, id):
         return id in self.v.keys()
 
-    def addEdge(self, vertexOne, vertexTwo, weight=None): # vertexOne, vertexTwo, cost-of-the-edge
+    # vertexOne, vertexTwo, cost-of-the-edge
+    def addEdge(self, vertexOne, vertexTwo, weight=None):
         if vertexOne not in self.v.keys():
             self.addVertex(vertexOne)
         if vertexTwo not in self.v.keys():
@@ -59,8 +63,9 @@ class Graph:
 
         self.v[vertexOne].addNeighbour(vertexTwo, weight)
 
-    def updateEdge(self, vertexOne, vertexTwo, weight=None): # vertexOne, vertexTwo, cost-of-the-edge
-       self.v[vertexOne].addNeighbour(vertexTwo, weight)
+    # vertexOne, vertexTwo, cost-of-the-edge
+    def updateEdge(self, vertexOne, vertexTwo, weight=None):
+        self.v[vertexOne].addNeighbour(vertexTwo, weight)
 
     def getVertices(self):
         return self.v.keys()
@@ -72,14 +77,13 @@ class Graph:
 
         return ret + " }"
 
-
     def __iter__(self):
         return iter(self.v.values())
 
     def getNeighbours(self,  vertex):
         if vertex not in self.v.keys():
             raise "Node %s not in graph" % vertex
-        return self.v[vertex].neighbours #.keys()
+        return self.v[vertex].neighbours  # .keys()
 
     def getEdges(self):
         edges = []
@@ -87,7 +91,8 @@ class Graph:
         for node in self.v.keys():
             neighbours = self.v[node].getNeighbours()
             for w in neighbours:
-                edges.append((node, w, neighbours[w])) #tuple, srcVertex, dstVertex, weightBetween
+                # tuple, srcVertex, dstVertex, weightBetween
+                edges.append((node, w, neighbours[w]))
         return edges
 
     def findIsolated(self):
@@ -121,8 +126,8 @@ class Graph:
         for vertex in self.v[start].getNeighbours():
             if vertex not in path:
                 extended_path = self.getPath(vertex,
-                                            end,
-                                            path)
+                                             end,
+                                             path)
                 if extended_path:
                     return extended_path
         return None
@@ -158,7 +163,7 @@ class Graph:
         """
            how many vertices are neighbours to this vertex
         """
-        adj_vertices =  self.v[vertex].getNeighbours()
+        adj_vertices = self.v[vertex].getNeighbours()
         return len(adj_vertices)
 
     """
@@ -166,6 +171,7 @@ class Graph:
        loop is counted twice
        for an undirected Graph deg(v) = indegree(v) + outdegree(v)
     """
+
     def getDegree(self, vertex):
         return self.inDegree(vertex) + self.outDegree(vertex)
 
@@ -175,7 +181,7 @@ class Graph:
         for v in self.v:
             degSum += self.getDegree(v)
 
-        return degSum == (2* len(self.getEdges()))
+        return degSum == (2 * len(self.getEdges()))
 
     def delta(self):
         """ the minimum degree of the Graph V """
@@ -213,42 +219,46 @@ class Graph:
     # helper to check if the given sequence is in non-increasing Order ;)
     @staticmethod
     def sortedInDescendingOrder(seq):
-        return all (x>=y for x,y in zip(seq, seq[1:]))
+        return all(x >= y for x, y in zip(seq, seq[1:]))
 
     @staticmethod
     def isGraphicSequence(seq):
-      """
-       Assumes that the degreeSequence is a list of non negative integers
-       http://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93Gallai_theorem
-      """
-      # Check to ensure there are an even number of odd degrees
-      if sum(seq)%2 != 0: return False
-      # Erdos-Gallai theorem
-      for k in range(1, len(seq)+1):
-        leftSum = sum(seq[:(k)])
-        rightSum = k * (k-1) + sum([min(x, k) for x in seq[k:]])
-        if leftSum > rightSum: return False
-      return True
+        """
+         Assumes that the degreeSequence is a list of non negative integers
+         http://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93Gallai_theorem
+        """
+        # Check to ensure there are an even number of odd degrees
+        if sum(seq) % 2 != 0:
+            return False
+        # Erdos-Gallai theorem
+        for k in range(1, len(seq) + 1):
+            leftSum = sum(seq[:(k)])
+            rightSum = k * (k - 1) + sum([min(x, k) for x in seq[k:]])
+            if leftSum > rightSum:
+                return False
+        return True
 
     @staticmethod
     def isGraphicSequenceIterative(s):
-        # successively reduce degree sequence by removing node of maximum degree
-        # as in Havel-Hakimi algorithm
+            # successively reduce degree sequence by removing node of maximum degree
+            # as in Havel-Hakimi algorithm
         while s:
             s.sort()    # sort in increasing order
-            if s[0]<0:
+            if s[0] < 0:
                 return False  # check if removed too many from some node
 
-            d=s.pop()             # pop largest degree
-            if d==0: return True  # done! rest must be zero due to ordering
+            d = s.pop()             # pop largest degree
+            if d == 0:
+                return True  # done! rest must be zero due to ordering
 
             # degree must be <= number of available nodes
-            if d>len(s):   return False
+            if d > len(s):
+                return False
 
             # remove edges to nodes of next higher degrees
-            #s.reverse()  # to make it easy to get at higher degree nodes.
-            for i in range(len(s)-1,len(s)-(d+1),-1):
-                s[i]-=1
+            # s.reverse()  # to make it easy to get at higher degree nodes.
+            for i in range(len(s) - 1, len(s) - (d + 1), -1):
+                s[i] -= 1
 
         # should never get here b/c either d==0, d>len(s) or d<0 before s=[]
         return False
@@ -267,7 +277,7 @@ class Graph:
         """ method to calculate the density of a graph """
         V = len(self.v.keys())
         E = len(self.getEdges())
-        return 2.0 * E / (V *(V - 1))
+        return 2.0 * E / (V * (V - 1))
 
     """
         Choose an arbitrary node x of the graph G as the starting point
@@ -275,6 +285,7 @@ class Graph:
         If A is equal to the set of nodes of G, the graph is connected; otherwise
         it is disconnected.
     """
+
     def isConnected(self, start=None):
         if start == None:
             start = self.v.keys()[0]
@@ -284,7 +295,8 @@ class Graph:
     """
         ToDo: USE CLR Approach for this Later
     """
-    def dfs(self, start, path = []):
+
+    def dfs(self, start, path=[]):
         path = path + [start]
         for v in self.v[start].getNeighbours().keys():
             if v not in path:
@@ -294,6 +306,7 @@ class Graph:
     """
        CLR Sytle
     """
+
     def CLR_Dfs(self):
         paths = []
 
@@ -308,7 +321,7 @@ class Graph:
         maxV = len(self.v.keys())
         processed = [False] * (maxV)   # which vertices have been processed
         discovered = [False] * (maxV)  # which vertices have been found
-        parent= [-1] * (maxV)          # discovery relation
+        parent = [-1] * (maxV)          # discovery relation
 
         q = []   # queue of vertices to visit */
 
@@ -342,6 +355,7 @@ class Graph:
     """
        Find path between two given nodes
     """
+
     def find_path(self, start, end, path=[]):
         path = path + [start]
         if start == end:
@@ -351,12 +365,14 @@ class Graph:
         for node in self.v[start].getNeighbours().keys():
             if node not in path:
                 newpath = self.find_path(node, end, path)
-                if newpath: return newpath
+                if newpath:
+                    return newpath
         return None
 
     """
         Find all paths
     """
+
     def find_all_paths(self, start, end, path=[]):
         path = path + [start]
         if start == end:
@@ -374,6 +390,7 @@ class Graph:
     """
         Find shorted path w.r.t no of vertices on the path
     """
+
     def find_shortest_path(self, start, end, path=[]):
         path = path + [start]
         if start == end:
@@ -398,57 +415,57 @@ class Graph:
         f you only need partial solution on the graph
         use Prim's algorithm
     """
+
     def mspPrims(self):
         nodes = self.v.keys()
-        edges = [(u, v, c) for u in self.v.keys() for v, c in self.v[u].getNeighbours().items()]
+        edges = [(u, v, c) for u in self.v.keys()
+                 for v, c in self.v[u].getNeighbours().items()]
 
         return self.prim(nodes, edges)
 
     def prim(self, nodes, edges):
-        conn = defaultdict( list )
-        for n1,n2,c in edges:  # makes graph undirected
-            conn[ n1 ].append( (c, n1, n2) )
-            conn[ n2 ].append( (c, n2, n1) )
+        conn = defaultdict(list)
+        for n1, n2, c in edges:  # makes graph undirected
+            conn[n1].append((c, n1, n2))
+            conn[n2].append((c, n2, n1))
 
         mst = []
         used = set()
-        used.add( nodes[0] )
-        usable_edges = conn[ nodes[0] ][:]
-        heapify( usable_edges )
+        used.add(nodes[0])
+        usable_edges = conn[nodes[0]][:]
+        heapify(usable_edges)
 
         while usable_edges:
-            cost, n1, n2 = heappop( usable_edges )
+            cost, n1, n2 = heappop(usable_edges)
             if n2 not in used:
-                used.add( n2 )
-                mst.append( ( n1, n2, cost ) )
+                used.add(n2)
+                mst.append((n1, n2, cost))
 
-                for e in conn[ n2 ]:
-                    if e[ 2 ] not in used:
-                        heappush( usable_edges, e )
+                for e in conn[n2]:
+                    if e[2] not in used:
+                        heappush(usable_edges, e)
         return mst
 
     """
         Kruskals begins with forest and merge into a tree
     """
+
     def mspKrushkals(self):
         nodes = self.v.keys()
-        edges = [(c, u, v) for u in self.v.keys() for v, c in self.v[u].getNeighbours().items()]
+        edges = [(c, u, v) for u in self.v.keys()
+                 for v, c in self.v[u].getNeighbours().items()]
 
         return self.krushkal(edges)
 
     def pprint(self):
-        print ("{ ", end=" ")
+        print("{ ", end=" ")
         for u in self.v.keys():
-            print (u, end=" ")
-            print (": { ", end=" ")
+            print(u, end=" ")
+            print(": { ", end=" ")
             for v in self.v[u].getNeighbours().keys():
-                print (v, ":", self.v[u].getNeighbours()[v], end=" ")
-            print(" }", end= " ")
-        print (" }\n")
-
-
-
-
+                print(v, ":", self.v[u].getNeighbours()[v], end=" ")
+            print(" }", end=" ")
+        print(" }\n")
 
     def krushkal(self, edges):
         """
@@ -464,10 +481,10 @@ class Graph:
         # part (the sort) is sped up by being built in to Python.
         subtrees = UnionFind()
         tree = []
-        for c,u,v in sorted(edges): # take from small weight to large in order
+        for c, u, v in sorted(edges):  # take from small weight to large in order
             if subtrees[u] != subtrees[v]:
-                tree.append((u,v, c))
-                subtrees.union(u,v)
+                tree.append((u, v, c))
+                subtrees.union(u, v)
         return tree
 
     def adj(self, missing=float('inf')):  # makes the adj dict will all possible cells, similar to matrix
@@ -493,10 +510,10 @@ class Graph:
         """
         vertices = self.v.keys()
         return {v1:
-             {v2: 0 if v1 == v2 else self.v[v1].getNeighbours().get(v2, missing) for v2 in vertices
-             }
-             for v1 in vertices
-            }
+                {v2: 0 if v1 == v2 else self.v[v1].getNeighbours().get(v2, missing) for v2 in vertices
+                 }
+                for v1 in vertices
+                }
 
     def floyds(self):
         """
@@ -508,13 +525,13 @@ class Graph:
                     g[i][j] = min(graph[i][j], graph[i][k]+graph[k][j])
             Find the shortest distance between every pair of vertices in the weighted Graph G
         """
-        d =  self.adj()  # prepare the adjacency list representation for the algorithm
+        d = self.adj()  # prepare the adjacency list representation for the algorithm
 
         vertices = self.v.keys()
 
         for v2 in vertices:
             d = {v1: {v3: min(d[v1][v3], d[v1][v2] + d[v2][v3])
-                     for v3 in vertices}
+                      for v3 in vertices}
                  for v1 in vertices}
         return d
 
@@ -526,21 +543,21 @@ class Graph:
                     g[i][j] = graph[i][j] || (graph[i][k]&&graph[k][j]))
         """
         vertices = self.v.keys()
-        d =  self.adj(float('0'))
+        d = self.adj(float('0'))
         for u in vertices:
             for v in vertices:
-                if u ==v or d[u][v]: d[u][v] = True
-                else: d[u][v] = False
+                if u == v or d[u][v]:
+                    d[u][v] = True
+                else:
+                    d[u][v] = False
         for v2 in vertices:
-            d = {v1: {v3: d[v1][v3] or (d[v1][v2] and d[v2][v3]) # path for v1->v3 or v1->v2, v2-?v3
-                     for v3 in vertices}
+            d = {v1: {v3: d[v1][v3] or (d[v1][v2] and d[v2][v3])  # path for v1->v3 or v1->v2, v2-?v3
+                      for v3 in vertices}
                  for v1 in vertices}
         return d
 
-
-
     def pathRecoveryFloydWarshall(self):
-        d =  self.adj()  # missing edges will have -1.0 value
+        d = self.adj()  # missing edges will have -1.0 value
         vertices = self.v.keys()
 
         parentMap = copy.deepcopy(d)
@@ -561,7 +578,6 @@ class Graph:
 
         return parentMap
 
-
     def getFloydPath(self, parentMap, u, v, path=[]):
         """
             recursive procedure to get the path from parentMap matrix
@@ -570,8 +586,8 @@ class Graph:
         if u != v and v != -1:
             self.getFloydPath(parentMap, u, parentMap[u][v], path)
 
-
-    # from active recipes - handy thoughts to think about heap for this algorithm
+    # from active recipes - handy thoughts to think about heap for this
+    # algorithm
     def dijkstra(self, start, end=None):
         """
             Find shortest paths from the start vertex to all
@@ -621,18 +637,20 @@ class Graph:
 
         for v in Q:
             D[v] = Q[v]
-            if v == end: break
+            if v == end:
+                break
 
             for w in G[v]:
                 vwLength = D[v] + G[v][w]
                 if w in D:
                     if vwLength < D[w]:
-                        raise (ValueError, "Dijkstra: found better path to already-final vertex")
+                        raise (
+                            ValueError, "Dijkstra: found better path to already-final vertex")
                 elif w not in Q or vwLength < Q[w]:
                     Q[w] = vwLength
                     P[w] = v
 
-        return D,P
+        return D, P
 
     def shortestPathDijkstra(self, start, end):
         """
@@ -647,7 +665,8 @@ class Graph:
         Path = []
         while 1:
             Path.append(end)
-            if end == start: break
+            if end == start:
+                break
             end = P[end]
         Path.reverse()
         return Path
@@ -699,10 +718,11 @@ class Graph:
                 if successor not in lowlinks:
                     # Successor has not yet been visited; recurse on it
                     strongconnect(successor)
-                    lowlinks[node] = min(lowlinks[node],lowlinks[successor])
+                    lowlinks[node] = min(lowlinks[node], lowlinks[successor])
                 elif successor in stack:
-                    # the successor is in the stack and hence in the current strongly connected component (SCC)
-                    lowlinks[node] = min(lowlinks[node],index[successor])
+                    # the successor is in the stack and hence in the current
+                    # strongly connected component (SCC)
+                    lowlinks[node] = min(lowlinks[node], index[successor])
 
             # If `node` is a root node, pop the stack and generate an SCC
             if lowlinks[node] == index[node]:
@@ -711,7 +731,8 @@ class Graph:
                 while True:
                     successor = stack.pop()
                     connected_component.append(successor)
-                    if successor == node: break
+                    if successor == node:
+                        break
                 component = tuple(connected_component)
                 # storing the result
                 print(component)
@@ -750,12 +771,13 @@ class Graph:
                     # Successor has not yet been visited; recurse on it
                     computeFirst(successor)
 
-                    lowlinks[node] = min(lowlinks[node],lowlinks[successor])
+                    lowlinks[node] = min(lowlinks[node], lowlinks[successor])
                 elif successor in stack:
-                    # the successor is in the stack and hence in the current strongly connected component (SCC)
-                    lowlinks[node] = min(lowlinks[node],index[successor])
-                first[node] |= set(first[successor] - set(['epsilon'])).union(set(initFirst[node]))  #(*union!*)
-
+                    # the successor is in the stack and hence in the current
+                    # strongly connected component (SCC)
+                    lowlinks[node] = min(lowlinks[node], index[successor])
+                first[node] |= set(
+                    first[successor] - set(['epsilon'])).union(set(initFirst[node]))  # (*union!*)
 
             # If `node` is a root node, pop the stack and generate an SCC
             if lowlinks[node] == index[node]:
@@ -763,17 +785,19 @@ class Graph:
 
                 while True:
                     successor = stack.pop()
-                    #FIRST[w] := FIRST[v]; (*distribute!*)
-                    first[successor] = set(first[node] - set(['epsilon'])).union(set(initFirst[successor]) )#(*distribute!*)
+                    # FIRST[w] := FIRST[v]; (*distribute!*)
+                    first[successor] = set(
+                        first[node] - set(['epsilon'])).union(set(initFirst[successor]))  # (*distribute!*)
                     connected_component.append(successor)
-                    if successor == node: break
+                    if successor == node:
+                        break
                 component = tuple(connected_component)
                 # storing the result
                 result.append(component)
 
         for v in initFirst:
-            first[v] = initFirst[v]  #(*init!*)
-        #print "init First assignment: ", first
+            first[v] = initFirst[v]  # (*init!*)
+        # print "init First assignment: ", first
 
         for node in self.v.keys():
             if node not in lowlinks:
@@ -808,13 +832,13 @@ class Graph:
                     # Successor has not yet been visited; recurse on it
                     computeFollow(successor)
 
-                    lowlinks[node] = min(lowlinks[node],lowlinks[successor])
+                    lowlinks[node] = min(lowlinks[node], lowlinks[successor])
                 elif successor in stack:
-                    # the successor is in the stack and hence in the current strongly connected component (SCC)
-                    lowlinks[node] = min(lowlinks[node],index[successor])
+                    # the successor is in the stack and hence in the current
+                    # strongly connected component (SCC)
+                    lowlinks[node] = min(lowlinks[node], index[successor])
 
-                follow[node] |= follow[successor] #(*union!*)
-
+                follow[node] |= follow[successor]  # (*union!*)
 
             # If `node` is a root node, pop the stack and generate an SCC
             if lowlinks[node] == index[node]:
@@ -824,13 +848,14 @@ class Graph:
                     successor = stack.pop()
                     follow[successor] = follow[node]
                     connected_component.append(successor)
-                    if successor == node: break
+                    if successor == node:
+                        break
                 component = tuple(connected_component)
                 # storing the result
                 result.append(component)
 
         for v in initFollow:
-            follow[v] = initFollow[v]  #(*init!*)
+            follow[v] = initFollow[v]  # (*init!*)
 
         for node in self.v.keys():
             if node not in lowlinks:

@@ -7,20 +7,18 @@ import os
 # while loop
 n = 0
 while n < 10:
-    print n
+    print(n)
     n += 1
-
 
 
 # if statements
 x = 10
 if x < 0:
-    print "negative"
+    print("negative")
 elif x == 0:
-    print "zero"
+    print("zero")
 else:
-    print "positive"
-
+    print("positive")
 
 
 # note: there is no case statement like in C/Fortran
@@ -29,8 +27,7 @@ else:
 # looping over items in a list
 alist = [1, 2.0, "three", 4]
 for a in alist:
-    print a
-
+    print(a)
 
 
 # break
@@ -42,9 +39,9 @@ for a in alist:
     else:
         n += 1
 
-print n
+print(n)
 
 # simpler way
-print alist.index("three")
+print(alist.index("three"))
 
 os.system("pause")

@@ -2,6 +2,7 @@
 
 import os
 
+
 def compute_prefix_function(p):
     m = len(p)
     pi = [0] * m

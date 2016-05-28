@@ -10,6 +10,7 @@ We work on chunks to avoid using too much memory when the file is large.
 import os
 from Crypto.Hash import MD5
 
+
 def get_file_checksum(filename):
     h = MD5.new()
     chunk_size = 8192

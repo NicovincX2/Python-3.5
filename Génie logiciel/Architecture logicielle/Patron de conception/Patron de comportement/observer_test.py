@@ -12,7 +12,9 @@ else:
 
 from unittest.mock import patch
 
+
 class TestSubject(unittest.TestCase):
+
     @classmethod
     def setUpClass(cls):
         cls.s = Subject()
@@ -38,19 +40,21 @@ class TestSubject(unittest.TestCase):
         cls.s.detach(cls.hex_obs)
         cls.assertEqual(len(cls.s._observers), 0)
 
+
 class TestData(unittest.TestCase):
+
     @classmethod
     def setUpClass(cls):
         cls.dec_obs = DecimalViewer()
         cls.hex_obs = HexViewer()
         cls.sub = Data('Data')
-        #inherited behavior already tested with TestSubject
+        # inherited behavior already tested with TestSubject
         cls.sub.attach(cls.dec_obs)
         cls.sub.attach(cls.hex_obs)
 
     def test_data_change_shall_notify_all_observers_once(cls):
         with patch.object(cls.dec_obs, 'update') as mock_dec_obs_update,\
-            patch.object(cls.hex_obs, 'update') as mock_hex_obs_update:
+                patch.object(cls.hex_obs, 'update') as mock_hex_obs_update:
             cls.sub.data = 10
             cls.assertEqual(mock_dec_obs_update.call_count, 1)
             cls.assertEqual(mock_hex_obs_update.call_count, 1)

@@ -25,8 +25,8 @@ histRK4 = o.intRK4(0.05, P)
 pylab.plot(histEuler.x, histEuler.y, label="Euler's method", color="k")
 
 # mark the Sun
-pylab.scatter([0],[0],s=250,marker=(5,1),color="k")
-pylab.scatter([0],[0],s=200,marker=(5,1),color="y")
+pylab.scatter([0], [0], s=250, marker=(5, 1), color="k")
+pylab.scatter([0], [0], s=200, marker=(5, 1), color="y")
 
 
 pylab.plot(histEulerCromer.x, histEulerCromer.y, label="Euler-Cromer method",
@@ -41,8 +41,8 @@ ltext = leg.get_texts()
 pylab.setp(ltext, fontsize='small')
 leg.draw_frame(0)
 
-pylab.xlim(-2,2)
-pylab.ylim(-2,2)
+pylab.xlim(-2, 2)
+pylab.ylim(-2, 2)
 
 ax = pylab.gca()
 ax.set_aspect("equal", "datalim")

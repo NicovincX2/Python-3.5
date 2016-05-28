@@ -2,6 +2,7 @@
 
 import os
 
+
 def find_int(i, l):
     """Find integer in a sorted list.
     Example: 4 in [1, 3, 4, 6, 7, 9] -> 2

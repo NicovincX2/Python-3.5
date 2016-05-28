@@ -6,7 +6,9 @@ import os
 Methods - find_element(value), get_max(), get_min(), successor(value),
           insert, delete, values() """
 
+
 class Node(object):
+
     def __init__(self, value):
         self.right = None
         self.left = None
@@ -16,7 +18,9 @@ class Node(object):
     def __repr__(self):
         return "Node with value - %s" % self.value
 
+
 class BinarySearchTree(object):
+
     def __init__(self):
         self.root = None
         self.len = 0
@@ -45,13 +49,13 @@ class BinarySearchTree(object):
             self._postorder(node.right, values)
             values.append(node.value)
 
-    def values(self, reverse = False, order="in"):
+    def values(self, reverse=False, order="in"):
         values = []
         if order == "in":
             self._inorder(self.root, values)
         elif order == "pre":
             self._preorder(self.root, values)
-        else: #order is post
+        else:  # order is post
             self._postorder(self.root, values)
         if reverse:
             return values[::-1]
@@ -68,11 +72,11 @@ class BinarySearchTree(object):
     def find_element(self, value):
         return self._search(self.root, value)
 
-    def _extremes(self, root, find_min = True):
+    def _extremes(self, root, find_min=True):
         while (find_min and root.left) or (not find_min and root.right):
             if find_min:
                 root = root.left
-            else: # find max
+            else:  # find max
                 root = root.right
         return root
 
@@ -110,7 +114,7 @@ class BinarySearchTree(object):
                 else:
                     node = node.left
             if node.value == value:
-              return
+                return
             if parent.value > value:
                 parent.left = new_node
             else:

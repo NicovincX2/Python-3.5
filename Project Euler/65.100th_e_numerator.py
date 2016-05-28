@@ -14,18 +14,21 @@ Find the sum of digits in the numerator of the 100th convergent of the continued
 from itertools import islice
 import os
 
+
 def take(iterable, n):
-    #Make an iterator that returns selected elements from the iterable.
+    # Make an iterator that returns selected elements from the iterable.
     return list(islice(iterable, n))
+
 
 def e():
     yield 2
     k = 1
     while True:
         yield 1
-        yield 2*k
+        yield 2 * k
         yield 1
         k += 1
+
 
 def rationalize(frac):
     if len(frac) == 0:
@@ -38,6 +41,6 @@ def rationalize(frac):
         return (frac[0] * num + denom, num)
 
 numerator = rationalize(take(e(), 100))[0]
-print sum(int(d) for d in str(numerator))
+print(sum(int(d) for d in str(numerator)))
 
 os.system("pause")

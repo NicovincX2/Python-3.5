@@ -28,6 +28,7 @@ from deap import creator
 from deap import tools
 from deap import gp
 
+
 def if_then_else(condition, out1, out2):
     return out1 if condition else out2
 
@@ -70,9 +71,11 @@ creator.create("Individual", gp.PrimitiveTree, fitness=creator.FitnessMax)
 
 toolbox = base.Toolbox()
 toolbox.register("expr", gp.genFull, pset=pset, min_=2, max_=4)
-toolbox.register("individual", tools.initIterate, creator.Individual, toolbox.expr)
+toolbox.register("individual", tools.initIterate,
+                 creator.Individual, toolbox.expr)
 toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 toolbox.register("compile", gp.compile, pset=pset)
+
 
 def evalMultiplexer(individual):
     func = toolbox.compile(expr=individual)
@@ -84,8 +87,9 @@ toolbox.register("mate", gp.cxOnePoint)
 toolbox.register("expr_mut", gp.genGrow, min_=0, max_=2)
 toolbox.register("mutate", gp.mutUniform, expr=toolbox.expr_mut, pset=pset)
 
+
 def main():
-#    random.seed(10)
+    #    random.seed(10)
     pop = toolbox.population(n=40)
     hof = tools.HallOfFame(1)
     stats = tools.Statistics(lambda ind: ind.fitness.values)

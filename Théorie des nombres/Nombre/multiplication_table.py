@@ -1,18 +1,20 @@
 # -*- coding: utf-8 -*-
 
 import os
-import numpy
-from time import perf_counter()
+from numpy import *
+from time import perf_counter
+
 
 def mul1(n):
     return array([[(i + 1) * (j + 1) for i in range(n)] for j in range(n)])
 
 top = perf_counter()
 print(mul1(4))
-print(perf_counter()-top)
+print(perf_counter() - top)
 top = perf_counter()
 mul1(100)
-print(perf_counter()-top)
+print(perf_counter() - top)
+
 
 def mul2(n):
     M = arange(1, n + 1).reshape((-1, 1))
@@ -23,10 +25,11 @@ def mul2(n):
 
 top = perf_counter()
 print(mul2(4))
-print(perf_counter()-top)
+print(perf_counter() - top)
 top = perf_counter()
 mul2(100)
-print(perf_counter()-top)
+print(perf_counter() - top)
+
 
 def mul3(n):
     M = arange(1, n + 1).reshape((-1, 1))
@@ -35,10 +38,9 @@ def mul3(n):
 
 top = perf_counter()
 print(mul3(4))
-print(perf_counter()-top)
+print(perf_counter() - top)
 top = perf_counter()
 mul3(100)
-print(perf_counter()-top)
+print(perf_counter() - top)
 
 os.system("pause")
-

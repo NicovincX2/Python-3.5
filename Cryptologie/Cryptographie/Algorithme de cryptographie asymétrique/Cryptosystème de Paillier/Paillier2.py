@@ -2,26 +2,32 @@
 
 import Crypto.Util.number as cry
 import gmpy
-import random, os
+import random
+import os
+
 
 def generate_keys(nbits):
-    p = cry.getPrime(nbits//2)
-    q = cry.getPrime(nbits//2)
-    n = p*q
-    g = n+1
-    l = (p-1)*(q-1)
-    mu = gmpy.invert(((p-1)*(q-1)), n)
+    p = cry.getPrime(nbits // 2)
+    q = cry.getPrime(nbits // 2)
+    n = p * q
+    g = n + 1
+    l = (p - 1) * (q - 1)
+    mu = gmpy.invert(((p - 1) * (q - 1)), n)
     return (n, g, l, mu)
+
 
 def encrypt(key, msg, rand):
     n_sqr = key[0]**2
-    return (pow(key[1], msg, n_sqr)*pow(rand, key[0], n_sqr) ) % n_sqr
+    return (pow(key[1], msg, n_sqr) * pow(rand, key[0], n_sqr)) % n_sqr
+
 
 def decrypt(key, cipher):
-    return (((pow(cipher, key[2], key[0]*key[0]) - 1)// key[0]) * key[3]) % key[0]
+    return (((pow(cipher, key[2], key[0] * key[0]) - 1) // key[0]) * key[3]) % key[0]
+
 
 def get_random_number(n):
-    return random.randint(n//2, n*2)
+    return random.randint(n // 2, n * 2)
+
 
 def decrypt2(key, cipher):
     n_sqr = key.modulus * key.modulus
@@ -30,7 +36,8 @@ def decrypt2(key, cipher):
     invnoise = gmpy.invert(noise, n_sqr)
     normalized = (cipher * invnoise) % n_sqr
     # The n^2 modulus isn't a hard case of the discrete logarithm problem.
-    return ((normalized-1)//key.modulus) // ((key.generator-1)//key.modulus)
+    return ((normalized - 1) // key.modulus) // ((key.generator - 1) // key.modulus)
+
 
 def paillier_poc():
     N_BITS = 1024

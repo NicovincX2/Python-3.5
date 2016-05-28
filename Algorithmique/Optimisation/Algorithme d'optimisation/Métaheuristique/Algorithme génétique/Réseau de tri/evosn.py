@@ -30,25 +30,31 @@ import sortingnetwork as sn
 
 INPUTS = 6
 
+
 def evalEvoSN(individual, dimension):
     network = sn.SortingNetwork(dimension, individual)
     return network.assess(), network.length, network.depth
 
+
 def genWire(dimension):
     return (random.randrange(dimension), random.randrange(dimension))
+
 
 def genNetwork(dimension, min_size, max_size):
     size = random.randint(min_size, max_size)
     return [genWire(dimension) for i in range(size)]
+
 
 def mutWire(individual, dimension, indpb):
     for index, elem in enumerate(individual):
         if random.random() < indpb:
             individual[index] = genWire(dimension)
 
+
 def mutAddWire(individual, dimension):
     index = random.randint(0, len(individual))
     individual.insert(index, genWire(dimension))
+
 
 def mutDelWire(individual):
     index = random.randrange(len(individual))
@@ -60,10 +66,12 @@ creator.create("Individual", list, fitness=creator.FitnessMin)
 toolbox = base.Toolbox()
 
 # Gene initializer
-toolbox.register("network", genNetwork, dimension=INPUTS, min_size=9, max_size=12)
+toolbox.register("network", genNetwork, dimension=INPUTS,
+                 min_size=9, max_size=12)
 
 # Structure initializers
-toolbox.register("individual", tools.initIterate, creator.Individual, toolbox.network)
+toolbox.register("individual", tools.initIterate,
+                 creator.Individual, toolbox.network)
 toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
 toolbox.register("evaluate", evalEvoSN, dimension=INPUTS)
@@ -72,6 +80,7 @@ toolbox.register("mutate", mutWire, dimension=INPUTS, indpb=0.05)
 toolbox.register("addwire", mutAddWire, dimension=INPUTS)
 toolbox.register("delwire", mutDelWire)
 toolbox.register("select", tools.selNSGA2)
+
 
 def main():
     random.seed(64)
@@ -130,7 +139,7 @@ def main():
         for ind, fit in zip(invalid_ind, fitnesses):
             ind.fitness.values = fit
 
-        population = toolbox.select(population+offspring, len(offspring))
+        population = toolbox.select(population + offspring, len(offspring))
         hof.update(population)
         record = stats.compile(population)
         logbook.record(gen=g, evals=len(invalid_ind), **record)

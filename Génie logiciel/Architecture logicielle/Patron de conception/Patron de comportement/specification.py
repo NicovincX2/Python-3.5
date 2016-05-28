@@ -28,6 +28,7 @@ class Specification(object):
 
 
 class CompositeSpecification(Specification):
+
     @abstractmethod
     def is_satisfied_by(self, candidate):
         pass

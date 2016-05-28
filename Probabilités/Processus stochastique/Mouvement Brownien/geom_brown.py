@@ -3,6 +3,7 @@
 import os
 import parameters
 
+
 def geometric_brownian_motion_log_returns(param):
     """
     This method constructs a sequence of log returns which, when exponentiated, produce a random Geometric Brownian
@@ -12,8 +13,10 @@ def geometric_brownian_motion_log_returns(param):
     """
     assert isinstance(param, ModelParameters)
     wiener_process = numpy.array(brownian_motion_log_returns(param))
-    sigma_pow_mu_delta = (param.gbm_mu - 0.5 * math.pow(param.all_sigma, 2.0)) * param.all_delta
+    sigma_pow_mu_delta = (param.gbm_mu - 0.5 *
+                          math.pow(param.all_sigma, 2.0)) * param.all_delta
     return wiener_process + sigma_pow_mu_delta
+
 
 def geometric_brownian_motion_levels(param):
     """
@@ -22,10 +25,12 @@ def geometric_brownian_motion_levels(param):
     :return: the price levels for the asset
     """
     return convert_to_prices(param, geometric_brownian_motion_log_returns(param))
-    
+
 geometric_brownian_motion_examples = []
 for i in range(paths):
-    geometric_brownian_motion_examples.append(geometric_brownian_motion_levels(mp))
-plot_stochastic_processes(geometric_brownian_motion_examples, "Geometric Brownian Motion")
-    
+    geometric_brownian_motion_examples.append(
+        geometric_brownian_motion_levels(mp))
+plot_stochastic_processes(
+    geometric_brownian_motion_examples, "Geometric Brownian Motion")
+
 os.system("pause")

@@ -22,7 +22,7 @@ def sort(seq):
     """
     for i in range(0, len(seq)):
         iMin = i
-        for j in range(i+1, len(seq)):
+        for j in range(i + 1, len(seq)):
             if seq[iMin] > seq[j]:
                 iMin = j
         if i != iMin:

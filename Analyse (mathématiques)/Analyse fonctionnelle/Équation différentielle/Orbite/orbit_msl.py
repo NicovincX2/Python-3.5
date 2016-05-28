@@ -69,6 +69,7 @@ rr_mars_rest, _ = ephem.planet_ephem(ephem.MARS, times_rest)
 fig = plt.figure(figsize=(10, 10))
 ax = fig.add_subplot(111, projection='3d')
 
+
 def plot_body(ax, r, color, size, border=False, **kwargs):
     """Plots body in axes object.
 
@@ -102,10 +103,14 @@ plot_body(ax, rr_mars[:, 0].to(u.km).value, color_mars0, 8)
 plot_body(ax, rf.to(u.km).value, color_marsf, 8)
 
 # Add some text
-ax.text(-0.75e8, -3.5e8, -1.5e8, "MSL mission:\nfrom Earth to Mars", size=20, ha='center', va='center', bbox={"pad": 30, "lw": 0, "fc": "w"})
-ax.text(r0[0].to(u.km).value * 1.4, r0[1].to(u.km).value * 0.4, r0[2].to(u.km).value * 1.25, "Earth at launch\n(26 Nov)", ha="left", va="bottom", backgroundcolor='#ffffff')
-ax.text(rf[0].to(u.km).value * 0.7, rf[1].to(u.km).value * 1.1, rf[2].to(u.km).value, "Mars at arrival\n(6 Ago)", ha="left", va="top", backgroundcolor='#ffffff')
-ax.text(-1.9e8, 8e7, 0, "Transfer\norbit", ha="right", va="center", backgroundcolor='#ffffff')
+ax.text(-0.75e8, -3.5e8, -1.5e8, "MSL mission:\nfrom Earth to Mars",
+        size=20, ha='center', va='center', bbox={"pad": 30, "lw": 0, "fc": "w"})
+ax.text(r0[0].to(u.km).value * 1.4, r0[1].to(u.km).value * 0.4, r0[2].to(u.km).value *
+        1.25, "Earth at launch\n(26 Nov)", ha="left", va="bottom", backgroundcolor='#ffffff')
+ax.text(rf[0].to(u.km).value * 0.7, rf[1].to(u.km).value * 1.1, rf[2].to(u.km).value,
+        "Mars at arrival\n(6 Ago)", ha="left", va="top", backgroundcolor='#ffffff')
+ax.text(-1.9e8, 8e7, 0, "Transfer\norbit", ha="right",
+        va="center", backgroundcolor='#ffffff')
 
 # Tune axes
 ax.set_xlim(-3e8, 3e8)

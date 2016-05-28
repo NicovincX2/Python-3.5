@@ -4,6 +4,7 @@ import os
 
 __author__ = "bt3"
 
+
 def longest_common_subsequence1(s1, s2):
     p1 = 0
     aux, lcp = '', ''
@@ -12,9 +13,9 @@ def longest_common_subsequence1(s1, s2):
 
     while p1 < len(string1):
         p2 = 0
-        while  p2 < len(string2) and p1+p2 < len(string1):
-            if string1[p1+p2] == string2[p2]:
-                aux += string1[p1+p2]
+        while p2 < len(string2) and p1 + p2 < len(string1):
+            if string1[p1 + p2] == string2[p2]:
+                aux += string1[p1 + p2]
             else:
                 if len(lcp) < len(aux):
                     lcp = aux
@@ -23,9 +24,9 @@ def longest_common_subsequence1(s1, s2):
         p1 += 1
 
     return lcp
-               
+
 if __name__ == '__main__':
-    print(longest_common_subsequence1("ABCXYZ","ACBCXZ"))
+    print(longest_common_subsequence1("ABCXYZ", "ACBCXZ"))
     str1 = 'hasfgeaae'
     str2 = 'bafgekk'
     result = 'fge'

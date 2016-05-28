@@ -75,31 +75,35 @@ OUTPUT_DIR = "C:/"
 DISK_CACHING = True
 
 ########################################################################
+
+
 def calc_mandelbrot_vals(maxiters, xmin, xmax, ymin, ymax, imgwd, imght):
     escapevals = []
     xwd = xmax - xmin
     yht = ymax - ymin
     for y in range(imght):
         for x in range(imgwd):
-            z  = 0
+            z = 0
             r = xmin + xwd * x / imgwd
             i = ymin + yht * y / imght
-            c = complex(r, i)  
+            c = complex(r, i)
             for n in range(maxiters + 1):
-                z = z*z + c
+                z = z * z + c
                 if abs(z) > 2.0:  # escape radius
                     break
             escapevals.append(n)
     return escapevals
 
 ########################################################################
+
+
 def escapeval_to_color(n, maxiters):
     """ 
     http://www.fractalforums.com/index.php?topic=643.msg3522#msg3522
     """
     v = float(n) / float(maxiters)
     n = int(v * 4096.0)
-    
+
     r = g = b = 0
     if (n == maxiters):
         pass
@@ -121,16 +125,20 @@ def escapeval_to_color(n, maxiters):
     elif (n < 4096):
         r = 255
         g = (((n - 2048) * 63) / 2047) + 192
-    
+
     return (int(r), int(g), int(b))
 
 ########################################################################
+
+
 def get_mb_corename(maxiters, xmin, xmax, ymin, ymax, imgwd, imght):
     return "mb_%d_wd_%d_ht_%d_xa_%f_xb_%f_ya_%f_yb_%f_" % (maxiters, imgwd, imght, xmin, xmax, ymin, ymax)
 
+
 def extract_mb_filename(filename):
     maxiters = xmin = xmax = ymin = ymax = imgwd = imght = ""
-    filename_re = re.compile("mb_(.+)_wd_(.+)_ht_(.+)_xa_(.+)_xb_(.+)_ya_(.+)_yb_(.+)_.*")
+    filename_re = re.compile(
+        "mb_(.+)_wd_(.+)_ht_(.+)_xa_(.+)_xb_(.+)_ya_(.+)_yb_(.+)_.*")
     match = filename_re.match(filename)
     if match:
         maxiters = int(match.group(1))
@@ -141,37 +149,47 @@ def extract_mb_filename(filename):
         ymin = float(match.group(6))
         ymax = float(match.group(7))
     return maxiters, xmin, xmax, ymin, ymax, imgwd, imght
-    
+
 ########################################################################
+
+
 def write_mb(maxiters, xmin, xmax, ymin, ymax, imgwd, imght):
-    escapevals = calc_mandelbrot_vals(maxiters, xmin, xmax, ymin, ymax, imgwd, imght)
+    escapevals = calc_mandelbrot_vals(
+        maxiters, xmin, xmax, ymin, ymax, imgwd, imght)
     path = get_mb_path(maxiters, xmin, xmax, ymin, ymax, imgwd, imght)
     write_array_file(path, escapevals, 'i')
-    
+
+
 def read_mb(maxiters, xmin, xmax, ymin, ymax, imgwd, imght):
     path = get_mb_path(maxiters, xmin, xmax, ymin, ymax, imgwd, imght)
-    array_ = read_array_file(path, 'i', imght*imgwd)
+    array_ = read_array_file(path, 'i', imght * imgwd)
     return array_
+
 
 def get_mb_path(maxiters, xmin, xmax, ymin, ymax, imgwd, imght):
     corename = get_mb_corename(maxiters, xmin, xmax, ymin, ymax, imgwd, imght)
-    path = os.path.join(OUTPUT_DIR, corename+".data")
+    path = os.path.join(OUTPUT_DIR, corename + ".data")
     return path
-    
-########################################################################  
+
+########################################################################
+
+
 def write_array_file(path, list_, typecode):
     array_ = array.array(typecode, list_)
     f = open(path, "wb")
     array_.tofile(f)
-    f.close()    
-    
+    f.close()
+
+
 def read_array_file(path, typecode, count):
     f = open(path, 'rb')
     array_ = array.array(typecode)
     array_.fromfile(f, count)
     return array_
 
-########################################################################  
+########################################################################
+
+
 def get_mandelbrot(maxiters, xmin, xmax, ymin, ymax, imgwd, imght):
     if DISK_CACHING:
         path = get_mb_path(maxiters, xmin, xmax, ymin, ymax, imgwd, imght)
@@ -182,6 +200,8 @@ def get_mandelbrot(maxiters, xmin, xmax, ymin, ymax, imgwd, imght):
         return calc_mandelbrot_vals(maxiters, xmin, xmax, ymin, ymax, imgwd, imght)
 
 ########################################################################
+
+
 def mb_to_png(maxiters, xmin, xmax, ymin, ymax, imgwd, imght):
     try:
         from PIL import Image
@@ -189,7 +209,7 @@ def mb_to_png(maxiters, xmin, xmax, ymin, ymax, imgwd, imght):
         array_ = get_mandelbrot(maxiters, xmin, xmax, ymin, ymax, imgwd, imght)
         img = Image.new("RGB", (imgwd, imght))
         d = ImageDraw.Draw(img)
-     
+
         i = 0
         for y in range(imght):
             for x in range(imgwd):
@@ -197,21 +217,24 @@ def mb_to_png(maxiters, xmin, xmax, ymin, ymax, imgwd, imght):
                 color = escapeval_to_color(n, maxiters)
                 d.point((x, y), fill=color)
                 i += 1
-          
+
         del d
-        corename = get_mb_corename(maxiters, xmin, xmax, ymin, ymax, imgwd, imght)
-        path = os.path.join(OUTPUT_DIR, corename+".png")
+        corename = get_mb_corename(
+            maxiters, xmin, xmax, ymin, ymax, imgwd, imght)
+        path = os.path.join(OUTPUT_DIR, corename + ".png")
         img.save(path)
     except ImportError:
         println("mb_to_png failed: Pillow not installed.")
-  
+
 ########################################################################
+
+
 def mb_to_tkinter(maxiters, xmin, xmax, ymin, ymax, imgwd, imght):
     try:
         import tkinter as tk
     except ImportError:
         import Tkinter as tk
-    
+
     array_ = get_mandelbrot(maxiters, xmin, xmax, ymin, ymax, imgwd, imght)
     window = tk.Tk()
     canvas = tk.Canvas(window, width=imgwd, height=imght, bg="#000000")
@@ -226,21 +249,25 @@ def mb_to_tkinter(maxiters, xmin, xmax, ymin, ymax, imgwd, imght):
             r = hex(color[0])[2:].zfill(2)
             g = hex(color[1])[2:].zfill(2)
             b = hex(color[2])[2:].zfill(2)
-            img.put("#" + r + g + b, (x, y))     
+            img.put("#" + r + g + b, (x, y))
             i += 1
-            
+
     println("mb_to_tkinter %s" % time.asctime())
     canvas.pack()
     tk.mainloop()
-  
+
 ########################################################################
+
+
 def main():
     println("Start         %s" % time.asctime())
     mb_to_png(MAX_ITERS, X_MIN, X_MAX, Y_MIN, Y_MAX, IMG_WD, IMG_HT)
     println("mb_to_png     %s" % time.asctime())
     mb_to_tkinter(MAX_ITERS, X_MIN, X_MAX, Y_MIN, Y_MAX, IMG_WD, IMG_HT)
-    
+
 ########################################################################
+
+
 def println(text):
     sys.stdout.write(text + "\n")
 

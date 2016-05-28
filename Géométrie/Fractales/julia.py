@@ -7,6 +7,7 @@ import cython
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def py_julia_fractal(z_re, z_im, j):
     for m in range(len(z_re)):
         for n in range(len(z_im)):
@@ -14,7 +15,8 @@ def py_julia_fractal(z_re, z_im, j):
             for t in range(256):
                 z = z ** 2 - 0.05 + 0.68j
                 if np.abs(z) > 2.0:
-                #if (z.real * z.real + z.imag * z.imag) > 4.0:  # a bit faster
+                    # if (z.real * z.real + z.imag * z.imag) > 4.0:  # a bit
+                    # faster
                     j[m, n] = t
                     break
 
@@ -36,4 +38,3 @@ fig.tight_layout()
 fig.savefig("ch19-numba-julia-fractal.pdf")
 
 os.system("pause")
-

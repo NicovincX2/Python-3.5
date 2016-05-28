@@ -9,7 +9,8 @@ import scipy as sp               # Simple alias usuel
 import scipy.integrate           # Pour l'intégration
 import matplotlib.pyplot as plt  # Boîte à outils graphiques
 
-def RLC(R=1e2,L=0.1,C=1e-6,u0=2,du0=0,fichier=None,intervalle=None):
+
+def RLC(R=1e2, L=0.1, C=1e-6, u0=2, du0=0, fichier=None, intervalle=None):
     """ 
     Réponse de la tension aux bornes du condensateur pour un circuit RLC 
     série. En cas d'absence du nom de fichier, le script fait un affichage 
@@ -17,44 +18,51 @@ def RLC(R=1e2,L=0.1,C=1e-6,u0=2,du0=0,fichier=None,intervalle=None):
     de temps n'est pas spécifié (sous forme d'un doublet), l'affichage se fait 
     de 0 à 3tau.
     """
-    omega0=1/np.sqrt(L*C)        # Pulsation propre
-    Q=(np.sqrt(L/C))/R           # Facteur de qualité
-    tau=2*Q/omega0               # Temps de relaxation
+    omega0 = 1 / np.sqrt(L * C)        # Pulsation propre
+    Q = (np.sqrt(L / C)) / R           # Facteur de qualité
+    tau = 2 * Q / omega0               # Temps de relaxation
 
-    if Q  > 0.5: tit='Regime oscillatoire amorti'
-    if Q == 0.5: tit='Regime critique'
-    if Q  < 0.5: tit='Regime aperiodique'
-    
-    tit += ' $R={}$ Ohm, $L={}$ H, $C={}$ F'.format(R,L,C)
+    if Q > 0.5:
+        tit = 'Regime oscillatoire amorti'
+    if Q == 0.5:
+        tit = 'Regime critique'
+    if Q < 0.5:
+        tit = 'Regime aperiodique'
 
-    def equadiff(y,t):
-        u,vu = y                                  # y contient tension et dérivée de tension (vu)
-        return [vu , - omega0**2 * u - 2*vu/tau]  # On renvoie un doublet pour [du/dt,dvu/dt]
+    tit += ' $R={}$ Ohm, $L={}$ H, $C={}$ F'.format(R, L, C)
 
-    nb_points=1000                                # Le nombre de points d'un graphe
+    def equadiff(y, t):
+        # y contient tension et dérivée de tension (vu)
+        u, vu = y
+        # On renvoie un doublet pour [du/dt,dvu/dt]
+        return [vu, - omega0**2 * u - 2 * vu / tau]
+
+    nb_points = 1000                                # Le nombre de points d'un graphe
     if intervalle:
-        a,b = intervalle
-        t = np.linspace(a,b,nb_points)
+        a, b = intervalle
+        t = np.linspace(a, b, nb_points)
     else:
-        t=np.linspace(0,3*tau,nb_points)          # La fonction linspace créé une liste de valeurs
+        # La fonction linspace créé une liste de valeurs
+        t = np.linspace(0, 3 * tau, nb_points)
 
-    plt.clf()   
+    plt.clf()
 
-    sol = sp.integrate.odeint(equadiff,[u0,du0],t)# Intégration proprement dite
-    u = sol[:,0]                 # Récupération de la position
-    plt.plot(t,u)                # et affichage
+    # Intégration proprement dite
+    sol = sp.integrate.odeint(equadiff, [u0, du0], t)
+    u = sol[:, 0]                 # Récupération de la position
+    plt.plot(t, u)                # et affichage
 
     plt.title(tit)               # annotations
     plt.ylabel('Tension aux bornes du condensateur')
     plt.xlabel('Temps $t$')
-    
+
     if fichier:
         plt.savefig(fichier)     # Sauvegarde dans un fichier
     else:
         plt.show()               # Affichage à l'écran
 
-RLC(R=10,fichier='PNG/S09_oscillateur_amorti_libre_R00010.png')
-RLC(R=100,fichier='PNG/S09_oscillateur_amorti_libre_R00100.png')
-RLC(R=1000,fichier='PNG/S09_oscillateur_amorti_libre_R01000.png',intervalle=(0,0.006))
+RLC(R=10, fichier='PNG/S09_oscillateur_amorti_libre_R00010.png')
+RLC(R=100, fichier='PNG/S09_oscillateur_amorti_libre_R00100.png')
+RLC(R=1000, fichier='PNG/S09_oscillateur_amorti_libre_R01000.png', intervalle=(0, 0.006))
 
 os.system("pause")

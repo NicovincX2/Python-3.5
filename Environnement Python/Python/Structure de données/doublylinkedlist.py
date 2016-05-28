@@ -2,10 +2,11 @@
 
 import os
 
+
 class Node:
-    
+
     # Constructor to initialize data
-    # If data is not given by user,its taken as None 
+    # If data is not given by user,its taken as None
     def __init__(self, data=None, next=None, prev=None):
         self.data = data
         self.next = next
@@ -15,14 +16,15 @@ class Node:
     def __str__(self):
         return "Node[Data = %s]" % (self.data,)
 
+
 class DoubleLinkedList:
-    
+
     def __init__(self):
         self.head = None
         self.tail = None
-    
+
     def insert(self, data):
-        if (self.head == None): # To imply that if head == None
+        if (self.head == None):  # To imply that if head == None
             self.head = Node(data)
             self.tail = self.head
         else:
@@ -39,7 +41,7 @@ class DoubleLinkedList:
             self.head = current.next
             self.head.prev = None
             return True
-        
+
         # In case the linked list is empty
         if current == None:
             return False
@@ -52,19 +54,19 @@ class DoubleLinkedList:
 
         # If the element is absent or in the middle of the linked list
         while current != None:
-            if current.data == data :
+            if current.data == data:
                 current.prev.next = current.next
                 current.next.prev = current.prev
                 return True
             current = current.next
-     
+
         # The element is absent
         return False
 
     def find(self, data):
         current = self.head
         while current != None:
-            if current.data == data :
+            if current.data == data:
                 return True
             current = current.next
         return False
@@ -74,8 +76,8 @@ class DoubleLinkedList:
         if current == None:
             print("No elements")
             return False
-        while (current!= None):
-            print (current.data) 
+        while (current != None):
+            print(current.data)
             current = current.next
         return True
 
@@ -86,7 +88,7 @@ class DoubleLinkedList:
             return False
 
         while (current != None):
-            print (current.data)
+            print(current.data)
             current = current.prev
         return True
 
@@ -108,7 +110,7 @@ l.rev_print()
 # Try to find 3 in the list
 if (l.find(3)):
     print("Found")
-else :
+else:
     print("Not found")
 
 # Delete 3 from the list
@@ -123,7 +125,7 @@ l.rev_print()
 # Now if we find 3, we will not get it in the list
 if (l.find(3)):
     print("Found")
-else :
+else:
     print("Not found")
 
 os.system("pause")

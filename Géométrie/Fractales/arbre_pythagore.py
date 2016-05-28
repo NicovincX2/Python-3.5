@@ -7,26 +7,27 @@ from turtle import *
 from math import radians, cos, sin
 import os
 
+
 def arbre(n, t, a):
     if n == 1:
         left(90)
         forward(t)
-        right(90-a)
-        forward(t*cos(radians(a)))
+        right(90 - a)
+        forward(t * cos(radians(a)))
         right(90)
-        forward(t*sin(radians(a)))
+        forward(t * sin(radians(a)))
         right(a)
         forward(t)
     else:
         left(90)
         forward(t)
-        right(90-a)
-        n1 = n-1
-        d1 = t*cos(radians(a))
+        right(90 - a)
+        n1 = n - 1
+        d1 = t * cos(radians(a))
         arbre(n1, d1, a)
-        d2 = t*sin(radians(a))
-        arbre(n1,d2, a)
-        left(90-a)
+        d2 = t * sin(radians(a))
+        arbre(n1, d2, a)
+        left(90 - a)
         forward(t)
 
 

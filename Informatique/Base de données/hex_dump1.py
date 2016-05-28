@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
-import sys, os
+import sys
+import os
+
 
 def main():
     try:

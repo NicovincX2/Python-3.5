@@ -28,7 +28,8 @@ from deap import creator
 from deap import tools
 
 creator.create("FitnessMax", base.Fitness, weights=(1.0,))
-creator.create("Individual", array.array, typecode='b', fitness=creator.FitnessMax)
+creator.create("Individual", array.array, typecode='b',
+               fitness=creator.FitnessMax)
 
 toolbox = base.Toolbox()
 
@@ -37,8 +38,9 @@ toolbox.register("attr_bool", random.randint, 0, 1)
 
 # Structure initializers
 toolbox.register("individual", tools.initRepeat, creator.Individual,
-    toolbox.attr_bool, 100)
+                 toolbox.attr_bool, 100)
 toolbox.register("population", tools.initRepeat, list, toolbox.individual)
+
 
 def evalOneMax(individual):
     return sum(individual),
@@ -48,7 +50,8 @@ toolbox.register("mate", tools.cxTwoPoint)
 toolbox.register("mutate", tools.mutFlipBit, indpb=0.05)
 toolbox.register("select", tools.selTournament, tournsize=3)
 toolbox.register("migrate", tools.migRing, k=5, selection=tools.selBest,
-    replacement=random.sample)
+                 replacement=random.sample)
+
 
 def main():
     random.seed(64)
@@ -89,7 +92,8 @@ def main():
             for ind in invalid_ind:
                 ind.fitness.values = toolbox.evaluate(ind)
 
-            logbook.record(gen=gen, deme=idx, evals=len(deme), **stats.compile(deme))
+            logbook.record(gen=gen, deme=idx, evals=len(
+                deme), **stats.compile(deme))
             hof.update(deme)
         print(logbook.stream)
 

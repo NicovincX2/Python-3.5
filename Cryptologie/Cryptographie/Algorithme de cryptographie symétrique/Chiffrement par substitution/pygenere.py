@@ -90,7 +90,7 @@ class Caesar(str):
         for p in self:
             if p.isalpha():
                 ciphertext.append(chr((ord(p) - ord('Aa'[int(p.islower())]) +
-                shift) % 26 + ord('Aa'[int(p.islower())])))
+                                       shift) % 26 + ord('Aa'[int(p.islower())])))
             else:
                 ciphertext.append(p)
         return Caesar(''.join(ciphertext))
@@ -115,9 +115,9 @@ class Vigenere(str):
             p = self[i]
             if p.isalpha():
                 ciphertext.append(chr((ord(p) + ord(
-                (key[k % n].upper(), key[k % n].lower())[int(p.islower())]
-                ) - 2*ord('Aa'[int(p.islower())])) % 26 +
-                ord('Aa'[int(p.islower())])))
+                    (key[k % n].upper(), key[k % n].lower())[int(p.islower())]
+                ) - 2 * ord('Aa'[int(p.islower())])) % 26 +
+                    ord('Aa'[int(p.islower())])))
                 k += 1
             else:
                 ciphertext.append(p)
@@ -133,7 +133,7 @@ class Vigenere(str):
             c = self[i]
             if c.isalpha():
                 plaintext.append(chr((ord(c) - ord(
-                (key[k % n].upper(), key[k % n].lower())[int(c.islower())]
+                    (key[k % n].upper(), key[k % n].lower())[int(c.islower())]
                 )) % 26 + ord('Aa'[int(c.islower())])))
                 k += 1
             else:
@@ -172,58 +172,58 @@ class VigCrack(Vigenere):
     # Kappa is the "index of coincidence" described in the cryptography paper
     # (link above).
     __english_data = {
-                      'A':8.167, 'B':1.492, 'C':2.782, 'D':4.253, 'E':12.702,
-                      'F':2.228, 'G':2.015, 'H':6.094, 'I':6.996, 'J':0.153,
-                      'K':0.772, 'L':4.025, 'M':2.406, 'N':6.749, 'O':7.507,
-                      'P':1.929, 'Q':0.095, 'R':5.987, 'S':6.327, 'T':9.056,
-                      'U':2.758, 'V':0.978, 'W':2.360, 'X':0.150, 'Y':1.974,
-                      'Z':0.074, 'max_val':12.702, 'kappa':0.0667
-                     }
+        'A': 8.167, 'B': 1.492, 'C': 2.782, 'D': 4.253, 'E': 12.702,
+        'F': 2.228, 'G': 2.015, 'H': 6.094, 'I': 6.996, 'J': 0.153,
+        'K': 0.772, 'L': 4.025, 'M': 2.406, 'N': 6.749, 'O': 7.507,
+        'P': 1.929, 'Q': 0.095, 'R': 5.987, 'S': 6.327, 'T': 9.056,
+        'U': 2.758, 'V': 0.978, 'W': 2.360, 'X': 0.150, 'Y': 1.974,
+        'Z': 0.074, 'max_val': 12.702, 'kappa': 0.0667
+    }
 
     __french_data = {
-                     'A':8.11, 'B':0.903, 'C':3.49, 'D':4.27, 'E':17.22,
-                     'F':1.14, 'G':1.09, 'H':0.769, 'I':7.44, 'J':0.339,
-                     'K':0.097, 'L':5.53, 'M':2.89, 'N':7.46, 'O':5.38,
-                     'P':3.02, 'Q':0.999, 'R':7.05, 'S':8.04, 'T':6.99,
-                     'U':5.65, 'V':1.30, 'W':0.039, 'X':0.435, 'Y':0.271,
-                     'Z':0.098, 'max_val':17.22, 'kappa':0.0746
-                    }
+        'A': 8.11, 'B': 0.903, 'C': 3.49, 'D': 4.27, 'E': 17.22,
+        'F': 1.14, 'G': 1.09, 'H': 0.769, 'I': 7.44, 'J': 0.339,
+        'K': 0.097, 'L': 5.53, 'M': 2.89, 'N': 7.46, 'O': 5.38,
+        'P': 3.02, 'Q': 0.999, 'R': 7.05, 'S': 8.04, 'T': 6.99,
+        'U': 5.65, 'V': 1.30, 'W': 0.039, 'X': 0.435, 'Y': 0.271,
+        'Z': 0.098, 'max_val': 17.22, 'kappa': 0.0746
+    }
 
     __german_data = {
-                     'A':6.506, 'B':2.566, 'C':2.837, 'D':5.414, 'E':16.693,
-                     'F':2.044, 'G':3.647, 'H':4.064, 'I':7.812, 'J':0.191,
-                     'K':1.879, 'L':2.825, 'M':3.005, 'N':9.905, 'O':2.285,
-                     'P':0.944, 'Q':0.055, 'R':6.539, 'S':6.765, 'T':6.742,
-                     'U':3.703, 'V':1.069, 'W':1.396, 'X':0.022, 'Y':0.032,
-                     'Z':1.002, 'max_val':16.693, 'kappa':0.0767
-                    }
+        'A': 6.506, 'B': 2.566, 'C': 2.837, 'D': 5.414, 'E': 16.693,
+        'F': 2.044, 'G': 3.647, 'H': 4.064, 'I': 7.812, 'J': 0.191,
+        'K': 1.879, 'L': 2.825, 'M': 3.005, 'N': 9.905, 'O': 2.285,
+        'P': 0.944, 'Q': 0.055, 'R': 6.539, 'S': 6.765, 'T': 6.742,
+        'U': 3.703, 'V': 1.069, 'W': 1.396, 'X': 0.022, 'Y': 0.032,
+        'Z': 1.002, 'max_val': 16.693, 'kappa': 0.0767
+    }
 
     __italian_data = {
-                      'A':11.30, 'B':0.975, 'C':4.35, 'D':3.80, 'E':11.24,
-                      'F':1.09, 'G':1.73, 'H':1.02, 'I':11.57, 'J':0.035,
-                      'K':0.078, 'L':6.40, 'M':2.66, 'N':7.29, 'O':9.11,
-                      'P':2.89, 'Q':0.391, 'R':6.68, 'S':5.11, 'T':6.76,
-                      'U':3.18, 'V':1.52, 'W':0.00, 'X':0.024, 'Y':0.048,
-                      'Z':0.958, 'max_val':11.57, 'kappa':0.0733
-                     }
+        'A': 11.30, 'B': 0.975, 'C': 4.35, 'D': 3.80, 'E': 11.24,
+        'F': 1.09, 'G': 1.73, 'H': 1.02, 'I': 11.57, 'J': 0.035,
+        'K': 0.078, 'L': 6.40, 'M': 2.66, 'N': 7.29, 'O': 9.11,
+        'P': 2.89, 'Q': 0.391, 'R': 6.68, 'S': 5.11, 'T': 6.76,
+        'U': 3.18, 'V': 1.52, 'W': 0.00, 'X': 0.024, 'Y': 0.048,
+        'Z': 0.958, 'max_val': 11.57, 'kappa': 0.0733
+    }
 
     __portuguese_data = {
-                         'A':13.89, 'B':0.980, 'C':4.18, 'D':5.24, 'E':12.72,
-                         'F':1.01, 'G':1.17, 'H':0.905, 'I':6.70, 'J':0.317,
-                         'K':0.0174, 'L':2.76, 'M':4.54, 'N':5.37, 'O':10.90,
-                         'P':2.74, 'Q':1.06, 'R':6.67, 'S':7.90, 'T':4.63,
-                         'U':4.05, 'V':1.55, 'W':0.0104, 'X':0.272, 'Y':0.0165,
-                         'Z':0.400, 'max_val':13.89, 'kappa':0.0745
-                        }
+        'A': 13.89, 'B': 0.980, 'C': 4.18, 'D': 5.24, 'E': 12.72,
+        'F': 1.01, 'G': 1.17, 'H': 0.905, 'I': 6.70, 'J': 0.317,
+        'K': 0.0174, 'L': 2.76, 'M': 4.54, 'N': 5.37, 'O': 10.90,
+        'P': 2.74, 'Q': 1.06, 'R': 6.67, 'S': 7.90, 'T': 4.63,
+        'U': 4.05, 'V': 1.55, 'W': 0.0104, 'X': 0.272, 'Y': 0.0165,
+        'Z': 0.400, 'max_val': 13.89, 'kappa': 0.0745
+    }
 
     __spanish_data = {
-                      'A':12.09, 'B':1.21, 'C':4.20, 'D':4.65, 'E':13.89,
-                      'F':0.642, 'G':1.11, 'H':1.13, 'I':6.38, 'J':0.461,
-                      'K':0.038, 'L':5.19, 'M':2.86, 'N':7.23, 'O':9.58,
-                      'P':2.74, 'Q':1.37, 'R':6.14, 'S':7.43, 'T':4.49,
-                      'U':4.53, 'V':1.05, 'W':0.011, 'X':0.124, 'Y':1.14,
-                      'Z':0.324, 'max_val':13.89, 'kappa':0.0766
-                     }
+        'A': 12.09, 'B': 1.21, 'C': 4.20, 'D': 4.65, 'E': 13.89,
+        'F': 0.642, 'G': 1.11, 'H': 1.13, 'I': 6.38, 'J': 0.461,
+        'K': 0.038, 'L': 5.19, 'M': 2.86, 'N': 7.23, 'O': 9.58,
+        'P': 2.74, 'Q': 1.37, 'R': 6.14, 'S': 7.43, 'T': 4.49,
+        'U': 4.53, 'V': 1.05, 'W': 0.011, 'X': 0.124, 'Y': 1.14,
+        'Z': 0.324, 'max_val': 13.89, 'kappa': 0.0766
+    }
 
     # The default language is set to English.
     __lang = 'EN'
@@ -273,9 +273,9 @@ class VigCrack(Vigenere):
         v = dictionary.values()
         v.sort()
         max_val = v[-1]
-        scaling_factor = self.__lang_data['max_val']/max_val
+        scaling_factor = self.__lang_data['max_val'] / max_val
         for (k, v) in dictionary.items():
-            dictionary[k] = v*scaling_factor
+            dictionary[k] = v * scaling_factor
         return dictionary
 
     # The residual error is the difference between a char's frequency in
@@ -318,7 +318,7 @@ class VigCrack(Vigenere):
             for j in range(len(self)):
                 if temp[j] == self[j]:
                     coincidences += 1
-            kappas.append(float(coincidences)/len(self))
+            kappas.append(float(coincidences) / len(self))
         # Find out which value of kappa is closest to the kappa of the
         # plaintext's language.  If there's a tie, the shortest codeword wins.
         smallest_squared_diff = -1

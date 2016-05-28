@@ -43,12 +43,14 @@ toolbox.register("attr_bool", random.randint, 0, 1)
 #                         define 'individual' to be an individual
 #                         consisting of 100 'attr_bool' elements ('genes')
 toolbox.register("individual", tools.initRepeat, creator.Individual,
-    toolbox.attr_bool, 100)
+                 toolbox.attr_bool, 100)
 
 # define the population to be a list of individuals
 toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
 # the goal ('fitness') function to be maximized
+
+
 def evalOneMax(individual):
     return sum(individual),
 
@@ -72,6 +74,7 @@ toolbox.register("mutate", tools.mutFlipBit, indpb=0.05)
 toolbox.register("select", tools.selTournament, tournsize=3)
 
 #----------
+
 
 def main():
     random.seed(64)
@@ -142,7 +145,7 @@ def main():
 
         length = len(pop)
         mean = sum(fits) / length
-        sum2 = sum(x*x for x in fits)
+        sum2 = sum(x * x for x in fits)
         std = abs(sum2 / length - mean**2)**0.5
 
         print("  Min %s" % min(fits))

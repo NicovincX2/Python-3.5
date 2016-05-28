@@ -11,6 +11,7 @@ How many starting numbers below ten million will arrive at 89?
 
 import os
 
+
 def calculate_chain(n):
     n_str = str(n)
     while n_str != 1 or n_str != 89:
@@ -23,22 +24,24 @@ def calculate_chain(n):
             return 1
         if n_str == 1:
             return 0
-        
+
+
 def square_dig_chains(n):
     count = 0
-    for i in range(1, n+1):
+    for i in range(1, n + 1):
         count += calculate_chain(i)
     return count
 
+
 def main():
     import time
-    start = time.time() 
+    start = time.time()
 
     print(square_dig_chains(10**7))
-    
+
     elapsed = (time.time() - start)
-    print('Tests Passed!\n It took %s seconds to run them.' % (elapsed))   
-                   
+    print('Tests Passed!\n It took %s seconds to run them.' % (elapsed))
+
 if __name__ == '__main__':
     main()
 

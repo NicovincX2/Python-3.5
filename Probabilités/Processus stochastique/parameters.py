@@ -8,6 +8,7 @@ import scipy.linalg
 import numpy.random as nrand
 import matplotlib.pyplot as plt
 
+
 class ModelParameters:
     """
     Encapsulates model parameters
@@ -23,7 +24,8 @@ class ModelParameters:
         self.all_s0 = all_s0
         # This is the amount of time to simulate for
         self.all_time = all_time
-        # This is the delta, the rate of time e.g. 1/252 = daily, 1/12 = monthly
+        # This is the delta, the rate of time e.g. 1/252 = daily, 1/12 =
+        # monthly
         self.all_delta = all_delta
         # This is the volatility of the stochastic processes
         self.all_sigma = all_sigma
@@ -41,7 +43,8 @@ class ModelParameters:
         self.cir_mu = cir_mu
         # This is the starting interest rate value
         self.all_r0 = all_r0
-        # This is the correlation between the wiener processes of the Heston model
+        # This is the correlation between the wiener processes of the Heston
+        # model
         self.cir_rho = cir_rho
         # This is the rate of mean reversion for Ornstein Uhlenbeck
         self.ou_a = ou_a
@@ -74,6 +77,7 @@ mp = ModelParameters(all_s0=1000,
 
 paths = 15
 
+
 def plot_stochastic_processes(processes, title):
     """
     This method plots a list of stochastic processes with a specified title
@@ -88,7 +92,8 @@ def plot_stochastic_processes(processes, title):
     for i in range(len(processes)):
         plt.plot(x_axis, processes[i])
     plt.show()
-    
+
+
 def convert_to_returns(log_returns):
     """
     This method exponentiates a sequence of log returns to get daily returns.

@@ -11,15 +11,20 @@ Algorithm :
    of this prime number which are bigger than the number itself as non-primes.
 """
 
-from math import sqrt,ceil
+from math import sqrt, ceil
+
 
 def generate_primes(n):
-    bool_array = [False, False] + [True] * n              # start with all values as True, except 0 and 1
+    # start with all values as True, except 0 and 1
+    bool_array = [False, False] + [True] * n
     for i in range(2, int(ceil(sqrt(n)))):                # only go to till square root of n
         if bool_array[i]:                                 # if the number is marked as prime
-            for j in range(i*i,n+1,i):                    # iterate through all its multiples
-                bool_array[j] = False                     # and mark them as False
-    primes = [i for i in range(n+1) if bool_array[i]]     # return all numbers which are marked as True
+            # iterate through all its multiples
+            for j in range(i * i, n + 1, i):
+                # and mark them as False
+                bool_array[j] = False
+    # return all numbers which are marked as True
+    primes = [i for i in range(n + 1) if bool_array[i]]
     return primes
 
 os.system("pause")

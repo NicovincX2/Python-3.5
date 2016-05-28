@@ -2,6 +2,7 @@
 
 import os
 
+
 def hash_value(s, base):
     """Calculate the hash value of a string using base.
     Example: 'abc' = 97 x base^2 + 98 x base^1 + 99 x base^0
@@ -10,8 +11,8 @@ def hash_value(s, base):
     @return hash value
     """
     v = 0
-    p = len(s)-1
-    for i in range(p+1):
+    p = len(s) - 1
+    for i in range(p + 1):
         v += ord(s[i]) * (base ** p)
         p -= 1
 

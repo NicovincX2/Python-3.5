@@ -31,7 +31,7 @@ ax.set_ylabel(r"$y$", fontsize=18)
 ax.set_xlabel(r"$x$", fontsize=18)
 
 fig.tight_layout()
-fig.savefig('ch7-spline-interpolation-runge.pdf');
+fig.savefig('ch7-spline-interpolation-runge.pdf')
 
 x = np.array([0, 1, 2, 3, 4, 5, 6, 7])
 
@@ -52,7 +52,6 @@ ax.set_ylabel(r"$y$", fontsize=18)
 ax.set_xlabel(r"$x$", fontsize=18)
 
 fig.tight_layout()
-fig.savefig('ch7-spline-interpolation-orders.pdf');
+fig.savefig('ch7-spline-interpolation-orders.pdf')
 
 os.system("pause")
-

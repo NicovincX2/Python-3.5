@@ -3,6 +3,7 @@
 import os
 from random import Random
 
+
 class BloomFilter:
     # http://en.wikipedia.org/wiki/Bloom_filter
 
@@ -19,10 +20,10 @@ class BloomFilter:
     def update(self, keys):
         for key in keys:
             for i in self.get_probes(key):
-                self.array[i//8] |= 2 ** (i%8)
+                self.array[i // 8] |= 2 ** (i % 8)
 
     def __contains__(self, key):
-        return all(self.array[i//8] & (2 ** (i%8)) for i in self.get_probes(key))
+        return all(self.array[i // 8] & (2 ** (i % 8)) for i in self.get_probes(key))
 
 
 ##  Sample application  ##############################################
@@ -43,6 +44,7 @@ class SpellChecker(BloomFilter):
 
 from hashlib import sha224, sha256
 
+
 class BloomFilter_4k(BloomFilter):
     # 4Kb (2**15 bins) 13 probes. Holds 1,700 entries with 1 error per 10,000.
 
@@ -55,8 +57,10 @@ class BloomFilter_4k(BloomFilter):
             yield h & 32767     # 2 ** 15 - 1
             h >>= 15
 
+
 class BloomFilter_32k(BloomFilter):
-    # 32kb (2**18 bins), 13 probes. Holds 13,600 entries with 1 error per 10,000.
+    # 32kb (2**18 bins), 13 probes. Holds 13,600 entries with 1 error per
+    # 10,000.
 
     def __init__(self, iterable=()):
         BloomFilter.__init__(self, 32 * 1024, 13, iterable)
@@ -70,7 +74,7 @@ class BloomFilter_32k(BloomFilter):
 
 if __name__ == '__main__':
 
-    ## Compute effectiveness statistics for a 125 byte filter with 50 entries
+    # Compute effectiveness statistics for a 125 byte filter with 50 entries
 
     from random import sample
     from string import ascii_letters
@@ -87,24 +91,24 @@ if __name__ == '__main__':
 
     m = sum(state in bf for state in states)
     print('%d true positives and %d false negatives out of %d positive trials'
-          % (m, len(states)-m, len(states)))
+          % (m, len(states) - m, len(states)))
 
     trials = 100000
     m = sum(''.join(sample(ascii_letters, 8)) in bf for i in range(trials))
     print('%d true negatives and %d false positives out of %d negative trials'
-          % (trials-m, m, trials))
+          % (trials - m, m, trials))
 
     c = ''.join(format(x, '08b') for x in bf.array)
     print('Bit density:', c.count('1') / float(len(c)))
 
-
-    ## Demonstrate a simple spell checker using a 125,000 word English wordlist
+    # Demonstrate a simple spell checker using a 125,000 word English wordlist
 
     from glob import glob
     from pprint import pprint
 
     # Use the GNU ispell wordlist found at http://bit.ly/english_dictionary
-    checker = SpellChecker(glob('/Users/raymondhettinger/dictionary/english.?'))
+    checker = SpellChecker(
+        glob('/Users/raymondhettinger/dictionary/english.?'))
     pprint(checker.find_misspellings('''
         All the werldz a stage
         And all the mehn and wwomen merrely players

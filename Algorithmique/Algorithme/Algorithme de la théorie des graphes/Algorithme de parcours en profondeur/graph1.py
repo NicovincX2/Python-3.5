@@ -2,6 +2,7 @@
 
 # Adjacency list Graph Implementation
 
+
 class Graph:
 
     def __init__(self):
@@ -26,7 +27,6 @@ class Graph:
         if from_v not in self.edges[to_v]:
             self.edges[to_v].append(from_v)
 
-
     def isEdge(self, from_v, to_v):
         """Determines whether edge exists"""
 
@@ -37,14 +37,14 @@ class Graph:
 
         return to_v in self.edges[from_v]
 
-simple = {1 : [2, 3, 5],
-          2 : [1, 4],
-          3 : [1],
-          4 : [2, 5],
-          5 : [1, 4] }
+simple = {1: [2, 3, 5],
+          2: [1, 4],
+          3: [1],
+          4: [2, 5],
+          5: [1, 4]}
 
-            
-def loadGraph (edges):
+
+def loadGraph(edges):
     """Create a graph instance"""
 
     g = Graph()
@@ -56,8 +56,9 @@ def loadGraph (edges):
     return g
 
 White = 0
-Gray  = 1
+Gray = 1
 Black = 2
+
 
 class DepthFirstTraversal:
 
@@ -67,11 +68,11 @@ class DepthFirstTraversal:
         self.graph = graph
         self.start = s
         self.color = {}
-        self.pred  = {}
+        self.pred = {}
 
         for v in graph.edges:
             self.color[v] = White
-            self.pred[v]  = None
+            self.pred[v] = None
 
         self.dfs_visit(s)
 
@@ -84,7 +85,7 @@ class DepthFirstTraversal:
             if self.color[v] is White:
                 self.pred[v] = u
                 self.dfs_visit(v)
-                
+
         self.color[u] = Black
 
     def solution(self, v):
@@ -103,11 +104,10 @@ class DepthFirstTraversal:
             path.insert(0, v)
 
         return path
-        
+
 """
 Change Log
 
 1. 2014.05.23   Typo in name for 'DepthFirstTraversal'
 
 """
-

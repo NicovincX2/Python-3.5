@@ -63,9 +63,11 @@ creator.create("Individual", gp.PrimitiveTree, fitness=creator.FitnessMax)
 
 toolbox = base.Toolbox()
 toolbox.register("expr", gp.genFull, pset=pset, min_=3, max_=5)
-toolbox.register("individual", tools.initIterate, creator.Individual, toolbox.expr)
+toolbox.register("individual", tools.initIterate,
+                 creator.Individual, toolbox.expr)
 toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 toolbox.register("compile", gp.compile, pset=pset)
+
 
 def evalParity(individual):
     func = toolbox.compile(expr=individual)
@@ -76,6 +78,7 @@ toolbox.register("select", tools.selTournament, tournsize=3)
 toolbox.register("mate", gp.cxOnePoint)
 toolbox.register("expr_mut", gp.genGrow, min_=0, max_=2)
 toolbox.register("mutate", gp.mutUniform, expr=toolbox.expr_mut, pset=pset)
+
 
 def main():
     random.seed(21)

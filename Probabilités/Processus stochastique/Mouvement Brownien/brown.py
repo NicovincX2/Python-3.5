@@ -3,6 +3,7 @@
 import os
 import parameters
 
+
 def brownian_motion_log_returns(param):
     """
     This method returns a Wiener process. The Wiener process is also called Brownian motion. For more information
@@ -12,6 +13,7 @@ def brownian_motion_log_returns(param):
     """
     sqrt_delta_sigma = math.sqrt(param.all_delta) * param.all_sigma
     return nrand.normal(loc=0, scale=sqrt_delta_sigma, size=param.all_time)
+
 
 def brownian_motion_levels(param):
     """
@@ -25,5 +27,5 @@ brownian_motion_examples = []
 for i in range(paths):
     brownian_motion_examples.append(brownian_motion_levels(mp))
 plot_stochastic_processes(brownian_motion_examples, "Brownian Motion")
-    
+
 os.system("pause")

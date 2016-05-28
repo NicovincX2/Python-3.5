@@ -18,7 +18,7 @@ true = erf(1)
 
 def f(y):
     """ integrand """
-    return (2.0/math.sqrt(math.pi))*math.exp(-y**2)
+    return (2.0 / math.sqrt(math.pi)) * math.exp(-y**2)
 
 
 def x(z, a, b):
@@ -26,7 +26,7 @@ def x(z, a, b):
         to [a, b] (our general range) through a change of variables z
         -> x """
 
-    return 0.5*(b + a) + 0.5*(b - a)*z
+    return 0.5 * (b + a) + 0.5 * (b - a) * z
 
 
 # integration limits
@@ -39,10 +39,11 @@ delta = 0.5
 
 
 # trapezoidal
-trap = 0.5*delta*(f(a) + f(0.5*(a+b))) + 0.5*delta*(f(0.5*(a+b)) + f(b))
+trap = 0.5 * delta * (f(a) + f(0.5 * (a + b))) + 0.5 * \
+    delta * (f(0.5 * (a + b)) + f(b))
 
 # Simpson's
-simp = (delta/3.0)*(f(a) + 4.0*f(0.5*(a+b)) + f(b))
+simp = (delta / 3.0) * (f(a) + 4.0 * f(0.5 * (a + b)) + f(b))
 
 
 # Gauss-Legendre
@@ -51,25 +52,25 @@ simp = (delta/3.0)*(f(a) + 4.0*f(0.5*(a+b)) + f(b))
 # found) to [a, b] (the range in which our integrand is defined), so
 # convert the roots z1, z2, and z3
 
-z1 = -math.sqrt(3./5.)
+z1 = -math.sqrt(3. / 5.)
 x1 = x(z1, a, b)
-w1 = 5./9.
+w1 = 5. / 9.
 
 z2 = 0
 x2 = x(z2, a, b)
-w2 = 8./9.
+w2 = 8. / 9.
 
-z3 = math.sqrt(3./5.)
+z3 = math.sqrt(3. / 5.)
 x3 = x(z3, a, b)
-w3 = 5./9.
+w3 = 5. / 9.
 
 # 3-point Gauss-Legendre quadrature -- note the factor in the front
 # is a result of the change of variables from x -> z
-integral = 0.5*(b-a)*( w1*f(x1) + w2*f(x2) + w3*f(x3) )
+integral = 0.5 * (b - a) * (w1 * f(x1) + w2 * f(x2) + w3 * f(x3))
 
-print "erf(1) (exact):         ", true
-print "3-point trapezoidal:    ", trap, trap-true
-print "3-point Simpson's:      ", simp, simp-true
-print "3-point Gauss-Legendre: ", integral, integral-true
+print("erf(1) (exact):         ", true)
+print("3-point trapezoidal:    ", trap, trap - true)
+print("3-point Simpson's:      ", simp, simp - true)
+print("3-point Gauss-Legendre: ", integral, integral - true)
 
 os.system("pause")

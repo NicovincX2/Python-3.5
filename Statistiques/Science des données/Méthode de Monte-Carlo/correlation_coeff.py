@@ -13,13 +13,14 @@ colors = seaborn.color_palette()
 r_empirical = 0.4
 
 # Simulate two IID normal variables
-k = 10000 # number of sims
-n = 30 # sample size
+k = 10000  # number of sims
+n = 30  # sample size
 s1_sim = randn(k, n)
 s2_sim = randn(k, n)
 
 # Compute the correlation coefficient for each sample
-r_dist = array(map(stats.pearsonr, s1_sim, s2_sim))[:, 0] # Take first column (r values)
+r_dist = array(map(stats.pearsonr, s1_sim, s2_sim))[
+    :, 0]  # Take first column (r values)
 
 # Plot the distribution of coefficients obtained this way
 bar(*utils.pmf_hist(r_dist, 100), color=colors[4])
@@ -35,7 +36,6 @@ axvline(r_empirical, color=colors[0], linewidth=3)
 p = sum(abs(r_empirical) > abs(r_dist)) / k
 xpos = xlim()[0] * .95
 ypos = ylim()[1] * .95
-text(xpos, ypos, "$H_0$ is false with probability %.3f" % p, size=12);
+text(xpos, ypos, "$H_0$ is false with probability %.3f" % p, size=12)
 
 os.system("pause")
-

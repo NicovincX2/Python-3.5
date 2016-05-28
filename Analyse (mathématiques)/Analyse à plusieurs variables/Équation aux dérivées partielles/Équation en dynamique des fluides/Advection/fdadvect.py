@@ -7,13 +7,14 @@ import os
 # We are solving a_t + u a_x = 0
 #
 # The FTCS discretization is: anew = aold + (C/2) (aold_{i+1} - aold_{i-1})
-# 
+#
 # where C is the CFL number
 #
 # M. Zingale (2013-03-12)
 
 import numpy
 import pylab
+
 
 class FDgrid:
 
@@ -27,23 +28,23 @@ class FDgrid:
         # python is zero-based.  Make easy intergers to know where the
         # real data lives
         self.ilo = ng
-        self.ihi = ng+nx-1
+        self.ihi = ng + nx - 1
 
         # physical coords
-        self.dx = (xmax - xmin)/(nx-1)
-        self.x = xmin + (numpy.arange(nx+2*ng)-ng)*self.dx
+        self.dx = (xmax - xmin) / (nx - 1)
+        self.x = xmin + (numpy.arange(nx + 2 * ng) - ng) * self.dx
 
         # storage for the solution
-        self.a = numpy.zeros((nx+2*ng), dtype=numpy.float64)
+        self.a = numpy.zeros((nx + 2 * ng), dtype=numpy.float64)
 
     def scratchArray(self):
         """ return a scratch array dimensioned for our grid """
-        return numpy.zeros((self.nx+2*self.ng), dtype=numpy.float64)
+        return numpy.zeros((self.nx + 2 * self.ng), dtype=numpy.float64)
 
     def fillBCs(self):
         """ fill the a single ghostcell with periodic boundary conditions """
-        self.a[self.ilo-1] = self.a[self.ihi-1]
-        self.a[self.ihi+1] = self.a[self.ilo+1]
+        self.a[self.ilo - 1] = self.a[self.ihi - 1]
+        self.a[self.ihi + 1] = self.a[self.ilo + 1]
 
 # create the grid
 nx = 65
@@ -55,9 +56,9 @@ C = 0.9
 u = 1.0
 
 # time info
-dt = C*g.dx/u
+dt = C * g.dx / u
 t = 0.0
-tmax = 1.0*(g.xmax - g.xmin)/u
+tmax = 1.0 * (g.xmax - g.xmin) / u
 
 # initialize the data -- tophat
 g.a[numpy.logical_and(g.x >= 0.333, g.x <= 0.666)] = 1.0
@@ -78,13 +79,13 @@ while (t < tmax):
     # But this is more general
     i = g.ilo
     while (i <= g.ihi):
-        
+
         # FTCS
         #anew[i] = g.a[i] - 0.5*C*(g.a[i+1] - g.a[i-1])
 
         # upwind
-        anew[i] = g.a[i] - C*(g.a[i] - g.a[i-1])
-                
+        anew[i] = g.a[i] - C * (g.a[i] - g.a[i - 1])
+
         i += 1
 
     # store the updated solution
@@ -92,8 +93,8 @@ while (t < tmax):
 
     t += dt
 
-pylab.plot(g.x[g.ilo:g.ihi+1], ainit[g.ilo:g.ihi+1], ls=":")
-pylab.plot(g.x[g.ilo:g.ihi+1], g.a[g.ilo:g.ihi+1])
+pylab.plot(g.x[g.ilo:g.ihi + 1], ainit[g.ilo:g.ihi + 1], ls=":")
+pylab.plot(g.x[g.ilo:g.ihi + 1], g.a[g.ilo:g.ihi + 1])
 pylab.savefig("fdadvect.png")
 
 os.system("pause")

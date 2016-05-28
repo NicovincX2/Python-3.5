@@ -27,7 +27,9 @@ from deap import base
 from deap import creator
 from deap import tools
 
+
 class PBIL(object):
+
     def __init__(self, ndim, learning_rate, mut_prob, mut_shift, lambda_):
         self.prob_vector = [0.5] * ndim
         self.learning_rate = learning_rate
@@ -54,21 +56,24 @@ class PBIL(object):
                 self.prob_vector[i] *= 1.0 - self.mut_shift
                 self.prob_vector[i] += random.randint(0, 1) * self.mut_shift
 
+
 def evalOneMax(individual):
     return sum(individual),
 
 creator.create("FitnessMax", base.Fitness, weights=(1.0,))
-creator.create("Individual", array.array, typecode='b', fitness=creator.FitnessMax)
+creator.create("Individual", array.array, typecode='b',
+               fitness=creator.FitnessMax)
 
 toolbox = base.Toolbox()
 toolbox.register("evaluate", evalOneMax)
+
 
 def main(seed):
     random.seed(seed)
 
     NGEN = 50
 
-    #Initialize the PBIL EDA
+    # Initialize the PBIL EDA
     pbil = PBIL(ndim=50, learning_rate=0.3, mut_prob=0.1,
                 mut_shift=0.05, lambda_=20)
 
@@ -82,7 +87,8 @@ def main(seed):
     stats.register("min", numpy.min)
     stats.register("max", numpy.max)
 
-    pop, logbook = algorithms.eaGenerateUpdate(toolbox, NGEN, stats=stats, verbose=True)
+    pop, logbook = algorithms.eaGenerateUpdate(
+        toolbox, NGEN, stats=stats, verbose=True)
 
 if __name__ == "__main__":
     main(seed=None)

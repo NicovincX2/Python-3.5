@@ -3,7 +3,7 @@
 import os
 import ast
 
-expr="2 * (3 -1) + 2 * 5"
+expr = "2 * (3 -1) + 2 * 5"
 node = ast.parse(expr, mode='eval')
 print(ast.dump(node).replace(',', ',\n'))
 

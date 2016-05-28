@@ -30,8 +30,10 @@ from deap import tools
 from deap import gp
 
 # Define new functions
+
+
 def protectedDiv(left, right):
-    with numpy.errstate(divide='ignore',invalid='ignore'):
+    with numpy.errstate(divide='ignore', invalid='ignore'):
         x = numpy.divide(left, right)
         if isinstance(x, numpy.ndarray):
             x[numpy.isinf(x)] = 1
@@ -48,7 +50,7 @@ pset.addPrimitive(protectedDiv, 2)
 pset.addPrimitive(numpy.negative, 1, name="vneg")
 pset.addPrimitive(numpy.cos, 1, name="vcos")
 pset.addPrimitive(numpy.sin, 1, name="vsin")
-pset.addEphemeralConstant("rand101", lambda: random.randint(-1,1))
+pset.addEphemeralConstant("rand101", lambda: random.randint(-1, 1))
 pset.renameArguments(ARG0='x')
 
 creator.create("FitnessMin", base.Fitness, weights=(-1.0,))
@@ -56,12 +58,14 @@ creator.create("Individual", gp.PrimitiveTree, fitness=creator.FitnessMin)
 
 toolbox = base.Toolbox()
 toolbox.register("expr", gp.genHalfAndHalf, pset=pset, min_=1, max_=2)
-toolbox.register("individual", tools.initIterate, creator.Individual, toolbox.expr)
+toolbox.register("individual", tools.initIterate,
+                 creator.Individual, toolbox.expr)
 toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 toolbox.register("compile", gp.compile, pset=pset)
 
 samples = numpy.linspace(-1, 1, 10000)
 values = samples**4 + samples**3 + samples**2 + samples
+
 
 def evalSymbReg(individual):
     # Transform the tree expression in a callable function
@@ -76,6 +80,7 @@ toolbox.register("select", tools.selTournament, tournsize=3)
 toolbox.register("mate", gp.cxOnePoint)
 toolbox.register("expr_mut", gp.genFull, min_=0, max_=2)
 toolbox.register('mutate', gp.mutUniform, expr=toolbox.expr_mut, pset=pset)
+
 
 def main():
     random.seed(318)

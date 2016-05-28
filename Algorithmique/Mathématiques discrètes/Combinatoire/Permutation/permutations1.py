@@ -2,6 +2,7 @@
 
 import os
 
+
 def permutations1(l):
     """Generator for list permutations.
     @param l list to generate permutations for
@@ -24,7 +25,7 @@ def permutations1(l):
     else:
         a = [l.pop(0)]
         for p in permutations1(l):
-            for i in range(len(p)+1):
+            for i in range(len(p) + 1):
                 yield p[:i] + a + p[i:]
 
 if __name__ == '__main__':

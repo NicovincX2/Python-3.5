@@ -2,6 +2,7 @@
 
 import os
 
+
 def fib_gen(n):
     """Generator for Fibonacci serie.
     Example: for i in fib_gen(5): print i
@@ -14,9 +15,10 @@ def fib_gen(n):
     i = 0
     while i < n - 1:
         yield b
-        a, b = b, a+b
+        a, b = b, a + b
         i += 1
 
-for i in fib_gen(5): print (i)
+for i in fib_gen(5):
+    print(i)
 
 os.system("pause")

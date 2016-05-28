@@ -15,47 +15,53 @@ How many Sundays fell on the first of the month during the twentieth century (1 
 
 import os
 
+
 def find_if_leap_year(y):
-    if (y%4 == 0 and y%100 != 0) or (y%400 == 0):
+    if (y % 4 == 0 and y % 100 != 0) or (y % 400 == 0):
         return True
     return False
-   
+
+
 def counting_sundays():
     ''' define variables '''
-    days_year = 7*31 + 4*30 + 28
-    count_sundays = 0  
-    days_week = 7 
-    dict_week = {0: 'mon', 1:'tue', 2:'wed', 3:'thu', 4:'fri', 5:'sat', 6:'sun'} 
-       
+    days_year = 7 * 31 + 4 * 30 + 28
+    count_sundays = 0
+    days_week = 7
+    dict_week = {0: 'mon', 1: 'tue', 2: 'wed',
+                 3: 'thu', 4: 'fri', 5: 'sat', 6: 'sun'}
+
     ''' with info from 1900 find first day for 1901 '''
-    first_day = days_year%days_week  # not a leap year
-   
-    for y in range (1901, 2001):
+    first_day = days_year % days_week  # not a leap year
+
+    for y in range(1901, 2001):
         leap_year = find_if_leap_year(y)
         days_count = first_day
-               
+
         for m in range(1, 13):
-            if days_count%7 == 6:
-                count_sundays += 1             
+            if days_count % 7 == 6:
+                count_sundays += 1
             if m == 2:
                 if leap_year:
                     days_count += 29
-                else: 
+                else:
                     days_count += 28
             elif m == 4 or m == 6 or m == 9 or m == 11:
                 days_count += 30
             else:
-                days_count += 31                  
-                 
-        if leap_year: first_day = (first_day +2)%days_week
-        else: first_day = (first_day +1)%days_week
-           
+                days_count += 31
+
+        if leap_year:
+            first_day = (first_day + 2) % days_week
+        else:
+            first_day = (first_day + 1) % days_week
+
     return count_sundays
-    
+
+
 def main():
     print(counting_sundays())
     print('Tests Passed!')
-                   
+
 if __name__ == '__main__':
     main()
 

@@ -2,16 +2,18 @@
 
 import os
 
+
 def quickSelect(seq, k):
     # this part is the same as quick sort
     len_seq = len(seq)
-    if len_seq < 2: return seq
+    if len_seq < 2:
+        return seq
 
     ipivot = len_seq // 2
     pivot = seq[ipivot]
 
-    smallerList = [x for i,x in enumerate(seq) if x <= pivot and  i != ipivot]
-    largerList = [x for i,x in enumerate(seq) if x > pivot and  i != ipivot]
+    smallerList = [x for i, x in enumerate(seq) if x <= pivot and i != ipivot]
+    largerList = [x for i, x in enumerate(seq) if x > pivot and i != ipivot]
 
     # here starts the different part
     m = len(smallerList)
@@ -20,7 +22,7 @@ def quickSelect(seq, k):
     elif k < m:
         return quickSelect(smallerList, k)
     else:
-        return quickSelect(largerList, k-m)
+        return quickSelect(largerList, k - m)
 
 if __name__ == '__main__':
     # Checking the Answer
@@ -33,6 +35,6 @@ if __name__ == '__main__':
     # even arrays is the mean of the two middle elements
     print(quickSelect(seq, k))
     import numpy as numpy
-    print (numpy.median(seq))
+    print(numpy.median(seq))
 
 os.system("pause")

@@ -3,7 +3,9 @@
 import os
 
 from operator import mul
-def comb(n,r):
+
+
+def comb(n, r):
     ''' calculate nCr - the binomial coefficient
     >>> comb(3,2)
     3
@@ -14,10 +16,10 @@ def comb(n,r):
     >>> comb(20,14)
     38760
     '''
- 
-    if r > n-r:  # for smaller intermediate values
-        r = n-r
-    return int( reduce( mul, range((n-r+1), n+1), 1) /
-      reduce( mul, range(1,r+1), 1) )
+
+    if r > n - r:  # for smaller intermediate values
+        r = n - r
+    return int(reduce(mul, range((n - r + 1), n + 1), 1) /
+               reduce(mul, range(1, r + 1), 1))
 
 os.system("pause")

@@ -7,9 +7,10 @@ import os
 import random
 from time import time
 
+
 class BinaryNode:
 
-    def __init__(self, value = None):
+    def __init__(self, value=None):
         """Create binary node"""
         self.value = value
         self.left = None
@@ -27,7 +28,7 @@ class BinaryNode:
                 self.right.add(val)
             else:
                 self.right = BinaryNode(val)
-                
+
     def delete(self):
         """
          Remove value of self from BinaryTree. Works in conjunction with remove
@@ -67,12 +68,13 @@ class BinaryNode:
             for n in self.right.inorder():
                 yield n
 
+
 class BinaryTree:
 
     def __init__(self):
         """Create empty binary tree"""
         self.root = None
-        
+
     def add(self, value):
         """Insert value into proper location in Binary Tree"""
         if self.root is None:
@@ -91,12 +93,12 @@ class BinaryTree:
                 node = node.left
             else:
                 node = node.right
-                
+
         return False
 
     def remove(self, value):
         """Remove value from tree"""
-        
+
         if self.root:
             self.root = self.removeFromParent(self.root, value)
 
@@ -104,7 +106,7 @@ class BinaryTree:
         """remove value from tree rooted at parent"""
         if parent is None:
             return None
-    
+
         if value == parent.value:
             return parent.delete()
         elif value < parent.value:
@@ -119,6 +121,7 @@ class BinaryTree:
         if self.root:
             return self.root.inorder()
 
+
 def performance():
     """Demonstrate execution performance"""
     n = 1024
@@ -126,11 +129,11 @@ def performance():
 
         bt = BinaryTree()
         for i in range(n):
-            bt.add(random.randint(1,n))
-        
+            bt.add(random.randint(1, n))
+
         now = time()
-        bt.contains(random.randint(1,n))
-        print (n, (time() - now)*1000)
+        bt.contains(random.randint(1, n))
+        print(n, (time() - now) * 1000)
 
         n *= 2
 
@@ -145,5 +148,3 @@ Change Log
 """
 
 os.system("pause")
-
-

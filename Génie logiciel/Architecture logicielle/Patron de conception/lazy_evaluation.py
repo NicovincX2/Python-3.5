@@ -22,6 +22,7 @@ def lazy_property(fn):
 
 
 class Person(object):
+
     def __init__(self, name, occupation):
         self.name = name
         self.occupation = occupation

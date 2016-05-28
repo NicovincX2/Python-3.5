@@ -6,6 +6,7 @@ import stat
 import sys
 import tempfile
 
+
 @contextlib.contextmanager
 def atomic_write(filename, text=True, keep=True,
                  owner=None, group=None, perms=None,
@@ -57,7 +58,8 @@ def atomic_write(filename, text=True, keep=True,
         if mod is None:
             mod = stat.S_IMODE(info.st_mode)
     path = os.path.dirname(filename)
-    fd, tmp = tempfile.mkstemp(suffix=suffix, prefix=prefix, dir=path, text=text)
+    fd, tmp = tempfile.mkstemp(
+        suffix=suffix, prefix=prefix, dir=path, text=text)
     try:
         replace = os.replace  # Python 3.3 and better.
     except AttributeError:
@@ -80,7 +82,7 @@ def atomic_write(filename, text=True, keep=True,
     try:
         with os.fdopen(fd, 'w' if text else 'wb') as f:
             yield f
-        # Perform an atomic rename (if possible). This will be atomic on 
+        # Perform an atomic rename (if possible). This will be atomic on
         # POSIX systems, and Windows for Python 3.3 or higher.
         replace(tmp, filename)
         tmp = None

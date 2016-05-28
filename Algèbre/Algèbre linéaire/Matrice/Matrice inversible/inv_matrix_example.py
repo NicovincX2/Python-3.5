@@ -11,28 +11,29 @@ from inverseGauss import inverseGauss
 from inverseNewton import inverseNewton
 import os
 
+
 def main():
-    A = np.array([ [4, 3, 4, 10], [2, -7, 3, 0], [-2, 11, 1, 3], [3, -4, 0, 2] ], dtype=np.float64)
+    A = np.array([[4, 3, 4, 10], [2, -7, 3, 0], [-2, 11, 1, 3],
+                  [3, -4, 0, 2]], dtype=np.float64)
 
-
-    print ("\nInverse matrix calculated by the Numpy API:")
+    print("\nInverse matrix calculated by the Numpy API:")
     AinvNpy = linalg.inv(A)
-    print ("NumPy: A . Ainv = \n", np.dot(A, AinvNpy))
-    print ("NumPy: Ainv = \n", AinvNpy)
+    print("NumPy: A . Ainv = \n", np.dot(A, AinvNpy))
+    print("NumPy: Ainv = \n", AinvNpy)
 
-    print ("\nInverse matrix calculated by the Gauss method:")
+    print("\nInverse matrix calculated by the Gauss method:")
     AinvGauss = inverseGauss(A)
-    print ("Gauss: A . Ainv = \n", np.dot(A, AinvGauss))
-    print ("Gauss: Ainv = \n", AinvGauss)
+    print("Gauss: A . Ainv = \n", np.dot(A, AinvGauss))
+    print("Gauss: Ainv = \n", AinvGauss)
 
-    print ("\nInverse matrix calculated by the Newton method:")
+    print("\nInverse matrix calculated by the Newton method:")
     AinvNewton, error, nIter = inverseNewton(A)
-    print ("Newtow: A . Ainv = \n", np.dot(A, AinvNewton))
-    print ("Newtow: Ainv = \n", AinvNewton)
-    print ("Number of iterations: ", nIter)
-    print ("Error from Numpy API results: ", error)
+    print("Newtow: A . Ainv = \n", np.dot(A, AinvNewton))
+    print("Newtow: Ainv = \n", AinvNewton)
+    print("Number of iterations: ", nIter)
+    print("Error from Numpy API results: ", error)
 
-    print ("\nDone!")
+    print("\nDone!")
 
 if __name__ == "__main__":
     main()

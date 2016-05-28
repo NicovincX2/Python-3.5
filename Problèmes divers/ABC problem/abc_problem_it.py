@@ -22,12 +22,12 @@ blocks = [("B", "O"),
           ("L", "Y"),
           ("P", "C"),
           ("Z", "M")]
- 
- 
+
+
 def can_make_word(word, block_collection=blocks):
     """
     Return True if `word` can be made from the blocks in `block_collection`.
- 
+
     >>> can_make_word("")
     False
     >>> can_make_word("a")
@@ -47,7 +47,7 @@ def can_make_word(word, block_collection=blocks):
     """
     if not word:
         return False
- 
+
     blocks_remaining = block_collection[:]
     for char in word.upper():
         for block in blocks_remaining:
@@ -57,14 +57,14 @@ def can_make_word(word, block_collection=blocks):
         else:
             return False
     return True
- 
- 
+
+
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
     print(", ".join("'%s': %s" % (w, can_make_word(w)) for w in
-                    ["", "a", "baRk", "booK", "treat", 
+                    ["", "a", "baRk", "booK", "treat",
                      "COMMON", "squad", "Confused"]))
- 
+
 
 os.system("pause")

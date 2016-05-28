@@ -13,54 +13,61 @@ correct au tracé.
 from turtle import *   # Pour le dessin à l'écran
 from math import *     # Pour les fonctions mathématiques
 
+
 def Cauchy(x):
     '''Fonction donnant l'indice du milieu en suivant la loi de Cauchy en 
     fonction de la longueur d'onde x donnée en mètres.'''
-    A=1.58
-    B=171*1e-16
-    n=A+(B/x**2)
+    A = 1.58
+    B = 171 * 1e-16
+    n = A + (B / x**2)
     return n
 
 # On commence par les déclarations
-R =100          # Rayon du cercle
-yi=R/2          # Coordonnée y du premier rayon
-xi=-2*R         # Coordonnée x du premier rayon
-longueur=[400,500,600,700,800]                    # Différentes longueurs d'onde
-pal=['purple','blue','dark green','orange','red'] # et les couleurs associées
-i= asin(yi/R)   # angle d'incidence du premier rayon (en radian)
+R = 100          # Rayon du cercle
+yi = R / 2          # Coordonnée y du premier rayon
+xi = -2 * R         # Coordonnée x du premier rayon
+# Différentes longueurs d'onde
+longueur = [400, 500, 600, 700, 800]
+# et les couleurs associées
+pal = ['purple', 'blue', 'dark green', 'orange', 'red']
+i = asin(yi / R)   # angle d'incidence du premier rayon (en radian)
 
 # On démarre le dessin
 up()            # On lève le crayon
-goto(0,-R)      # On va au point de coordonnée (0,-R)
+goto(0, -R)      # On va au point de coordonnée (0,-R)
 down()          # On pose le crayon
-circle(R,360)   # On dessine le cercle
+circle(R, 360)   # On dessine le cercle
 up()            # On relève le crayon
-goto(xi,yi)     # On va au point de départ du rayon lumineux
+goto(xi, yi)     # On va au point de départ du rayon lumineux
 down()          # On repose le crayon
-goto(-sqrt(R*R-yi*yi),yi) # Et on va jusqu'à toucher la goutte d'eau
+goto(-sqrt(R * R - yi * yi), yi)  # Et on va jusqu'à toucher la goutte d'eau
+
 
 def imprime_ecran(n):
     """ Récupère ce qui est affiché à l'écran. """
     base_name = 'PNG/S04_arc_en_ciel_turtle'
     getscreen().getcanvas().postscript(file=base_name + "{:02d}.eps".format(n))
-    
+
 
 delay(40)       # On ralentit un peu Speedy Gonzales...
 # À présent, on va boucler sur les couleurs que l'on veut représenter
 for j in range(len(longueur)):
     color(pal[j])               # On change la couleur du trait
-    n= Cauchy(longueur[j]*1e-9) # Valeur de l'indice optique en fonction de lambda
-    r=asin(sin(i)/n)            # Angle de réfraction (en radian)
-    right((i-r)*180/pi)         # Tourner à droite d'un angle (i-r) en degré
+    # Valeur de l'indice optique en fonction de lambda
+    n = Cauchy(longueur[j] * 1e-9)
+    r = asin(sin(i) / n)            # Angle de réfraction (en radian)
+    # Tourner à droite d'un angle (i-r) en degré
+    right((i - r) * 180 / pi)
     forward(190)                # On avance (à peu près) de la distance adéquate
-    right(180-(2*r*180/pi))     # On tourne de pi-2*r à droite
-    forward(190)                # On réavance (à peu près) de la distance adéquate
-    right((i-r)*180/pi)         # Même configuration qu'à l'aller
+    right(180 - (2 * r * 180 / pi))     # On tourne de pi-2*r à droite
+    # On réavance (à peu près) de la distance adéquate
+    forward(190)
+    right((i - r) * 180 / pi)         # Même configuration qu'à l'aller
     forward(200)                # On sort de la goutte
     up()                        # On relève le crayon
-    goto(-sqrt(R*R-yi*yi),yi)   # Et on retourne au point de départ
+    goto(-sqrt(R * R - yi * yi), yi)   # Et on retourne au point de départ
     # Ne reste qu'à tourner à l'envers pour se remettre dans l'axe
-    left(2*(i-r)*180/pi+180-(2*r*180/pi)) 
+    left(2 * (i - r) * 180 / pi + 180 - (2 * r * 180 / pi))
     down()                      # et on repose le crayon
     imprime_ecran(j)            # On prends une petite photo pour la route
 
@@ -69,7 +76,7 @@ import time
 
 time.sleep(30)
 
-# L'important est bien sûr de montrer le dessin se construire en direct, mais 
+# L'important est bien sûr de montrer le dessin se construire en direct, mais
 # si on veut en conserver une trace, on peut utiliser ce hack:
 
 base_name = 'PNG/S04_arc_en_ciel_turtle'
@@ -77,8 +84,9 @@ base_name = 'PNG/S04_arc_en_ciel_turtle'
 ts = getscreen()
 ts.getcanvas().postscript(file=base_name + ".eps")
 
-import os # Pour pouvoir appeler BBcut et convert
-os.system('./BBcut {}.eps'.format(base_name))         # Pour tailler la bounding box
-os.system('convert {0}.eps {0}.png'.format(base_name))# Pour convertir en png
+import os  # Pour pouvoir appeler BBcut et convert
+# Pour tailler la bounding box
+os.system('./BBcut {}.eps'.format(base_name))
+os.system('convert {0}.eps {0}.png'.format(base_name))  # Pour convertir en png
 
 os.system("pause")

@@ -3,6 +3,7 @@
 import os
 from bisect import bisect_left, bisect_right
 
+
 class SortedCollection(object):
     '''Sequence sorted by a key function.
 
@@ -171,14 +172,14 @@ class SortedCollection(object):
         'Return last item with a key <= k.  Raise ValueError if not found.'
         i = bisect_right(self._keys, k)
         if i:
-            return self._items[i-1]
+            return self._items[i - 1]
         raise ValueError('No item found with key at or below: %r' % (k,))
 
     def find_lt(self, k):
         'Return last item with a key < k.  Raise ValueError if not found.'
         i = bisect_left(self._keys, k)
         if i:
-            return self._items[i-1]
+            return self._items[i - 1]
         raise ValueError('No item found with key below: %r' % (k,))
 
     def find_ge(self, k):
@@ -256,18 +257,24 @@ if __name__ == '__main__':
             sc = SortedCollection(s)
             s.sort()
             for probe in pool:
-                assert repr(ve2no(sc.index, probe)) == repr(slow_index(s, probe))
+                assert repr(ve2no(sc.index, probe)) == repr(
+                    slow_index(s, probe))
                 assert repr(ve2no(sc.find, probe)) == repr(slow_find(s, probe))
-                assert repr(ve2no(sc.find_le, probe)) == repr(slow_find_le(s, probe))
-                assert repr(ve2no(sc.find_lt, probe)) == repr(slow_find_lt(s, probe))
-                assert repr(ve2no(sc.find_ge, probe)) == repr(slow_find_ge(s, probe))
-                assert repr(ve2no(sc.find_gt, probe)) == repr(slow_find_gt(s, probe))
+                assert repr(ve2no(sc.find_le, probe)) == repr(
+                    slow_find_le(s, probe))
+                assert repr(ve2no(sc.find_lt, probe)) == repr(
+                    slow_find_lt(s, probe))
+                assert repr(ve2no(sc.find_ge, probe)) == repr(
+                    slow_find_ge(s, probe))
+                assert repr(ve2no(sc.find_gt, probe)) == repr(
+                    slow_find_gt(s, probe))
             for i, item in enumerate(s):
                 assert repr(item) == repr(sc[i])        # test __getitem__
                 assert item in sc                       # test __contains__ and __iter__
                 assert s.count(item) == sc.count(item)  # test count()
             assert len(sc) == n                         # test __len__
-            assert list(map(repr, reversed(sc))) == list(map(repr, reversed(s)))    # test __reversed__
+            assert list(map(repr, reversed(sc))) == list(
+                map(repr, reversed(s)))    # test __reversed__
             assert list(sc.copy()) == list(sc)          # test copy()
             sc.clear()                                  # test clear()
             assert len(sc) == 0
@@ -276,7 +283,8 @@ if __name__ == '__main__':
     assert sd._keys == ['brown', 'fox', 'jumped', 'quick', 'the']
     assert sd._items == ['Brown', 'Fox', 'jumped', 'quick', 'The']
     assert sd._key == str.lower
-    assert repr(sd) == "SortedCollection(['Brown', 'Fox', 'jumped', 'quick', 'The'], key=lower)"
+    assert repr(
+        sd) == "SortedCollection(['Brown', 'Fox', 'jumped', 'quick', 'The'], key=lower)"
     sd.key = str.upper
     assert sd._key == str.upper
     assert len(sd) == 5
@@ -287,15 +295,17 @@ if __name__ == '__main__':
         assert item == sd[i]
     sd.insert('jUmPeD')
     sd.insert_right('QuIcK')
-    assert sd._keys ==['BROWN', 'FOX', 'JUMPED', 'JUMPED', 'QUICK', 'QUICK', 'THE']
-    assert sd._items == ['Brown', 'Fox', 'jUmPeD', 'jumped', 'quick', 'QuIcK', 'The']
+    assert sd._keys == ['BROWN', 'FOX', 'JUMPED',
+                        'JUMPED', 'QUICK', 'QUICK', 'THE']
+    assert sd._items == ['Brown', 'Fox', 'jUmPeD',
+                         'jumped', 'quick', 'QuIcK', 'The']
     assert sd.find_le('JUMPED') == 'jumped', sd.find_le('JUMPED')
     assert sd.find_ge('JUMPED') == 'jUmPeD'
     assert sd.find_le('GOAT') == 'Fox'
     assert sd.find_ge('GOAT') == 'jUmPeD'
     assert sd.find('FOX') == 'Fox'
     assert sd[3] == 'jumped'
-    assert sd[3:5] ==['jumped', 'quick']
+    assert sd[3:5] == ['jumped', 'quick']
     assert sd[-2] == 'QuIcK'
     assert sd[-4:-2] == ['jumped', 'quick']
     for i, item in enumerate(sd):

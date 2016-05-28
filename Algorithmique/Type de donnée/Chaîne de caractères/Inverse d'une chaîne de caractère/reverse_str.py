@@ -4,20 +4,22 @@ import os
 
 __author__ = "bt3"
 
+
 def reverse_str_inplace(_str):
     if len(_str) < 2:
         return _str
     return _str[-1] + reverse_str(_str[1:-1]) + _str[0]
-    
+
+
 def reverse_str(_str):
     result = ''
     j = len(_str) - 1
 
     while j >= 0:
         result += _str[j]
-    
+
     return result
-    
+
 if __name__ == '__main__':
     _str = ''
     result = ''

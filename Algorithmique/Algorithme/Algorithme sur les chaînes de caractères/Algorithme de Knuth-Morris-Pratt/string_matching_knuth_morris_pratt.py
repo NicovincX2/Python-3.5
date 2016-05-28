@@ -2,6 +2,7 @@
 
 import os
 
+
 def string_matching_knuth_morris_pratt(text='', pattern=''):
     """Returns positions where pattern is found in text.
     O(m+n)
@@ -23,7 +24,7 @@ def string_matching_knuth_morris_pratt(text='', pattern=''):
             q = q + 1
         if q == m:
             offsets.append(i - m + 1)
-            q = pi[q-1]
+            q = pi[q - 1]
 
     return offsets
 

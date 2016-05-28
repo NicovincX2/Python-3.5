@@ -30,4 +30,3 @@ for i, N in enumerate([0, 4, 8, 32, 64, 128, 500]):
     #plt.ylim( 0, 10)#
 
 os.system("pause")
-

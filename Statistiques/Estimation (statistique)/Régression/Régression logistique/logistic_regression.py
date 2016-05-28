@@ -19,7 +19,7 @@ y = (y > 0).astype(int)
 
 plot(X[y == 0, 0], X[y == 0, 1], "o", label="dead")
 plot(X[y == 1, 0], X[y == 1, 1], "o", color=colors[2], label="alive")
-legend();
+legend()
 
 from sklearn.linear_model import LogisticRegression
 model = LogisticRegression().fit(X, y)
@@ -41,9 +41,11 @@ plot(X[d_c, 0], X[d_c, 1], "o", color=colors[0], label="dead +")
 plot(X[d_i, 0], X[d_i, 1], "o", color=colors[0], alpha=0.7, label="dead -")
 plot(X[a_c, 0], X[a_c, 1], "o", color=colors[2], label="alive +")
 plot(X[a_i, 0], X[a_i, 1], "o", color=colors[2], alpha=0.7, label="alive -")
-legend();
+legend()
 
 # Define a function to generate fake data
+
+
 def make_dataset():
     X = randn(100, 2)
     noise = randn(100)
@@ -72,33 +74,36 @@ yhat_quad1 = quad_model.predict(X1_quad)
 figure(figsize=(12, 5))
 # Plot the actual classes of Y1
 subplot(121)
-plot(X1[y1==0, 0], X1[y1==0, 1], "o", color=colors[0], markersize=15)
-plot(X1[y1==1, 0], X1[y1==1, 1], "o", color=colors[2], markersize=15)
+plot(X1[y1 == 0, 0], X1[y1 == 0, 1], "o", color=colors[0], markersize=15)
+plot(X1[y1 == 1, 0], X1[y1 == 1, 1], "o", color=colors[2], markersize=15)
 
 # Plot the predicted classs from the linear model
-plot(X1[yhat_line1==0, 0], X1[yhat_line1==0, 1], "o", color=colors[0], markersize=7)
-plot(X1[yhat_line1==1, 0], X1[yhat_line1==1, 1], "o", color=colors[2], markersize=7)
+plot(X1[yhat_line1 == 0, 0], X1[yhat_line1 == 0, 1],
+     "o", color=colors[0], markersize=7)
+plot(X1[yhat_line1 == 1, 0], X1[yhat_line1 == 1, 1],
+     "o", color=colors[2], markersize=7)
 
 # Now do the same for the quadratic model
 subplot(122)
-plot(X1[y1==0, 0], X1[y1==0, 1], "o", color=colors[0], markersize=15)
-plot(X1[y1==1, 0], X1[y1==1, 1], "o", color=colors[2], markersize=15)
+plot(X1[y1 == 0, 0], X1[y1 == 0, 1], "o", color=colors[0], markersize=15)
+plot(X1[y1 == 1, 0], X1[y1 == 1, 1], "o", color=colors[2], markersize=15)
 
 # Plot the predicted classs from the linear model
-plot(X1[yhat_quad1==0, 0], X1[yhat_quad1==0, 1], "o", color=colors[0], markersize=7)
-plot(X1[yhat_quad1==1, 0], X1[yhat_quad1==1, 1], "o", color=colors[2], markersize=7)
+plot(X1[yhat_quad1 == 0, 0], X1[yhat_quad1 == 0, 1],
+     "o", color=colors[0], markersize=7)
+plot(X1[yhat_quad1 == 1, 0], X1[yhat_quad1 == 1, 1],
+     "o", color=colors[2], markersize=7)
 
 # Compute the accuracy for each model
 acc_line = line_model.score(X1, y1)
 acc_quad = quad_model.score(X1_quad, y1)
-print ("Linear: %.2f" % acc_line)
-print ("Quadratic: %.2f" % acc_quad)
+print("Linear: %.2f" % acc_line)
+print("Quadratic: %.2f" % acc_quad)
 
 line_cv_acc = line_model.score(X2, y2)
 X2_quad = scale(hstack((X2, X2 ** 2)))
 quad_cv_acc = quad_model.score(X2_quad, y2)
-print ("Linear model cross-validated accuracy: %.2f" % line_cv_acc)
-print ("Quadratic model cross-validated accuracy: %.2f" % quad_cv_acc)
+print("Linear model cross-validated accuracy: %.2f" % line_cv_acc)
+print("Quadratic model cross-validated accuracy: %.2f" % quad_cv_acc)
 
 os.system("pause")
-

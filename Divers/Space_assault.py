@@ -1,11 +1,13 @@
 from tkinter import *
 import random
 
+
 def MainMenu():
     self = Tk()
 
-    #Objects
-    self.lbDirections = Label(text="Choose a Game Mode",bg="black",fg="white")
+    # Objects
+    self.lbDirections = Label(
+        text="Choose a Game Mode", bg="black", fg="white")
     self.lbDirections.pack()
     self.btnSinglePlayer = Button(text="Single Player")
     self.btnSinglePlayer.pack()
@@ -27,12 +29,13 @@ def MainMenu():
         self.btnDifficultyHard.pack()
         self.btnMainMenu = Button(text="Main Menu")
         self.btnMainMenu.pack(side=BOTTOM)
-        self.lbControls = Label(text="Use arrow keys to move and space bar to shoot",bg="black",fg="white")
+        self.lbControls = Label(
+            text="Use arrow keys to move and space bar to shoot", bg="black", fg="white")
         self.lbControls.pack()
-        self.btnMainMenu.bind('<Button>',StartMainMenu)
-        self.btnDifficultyEasy.bind('<Button>',StartSinglePlayerEasy)
-        self.btnDifficultyMedium.bind('<Button>',StartSinglePlayerMedium)
-        self.btnDifficultyHard.bind('<Button>',StartSinglePlayerHard)
+        self.btnMainMenu.bind('<Button>', StartMainMenu)
+        self.btnDifficultyEasy.bind('<Button>', StartSinglePlayerEasy)
+        self.btnDifficultyMedium.bind('<Button>', StartSinglePlayerMedium)
+        self.btnDifficultyHard.bind('<Button>', StartSinglePlayerHard)
 
     def MultiPlayerChooseDifficulty(event):
         self.lbDirections.config(text="Choose a Pace")
@@ -47,12 +50,13 @@ def MainMenu():
         self.btnDifficultyHard.pack()
         self.btnMainMenu = Button(text="Main Menu")
         self.btnMainMenu.pack(side=BOTTOM)
-        self.lbControls = Label(text="Player 1 - Use arrow keys to move and space bar to shoot"+'\n'+"Player 2 - Use 'wasd' keys to move and tab to shoot",bg="black",fg="white")
+        self.lbControls = Label(text="Player 1 - Use arrow keys to move and space bar to shoot" +
+                                '\n' + "Player 2 - Use 'wasd' keys to move and tab to shoot", bg="black", fg="white")
         self.lbControls.pack()
-        self.btnMainMenu.bind('<Button>',StartMainMenu)
-        self.btnDifficultyEasy.bind('<Button>',StartMultiPlayerEasy)
-        self.btnDifficultyMedium.bind('<Button>',StartMultiPlayerMedium)
-        self.btnDifficultyHard.bind('<Button>',StartMultiPlayerHard)
+        self.btnMainMenu.bind('<Button>', StartMainMenu)
+        self.btnDifficultyEasy.bind('<Button>', StartMultiPlayerEasy)
+        self.btnDifficultyMedium.bind('<Button>', StartMultiPlayerMedium)
+        self.btnDifficultyHard.bind('<Button>', StartMultiPlayerHard)
 
     def TenWaveChallengeChooseMode(event):
         self.lbDirections.config(text="Choose a Mode")
@@ -65,11 +69,14 @@ def MainMenu():
         self.btnTenWaveChallengeMultiPlayer.pack()
         self.btnMainMenu = Button(text="Main Menu")
         self.btnMainMenu.pack(side=BOTTOM)
-        self.lbControls = Label(text="Player 1 - Use arrow keys to move and space bar to shoot"+'\n'+"Player 2 - Use 'wasd' keys to move and tab to shoot",bg="black",fg="white")
+        self.lbControls = Label(text="Player 1 - Use arrow keys to move and space bar to shoot" +
+                                '\n' + "Player 2 - Use 'wasd' keys to move and tab to shoot", bg="black", fg="white")
         self.lbControls.pack()
-        self.btnMainMenu.bind('<Button>',StartMainMenu)
-        self.btnTenWaveChallengeSinglePlayer.bind('<Button>',StartTenWaveChallengeSinglePlayer)
-        self.btnTenWaveChallengeMultiPlayer.bind('<Button>',StartTenWaveChallengeMultiPlayer)
+        self.btnMainMenu.bind('<Button>', StartMainMenu)
+        self.btnTenWaveChallengeSinglePlayer.bind(
+            '<Button>', StartTenWaveChallengeSinglePlayer)
+        self.btnTenWaveChallengeMultiPlayer.bind(
+            '<Button>', StartTenWaveChallengeMultiPlayer)
 
     def StartMainMenu(event):
         self.destroy()
@@ -122,21 +129,22 @@ def MainMenu():
     def Exit(event):
         self.destroy()
 
-    #Bind
-    self.btnSinglePlayer.bind('<Button>',SinglePlayerChooseDifficulty)
-    self.btnMultiPlayer.bind('<Button>',MultiPlayerChooseDifficulty)
-    self.btnTenWaveChallenge.bind('<Button>',TenWaveChallengeChooseMode)
-    self.bind('<Escape>',Exit)
+    # Bind
+    self.btnSinglePlayer.bind('<Button>', SinglePlayerChooseDifficulty)
+    self.btnMultiPlayer.bind('<Button>', MultiPlayerChooseDifficulty)
+    self.btnTenWaveChallenge.bind('<Button>', TenWaveChallengeChooseMode)
+    self.bind('<Escape>', Exit)
 
-    #Frame settings
+    # Frame settings
     self.geometry("830x700")
     self.title("Space Assault")
     self.configure(bg="black")
 
+
 def SinglePlayer():
     self = Tk()
 
-    #Variables
+    # Variables
     global wave
     global Damage
     global Damage3
@@ -209,7 +217,7 @@ def SinglePlayer():
     generated4 = 1750
     pause = 0
 
-    #Lists
+    # Lists
     Shots = []
     ShotsXpos = []
     ShotsYpos = []
@@ -244,26 +252,30 @@ def SinglePlayer():
     Enemies6Dmg = []
     Explosions = []
 
-    #Score
-    self.lbScore = Label(text="Wave: "+str(wave)+"  Next Wave: "+str(pace/1000)+"sec  Press 'p' to pause",bg="black",fg="white")
-    self.lbScore.place(x=165,y=680,width=500,height=20)
+    # Score
+    self.lbScore = Label(text="Wave: " + str(wave) + "  Next Wave: " +
+                         str(pace / 1000) + "sec  Press 'p' to pause", bg="black", fg="white")
+    self.lbScore.place(x=165, y=680, width=500, height=20)
 
-    #Player
-    self.player = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-    self.player.place(x=Xpos,y=Ypos)
-    self.player.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="green")
+    # Player
+    self.player = Canvas(
+        self, bg="black", highlightthickness=0, width=30, height=30)
+    self.player.place(x=Xpos, y=Ypos)
+    self.player.create_polygon(
+        15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="green")
 
-    #Functions
+    # Functions
     def LeftKey(event):
         global Xpos
         global Ypos
         global direction
         global start
         self.player.delete("all")
-        self.player.create_polygon(0,15,30,30,15,15,30,0,0,15,fill="green")
+        self.player.create_polygon(
+            0, 15, 30, 30, 15, 15, 30, 0, 0, 15, fill="green")
         if Xpos > 0:
             Xpos -= 25
-        self.player.place(x=Xpos,y=Ypos)
+        self.player.place(x=Xpos, y=Ypos)
         direction = "W"
         cycle = 0
         for enemy in Enemies:
@@ -305,10 +317,11 @@ def SinglePlayer():
         global direction
         global start
         self.player.delete("all")
-        self.player.create_polygon(30,15,0,30,15,15,0,0,30,15,fill="green")
+        self.player.create_polygon(
+            30, 15, 0, 30, 15, 15, 0, 0, 30, 15, fill="green")
         if Xpos < 800:
             Xpos += 25
-        self.player.place(x=Xpos,y=Ypos)
+        self.player.place(x=Xpos, y=Ypos)
         direction = "E"
         cycle = 0
         for enemy in Enemies:
@@ -350,10 +363,11 @@ def SinglePlayer():
         global direction
         global start
         self.player.delete("all")
-        self.player.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="green")
+        self.player.create_polygon(
+            15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="green")
         if Ypos > 0:
             Ypos -= 25
-        self.player.place(x=Xpos,y=Ypos)
+        self.player.place(x=Xpos, y=Ypos)
         direction = "N"
         cycle = 0
         for enemy in Enemies:
@@ -395,10 +409,11 @@ def SinglePlayer():
         global direction
         global start
         self.player.delete("all")
-        self.player.create_polygon(15,30,30,0,15,15,0,0,15,30,fill="green")
+        self.player.create_polygon(
+            15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill="green")
         if Ypos < 650:
             Ypos += 25
-        self.player.place(x=Xpos,y=Ypos)
+        self.player.place(x=Xpos, y=Ypos)
         direction = "S"
         cycle = 0
         for enemy in Enemies:
@@ -441,14 +456,16 @@ def SinglePlayer():
         global enYpos
         global Damage
         global created
-        enXpos = random.randrange(0,33)*25
-        enYpos = random.randrange(0,27)*25
+        enXpos = random.randrange(0, 33) * 25
+        enYpos = random.randrange(0, 27) * 25
         while abs(Xpos - enXpos) <= 75 and abs(Ypos - enYpos) <= 75:
-            enXpos = random.randrange(0,33)*25
-            enYpos = random.randrange(0,27)*25
-        self.enemy = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-        self.enemy.place(x=enXpos,y=enYpos)
-        self.enemy.polygon = self.enemy.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="darkviolet")
+            enXpos = random.randrange(0, 33) * 25
+            enYpos = random.randrange(0, 27) * 25
+        self.enemy = Canvas(
+            self, bg="black", highlightthickness=0, width=30, height=30)
+        self.enemy.place(x=enXpos, y=enYpos)
+        self.enemy.polygon = self.enemy.create_polygon(
+            15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="darkviolet")
         Enemies.append(self.enemy)
         EnemiesDmg.append(Damage)
         EnemiesXpos.append(enXpos)
@@ -461,14 +478,16 @@ def SinglePlayer():
         global en2Xpos
         global en2Ypos
         global created2
-        en2Xpos = random.randrange(0,33)*25
-        en2Ypos = random.randrange(0,27)*25
+        en2Xpos = random.randrange(0, 33) * 25
+        en2Ypos = random.randrange(0, 27) * 25
         while abs(Xpos - en2Xpos) <= 75 and abs(Ypos - en2Ypos) <= 75:
-            en2Xpos = random.randrange(0,33)*25
-            en2Ypos = random.randrange(0,27)*25
-        self.enemy2 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-        self.enemy2.place(x=en2Xpos,y=en2Ypos)
-        self.enemy2.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="red")
+            en2Xpos = random.randrange(0, 33) * 25
+            en2Ypos = random.randrange(0, 27) * 25
+        self.enemy2 = Canvas(
+            self, bg="black", highlightthickness=0, width=30, height=30)
+        self.enemy2.place(x=en2Xpos, y=en2Ypos)
+        self.enemy2.create_polygon(
+            15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="red")
         Enemies2.append(self.enemy2)
         Enemies2Xpos.append(en2Xpos)
         Enemies2Ypos.append(en2Ypos)
@@ -481,14 +500,16 @@ def SinglePlayer():
         global en3Ypos
         global Damage3
         global created3
-        en3Xpos = random.randrange(0,33)*25
-        en3Ypos = random.randrange(0,27)*25
+        en3Xpos = random.randrange(0, 33) * 25
+        en3Ypos = random.randrange(0, 27) * 25
         while abs(Xpos - en3Xpos) <= 75 and abs(Ypos - en3Ypos) <= 75:
-            en3Xpos = random.randrange(0,33)*25
-            en3Ypos = random.randrange(0,27)*25
-        self.enemy3 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-        self.enemy3.place(x=en3Xpos,y=en3Ypos)
-        self.enemy3.polygon = self.enemy3.create_polygon(10,0,0,0,0,30,30,30,30,0,20,0,20,10,10,10,fill="navy")
+            en3Xpos = random.randrange(0, 33) * 25
+            en3Ypos = random.randrange(0, 27) * 25
+        self.enemy3 = Canvas(
+            self, bg="black", highlightthickness=0, width=30, height=30)
+        self.enemy3.place(x=en3Xpos, y=en3Ypos)
+        self.enemy3.polygon = self.enemy3.create_polygon(
+            10, 0, 0, 0, 0, 30, 30, 30, 30, 0, 20, 0, 20, 10, 10, 10, fill="navy")
         Enemies3.append(self.enemy3)
         Enemies3Dmg.append(Damage3)
         Enemies3Xpos.append(en3Xpos)
@@ -501,14 +522,16 @@ def SinglePlayer():
         global en4Xpos
         global en4Ypos
         global created4
-        en4Xpos = random.randrange(0,33)*25
-        en4Ypos = random.randrange(0,27)*25
+        en4Xpos = random.randrange(0, 33) * 25
+        en4Ypos = random.randrange(0, 27) * 25
         while abs(Xpos - en4Xpos) <= 150 and abs(Ypos - en4Ypos) <= 150:
-            en4Xpos = random.randrange(0,33)*25
-            en4Ypos = random.randrange(0,27)*25
-        self.enemy4 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-        self.enemy4.place(x=en4Xpos,y=en4Ypos)
-        self.enemy4.create_polygon(15,0,5,15,12,15,5,30,25,30,17,15,25,15,fill="darkgreen")
+            en4Xpos = random.randrange(0, 33) * 25
+            en4Ypos = random.randrange(0, 27) * 25
+        self.enemy4 = Canvas(
+            self, bg="black", highlightthickness=0, width=30, height=30)
+        self.enemy4.place(x=en4Xpos, y=en4Ypos)
+        self.enemy4.create_polygon(
+            15, 0, 5, 15, 12, 15, 5, 30, 25, 30, 17, 15, 25, 15, fill="darkgreen")
         Enemies4.append(self.enemy4)
         Enemies4Xpos.append(en4Xpos)
         Enemies4Ypos.append(en4Ypos)
@@ -521,57 +544,73 @@ def SinglePlayer():
         global en5Ypos
         global Damage5
         global created5
-        wall = random.choice(["N","E","S","W"])
+        wall = random.choice(["N", "E", "S", "W"])
         if wall == "N":
-            en5Xpos = random.randrange(0,33)*25
+            en5Xpos = random.randrange(0, 33) * 25
             en5Ypos = 0
-            self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-            self.enemy5.place(x=en5Xpos,y=en5Ypos)
-            self.enemy5.polygon = self.enemy5.create_polygon(0,0,10,15,10,30,20,30,20,15,30,0,fill="darkorange2")
+            self.enemy5 = Canvas(
+                self, bg="black", highlightthickness=0, width=30, height=30)
+            self.enemy5.place(x=en5Xpos, y=en5Ypos)
+            self.enemy5.polygon = self.enemy5.create_polygon(
+                0, 0, 10, 15, 10, 30, 20, 30, 20, 15, 30, 0, fill="darkorange2")
         elif wall == "E":
             en5Xpos = 800
-            en5Ypos = random.randrange(0,27)*25
-            self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-            self.enemy5.place(x=en5Xpos,y=en5Ypos)
-            self.enemy5.polygon = self.enemy5.create_polygon(30,0,15,10,0,10,0,20,15,20,30,30,fill="darkorange2")
+            en5Ypos = random.randrange(0, 27) * 25
+            self.enemy5 = Canvas(
+                self, bg="black", highlightthickness=0, width=30, height=30)
+            self.enemy5.place(x=en5Xpos, y=en5Ypos)
+            self.enemy5.polygon = self.enemy5.create_polygon(
+                30, 0, 15, 10, 0, 10, 0, 20, 15, 20, 30, 30, fill="darkorange2")
         elif wall == "S":
-            en5Xpos = random.randrange(0,33)*25
+            en5Xpos = random.randrange(0, 33) * 25
             en5Ypos = 650
-            self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-            self.enemy5.place(x=en5Xpos,y=en5Ypos)
-            self.enemy5.polygon = self.enemy5.create_polygon(30,30,20,15,20,0,10,0,10,15,0,30,fill="darkorange2")
+            self.enemy5 = Canvas(
+                self, bg="black", highlightthickness=0, width=30, height=30)
+            self.enemy5.place(x=en5Xpos, y=en5Ypos)
+            self.enemy5.polygon = self.enemy5.create_polygon(
+                30, 30, 20, 15, 20, 0, 10, 0, 10, 15, 0, 30, fill="darkorange2")
         elif wall == "W":
             en5Xpos = 0
-            en5Ypos = random.randrange(0,27)*25
-            self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-            self.enemy5.place(x=en5Xpos,y=en5Ypos)
-            self.enemy5.polygon = self.enemy5.create_polygon(0,30,15,20,30,20,30,10,15,10,0,0,fill="darkorange2")
+            en5Ypos = random.randrange(0, 27) * 25
+            self.enemy5 = Canvas(
+                self, bg="black", highlightthickness=0, width=30, height=30)
+            self.enemy5.place(x=en5Xpos, y=en5Ypos)
+            self.enemy5.polygon = self.enemy5.create_polygon(
+                0, 30, 15, 20, 30, 20, 30, 10, 15, 10, 0, 0, fill="darkorange2")
         while abs(Xpos - en5Xpos) <= 75 and abs(Ypos - en5Ypos) <= 75:
-            wall = random.choice(["N","E","S","W"])
+            wall = random.choice(["N", "E", "S", "W"])
             if wall == "N":
-                en5Xpos = random.randrange(0,33)*25
+                en5Xpos = random.randrange(0, 33) * 25
                 en5Ypos = 0
-                self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy5.place(x=en5Xpos,y=en5Ypos)
-                self.enemy5.polygon = self.enemy5.create_polygon(0,0,10,15,10,30,20,30,20,15,30,0,fill="darkorange2")
+                self.enemy5 = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy5.place(x=en5Xpos, y=en5Ypos)
+                self.enemy5.polygon = self.enemy5.create_polygon(
+                    0, 0, 10, 15, 10, 30, 20, 30, 20, 15, 30, 0, fill="darkorange2")
             elif wall == "E":
                 en5Xpos = 800
-                en5Ypos = random.randrange(0,27)*25
-                self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy5.place(x=en5Xpos,y=en5Ypos)
-                self.enemy5.polygon = self.enemy5.create_polygon(30,0,15,10,0,10,0,20,15,20,30,30,fill="darkorange2")
+                en5Ypos = random.randrange(0, 27) * 25
+                self.enemy5 = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy5.place(x=en5Xpos, y=en5Ypos)
+                self.enemy5.polygon = self.enemy5.create_polygon(
+                    30, 0, 15, 10, 0, 10, 0, 20, 15, 20, 30, 30, fill="darkorange2")
             elif wall == "S":
-                en5Xpos = random.randrange(0,33)*25
+                en5Xpos = random.randrange(0, 33) * 25
                 en5Ypos = 650
-                self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy5.place(x=en5Xpos,y=en5Ypos)
-                self.enemy5.polygon = self.enemy5.create_polygon(30,30,20,15,20,0,10,0,10,15,0,30,fill="darkorange2")
+                self.enemy5 = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy5.place(x=en5Xpos, y=en5Ypos)
+                self.enemy5.polygon = self.enemy5.create_polygon(
+                    30, 30, 20, 15, 20, 0, 10, 0, 10, 15, 0, 30, fill="darkorange2")
             elif wall == "W":
                 en5Xpos = 0
-                en5Ypos = random.randrange(0,27)*25
-                self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy5.place(x=en5Xpos,y=en5Ypos)
-                self.enemy5.polygon = self.enemy5.create_polygon(0,30,15,20,30,20,30,10,15,10,0,0,fill="darkorange2")
+                en5Ypos = random.randrange(0, 27) * 25
+                self.enemy5 = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy5.place(x=en5Xpos, y=en5Ypos)
+                self.enemy5.polygon = self.enemy5.create_polygon(
+                    0, 30, 15, 20, 30, 20, 30, 10, 15, 10, 0, 0, fill="darkorange2")
         Enemies5.append(self.enemy5)
         Enemies5Dmg.append(Damage5)
         Enemies5Xpos.append(en5Xpos)
@@ -584,15 +623,16 @@ def SinglePlayer():
         global Ypos
         global en6Xpos
         global en6Ypos
-        en6Type = random.choice([1,2,3,4])
-        en6Xpos = random.randrange(0,33)*25
-        en6Ypos = random.randrange(0,27)*25
+        en6Type = random.choice([1, 2, 3, 4])
+        en6Xpos = random.randrange(0, 33) * 25
+        en6Ypos = random.randrange(0, 27) * 25
         while abs(Xpos - en6Xpos) <= 75 and abs(Ypos - en6Ypos) <= 75:
-            en6Xpos = random.randrange(0,33)*25
-            en6Ypos = random.randrange(0,27)*25
-        self.enemy6 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-        self.enemy6.place(x=en6Xpos,y=en6Ypos)
-        self.enemy6.oval = self.enemy6.create_oval(0,0,30,30,fill="gray20")
+            en6Xpos = random.randrange(0, 33) * 25
+            en6Ypos = random.randrange(0, 27) * 25
+        self.enemy6 = Canvas(
+            self, bg="black", highlightthickness=0, width=30, height=30)
+        self.enemy6.place(x=en6Xpos, y=en6Ypos)
+        self.enemy6.oval = self.enemy6.create_oval(0, 0, 30, 30, fill="gray20")
         Enemies6.append(self.enemy6)
         Enemies6Xpos.append(en6Xpos)
         Enemies6Ypos.append(en6Ypos)
@@ -605,11 +645,11 @@ def SinglePlayer():
         global gameover
         global created
         if gameover != 1:
-            self.after(300,EnemyMove)
+            self.after(300, EnemyMove)
             if created == 1:
                 cycle = 0
                 for self.enemy in Enemies:
-                    rndDir = random.choice(["X","Y"])
+                    rndDir = random.choice(["X", "Y"])
                     if EnemiesDmg[cycle] == 0:
                         EnemyColor = "darkviolet"
                     else:
@@ -618,51 +658,64 @@ def SinglePlayer():
                         self.enemy.delete("all")
                         if rndDir == "X":
                             EnemiesXpos[cycle] -= 25
-                            self.enemy.polygon = self.enemy.create_polygon(0,15,30,30,15,15,30,0,0,15,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                0, 15, 30, 30, 15, 15, 30, 0, 0, 15, fill=EnemyColor)
                         else:
                             EnemiesYpos[cycle] -= 25
-                            self.enemy.polygon = self.enemy.create_polygon(15,0,30,30,15,15,0,30,15,0,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill=EnemyColor)
                     elif Xpos < EnemiesXpos[cycle] and Ypos > EnemiesYpos[cycle]:
                         self.enemy.delete("all")
                         if rndDir == "X":
                             EnemiesXpos[cycle] -= 25
-                            self.enemy.polygon = self.enemy.create_polygon(0,15,30,30,15,15,30,0,0,15,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                0, 15, 30, 30, 15, 15, 30, 0, 0, 15, fill=EnemyColor)
                         else:
                             EnemiesYpos[cycle] += 25
-                            self.enemy.polygon = self.enemy.create_polygon(15,30,30,0,15,15,0,0,15,30,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill=EnemyColor)
                     elif Xpos > EnemiesXpos[cycle] and Ypos < EnemiesYpos[cycle]:
                         self.enemy.delete("all")
                         if rndDir == "X":
                             EnemiesXpos[cycle] += 25
-                            self.enemy.polygon = self.enemy.create_polygon(30,15,0,30,15,15,0,0,30,15,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                30, 15, 0, 30, 15, 15, 0, 0, 30, 15, fill=EnemyColor)
                         else:
                             EnemiesYpos[cycle] -= 25
-                            self.enemy.polygon = self.enemy.create_polygon(15,0,30,30,15,15,0,30,15,0,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill=EnemyColor)
                     elif Xpos > EnemiesXpos[cycle] and Ypos > EnemiesYpos[cycle]:
                         self.enemy.delete("all")
                         if rndDir == "X":
                             EnemiesXpos[cycle] += 25
-                            self.enemy.polygon = self.enemy.create_polygon(30,15,0,30,15,15,0,0,30,15,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                30, 15, 0, 30, 15, 15, 0, 0, 30, 15, fill=EnemyColor)
                         else:
                             EnemiesYpos[cycle] += 25
-                            self.enemy.polygon = self.enemy.create_polygon(15,30,30,0,15,15,0,0,15,30,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill=EnemyColor)
                     elif Xpos < EnemiesXpos[cycle] and Ypos == EnemiesYpos[cycle]:
                         self.enemy.delete("all")
-                        self.enemy.polygon = self.enemy.create_polygon(0,15,30,30,15,15,30,0,0,15,fill=EnemyColor)
+                        self.enemy.polygon = self.enemy.create_polygon(
+                            0, 15, 30, 30, 15, 15, 30, 0, 0, 15, fill=EnemyColor)
                         EnemiesXpos[cycle] -= 25
                     elif Xpos > EnemiesXpos[cycle] and Ypos == EnemiesYpos[cycle]:
                         self.enemy.delete("all")
-                        self.enemy.polygon = self.enemy.create_polygon(30,15,0,30,15,15,0,0,30,15,fill=EnemyColor)
+                        self.enemy.polygon = self.enemy.create_polygon(
+                            30, 15, 0, 30, 15, 15, 0, 0, 30, 15, fill=EnemyColor)
                         EnemiesXpos[cycle] += 25
                     elif Xpos == EnemiesXpos[cycle] and Ypos < EnemiesYpos[cycle]:
                         self.enemy.delete("all")
-                        self.enemy.polygon = self.enemy.create_polygon(15,0,30,30,15,15,0,30,15,0,fill=EnemyColor)
+                        self.enemy.polygon = self.enemy.create_polygon(
+                            15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill=EnemyColor)
                         EnemiesYpos[cycle] -= 25
                     elif Xpos == EnemiesXpos[cycle] and Ypos > EnemiesYpos[cycle]:
                         self.enemy.delete("all")
-                        self.enemy.polygon = self.enemy.create_polygon(15,30,30,0,15,15,0,0,15,30,fill=EnemyColor)
+                        self.enemy.polygon = self.enemy.create_polygon(
+                            15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill=EnemyColor)
                         EnemiesYpos[cycle] += 25
-                    self.enemy.place(x=EnemiesXpos[cycle],y=EnemiesYpos[cycle])
+                    self.enemy.place(
+                        x=EnemiesXpos[cycle], y=EnemiesYpos[cycle])
                     if Xpos == EnemiesXpos[cycle] and Ypos == EnemiesYpos[cycle]:
                         GameOver()
                     cycle += 1
@@ -673,47 +726,56 @@ def SinglePlayer():
         global gameover
         global created2
         if gameover != 1:
-            self.after(300,Enemy2Move)
+            self.after(300, Enemy2Move)
             if created2 == 1:
                 cycle = 0
                 for self.enemy2 in Enemies2:
                     if Xpos < Enemies2Xpos[cycle] and Ypos < Enemies2Ypos[cycle]:
                         self.enemy2.delete("all")
-                        self.enemy2.create_polygon(0,0,30,15,15,15,15,30,0,0,fill="red")
+                        self.enemy2.create_polygon(
+                            0, 0, 30, 15, 15, 15, 15, 30, 0, 0, fill="red")
                         Enemies2Xpos[cycle] -= 25
                         Enemies2Ypos[cycle] -= 25
                     elif Xpos < Enemies2Xpos[cycle] and Ypos > Enemies2Ypos[cycle]:
                         self.enemy2.delete("all")
-                        self.enemy2.create_polygon(0,30,15,0,15,15,30,15,0,30,fill="red")
+                        self.enemy2.create_polygon(
+                            0, 30, 15, 0, 15, 15, 30, 15, 0, 30, fill="red")
                         Enemies2Xpos[cycle] -= 25
                         Enemies2Ypos[cycle] += 25
                     elif Xpos > Enemies2Xpos[cycle] and Ypos < Enemies2Ypos[cycle]:
                         self.enemy2.delete("all")
-                        self.enemy2.create_polygon(30,0,0,15,15,15,15,30,30,0,fill="red")
+                        self.enemy2.create_polygon(
+                            30, 0, 0, 15, 15, 15, 15, 30, 30, 0, fill="red")
                         Enemies2Xpos[cycle] += 25
                         Enemies2Ypos[cycle] -= 25
                     elif Xpos > Enemies2Xpos[cycle] and Ypos > Enemies2Ypos[cycle]:
                         self.enemy2.delete("all")
-                        self.enemy2.create_polygon(30,30,15,0,15,15,0,15,30,30,fill="red")
+                        self.enemy2.create_polygon(
+                            30, 30, 15, 0, 15, 15, 0, 15, 30, 30, fill="red")
                         Enemies2Xpos[cycle] += 25
                         Enemies2Ypos[cycle] += 25
                     elif Xpos < Enemies2Xpos[cycle] and Ypos == Enemies2Ypos[cycle]:
                         self.enemy2.delete("all")
-                        self.enemy2.create_polygon(0,15,30,30,15,15,30,0,0,15,fill="red")
+                        self.enemy2.create_polygon(
+                            0, 15, 30, 30, 15, 15, 30, 0, 0, 15, fill="red")
                         Enemies2Xpos[cycle] -= 25
                     elif Xpos > Enemies2Xpos[cycle] and Ypos == Enemies2Ypos[cycle]:
                         self.enemy2.delete("all")
-                        self.enemy2.create_polygon(30,15,0,30,15,15,0,0,30,15,fill="red")
+                        self.enemy2.create_polygon(
+                            30, 15, 0, 30, 15, 15, 0, 0, 30, 15, fill="red")
                         Enemies2Xpos[cycle] += 25
                     elif Xpos == Enemies2Xpos[cycle] and Ypos < Enemies2Ypos[cycle]:
                         self.enemy2.delete("all")
-                        self.enemy2.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="red")
+                        self.enemy2.create_polygon(
+                            15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="red")
                         Enemies2Ypos[cycle] -= 25
                     elif Xpos == Enemies2Xpos[cycle] and Ypos > Enemies2Ypos[cycle]:
                         self.enemy2.delete("all")
-                        self.enemy2.create_polygon(15,30,30,0,15,15,0,0,15,30,fill="red")
+                        self.enemy2.create_polygon(
+                            15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill="red")
                         Enemies2Ypos[cycle] += 25
-                    self.enemy2.place(x=Enemies2Xpos[cycle],y=Enemies2Ypos[cycle])
+                    self.enemy2.place(
+                        x=Enemies2Xpos[cycle], y=Enemies2Ypos[cycle])
                     if Xpos == Enemies2Xpos[cycle] and Ypos == Enemies2Ypos[cycle]:
                         GameOver()
                     cycle += 1
@@ -724,73 +786,86 @@ def SinglePlayer():
         global gameover
         global created3
         if gameover != 1:
-            self.after(350,Enemy3Move)
+            self.after(350, Enemy3Move)
             if created3 == 1:
                 cycle = 0
                 for self.enemy3 in Enemies3:
-                        rndDir = random.choice(["X","Y"])
-                        if Enemies3Dmg[cycle] == 0:
-                            Enemy3Color = "navy"
-                        elif Enemies3Dmg[cycle] == 1:
-                            Enemy3Color = "blue"
-                        elif Enemies3Dmg[cycle] == 2:
-                            Enemy3Color = "dodgerblue"
-                        elif Enemies3Dmg[cycle] == 3:
-                            Enemy3Color = "deepskyblue"
-                        else:
-                            Enemy3Color = "lightskyblue"
-                        if Xpos < Enemies3Xpos[cycle] and Ypos < Enemies3Ypos[cycle]:
-                            self.enemy3.delete("all")
-                            if rndDir == "X":
-                                Enemies3Xpos[cycle] -= 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(0,20,0,30,30,30,30,0,0,0,0,10,10,10,10,20,fill=Enemy3Color)
-                            else:
-                                Enemies3Ypos[cycle] -= 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(10,0,0,0,0,30,30,30,30,0,20,0,20,10,10,10,fill=Enemy3Color)
-                        elif Xpos < Enemies3Xpos[cycle] and Ypos > Enemies3Ypos[cycle]:
-                            self.enemy3.delete("all")
-                            if rndDir == "X":
-                                Enemies3Xpos[cycle] -= 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(0,20,0,30,30,30,30,0,0,0,0,10,10,10,10,20,fill=Enemy3Color)
-                            else:
-                                Enemies3Ypos[cycle] += 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(20,30,30,30,30,0,0,0,0,30,10,30,10,20,20,20,fill=Enemy3Color)
-                        elif Xpos > Enemies3Xpos[cycle] and Ypos < Enemies3Ypos[cycle]:
-                            self.enemy3.delete("all")
-                            if rndDir == "X":
-                                Enemies3Xpos[cycle] += 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(30,10,30,0,0,0,0,30,30,30,30,20,20,20,20,10,fill=Enemy3Color)
-                            else:
-                                Enemies3Ypos[cycle] -= 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(10,0,0,0,0,30,30,30,30,0,20,0,20,10,10,10,fill=Enemy3Color)
-                        elif Xpos > Enemies3Xpos[cycle] and Ypos > Enemies3Ypos[cycle]:
-                            self.enemy3.delete("all")
-                            if rndDir == "X":
-                                Enemies3Xpos[cycle] += 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(30,10,30,0,0,0,0,30,30,30,30,20,20,20,20,10,fill=Enemy3Color)
-                            else:
-                                Enemies3Ypos[cycle] += 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(20,30,30,30,30,0,0,0,0,30,10,30,10,20,20,20,fill=Enemy3Color)
-                        elif Xpos < Enemies3Xpos[cycle] and Ypos == Enemies3Ypos[cycle]:
-                            self.enemy3.delete("all")
-                            self.enemy3.polygon = self.enemy3.create_polygon(0,20,0,30,30,30,30,0,0,0,0,10,10,10,10,20,fill=Enemy3Color)
+                    rndDir = random.choice(["X", "Y"])
+                    if Enemies3Dmg[cycle] == 0:
+                        Enemy3Color = "navy"
+                    elif Enemies3Dmg[cycle] == 1:
+                        Enemy3Color = "blue"
+                    elif Enemies3Dmg[cycle] == 2:
+                        Enemy3Color = "dodgerblue"
+                    elif Enemies3Dmg[cycle] == 3:
+                        Enemy3Color = "deepskyblue"
+                    else:
+                        Enemy3Color = "lightskyblue"
+                    if Xpos < Enemies3Xpos[cycle] and Ypos < Enemies3Ypos[cycle]:
+                        self.enemy3.delete("all")
+                        if rndDir == "X":
                             Enemies3Xpos[cycle] -= 25
-                        elif Xpos > Enemies3Xpos[cycle] and Ypos == Enemies3Ypos[cycle]:
-                            self.enemy3.delete("all")
-                            self.enemy3.polygon = self.enemy3.create_polygon(30,10,30,0,0,0,0,30,30,30,30,20,20,20,20,10,fill=Enemy3Color)
-                            Enemies3Xpos[cycle] += 25
-                        elif Xpos == Enemies3Xpos[cycle] and Ypos < Enemies3Ypos[cycle]:
-                            self.enemy3.delete("all")
-                            self.enemy3.polygon = self.enemy3.create_polygon(10,0,0,0,0,30,30,30,30,0,20,0,20,10,10,10,fill=Enemy3Color)
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                0, 20, 0, 30, 30, 30, 30, 0, 0, 0, 0, 10, 10, 10, 10, 20, fill=Enemy3Color)
+                        else:
                             Enemies3Ypos[cycle] -= 25
-                        elif Xpos == Enemies3Xpos[cycle] and Ypos > Enemies3Ypos[cycle]:
-                            self.enemy3.delete("all")
-                            self.enemy3.polygon = self.enemy3.create_polygon(20,30,30,30,30,0,0,0,0,30,10,30,10,20,20,20,fill=Enemy3Color)
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                10, 0, 0, 0, 0, 30, 30, 30, 30, 0, 20, 0, 20, 10, 10, 10, fill=Enemy3Color)
+                    elif Xpos < Enemies3Xpos[cycle] and Ypos > Enemies3Ypos[cycle]:
+                        self.enemy3.delete("all")
+                        if rndDir == "X":
+                            Enemies3Xpos[cycle] -= 25
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                0, 20, 0, 30, 30, 30, 30, 0, 0, 0, 0, 10, 10, 10, 10, 20, fill=Enemy3Color)
+                        else:
                             Enemies3Ypos[cycle] += 25
-                        self.enemy3.place(x=Enemies3Xpos[cycle],y=Enemies3Ypos[cycle])
-                        if Xpos == Enemies3Xpos[cycle] and Ypos == Enemies3Ypos[cycle]:
-                            GameOver()
-                        cycle += 1
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                20, 30, 30, 30, 30, 0, 0, 0, 0, 30, 10, 30, 10, 20, 20, 20, fill=Enemy3Color)
+                    elif Xpos > Enemies3Xpos[cycle] and Ypos < Enemies3Ypos[cycle]:
+                        self.enemy3.delete("all")
+                        if rndDir == "X":
+                            Enemies3Xpos[cycle] += 25
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                30, 10, 30, 0, 0, 0, 0, 30, 30, 30, 30, 20, 20, 20, 20, 10, fill=Enemy3Color)
+                        else:
+                            Enemies3Ypos[cycle] -= 25
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                10, 0, 0, 0, 0, 30, 30, 30, 30, 0, 20, 0, 20, 10, 10, 10, fill=Enemy3Color)
+                    elif Xpos > Enemies3Xpos[cycle] and Ypos > Enemies3Ypos[cycle]:
+                        self.enemy3.delete("all")
+                        if rndDir == "X":
+                            Enemies3Xpos[cycle] += 25
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                30, 10, 30, 0, 0, 0, 0, 30, 30, 30, 30, 20, 20, 20, 20, 10, fill=Enemy3Color)
+                        else:
+                            Enemies3Ypos[cycle] += 25
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                20, 30, 30, 30, 30, 0, 0, 0, 0, 30, 10, 30, 10, 20, 20, 20, fill=Enemy3Color)
+                    elif Xpos < Enemies3Xpos[cycle] and Ypos == Enemies3Ypos[cycle]:
+                        self.enemy3.delete("all")
+                        self.enemy3.polygon = self.enemy3.create_polygon(
+                            0, 20, 0, 30, 30, 30, 30, 0, 0, 0, 0, 10, 10, 10, 10, 20, fill=Enemy3Color)
+                        Enemies3Xpos[cycle] -= 25
+                    elif Xpos > Enemies3Xpos[cycle] and Ypos == Enemies3Ypos[cycle]:
+                        self.enemy3.delete("all")
+                        self.enemy3.polygon = self.enemy3.create_polygon(
+                            30, 10, 30, 0, 0, 0, 0, 30, 30, 30, 30, 20, 20, 20, 20, 10, fill=Enemy3Color)
+                        Enemies3Xpos[cycle] += 25
+                    elif Xpos == Enemies3Xpos[cycle] and Ypos < Enemies3Ypos[cycle]:
+                        self.enemy3.delete("all")
+                        self.enemy3.polygon = self.enemy3.create_polygon(
+                            10, 0, 0, 0, 0, 30, 30, 30, 30, 0, 20, 0, 20, 10, 10, 10, fill=Enemy3Color)
+                        Enemies3Ypos[cycle] -= 25
+                    elif Xpos == Enemies3Xpos[cycle] and Ypos > Enemies3Ypos[cycle]:
+                        self.enemy3.delete("all")
+                        self.enemy3.polygon = self.enemy3.create_polygon(
+                            20, 30, 30, 30, 30, 0, 0, 0, 0, 30, 10, 30, 10, 20, 20, 20, fill=Enemy3Color)
+                        Enemies3Ypos[cycle] += 25
+                    self.enemy3.place(
+                        x=Enemies3Xpos[cycle], y=Enemies3Ypos[cycle])
+                    if Xpos == Enemies3Xpos[cycle] and Ypos == Enemies3Ypos[cycle]:
+                        GameOver()
+                    cycle += 1
 
     def Enemy4Move():
         global Xpos
@@ -798,61 +873,74 @@ def SinglePlayer():
         global gameover
         global created4
         if gameover != 1:
-            self.after(100,Enemy4Move)
+            self.after(100, Enemy4Move)
             if created4 == 1:
                 cycle = 0
                 for self.enemy4 in Enemies4:
-                    rndDir = random.choice(["X","Y"])
+                    rndDir = random.choice(["X", "Y"])
                     Enemy4Color = "darkgreen"
                     if Xpos < Enemies4Xpos[cycle] and Ypos < Enemies4Ypos[cycle]:
                         self.enemy4.delete("all")
                         if rndDir == "X":
                             Enemies4Xpos[cycle] -= 25
-                            self.enemy4.polygon = self.enemy4.create_polygon(0,15,15,25,15,17,30,25,30,5,15,13,15,5,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                0, 15, 15, 25, 15, 17, 30, 25, 30, 5, 15, 13, 15, 5, fill=Enemy4Color)
                         else:
                             Enemies4Ypos[cycle] -= 25
-                            self.enemy4.polygon = self.enemy4.create_polygon(15,0,5,15,12,15,5,30,25,30,17,15,25,15,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                15, 0, 5, 15, 12, 15, 5, 30, 25, 30, 17, 15, 25, 15, fill=Enemy4Color)
                     elif Xpos < Enemies4Xpos[cycle] and Ypos > Enemies4Ypos[cycle]:
                         self.enemy4.delete("all")
                         if rndDir == "X":
                             Enemies4Xpos[cycle] -= 25
-                            self.enemy4.polygon = self.enemy4.create_polygon(0,15,15,25,15,17,30,25,30,5,15,13,15,5,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                0, 15, 15, 25, 15, 17, 30, 25, 30, 5, 15, 13, 15, 5, fill=Enemy4Color)
                         else:
                             Enemies4Ypos[cycle] += 25
-                            self.enemy4.polygon = self.enemy4.create_polygon(15,30,25,15,17,15,25,0,5,0,13,15,5,15,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                15, 30, 25, 15, 17, 15, 25, 0, 5, 0, 13, 15, 5, 15, fill=Enemy4Color)
                     elif Xpos > Enemies4Xpos[cycle] and Ypos < Enemies4Ypos[cycle]:
                         self.enemy4.delete("all")
                         if rndDir == "X":
                             Enemies4Xpos[cycle] += 25
-                            self.enemy4.polygon = self.enemy4.create_polygon(30,15,15,5,15,13,0,5,0,25,15,17,15,25,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                30, 15, 15, 5, 15, 13, 0, 5, 0, 25, 15, 17, 15, 25, fill=Enemy4Color)
                         else:
                             Enemies4Ypos[cycle] -= 25
-                            self.enemy4.polygon = self.enemy4.create_polygon(15,0,5,15,12,15,5,30,25,30,17,15,25,15,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                15, 0, 5, 15, 12, 15, 5, 30, 25, 30, 17, 15, 25, 15, fill=Enemy4Color)
                     elif Xpos > Enemies4Xpos[cycle] and Ypos > Enemies4Ypos[cycle]:
                         self.enemy4.delete("all")
                         if rndDir == "X":
                             Enemies4Xpos[cycle] += 25
-                            self.enemy4.polygon = self.enemy4.create_polygon(30,15,15,5,15,13,0,5,0,25,15,17,15,25,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                30, 15, 15, 5, 15, 13, 0, 5, 0, 25, 15, 17, 15, 25, fill=Enemy4Color)
                         else:
                             Enemies4Ypos[cycle] += 25
-                            self.enemy4.polygon = self.enemy4.create_polygon(15,30,25,15,17,15,25,0,5,0,13,15,5,15,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                15, 30, 25, 15, 17, 15, 25, 0, 5, 0, 13, 15, 5, 15, fill=Enemy4Color)
                     elif Xpos < Enemies4Xpos[cycle] and Ypos == Enemies4Ypos[cycle]:
                         self.enemy4.delete("all")
-                        self.enemy4.polygon = self.enemy4.create_polygon(0,15,15,25,15,17,30,25,30,5,15,13,15,5,fill=Enemy4Color)
+                        self.enemy4.polygon = self.enemy4.create_polygon(
+                            0, 15, 15, 25, 15, 17, 30, 25, 30, 5, 15, 13, 15, 5, fill=Enemy4Color)
                         Enemies4Xpos[cycle] -= 25
                     elif Xpos > Enemies4Xpos[cycle] and Ypos == Enemies4Ypos[cycle]:
                         self.enemy4.delete("all")
-                        self.enemy4.polygon = self.enemy4.create_polygon(30,15,15,5,15,13,0,5,0,25,15,17,15,25,fill=Enemy4Color)
+                        self.enemy4.polygon = self.enemy4.create_polygon(
+                            30, 15, 15, 5, 15, 13, 0, 5, 0, 25, 15, 17, 15, 25, fill=Enemy4Color)
                         Enemies4Xpos[cycle] += 25
                     elif Xpos == Enemies4Xpos[cycle] and Ypos < Enemies4Ypos[cycle]:
                         self.enemy4.delete("all")
-                        self.enemy4.polygon = self.enemy4.create_polygon(15,0,5,15,12,15,5,30,25,30,17,15,25,15,fill=Enemy4Color)
+                        self.enemy4.polygon = self.enemy4.create_polygon(
+                            15, 0, 5, 15, 12, 15, 5, 30, 25, 30, 17, 15, 25, 15, fill=Enemy4Color)
                         Enemies4Ypos[cycle] -= 25
                     elif Xpos == Enemies4Xpos[cycle] and Ypos > Enemies4Ypos[cycle]:
                         self.enemy4.delete("all")
-                        self.enemy4.polygon = self.enemy4.create_polygon(15,30,25,15,17,15,25,0,5,0,13,15,5,15,fill=Enemy4Color)
+                        self.enemy4.polygon = self.enemy4.create_polygon(
+                            15, 30, 25, 15, 17, 15, 25, 0, 5, 0, 13, 15, 5, 15, fill=Enemy4Color)
                         Enemies4Ypos[cycle] += 25
-                    self.enemy4.place(x=Enemies4Xpos[cycle],y=Enemies4Ypos[cycle])
+                    self.enemy4.place(
+                        x=Enemies4Xpos[cycle], y=Enemies4Ypos[cycle])
                     if Xpos == Enemies4Xpos[cycle] and Ypos == Enemies4Ypos[cycle]:
                         GameOver()
                     cycle += 1
@@ -863,7 +951,7 @@ def SinglePlayer():
         global gameover
         global created5
         if gameover != 1:
-            self.after(500,Enemy5Move)
+            self.after(500, Enemy5Move)
             if created5 == 1:
                 cycle = 0
                 for self.enemy5 in Enemies5:
@@ -875,7 +963,8 @@ def SinglePlayer():
                         Enemies5Xpos[cycle] -= 25
                     elif Xpos > Enemies5Xpos[cycle] and (Enemies5Wall[cycle] == "N" or Enemies5Wall[cycle] == "S"):
                         Enemies5Xpos[cycle] += 25
-                    self.enemy5.place(x=Enemies5Xpos[cycle],y=Enemies5Ypos[cycle])
+                    self.enemy5.place(
+                        x=Enemies5Xpos[cycle], y=Enemies5Ypos[cycle])
                     if Xpos == Enemies5Xpos[cycle] and Ypos == Enemies5Ypos[cycle]:
                         GameOver()
                     if Enemies5Wall[cycle] == "E" or Enemies5Wall[cycle] == "W":
@@ -892,7 +981,7 @@ def SinglePlayer():
         global generated3
         global generated4
         if gameover != 1:
-            self.after(10,Generate)
+            self.after(10, Generate)
             if generated1 == 0:
                 GenerateEnemy1()
                 generated1 = 1000
@@ -920,9 +1009,11 @@ def SinglePlayer():
             if Enemies6Type[cycle] == 1:
                 enXpos = Enemies6Xpos[cycle]
                 enYpos = Enemies6Ypos[cycle]
-                self.enemy = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy.place(x=enXpos,y=enYpos)
-                self.enemy.polygon = self.enemy.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="darkviolet")
+                self.enemy = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy.place(x=enXpos, y=enYpos)
+                self.enemy.polygon = self.enemy.create_polygon(
+                    15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="darkviolet")
                 Enemies.append(self.enemy)
                 EnemiesDmg.append(Damage)
                 EnemiesXpos.append(enXpos)
@@ -939,9 +1030,11 @@ def SinglePlayer():
             if Enemies6Type[cycle] == 2:
                 en2Xpos = Enemies6Xpos[cycle]
                 en2Ypos = Enemies6Ypos[cycle]
-                self.enemy2 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy2.place(x=en2Xpos,y=en2Ypos)
-                self.enemy2.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="red")
+                self.enemy2 = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy2.place(x=en2Xpos, y=en2Ypos)
+                self.enemy2.create_polygon(
+                    15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="red")
                 Enemies2.append(self.enemy2)
                 Enemies2Xpos.append(en2Xpos)
                 Enemies2Ypos.append(en2Ypos)
@@ -958,9 +1051,11 @@ def SinglePlayer():
             if Enemies6Type[cycle] == 3:
                 en3Xpos = Enemies6Xpos[cycle]
                 en3Ypos = Enemies6Ypos[cycle]
-                self.enemy3 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy3.place(x=en3Xpos,y=en3Ypos)
-                self.enemy3.polygon = self.enemy3.create_polygon(10,0,0,0,0,30,30,30,30,0,20,0,20,10,10,10,fill="navy")
+                self.enemy3 = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy3.place(x=en3Xpos, y=en3Ypos)
+                self.enemy3.polygon = self.enemy3.create_polygon(
+                    10, 0, 0, 0, 0, 30, 30, 30, 30, 0, 20, 0, 20, 10, 10, 10, fill="navy")
                 Enemies3.append(self.enemy3)
                 Enemies3Dmg.append(Damage3)
                 Enemies3Xpos.append(en3Xpos)
@@ -977,9 +1072,11 @@ def SinglePlayer():
             if Enemies6Type[cycle] == 4:
                 en4Xpos = Enemies6Xpos[cycle]
                 en4Ypos = Enemies6Ypos[cycle]
-                self.enemy4 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy4.place(x=en4Xpos,y=en4Ypos)
-                self.enemy4.create_polygon(15,0,5,15,12,15,5,30,25,30,17,15,25,15,fill="darkgreen")
+                self.enemy4 = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy4.place(x=en4Xpos, y=en4Ypos)
+                self.enemy4.create_polygon(
+                    15, 0, 5, 15, 12, 15, 5, 30, 25, 30, 17, 15, 25, 15, fill="darkgreen")
                 Enemies4.append(self.enemy4)
                 Enemies4Xpos.append(en4Xpos)
                 Enemies4Ypos.append(en4Ypos)
@@ -1003,9 +1100,10 @@ def SinglePlayer():
         elif direction == "W":
             shotXpos = Xpos - 10
             shotYpos = Ypos + 10
-        self.shot = Canvas(bg="black",highlightthickness=0,width=10,height=10)
-        self.shot.place(x=shotXpos,y=shotYpos)
-        self.shot.create_oval(0,0,10,10,fill="white")
+        self.shot = Canvas(bg="black", highlightthickness=0,
+                           width=10, height=10)
+        self.shot.place(x=shotXpos, y=shotYpos)
+        self.shot.create_oval(0, 0, 10, 10, fill="white")
         Shots.append(self.shot)
         ShotsXpos.append(shotXpos)
         ShotsYpos.append(shotYpos)
@@ -1035,18 +1133,20 @@ def SinglePlayer():
                 enShotYpos = Enemies5Ypos[cycle] + 10
             if Enemies5Wall[cycle] == "E" or Enemies5Wall[cycle] == "W":
                 if Enemies5Ypos[cycle] == Ypos:
-                    self.enShot = Canvas(bg="black",highlightthickness=0,width=10,height=10)
-                    self.enShot.place(x=enShotXpos,y=enShotYpos)
-                    self.enShot.create_oval(0,0,10,10,fill="yellow")
+                    self.enShot = Canvas(
+                        bg="black", highlightthickness=0, width=10, height=10)
+                    self.enShot.place(x=enShotXpos, y=enShotYpos)
+                    self.enShot.create_oval(0, 0, 10, 10, fill="yellow")
                     enShots.append(self.enShot)
                     enShotsXpos.append(enShotXpos)
                     enShotsYpos.append(enShotYpos)
                     enShotDir.append(enDir)
             else:
                 if Enemies5Xpos[cycle] == Xpos:
-                    self.enShot = Canvas(bg="black",highlightthickness=0,width=10,height=10)
-                    self.enShot.place(x=enShotXpos,y=enShotYpos)
-                    self.enShot.create_oval(0,0,10,10,fill="yellow")
+                    self.enShot = Canvas(
+                        bg="black", highlightthickness=0, width=10, height=10)
+                    self.enShot.place(x=enShotXpos, y=enShotYpos)
+                    self.enShot.create_oval(0, 0, 10, 10, fill="yellow")
                     enShots.append(self.enShot)
                     enShotsXpos.append(enShotXpos)
                     enShotsYpos.append(enShotYpos)
@@ -1060,8 +1160,8 @@ def SinglePlayer():
         global destroy
         global gameover
         if gameover != 1:
-            self.after(10,ShotMove)
-            #Move Shots
+            self.after(10, ShotMove)
+            # Move Shots
             cycle = 0
             for self.shot in Shots:
                 destroy = -1
@@ -1073,24 +1173,27 @@ def SinglePlayer():
                     ShotsYpos[cycle] += 10
                 elif ShotDir[cycle] == "W":
                     ShotsXpos[cycle] -= 10
-                self.shot.place(x=ShotsXpos[cycle],y=ShotsYpos[cycle])
-                #Damage Enemy1
+                self.shot.place(x=ShotsXpos[cycle], y=ShotsYpos[cycle])
+                # Damage Enemy1
                 enCycle = 0
                 for self.enemy in Enemies:
                     if destroy == -1:
                         if EnemiesXpos[enCycle] + 30 >= ShotsXpos[cycle] >= EnemiesXpos[enCycle] - 10 and EnemiesYpos[enCycle] + 30 >= ShotsYpos[cycle] >= EnemiesYpos[enCycle] - 10:
                             destroy = 0
                             if EnemiesDmg[enCycle] == 1:
-                                self.explode = Canvas(bg="black",highlightthickness=0,width=30,height=30)
-                                self.explode.place(x=EnemiesXpos[enCycle],y=EnemiesYpos[enCycle])
-                                self.explode.create_polygon(0,15,13,13,15,0,17,13,30,15,17,17,15,30,13,17,fill="orange")
+                                self.explode = Canvas(
+                                    bg="black", highlightthickness=0, width=30, height=30)
+                                self.explode.place(
+                                    x=EnemiesXpos[enCycle], y=EnemiesYpos[enCycle])
+                                self.explode.create_polygon(
+                                    0, 15, 13, 13, 15, 0, 17, 13, 30, 15, 17, 17, 15, 30, 13, 17, fill="orange")
                                 Explosions.append(self.explode)
                                 self.enemy.destroy()
                                 del Enemies[enCycle]
                                 del EnemiesDmg[enCycle]
                                 del EnemiesXpos[enCycle]
                                 del EnemiesYpos[enCycle]
-                                self.after(10,destroyEnemy)
+                                self.after(10, destroyEnemy)
                                 self.shot.destroy()
                                 del Shots[cycle]
                                 del ShotsXpos[cycle]
@@ -1107,17 +1210,21 @@ def SinglePlayer():
                                     EnemyColor = "darkviolet"
                                 else:
                                     EnemyColor = "violet"
-                                self.enemy.itemconfig(self.enemy.polygon,fill=EnemyColor)
+                                self.enemy.itemconfig(
+                                    self.enemy.polygon, fill=EnemyColor)
                         enCycle += 1
-                #Damage Enemy2
+                # Damage Enemy2
                 enCycle = 0
                 for self.enemy2 in Enemies2:
                     if destroy == -1:
                         if Enemies2Xpos[enCycle] + 30 >= ShotsXpos[cycle] >= Enemies2Xpos[enCycle] - 10 and Enemies2Ypos[enCycle] + 30 >= ShotsYpos[cycle] >= Enemies2Ypos[enCycle] - 10:
                             destroy = 0
-                            self.explode = Canvas(bg="black",highlightthickness=0,width=30,height=30)
-                            self.explode.place(x=Enemies2Xpos[enCycle],y=Enemies2Ypos[enCycle])
-                            self.explode.create_polygon(0,15,13,13,15,0,17,13,30,15,17,17,15,30,13,17,fill="orange")
+                            self.explode = Canvas(
+                                bg="black", highlightthickness=0, width=30, height=30)
+                            self.explode.place(
+                                x=Enemies2Xpos[enCycle], y=Enemies2Ypos[enCycle])
+                            self.explode.create_polygon(
+                                0, 15, 13, 13, 15, 0, 17, 13, 30, 15, 17, 17, 15, 30, 13, 17, fill="orange")
                             Explosions.append(self.explode)
                             self.enemy2.destroy()
                             del Enemies2[enCycle]
@@ -1128,25 +1235,28 @@ def SinglePlayer():
                             del ShotsXpos[cycle]
                             del ShotsYpos[cycle]
                             del ShotDir[cycle]
-                            self.after(10,destroyEnemy)
+                            self.after(10, destroyEnemy)
                         enCycle += 1
-                #Damage Enemy3
+                # Damage Enemy3
                 enCycle = 0
                 for self.enemy3 in Enemies3:
                     if destroy == -1:
                         if Enemies3Xpos[enCycle] + 30 >= ShotsXpos[cycle] >= Enemies3Xpos[enCycle] - 10 and Enemies3Ypos[enCycle] + 30 >= ShotsYpos[cycle] >= Enemies3Ypos[enCycle] - 10:
                             destroy = 0
                             if Enemies3Dmg[enCycle] == 4:
-                                self.explode = Canvas(bg="black",highlightthickness=0,width=30,height=30)
-                                self.explode.place(x=Enemies3Xpos[enCycle],y=Enemies3Ypos[enCycle])
-                                self.explode.create_polygon(0,15,13,13,15,0,17,13,30,15,17,17,15,30,13,17,fill="orange")
+                                self.explode = Canvas(
+                                    bg="black", highlightthickness=0, width=30, height=30)
+                                self.explode.place(
+                                    x=Enemies3Xpos[enCycle], y=Enemies3Ypos[enCycle])
+                                self.explode.create_polygon(
+                                    0, 15, 13, 13, 15, 0, 17, 13, 30, 15, 17, 17, 15, 30, 13, 17, fill="orange")
                                 Explosions.append(self.explode)
                                 self.enemy3.destroy()
                                 del Enemies3[enCycle]
                                 del Enemies3Dmg[enCycle]
                                 del Enemies3Xpos[enCycle]
                                 del Enemies3Ypos[enCycle]
-                                self.after(10,destroyEnemy)
+                                self.after(10, destroyEnemy)
                                 self.shot.destroy()
                                 del Shots[cycle]
                                 del ShotsXpos[cycle]
@@ -1169,17 +1279,21 @@ def SinglePlayer():
                                     Enemy3Color = "deepskyblue"
                                 else:
                                     Enemy3Color = "lightskyblue"
-                                self.enemy3.itemconfig(self.enemy3.polygon,fill=Enemy3Color)
+                                self.enemy3.itemconfig(
+                                    self.enemy3.polygon, fill=Enemy3Color)
                         enCycle += 1
-                #Damage Enemy4
+                # Damage Enemy4
                 enCycle = 0
                 for self.enemy4 in Enemies4:
                     if destroy == -1:
                         if Enemies4Xpos[enCycle] + 30 >= ShotsXpos[cycle] >= Enemies4Xpos[enCycle] - 10 and Enemies4Ypos[enCycle] + 30 >= ShotsYpos[cycle] >= Enemies4Ypos[enCycle] - 10:
                             destroy = 0
-                            self.explode = Canvas(bg="black",highlightthickness=0,width=30,height=30)
-                            self.explode.place(x=Enemies4Xpos[enCycle],y=Enemies4Ypos[enCycle])
-                            self.explode.create_polygon(0,15,13,13,15,0,17,13,30,15,17,17,15,30,13,17,fill="orange")
+                            self.explode = Canvas(
+                                bg="black", highlightthickness=0, width=30, height=30)
+                            self.explode.place(
+                                x=Enemies4Xpos[enCycle], y=Enemies4Ypos[enCycle])
+                            self.explode.create_polygon(
+                                0, 15, 13, 13, 15, 0, 17, 13, 30, 15, 17, 17, 15, 30, 13, 17, fill="orange")
                             Explosions.append(self.explode)
                             self.enemy4.destroy()
                             del Enemies4[enCycle]
@@ -1190,18 +1304,21 @@ def SinglePlayer():
                             del ShotsXpos[cycle]
                             del ShotsYpos[cycle]
                             del ShotDir[cycle]
-                            self.after(10,destroyEnemy)
+                            self.after(10, destroyEnemy)
                         enCycle += 1
-                #Damage Enemy5
+                # Damage Enemy5
                 enCycle = 0
                 for self.enemy5 in Enemies5:
                     if destroy == -1:
                         if Enemies5Xpos[enCycle] + 30 >= ShotsXpos[cycle] >= Enemies5Xpos[enCycle] - 10 and Enemies5Ypos[enCycle] + 30 >= ShotsYpos[cycle] >= Enemies5Ypos[enCycle] - 10:
                             destroy = 0
                             if Enemies5Dmg[enCycle] == 1:
-                                self.explode = Canvas(bg="black",highlightthickness=0,width=30,height=30)
-                                self.explode.place(x=Enemies5Xpos[enCycle],y=Enemies5Ypos[enCycle])
-                                self.explode.create_polygon(0,15,13,13,15,0,17,13,30,15,17,17,15,30,13,17,fill="orange")
+                                self.explode = Canvas(
+                                    bg="black", highlightthickness=0, width=30, height=30)
+                                self.explode.place(
+                                    x=Enemies5Xpos[enCycle], y=Enemies5Ypos[enCycle])
+                                self.explode.create_polygon(
+                                    0, 15, 13, 13, 15, 0, 17, 13, 30, 15, 17, 17, 15, 30, 13, 17, fill="orange")
                                 Explosions.append(self.explode)
                                 self.enemy5.destroy()
                                 del Enemies5[enCycle]
@@ -1209,7 +1326,7 @@ def SinglePlayer():
                                 del Enemies5Xpos[enCycle]
                                 del Enemies5Ypos[enCycle]
                                 del Enemies5Wall[enCycle]
-                                self.after(10,destroyEnemy)
+                                self.after(10, destroyEnemy)
                                 self.shot.destroy()
                                 del Shots[cycle]
                                 del ShotsXpos[cycle]
@@ -1226,18 +1343,22 @@ def SinglePlayer():
                                     Enemy5Color = "darkorange2"
                                 else:
                                     Enemy5Color = "orange"
-                                self.enemy5.itemconfig(self.enemy5.polygon,fill=Enemy5Color)
+                                self.enemy5.itemconfig(
+                                    self.enemy5.polygon, fill=Enemy5Color)
                         enCycle += 1
-                #Damage Enemy6
+                # Damage Enemy6
                 enCycle = 0
                 for self.enemy6 in Enemies6:
                     if destroy == -1:
                         if Enemies6Xpos[enCycle] + 30 >= ShotsXpos[cycle] >= Enemies6Xpos[enCycle] - 10 and Enemies6Ypos[enCycle] + 30 >= ShotsYpos[cycle] >= Enemies6Ypos[enCycle] - 10:
                             destroy = 0
                             if Enemies6Dmg[enCycle] == 5:
-                                self.explode = Canvas(bg="black",highlightthickness=0,width=30,height=30)
-                                self.explode.place(x=Enemies6Xpos[enCycle],y=Enemies6Ypos[enCycle])
-                                self.explode.create_polygon(0,15,13,13,15,0,17,13,30,15,17,17,15,30,13,17,fill="orange")
+                                self.explode = Canvas(
+                                    bg="black", highlightthickness=0, width=30, height=30)
+                                self.explode.place(
+                                    x=Enemies6Xpos[enCycle], y=Enemies6Ypos[enCycle])
+                                self.explode.create_polygon(
+                                    0, 15, 13, 13, 15, 0, 17, 13, 30, 15, 17, 17, 15, 30, 13, 17, fill="orange")
                                 Explosions.append(self.explode)
                                 self.enemy6.destroy()
                                 del Enemies6[enCycle]
@@ -1245,7 +1366,7 @@ def SinglePlayer():
                                 del Enemies6Xpos[enCycle]
                                 del Enemies6Ypos[enCycle]
                                 del Enemies6Type[enCycle]
-                                self.after(10,destroyEnemy)
+                                self.after(10, destroyEnemy)
                                 self.shot.destroy()
                                 del Shots[cycle]
                                 del ShotsXpos[cycle]
@@ -1270,9 +1391,10 @@ def SinglePlayer():
                                     Enemy6Color = "gray60"
                                 elif Enemies6Dmg[enCycle] == 5:
                                     Enemy6Color = "gray70"
-                                self.enemy6.itemconfig(self.enemy6.oval,fill=Enemy6Color)
+                                self.enemy6.itemconfig(
+                                    self.enemy6.oval, fill=Enemy6Color)
                         enCycle += 1
-                #Destroy Shot at Boundary
+                # Destroy Shot at Boundary
                 if destroy == -1:
                     if ShotsXpos[cycle] < 0 or ShotsXpos[cycle] > 830 or ShotsYpos[cycle] < 0 or ShotsYpos[cycle] > 680:
                         self.shot.destroy()
@@ -1285,7 +1407,7 @@ def SinglePlayer():
     def enShotMove():
         global gameover
         if gameover != 1:
-            self.after(10,enShotMove)
+            self.after(10, enShotMove)
             cycle = 0
             for self.enShot in enShots:
                 enDestroy = -1
@@ -1297,8 +1419,8 @@ def SinglePlayer():
                     enShotsYpos[cycle] += 10
                 elif enShotDir[cycle] == "W":
                     enShotsXpos[cycle] -= 10
-                self.enShot.place(x=enShotsXpos[cycle],y=enShotsYpos[cycle])
-                #Game Over
+                self.enShot.place(x=enShotsXpos[cycle], y=enShotsYpos[cycle])
+                # Game Over
                 if Xpos + 30 >= enShotsXpos[cycle] >= Xpos - 10 and Ypos + 30 >= enShotsYpos[cycle] >= Ypos - 10:
                     enDestroy = 0
                     self.enShot.destroy()
@@ -1307,7 +1429,7 @@ def SinglePlayer():
                     del enShotsYpos[cycle]
                     del enShotDir[cycle]
                     GameOver()
-                #Destroy Shot at Boundary
+                # Destroy Shot at Boundary
                 if enDestroy == -1:
                     if enShotsXpos[cycle] < 0 or enShotsXpos[cycle] > 830 or enShotsYpos[cycle] < 0 or enShotsYpos[cycle] > 680:
                         self.enShot.destroy()
@@ -1329,262 +1451,262 @@ def SinglePlayer():
         global summoned
         time = 0
         wave += 1
-        #Wave 1
+        # Wave 1
         if wave == 1:
             E = 0
             while E < 3:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
-        #Wave 2
+        # Wave 2
         elif wave == 2:
             E = 0
             while E < 3:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
-        #Wave 3
+        # Wave 3
         elif wave == 3:
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
-        #Wave 4
+        # Wave 4
         elif wave == 4:
             E = 0
             while E < 4:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
-        #Wave 5
+        # Wave 5
         elif wave == 5:
             E = 0
             while E < 3:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
-        #Wave 6
+        # Wave 6
         elif wave == 6:
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < 1:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < 3:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
-        #Wave 7
+        # Wave 7
         elif wave == 7:
             E = 0
             while E < 3:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
-        #Wave 8
+        # Wave 8
         elif wave == 8:
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
-        #Wave 9
+        # Wave 9
         elif wave == 9:
             E = 0
             while E < 3:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
-        #Wave 10
+        # Wave 10
         elif wave == 10:
             E = 0
             while E < 3:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
-        #Wave 11
+        # Wave 11
         elif wave == 11:
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < 1:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
             E = 0
             while E < 1:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
-        #Wave 12
+        # Wave 12
         elif wave == 12:
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy5)
+                self.after(time, CreateEnemy5)
                 E += 1
                 time += 250
-        #Wave 13
+        # Wave 13
         elif wave == 13:
             E = 0
             while E < 3:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < 1:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
             E = 0
             while E < 1:
-                self.after(time,CreateEnemy5)
+                self.after(time, CreateEnemy5)
                 E += 1
                 time += 250
-        #Wave 14
+        # Wave 14
         elif wave == 14:
             E = 0
             while E < 4:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < 1:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy5)
+                self.after(time, CreateEnemy5)
                 E += 1
                 time += 250
-        #Wave 15
+        # Wave 15
         elif wave == 15:
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy6)
+                self.after(time, CreateEnemy6)
                 E += 1
                 time += 250
-        #Wave 16
+        # Wave 16
         elif wave == 16:
             E = 0
             while E < 3:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < 1:
-                self.after(time,CreateEnemy6)
+                self.after(time, CreateEnemy6)
                 E += 1
                 time += 250
-        #Wave 17
+        # Wave 17
         elif wave == 17:
             E = 0
             while E < 1:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < 1:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < 1:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
             E = 0
             while E < 1:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
             E = 0
             while E < 1:
-                self.after(time,CreateEnemy5)
+                self.after(time, CreateEnemy5)
                 E += 1
                 time += 250
             E = 0
             while E < 1:
-                self.after(time,CreateEnemy6)
+                self.after(time, CreateEnemy6)
                 E += 1
                 time += 250
-        #Wave 18+
+        # Wave 18+
         elif wave >= 18:
             E = 0
             while E < wave - 12:
-                rndEnemy = random.choice([1,2,3,4,5,6])
+                rndEnemy = random.choice([1, 2, 3, 4, 5, 6])
                 if rndEnemy == 1:
-                    self.after(time,CreateEnemy)
+                    self.after(time, CreateEnemy)
                 elif rndEnemy == 2:
-                    self.after(time,CreateEnemy2)
+                    self.after(time, CreateEnemy2)
                 elif rndEnemy == 3:
-                    self.after(time,CreateEnemy3)
+                    self.after(time, CreateEnemy3)
                 elif rndEnemy == 4:
-                    self.after(time,CreateEnemy4)
+                    self.after(time, CreateEnemy4)
                 elif rndEnemy == 5:
-                    self.after(time,CreateEnemy5)
+                    self.after(time, CreateEnemy5)
                 elif rndEnemy == 6:
-                    self.after(time,CreateEnemy6)
+                    self.after(time, CreateEnemy6)
                 E += 1
                 time += 250
         summoned = 0
@@ -1596,7 +1718,7 @@ def SinglePlayer():
         global pace
         global gameover
         if gameover == 0:
-            self.after(10,NextWave)
+            self.after(10, NextWave)
             if summoned == 0:
                 summoned = 1
                 waveTime = pace
@@ -1605,7 +1727,8 @@ def SinglePlayer():
             if not Enemies and not Enemies2 and not Enemies3 and not Enemies4 and not Enemies5 and not Enemies6:
                 Summon()
             waveTime -= 10
-            self.lbScore.config(text="Wave: "+str(wave)+"  Next Wave: "+str(waveTime/1000)+"sec  Press 'p' to pause")
+            self.lbScore.config(text="Wave: " + str(wave) + "  Next Wave: " +
+                                str(waveTime / 1000) + "sec  Press 'p' to pause")
 
     def GameOver():
         global gameover
@@ -1635,12 +1758,13 @@ def SinglePlayer():
             for self.shot in Shots:
                 self.shot.destroy()
             self.lbScore.destroy()
-            self.lbGameOver = Label(text="Game Over" + "\n" "You survived to wave " + str(wave) + "\n" + "Click here to restart",bg="black",fg="white")
-            self.lbGameOver.pack(fill=BOTH,expand=1)
-            self.lbGameOver.bind('<Button>',Restart)
+            self.lbGameOver = Label(text="Game Over" + "\n" "You survived to wave " + str(
+                wave) + "\n" + "Click here to restart", bg="black", fg="white")
+            self.lbGameOver.pack(fill=BOTH, expand=1)
+            self.lbGameOver.bind('<Button>', Restart)
             self.btnMainMenu = Button(text="Main Menu")
             self.btnMainMenu.pack(side=LEFT)
-            self.btnMainMenu.bind('<Button>',StartMainMenu)
+            self.btnMainMenu.bind('<Button>', StartMainMenu)
 
     def Restart(event):
         self.destroy()
@@ -1676,19 +1800,20 @@ def SinglePlayer():
             for self.shot in Shots:
                 self.shot.destroy()
             self.lbScore.destroy()
-            self.lbPause = Label(text="Paused"+"\n"+"Press 'p' to Unpause",bg="black",fg="white")
-            self.lbPause.pack(fill=BOTH,expand=1)
+            self.lbPause = Label(text="Paused" + "\n" +
+                                 "Press 'p' to Unpause", bg="black", fg="white")
+            self.lbPause.pack(fill=BOTH, expand=1)
             self.btnMainMenu = Button(text="Main Menu")
             self.btnMainMenu.pack(side=LEFT)
-            self.btnMainMenu.bind('<Button>',StartMainMenu)
+            self.btnMainMenu.bind('<Button>', StartMainMenu)
         elif pause == 1:
             gameover = 0
             pause = 0
-            self.bind('<Left>',LeftKey)
-            self.bind('<Right>',RightKey)
-            self.bind('<Up>',UpKey)
-            self.bind('<Down>',DownKey)
-            self.bind('<space>',Shoot)
+            self.bind('<Left>', LeftKey)
+            self.bind('<Right>', RightKey)
+            self.bind('<Up>', UpKey)
+            self.bind('<Down>', DownKey)
+            self.bind('<space>', Shoot)
             EnemyMove()
             Enemy2Move()
             Enemy3Move()
@@ -1697,8 +1822,9 @@ def SinglePlayer():
             Generate()
             ShotMove()
             enShotMove()
-            self.lbScore = Label(text="Wave: "+str(wave)+"  Next Wave: "+str(waveTime/1000)+"sec  Press 'p' to pause",bg="black",fg="white")
-            self.lbScore.place(x=165,y=680,width=500,height=20)
+            self.lbScore = Label(text="Wave: " + str(wave) + "  Next Wave: " + str(
+                waveTime / 1000) + "sec  Press 'p' to pause", bg="black", fg="white")
+            self.lbScore.place(x=165, y=680, width=500, height=20)
             NextWave()
             self.lbPause.destroy()
             self.btnMainMenu.unbind('<Button>')
@@ -1711,14 +1837,14 @@ def SinglePlayer():
         self.destroy()
         MainMenu()
 
-    #Bindings
-    self.bind('<Left>',LeftKey)
-    self.bind('<Right>',RightKey)
-    self.bind('<Up>',UpKey)
-    self.bind('<Down>',DownKey)
-    self.bind('<Escape>',Exit)
-    self.bind('<space>',Shoot)
-    self.bind('<p>',Pause)
+    # Bindings
+    self.bind('<Left>', LeftKey)
+    self.bind('<Right>', RightKey)
+    self.bind('<Up>', UpKey)
+    self.bind('<Down>', DownKey)
+    self.bind('<Escape>', Exit)
+    self.bind('<space>', Shoot)
+    self.bind('<p>', Pause)
 
     EnemyMove()
     Enemy2Move()
@@ -1729,15 +1855,16 @@ def SinglePlayer():
     ShotMove()
     enShotMove()
 
-    #Frame settings
+    # Frame settings
     self.geometry("830x700")
     self.title("Space Assault")
     self.configure(bg="black")
 
+
 def MultiPlayer():
     self = Tk()
 
-    #Variables
+    # Variables
     global wave
     global Damage
     global Damage3
@@ -1816,7 +1943,7 @@ def MultiPlayer():
     generated4 = 1750
     pause = 0
 
-    #Lists
+    # Lists
     Players = []
     PlayersXpos = []
     PlayersYpos = []
@@ -1855,38 +1982,44 @@ def MultiPlayer():
     Enemies6Dmg = []
     Explosions = []
 
-    #Score
-    self.lbScore = Label(text="Wave: "+str(wave)+"  Next Wave: "+str(pace/1000)+"sec  Press 'p' to pause",bg="black",fg="white")
-    self.lbScore.place(x=165,y=680,width=500,height=20)
+    # Score
+    self.lbScore = Label(text="Wave: " + str(wave) + "  Next Wave: " +
+                         str(pace / 1000) + "sec  Press 'p' to pause", bg="black", fg="white")
+    self.lbScore.place(x=165, y=680, width=500, height=20)
 
-    #Player
-    self.player = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-    self.player.place(x=Xpos,y=Ypos)
-    self.player.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="green")
+    # Player
+    self.player = Canvas(
+        self, bg="black", highlightthickness=0, width=30, height=30)
+    self.player.place(x=Xpos, y=Ypos)
+    self.player.create_polygon(
+        15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="green")
     Players.append(self.player)
     PlayersXpos.append(Xpos)
     PlayersYpos.append(Ypos)
     PlayersDir.append(direction)
-    #Player2
-    self.player2 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-    self.player2.place(x=X2pos,y=Y2pos)
-    self.player2.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="white")
+    # Player2
+    self.player2 = Canvas(
+        self, bg="black", highlightthickness=0, width=30, height=30)
+    self.player2.place(x=X2pos, y=Y2pos)
+    self.player2.create_polygon(
+        15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="white")
     Players.append(self.player2)
     PlayersXpos.append(X2pos)
     PlayersYpos.append(Y2pos)
     PlayersDir.append(direction2)
 
-    #Functions
+    # Functions
     def LeftKey(event):
         global Xpos
         global Ypos
         global direction
         global start
         self.player.delete("all")
-        self.player.create_polygon(0,15,30,30,15,15,30,0,0,15,fill="green")
+        self.player.create_polygon(
+            0, 15, 30, 30, 15, 15, 30, 0, 0, 15, fill="green")
         if PlayersXpos[0] > 0:
             PlayersXpos[0] -= 25
-        self.player.place(x=PlayersXpos[0],y=PlayersYpos[0])
+        self.player.place(x=PlayersXpos[0], y=PlayersYpos[0])
         PlayersDir[0] = "W"
         cycle = 0
         for enemy in Enemies:
@@ -1928,10 +2061,11 @@ def MultiPlayer():
         global direction
         global start
         self.player.delete("all")
-        self.player.create_polygon(30,15,0,30,15,15,0,0,30,15,fill="green")
+        self.player.create_polygon(
+            30, 15, 0, 30, 15, 15, 0, 0, 30, 15, fill="green")
         if PlayersXpos[0] < 800:
             PlayersXpos[0] += 25
-        self.player.place(x=PlayersXpos[0],y=PlayersYpos[0])
+        self.player.place(x=PlayersXpos[0], y=PlayersYpos[0])
         PlayersDir[0] = "E"
         cycle = 0
         for enemy in Enemies:
@@ -1973,10 +2107,11 @@ def MultiPlayer():
         global direction
         global start
         self.player.delete("all")
-        self.player.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="green")
+        self.player.create_polygon(
+            15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="green")
         if PlayersYpos[0] > 0:
             PlayersYpos[0] -= 25
-        self.player.place(x=PlayersXpos[0],y=PlayersYpos[0])
+        self.player.place(x=PlayersXpos[0], y=PlayersYpos[0])
         PlayersDir[0] = "N"
         cycle = 0
         for enemy in Enemies:
@@ -2018,10 +2153,11 @@ def MultiPlayer():
         global direction
         global start
         self.player.delete("all")
-        self.player.create_polygon(15,30,30,0,15,15,0,0,15,30,fill="green")
+        self.player.create_polygon(
+            15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill="green")
         if PlayersYpos[0] < 650:
             PlayersYpos[0] += 25
-        self.player.place(x=PlayersXpos[0],y=PlayersYpos[0])
+        self.player.place(x=PlayersXpos[0], y=PlayersYpos[0])
         PlayersDir[0] = "S"
         cycle = 0
         for enemy in Enemies:
@@ -2060,10 +2196,11 @@ def MultiPlayer():
     def AKey(event):
         global start
         self.player2.delete("all")
-        self.player2.create_polygon(0,15,30,30,15,15,30,0,0,15,fill="white")
+        self.player2.create_polygon(
+            0, 15, 30, 30, 15, 15, 30, 0, 0, 15, fill="white")
         if PlayersXpos[1] > 0:
             PlayersXpos[1] -= 25
-        self.player2.place(x=PlayersXpos[1],y=PlayersYpos[1])
+        self.player2.place(x=PlayersXpos[1], y=PlayersYpos[1])
         PlayersDir[1] = "W"
         cycle = 0
         for enemy in Enemies:
@@ -2102,39 +2239,40 @@ def MultiPlayer():
     def DKey(event):
         global start
         self.player2.delete("all")
-        self.player2.create_polygon(30,15,0,30,15,15,0,0,30,15,fill="white")
-        if PlayersXpos[1]  < 800:
-            PlayersXpos[1]  += 25
-        self.player2.place(x=PlayersXpos[1] ,y=PlayersYpos[1] )
+        self.player2.create_polygon(
+            30, 15, 0, 30, 15, 15, 0, 0, 30, 15, fill="white")
+        if PlayersXpos[1] < 800:
+            PlayersXpos[1] += 25
+        self.player2.place(x=PlayersXpos[1], y=PlayersYpos[1])
         PlayersDir[1] = "E"
         cycle = 0
         for enemy in Enemies:
-            if PlayersXpos[1]  == EnemiesXpos[cycle] and PlayersYpos[1]  == EnemiesYpos[cycle]:
+            if PlayersXpos[1] == EnemiesXpos[cycle] and PlayersYpos[1] == EnemiesYpos[cycle]:
                 GameOver()
             cycle += 1
         cycle = 0
         for enemy2 in Enemies2:
-            if PlayersXpos[1]  == Enemies2Xpos[cycle] and PlayersYpos[1]  == Enemies2Ypos[cycle]:
+            if PlayersXpos[1] == Enemies2Xpos[cycle] and PlayersYpos[1] == Enemies2Ypos[cycle]:
                 GameOver()
             cycle += 1
         cycle = 0
         for enemy3 in Enemies3:
-            if PlayersXpos[1]  == Enemies3Xpos[cycle] and PlayersYpos[1]  == Enemies3Ypos[cycle]:
+            if PlayersXpos[1] == Enemies3Xpos[cycle] and PlayersYpos[1] == Enemies3Ypos[cycle]:
                 GameOver()
             cycle += 1
         cycle = 0
         for enemy4 in Enemies4:
-            if PlayersXpos[1]  == Enemies4Xpos[cycle] and PlayersYpos[1]  == Enemies4Ypos[cycle]:
+            if PlayersXpos[1] == Enemies4Xpos[cycle] and PlayersYpos[1] == Enemies4Ypos[cycle]:
                 GameOver()
             cycle += 1
         cycle = 0
         for enemy5 in Enemies5:
-            if PlayersXpos[1]  == Enemies5Xpos[cycle] and PlayersYpos[1]  == Enemies5Ypos[cycle]:
+            if PlayersXpos[1] == Enemies5Xpos[cycle] and PlayersYpos[1] == Enemies5Ypos[cycle]:
                 GameOver()
             cycle += 1
         cycle = 0
         for enemy6 in Enemies6:
-            if PlayersXpos[1]  == Enemies6Xpos[cycle] and PlayersYpos[1]  == Enemies6Ypos[cycle]:
+            if PlayersXpos[1] == Enemies6Xpos[cycle] and PlayersYpos[1] == Enemies6Ypos[cycle]:
                 GameOver()
             cycle += 1
         if start == 0:
@@ -2144,10 +2282,11 @@ def MultiPlayer():
     def WKey(event):
         global start
         self.player2.delete("all")
-        self.player2.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="white")
+        self.player2.create_polygon(
+            15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="white")
         if PlayersYpos[1] > 0:
             PlayersYpos[1] -= 25
-        self.player2.place(x=PlayersXpos[1],y=PlayersYpos[1])
+        self.player2.place(x=PlayersXpos[1], y=PlayersYpos[1])
         PlayersDir[1] = "N"
         cycle = 0
         for enemy in Enemies:
@@ -2186,10 +2325,11 @@ def MultiPlayer():
     def SKey(event):
         global start
         self.player2.delete("all")
-        self.player2.create_polygon(15,30,30,0,15,15,0,0,15,30,fill="white")
+        self.player2.create_polygon(
+            15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill="white")
         if PlayersYpos[1] < 650:
             PlayersYpos[1] += 25
-        self.player2.place(x=PlayersXpos[1],y=PlayersYpos[1])
+        self.player2.place(x=PlayersXpos[1], y=PlayersYpos[1])
         PlayersDir[1] = "S"
         cycle = 0
         for enemy in Enemies:
@@ -2232,14 +2372,16 @@ def MultiPlayer():
         global enYpos
         global Damage
         global created
-        enXpos = random.randrange(0,33)*25
-        enYpos = random.randrange(0,27)*25
+        enXpos = random.randrange(0, 33) * 25
+        enYpos = random.randrange(0, 27) * 25
         while (abs(PlayersXpos[0] - enXpos) <= 75 and abs(PlayersYpos[0] - enYpos) <= 75) or (abs(PlayersXpos[1] - enXpos) <= 75 and abs(PlayersYpos[1] - enYpos) <= 75):
-            enXpos = random.randrange(0,33)*25
-            enYpos = random.randrange(0,27)*25
-        self.enemy = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-        self.enemy.place(x=enXpos,y=enYpos)
-        self.enemy.polygon = self.enemy.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="darkviolet")
+            enXpos = random.randrange(0, 33) * 25
+            enYpos = random.randrange(0, 27) * 25
+        self.enemy = Canvas(
+            self, bg="black", highlightthickness=0, width=30, height=30)
+        self.enemy.place(x=enXpos, y=enYpos)
+        self.enemy.polygon = self.enemy.create_polygon(
+            15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="darkviolet")
         Enemies.append(self.enemy)
         EnemiesDmg.append(Damage)
         EnemiesXpos.append(enXpos)
@@ -2252,14 +2394,16 @@ def MultiPlayer():
         global en2Xpos
         global en2Ypos
         global created2
-        en2Xpos = random.randrange(0,33)*25
-        en2Ypos = random.randrange(0,27)*25
+        en2Xpos = random.randrange(0, 33) * 25
+        en2Ypos = random.randrange(0, 27) * 25
         while (abs(PlayersXpos[0] - en2Xpos) <= 75 and abs(PlayersYpos[0] - en2Ypos) <= 75) or (abs(PlayersXpos[1] - en2Xpos) <= 75 and abs(PlayersYpos[1] - en2Ypos) <= 75):
-            en2Xpos = random.randrange(0,33)*25
-            en2Ypos = random.randrange(0,27)*25
-        self.enemy2 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-        self.enemy2.place(x=en2Xpos,y=en2Ypos)
-        self.enemy2.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="red")
+            en2Xpos = random.randrange(0, 33) * 25
+            en2Ypos = random.randrange(0, 27) * 25
+        self.enemy2 = Canvas(
+            self, bg="black", highlightthickness=0, width=30, height=30)
+        self.enemy2.place(x=en2Xpos, y=en2Ypos)
+        self.enemy2.create_polygon(
+            15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="red")
         Enemies2.append(self.enemy2)
         Enemies2Xpos.append(en2Xpos)
         Enemies2Ypos.append(en2Ypos)
@@ -2272,14 +2416,16 @@ def MultiPlayer():
         global en3Ypos
         global Damage3
         global created3
-        en3Xpos = random.randrange(0,33)*25
-        en3Ypos = random.randrange(0,27)*25
+        en3Xpos = random.randrange(0, 33) * 25
+        en3Ypos = random.randrange(0, 27) * 25
         while (abs(PlayersXpos[0] - en3Xpos) <= 75 and abs(PlayersYpos[0] - en3Ypos) <= 75) or (abs(PlayersXpos[1] - en3Xpos) <= 75 and abs(PlayersYpos[1] - en3Ypos) <= 75):
-            en3Xpos = random.randrange(0,33)*25
-            en3Ypos = random.randrange(0,27)*25
-        self.enemy3 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-        self.enemy3.place(x=en3Xpos,y=en3Ypos)
-        self.enemy3.polygon = self.enemy3.create_polygon(10,0,0,0,0,30,30,30,30,0,20,0,20,10,10,10,fill="navy")
+            en3Xpos = random.randrange(0, 33) * 25
+            en3Ypos = random.randrange(0, 27) * 25
+        self.enemy3 = Canvas(
+            self, bg="black", highlightthickness=0, width=30, height=30)
+        self.enemy3.place(x=en3Xpos, y=en3Ypos)
+        self.enemy3.polygon = self.enemy3.create_polygon(
+            10, 0, 0, 0, 0, 30, 30, 30, 30, 0, 20, 0, 20, 10, 10, 10, fill="navy")
         Enemies3.append(self.enemy3)
         Enemies3Dmg.append(Damage3)
         Enemies3Xpos.append(en3Xpos)
@@ -2292,14 +2438,16 @@ def MultiPlayer():
         global en4Xpos
         global en4Ypos
         global created4
-        en4Xpos = random.randrange(0,33)*25
-        en4Ypos = random.randrange(0,27)*25
+        en4Xpos = random.randrange(0, 33) * 25
+        en4Ypos = random.randrange(0, 27) * 25
         while (abs(PlayersXpos[0] - en4Xpos) <= 150 and abs(PlayersYpos[0] - en4Ypos) <= 150) or (abs(PlayersXpos[1] - en4Xpos) <= 150 and abs(PlayersYpos[1] - en4Ypos) <= 150):
-            en4Xpos = random.randrange(0,33)*25
-            en4Ypos = random.randrange(0,27)*25
-        self.enemy4 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-        self.enemy4.place(x=en4Xpos,y=en4Ypos)
-        self.enemy4.create_polygon(15,0,5,15,12,15,5,30,25,30,17,15,25,15,fill="darkgreen")
+            en4Xpos = random.randrange(0, 33) * 25
+            en4Ypos = random.randrange(0, 27) * 25
+        self.enemy4 = Canvas(
+            self, bg="black", highlightthickness=0, width=30, height=30)
+        self.enemy4.place(x=en4Xpos, y=en4Ypos)
+        self.enemy4.create_polygon(
+            15, 0, 5, 15, 12, 15, 5, 30, 25, 30, 17, 15, 25, 15, fill="darkgreen")
         Enemies4.append(self.enemy4)
         Enemies4Xpos.append(en4Xpos)
         Enemies4Ypos.append(en4Ypos)
@@ -2312,57 +2460,73 @@ def MultiPlayer():
         global en5Ypos
         global Damage5
         global created5
-        wall = random.choice(["N","E","S","W"])
+        wall = random.choice(["N", "E", "S", "W"])
         if wall == "N":
-            en5Xpos = random.randrange(0,33)*25
+            en5Xpos = random.randrange(0, 33) * 25
             en5Ypos = 0
-            self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-            self.enemy5.place(x=en5Xpos,y=en5Ypos)
-            self.enemy5.polygon = self.enemy5.create_polygon(0,0,10,15,10,30,20,30,20,15,30,0,fill="darkorange2")
+            self.enemy5 = Canvas(
+                self, bg="black", highlightthickness=0, width=30, height=30)
+            self.enemy5.place(x=en5Xpos, y=en5Ypos)
+            self.enemy5.polygon = self.enemy5.create_polygon(
+                0, 0, 10, 15, 10, 30, 20, 30, 20, 15, 30, 0, fill="darkorange2")
         elif wall == "E":
             en5Xpos = 800
-            en5Ypos = random.randrange(0,27)*25
-            self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-            self.enemy5.place(x=en5Xpos,y=en5Ypos)
-            self.enemy5.polygon = self.enemy5.create_polygon(30,0,15,10,0,10,0,20,15,20,30,30,fill="darkorange2")
+            en5Ypos = random.randrange(0, 27) * 25
+            self.enemy5 = Canvas(
+                self, bg="black", highlightthickness=0, width=30, height=30)
+            self.enemy5.place(x=en5Xpos, y=en5Ypos)
+            self.enemy5.polygon = self.enemy5.create_polygon(
+                30, 0, 15, 10, 0, 10, 0, 20, 15, 20, 30, 30, fill="darkorange2")
         elif wall == "S":
-            en5Xpos = random.randrange(0,33)*25
+            en5Xpos = random.randrange(0, 33) * 25
             en5Ypos = 650
-            self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-            self.enemy5.place(x=en5Xpos,y=en5Ypos)
-            self.enemy5.polygon = self.enemy5.create_polygon(30,30,20,15,20,0,10,0,10,15,0,30,fill="darkorange2")
+            self.enemy5 = Canvas(
+                self, bg="black", highlightthickness=0, width=30, height=30)
+            self.enemy5.place(x=en5Xpos, y=en5Ypos)
+            self.enemy5.polygon = self.enemy5.create_polygon(
+                30, 30, 20, 15, 20, 0, 10, 0, 10, 15, 0, 30, fill="darkorange2")
         elif wall == "W":
             en5Xpos = 0
-            en5Ypos = random.randrange(0,27)*25
-            self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-            self.enemy5.place(x=en5Xpos,y=en5Ypos)
-            self.enemy5.polygon = self.enemy5.create_polygon(0,30,15,20,30,20,30,10,15,10,0,0,fill="darkorange2")
+            en5Ypos = random.randrange(0, 27) * 25
+            self.enemy5 = Canvas(
+                self, bg="black", highlightthickness=0, width=30, height=30)
+            self.enemy5.place(x=en5Xpos, y=en5Ypos)
+            self.enemy5.polygon = self.enemy5.create_polygon(
+                0, 30, 15, 20, 30, 20, 30, 10, 15, 10, 0, 0, fill="darkorange2")
         while (abs(PlayersXpos[0] - en5Xpos) <= 75 and abs(PlayersYpos[0] - en5Ypos) <= 75) or (abs(PlayersXpos[1] - en5Xpos) <= 75 and abs(PlayersYpos[1] - en5Ypos) <= 75):
-            wall = random.choice(["N","E","S","W"])
+            wall = random.choice(["N", "E", "S", "W"])
             if wall == "N":
-                en5Xpos = random.randrange(0,33)*25
+                en5Xpos = random.randrange(0, 33) * 25
                 en5Ypos = 0
-                self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy5.place(x=en5Xpos,y=en5Ypos)
-                self.enemy5.polygon = self.enemy5.create_polygon(0,0,10,15,10,30,20,30,20,15,30,0,fill="darkorange2")
+                self.enemy5 = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy5.place(x=en5Xpos, y=en5Ypos)
+                self.enemy5.polygon = self.enemy5.create_polygon(
+                    0, 0, 10, 15, 10, 30, 20, 30, 20, 15, 30, 0, fill="darkorange2")
             elif wall == "E":
                 en5Xpos = 800
-                en5Ypos = random.randrange(0,27)*25
-                self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy5.place(x=en5Xpos,y=en5Ypos)
-                self.enemy5.polygon = self.enemy5.create_polygon(30,0,15,10,0,10,0,20,15,20,30,30,fill="darkorange2")
+                en5Ypos = random.randrange(0, 27) * 25
+                self.enemy5 = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy5.place(x=en5Xpos, y=en5Ypos)
+                self.enemy5.polygon = self.enemy5.create_polygon(
+                    30, 0, 15, 10, 0, 10, 0, 20, 15, 20, 30, 30, fill="darkorange2")
             elif wall == "S":
-                en5Xpos = random.randrange(0,33)*25
+                en5Xpos = random.randrange(0, 33) * 25
                 en5Ypos = 650
-                self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy5.place(x=en5Xpos,y=en5Ypos)
-                self.enemy5.polygon = self.enemy5.create_polygon(30,30,20,15,20,0,10,0,10,15,0,30,fill="darkorange2")
+                self.enemy5 = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy5.place(x=en5Xpos, y=en5Ypos)
+                self.enemy5.polygon = self.enemy5.create_polygon(
+                    30, 30, 20, 15, 20, 0, 10, 0, 10, 15, 0, 30, fill="darkorange2")
             elif wall == "W":
                 en5Xpos = 0
-                en5Ypos = random.randrange(0,27)*25
-                self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy5.place(x=en5Xpos,y=en5Ypos)
-                self.enemy5.polygon = self.enemy5.create_polygon(0,30,15,20,30,20,30,10,15,10,0,0,fill="darkorange2")
+                en5Ypos = random.randrange(0, 27) * 25
+                self.enemy5 = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy5.place(x=en5Xpos, y=en5Ypos)
+                self.enemy5.polygon = self.enemy5.create_polygon(
+                    0, 30, 15, 20, 30, 20, 30, 10, 15, 10, 0, 0, fill="darkorange2")
         Enemies5.append(self.enemy5)
         Enemies5Dmg.append(Damage5)
         Enemies5Xpos.append(en5Xpos)
@@ -2375,15 +2539,16 @@ def MultiPlayer():
         global Ypos
         global en6Xpos
         global en6Ypos
-        en6Type = random.choice([1,2,3,4])
-        en6Xpos = random.randrange(0,33)*25
-        en6Ypos = random.randrange(0,27)*25
+        en6Type = random.choice([1, 2, 3, 4])
+        en6Xpos = random.randrange(0, 33) * 25
+        en6Ypos = random.randrange(0, 27) * 25
         while (abs(PlayersXpos[0] - en6Xpos) <= 75 and abs(PlayersYpos[0] - en6Ypos) <= 75) or (abs(PlayersXpos[1] - en6Xpos) <= 75 and abs(PlayersYpos[1] - en6Ypos) <= 75):
-            en6Xpos = random.randrange(0,33)*25
-            en6Ypos = random.randrange(0,27)*25
-        self.enemy6 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-        self.enemy6.place(x=en6Xpos,y=en6Ypos)
-        self.enemy6.oval = self.enemy6.create_oval(0,0,30,30,fill="gray20")
+            en6Xpos = random.randrange(0, 33) * 25
+            en6Ypos = random.randrange(0, 27) * 25
+        self.enemy6 = Canvas(
+            self, bg="black", highlightthickness=0, width=30, height=30)
+        self.enemy6.place(x=en6Xpos, y=en6Ypos)
+        self.enemy6.oval = self.enemy6.create_oval(0, 0, 30, 30, fill="gray20")
         Enemies6.append(self.enemy6)
         Enemies6Xpos.append(en6Xpos)
         Enemies6Ypos.append(en6Ypos)
@@ -2396,117 +2561,142 @@ def MultiPlayer():
         global gameover
         global created
         if gameover != 1:
-            self.after(300,EnemyMove)
+            self.after(300, EnemyMove)
             if created == 1:
                 cycle = 0
                 for self.enemy in Enemies:
-                    rndDir = random.choice(["X","Y"])
+                    rndDir = random.choice(["X", "Y"])
                     if EnemiesDmg[cycle] == 0:
                         EnemyColor = "darkviolet"
                     else:
                         EnemyColor = "violet"
                     if ((PlayersXpos[0] - EnemiesXpos[cycle])**2 + (PlayersYpos[0] - EnemiesYpos[cycle])**2)**0.5 <= ((PlayersXpos[1] - EnemiesXpos[cycle])**2 + (PlayersYpos[1] - EnemiesYpos[cycle])**2)**0.5:
-                        #Target Player 1
+                        # Target Player 1
                         if PlayersXpos[0] < EnemiesXpos[cycle] and PlayersYpos[0] < EnemiesYpos[cycle]:
                             self.enemy.delete("all")
                             if rndDir == "X":
                                 EnemiesXpos[cycle] -= 25
-                                self.enemy.polygon = self.enemy.create_polygon(0,15,30,30,15,15,30,0,0,15,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    0, 15, 30, 30, 15, 15, 30, 0, 0, 15, fill=EnemyColor)
                             else:
                                 EnemiesYpos[cycle] -= 25
-                                self.enemy.polygon = self.enemy.create_polygon(15,0,30,30,15,15,0,30,15,0,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill=EnemyColor)
                         elif PlayersXpos[0] < EnemiesXpos[cycle] and PlayersYpos[0] > EnemiesYpos[cycle]:
                             self.enemy.delete("all")
                             if rndDir == "X":
                                 EnemiesXpos[cycle] -= 25
-                                self.enemy.polygon = self.enemy.create_polygon(0,15,30,30,15,15,30,0,0,15,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    0, 15, 30, 30, 15, 15, 30, 0, 0, 15, fill=EnemyColor)
                             else:
                                 EnemiesYpos[cycle] += 25
-                                self.enemy.polygon = self.enemy.create_polygon(15,30,30,0,15,15,0,0,15,30,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill=EnemyColor)
                         elif PlayersXpos[0] > EnemiesXpos[cycle] and PlayersYpos[0] < EnemiesYpos[cycle]:
                             self.enemy.delete("all")
                             if rndDir == "X":
                                 EnemiesXpos[cycle] += 25
-                                self.enemy.polygon = self.enemy.create_polygon(30,15,0,30,15,15,0,0,30,15,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    30, 15, 0, 30, 15, 15, 0, 0, 30, 15, fill=EnemyColor)
                             else:
                                 EnemiesYpos[cycle] -= 25
-                                self.enemy.polygon = self.enemy.create_polygon(15,0,30,30,15,15,0,30,15,0,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill=EnemyColor)
                         elif PlayersXpos[0] > EnemiesXpos[cycle] and PlayersYpos[0] > EnemiesYpos[cycle]:
                             self.enemy.delete("all")
                             if rndDir == "X":
                                 EnemiesXpos[cycle] += 25
-                                self.enemy.polygon = self.enemy.create_polygon(30,15,0,30,15,15,0,0,30,15,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    30, 15, 0, 30, 15, 15, 0, 0, 30, 15, fill=EnemyColor)
                             else:
                                 EnemiesYpos[cycle] += 25
-                                self.enemy.polygon = self.enemy.create_polygon(15,30,30,0,15,15,0,0,15,30,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill=EnemyColor)
                         elif PlayersXpos[0] < EnemiesXpos[cycle] and PlayersYpos[0] == EnemiesYpos[cycle]:
                             self.enemy.delete("all")
-                            self.enemy.polygon = self.enemy.create_polygon(0,15,30,30,15,15,30,0,0,15,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                0, 15, 30, 30, 15, 15, 30, 0, 0, 15, fill=EnemyColor)
                             EnemiesXpos[cycle] -= 25
                         elif PlayersXpos[0] > EnemiesXpos[cycle] and PlayersYpos[0] == EnemiesYpos[cycle]:
                             self.enemy.delete("all")
-                            self.enemy.polygon = self.enemy.create_polygon(30,15,0,30,15,15,0,0,30,15,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                30, 15, 0, 30, 15, 15, 0, 0, 30, 15, fill=EnemyColor)
                             EnemiesXpos[cycle] += 25
                         elif PlayersXpos[0] == EnemiesXpos[cycle] and PlayersYpos[0] < EnemiesYpos[cycle]:
                             self.enemy.delete("all")
-                            self.enemy.polygon = self.enemy.create_polygon(15,0,30,30,15,15,0,30,15,0,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill=EnemyColor)
                             EnemiesYpos[cycle] -= 25
                         elif PlayersXpos[0] == EnemiesXpos[cycle] and PlayersYpos[0] > EnemiesYpos[cycle]:
                             self.enemy.delete("all")
-                            self.enemy.polygon = self.enemy.create_polygon(15,30,30,0,15,15,0,0,15,30,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill=EnemyColor)
                             EnemiesYpos[cycle] += 25
                     else:
-                        #Target Player 2
+                        # Target Player 2
                         if PlayersXpos[1] < EnemiesXpos[cycle] and PlayersYpos[1] < EnemiesYpos[cycle]:
                             self.enemy.delete("all")
                             if rndDir == "X":
                                 EnemiesXpos[cycle] -= 25
-                                self.enemy.polygon = self.enemy.create_polygon(0,15,30,30,15,15,30,0,0,15,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    0, 15, 30, 30, 15, 15, 30, 0, 0, 15, fill=EnemyColor)
                             else:
                                 EnemiesYpos[cycle] -= 25
-                                self.enemy.polygon = self.enemy.create_polygon(15,0,30,30,15,15,0,30,15,0,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill=EnemyColor)
                         elif PlayersXpos[1] < EnemiesXpos[cycle] and PlayersYpos[1] > EnemiesYpos[cycle]:
                             self.enemy.delete("all")
                             if rndDir == "X":
                                 EnemiesXpos[cycle] -= 25
-                                self.enemy.polygon = self.enemy.create_polygon(0,15,30,30,15,15,30,0,0,15,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    0, 15, 30, 30, 15, 15, 30, 0, 0, 15, fill=EnemyColor)
                             else:
                                 EnemiesYpos[cycle] += 25
-                                self.enemy.polygon = self.enemy.create_polygon(15,30,30,0,15,15,0,0,15,30,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill=EnemyColor)
                         elif PlayersXpos[1] > EnemiesXpos[cycle] and PlayersYpos[1] < EnemiesYpos[cycle]:
                             self.enemy.delete("all")
                             if rndDir == "X":
                                 EnemiesXpos[cycle] += 25
-                                self.enemy.polygon = self.enemy.create_polygon(30,15,0,30,15,15,0,0,30,15,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    30, 15, 0, 30, 15, 15, 0, 0, 30, 15, fill=EnemyColor)
                             else:
                                 EnemiesYpos[cycle] -= 25
-                                self.enemy.polygon = self.enemy.create_polygon(15,0,30,30,15,15,0,30,15,0,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill=EnemyColor)
                         elif PlayersXpos[1] > EnemiesXpos[cycle] and PlayersYpos[1] > EnemiesYpos[cycle]:
                             self.enemy.delete("all")
                             if rndDir == "X":
                                 EnemiesXpos[cycle] += 25
-                                self.enemy.polygon = self.enemy.create_polygon(30,15,0,30,15,15,0,0,30,15,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    30, 15, 0, 30, 15, 15, 0, 0, 30, 15, fill=EnemyColor)
                             else:
                                 EnemiesYpos[cycle] += 25
-                                self.enemy.polygon = self.enemy.create_polygon(15,30,30,0,15,15,0,0,15,30,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill=EnemyColor)
                         elif PlayersXpos[1] < EnemiesXpos[cycle] and PlayersYpos[1] == EnemiesYpos[cycle]:
                             self.enemy.delete("all")
-                            self.enemy.polygon = self.enemy.create_polygon(0,15,30,30,15,15,30,0,0,15,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                0, 15, 30, 30, 15, 15, 30, 0, 0, 15, fill=EnemyColor)
                             EnemiesXpos[cycle] -= 25
                         elif PlayersXpos[1] > EnemiesXpos[cycle] and PlayersYpos[1] == EnemiesYpos[cycle]:
                             self.enemy.delete("all")
-                            self.enemy.polygon = self.enemy.create_polygon(30,15,0,30,15,15,0,0,30,15,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                30, 15, 0, 30, 15, 15, 0, 0, 30, 15, fill=EnemyColor)
                             EnemiesXpos[cycle] += 25
                         elif PlayersXpos[1] == EnemiesXpos[cycle] and PlayersYpos[1] < EnemiesYpos[cycle]:
                             self.enemy.delete("all")
-                            self.enemy.polygon = self.enemy.create_polygon(15,0,30,30,15,15,0,30,15,0,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill=EnemyColor)
                             EnemiesYpos[cycle] -= 25
                         elif PlayersXpos[1] == EnemiesXpos[cycle] and PlayersYpos[1] > EnemiesYpos[cycle]:
                             self.enemy.delete("all")
-                            self.enemy.polygon = self.enemy.create_polygon(15,30,30,0,15,15,0,0,15,30,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill=EnemyColor)
                             EnemiesYpos[cycle] += 25
-                    self.enemy.place(x=EnemiesXpos[cycle],y=EnemiesYpos[cycle])
-                    for Pcycle in range(0,2):
+                    self.enemy.place(
+                        x=EnemiesXpos[cycle], y=EnemiesYpos[cycle])
+                    for Pcycle in range(0, 2):
                         if PlayersXpos[Pcycle] == EnemiesXpos[cycle] and PlayersYpos[Pcycle] == EnemiesYpos[cycle]:
                             GameOver()
                     cycle += 1
@@ -2517,90 +2707,107 @@ def MultiPlayer():
         global gameover
         global created2
         if gameover != 1:
-            self.after(300,Enemy2Move)
+            self.after(300, Enemy2Move)
             if created2 == 1:
                 cycle = 0
                 for self.enemy2 in Enemies2:
                     if ((PlayersXpos[0] - Enemies2Xpos[cycle])**2 + (PlayersYpos[0] - Enemies2Ypos[cycle])**2)**0.5 <= ((PlayersXpos[1] - Enemies2Xpos[cycle])**2 + (PlayersYpos[1] - Enemies2Ypos[cycle])**2)**0.5:
-                        #Target Player 1
+                        # Target Player 1
                         if PlayersXpos[0] < Enemies2Xpos[cycle] and PlayersYpos[0] < Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(0,0,30,15,15,15,15,30,0,0,fill="red")
+                            self.enemy2.create_polygon(
+                                0, 0, 30, 15, 15, 15, 15, 30, 0, 0, fill="red")
                             Enemies2Xpos[cycle] -= 25
                             Enemies2Ypos[cycle] -= 25
                         elif PlayersXpos[0] < Enemies2Xpos[cycle] and PlayersYpos[0] > Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(0,30,15,0,15,15,30,15,0,30,fill="red")
+                            self.enemy2.create_polygon(
+                                0, 30, 15, 0, 15, 15, 30, 15, 0, 30, fill="red")
                             Enemies2Xpos[cycle] -= 25
                             Enemies2Ypos[cycle] += 25
                         elif PlayersXpos[0] > Enemies2Xpos[cycle] and PlayersYpos[0] < Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(30,0,0,15,15,15,15,30,30,0,fill="red")
+                            self.enemy2.create_polygon(
+                                30, 0, 0, 15, 15, 15, 15, 30, 30, 0, fill="red")
                             Enemies2Xpos[cycle] += 25
                             Enemies2Ypos[cycle] -= 25
                         elif PlayersXpos[0] > Enemies2Xpos[cycle] and PlayersYpos[0] > Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(30,30,15,0,15,15,0,15,30,30,fill="red")
+                            self.enemy2.create_polygon(
+                                30, 30, 15, 0, 15, 15, 0, 15, 30, 30, fill="red")
                             Enemies2Xpos[cycle] += 25
                             Enemies2Ypos[cycle] += 25
                         elif PlayersXpos[0] < Enemies2Xpos[cycle] and PlayersYpos[0] == Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(0,15,30,30,15,15,30,0,0,15,fill="red")
+                            self.enemy2.create_polygon(
+                                0, 15, 30, 30, 15, 15, 30, 0, 0, 15, fill="red")
                             Enemies2Xpos[cycle] -= 25
                         elif PlayersXpos[0] > Enemies2Xpos[cycle] and PlayersYpos[0] == Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(30,15,0,30,15,15,0,0,30,15,fill="red")
+                            self.enemy2.create_polygon(
+                                30, 15, 0, 30, 15, 15, 0, 0, 30, 15, fill="red")
                             Enemies2Xpos[cycle] += 25
                         elif PlayersXpos[0] == Enemies2Xpos[cycle] and PlayersYpos[0] < Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="red")
+                            self.enemy2.create_polygon(
+                                15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="red")
                             Enemies2Ypos[cycle] -= 25
                         elif PlayersXpos[0] == Enemies2Xpos[cycle] and PlayersYpos[0] > Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(15,30,30,0,15,15,0,0,15,30,fill="red")
+                            self.enemy2.create_polygon(
+                                15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill="red")
                             Enemies2Ypos[cycle] += 25
                     else:
-                        #Target Player 2
+                        # Target Player 2
                         if PlayersXpos[1] < Enemies2Xpos[cycle] and PlayersYpos[1] < Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(0,0,30,15,15,15,15,30,0,0,fill="red")
+                            self.enemy2.create_polygon(
+                                0, 0, 30, 15, 15, 15, 15, 30, 0, 0, fill="red")
                             Enemies2Xpos[cycle] -= 25
                             Enemies2Ypos[cycle] -= 25
                         elif PlayersXpos[1] < Enemies2Xpos[cycle] and PlayersYpos[1] > Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(0,30,15,0,15,15,30,15,0,30,fill="red")
+                            self.enemy2.create_polygon(
+                                0, 30, 15, 0, 15, 15, 30, 15, 0, 30, fill="red")
                             Enemies2Xpos[cycle] -= 25
                             Enemies2Ypos[cycle] += 25
                         elif PlayersXpos[1] > Enemies2Xpos[cycle] and PlayersYpos[1] < Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(30,0,0,15,15,15,15,30,30,0,fill="red")
+                            self.enemy2.create_polygon(
+                                30, 0, 0, 15, 15, 15, 15, 30, 30, 0, fill="red")
                             Enemies2Xpos[cycle] += 25
                             Enemies2Ypos[cycle] -= 25
                         elif PlayersXpos[1] > Enemies2Xpos[cycle] and PlayersYpos[1] > Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(30,30,15,0,15,15,0,15,30,30,fill="red")
+                            self.enemy2.create_polygon(
+                                30, 30, 15, 0, 15, 15, 0, 15, 30, 30, fill="red")
                             Enemies2Xpos[cycle] += 25
                             Enemies2Ypos[cycle] += 25
                         elif PlayersXpos[1] < Enemies2Xpos[cycle] and PlayersYpos[1] == Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(0,15,30,30,15,15,30,0,0,15,fill="red")
+                            self.enemy2.create_polygon(
+                                0, 15, 30, 30, 15, 15, 30, 0, 0, 15, fill="red")
                             Enemies2Xpos[cycle] -= 25
                         elif PlayersXpos[1] > Enemies2Xpos[cycle] and PlayersYpos[1] == Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(30,15,0,30,15,15,0,0,30,15,fill="red")
+                            self.enemy2.create_polygon(
+                                30, 15, 0, 30, 15, 15, 0, 0, 30, 15, fill="red")
                             Enemies2Xpos[cycle] += 25
                         elif PlayersXpos[1] == Enemies2Xpos[cycle] and PlayersYpos[1] < Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="red")
+                            self.enemy2.create_polygon(
+                                15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="red")
                             Enemies2Ypos[cycle] -= 25
                         elif PlayersXpos[1] == Enemies2Xpos[cycle] and PlayersYpos[1] > Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(15,30,30,0,15,15,0,0,15,30,fill="red")
+                            self.enemy2.create_polygon(
+                                15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill="red")
                             Enemies2Ypos[cycle] += 25
-                    self.enemy2.place(x=Enemies2Xpos[cycle],y=Enemies2Ypos[cycle])
-                    for Pcycle in range(0,2):
-                            if PlayersXpos[Pcycle] == Enemies2Xpos[cycle] and PlayersYpos[Pcycle] == Enemies2Ypos[cycle]:
-                                GameOver()
+                    self.enemy2.place(
+                        x=Enemies2Xpos[cycle], y=Enemies2Ypos[cycle])
+                    for Pcycle in range(0, 2):
+                        if PlayersXpos[Pcycle] == Enemies2Xpos[cycle] and PlayersYpos[Pcycle] == Enemies2Ypos[cycle]:
+                            GameOver()
                     cycle += 1
 
     def Enemy3Move():
@@ -2609,11 +2816,11 @@ def MultiPlayer():
         global gameover
         global created3
         if gameover != 1:
-            self.after(350,Enemy3Move)
+            self.after(350, Enemy3Move)
             if created3 == 1:
                 cycle = 0
                 for self.enemy3 in Enemies3:
-                    rndDir = random.choice(["X","Y"])
+                    rndDir = random.choice(["X", "Y"])
                     if Enemies3Dmg[cycle] == 0:
                         Enemy3Color = "navy"
                     elif Enemies3Dmg[cycle] == 1:
@@ -2625,107 +2832,132 @@ def MultiPlayer():
                     else:
                         Enemy3Color = "lightskyblue"
                     if ((PlayersXpos[0] - Enemies3Xpos[cycle])**2 + (PlayersYpos[0] - Enemies3Ypos[cycle])**2)**0.5 <= ((PlayersXpos[1] - Enemies3Xpos[cycle])**2 + (PlayersYpos[1] - Enemies3Ypos[cycle])**2)**0.5:
-                        #Target Player 1
+                        # Target Player 1
                         if PlayersXpos[0] < Enemies3Xpos[cycle] and PlayersYpos[0] < Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
                             if rndDir == "X":
                                 Enemies3Xpos[cycle] -= 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(0,20,0,30,30,30,30,0,0,0,0,10,10,10,10,20,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    0, 20, 0, 30, 30, 30, 30, 0, 0, 0, 0, 10, 10, 10, 10, 20, fill=Enemy3Color)
                             else:
                                 Enemies3Ypos[cycle] -= 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(10,0,0,0,0,30,30,30,30,0,20,0,20,10,10,10,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    10, 0, 0, 0, 0, 30, 30, 30, 30, 0, 20, 0, 20, 10, 10, 10, fill=Enemy3Color)
                         elif PlayersXpos[0] < Enemies3Xpos[cycle] and PlayersYpos[0] > Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
                             if rndDir == "X":
                                 Enemies3Xpos[cycle] -= 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(0,20,0,30,30,30,30,0,0,0,0,10,10,10,10,20,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    0, 20, 0, 30, 30, 30, 30, 0, 0, 0, 0, 10, 10, 10, 10, 20, fill=Enemy3Color)
                             else:
                                 Enemies3Ypos[cycle] += 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(20,30,30,30,30,0,0,0,0,30,10,30,10,20,20,20,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    20, 30, 30, 30, 30, 0, 0, 0, 0, 30, 10, 30, 10, 20, 20, 20, fill=Enemy3Color)
                         elif PlayersXpos[0] > Enemies3Xpos[cycle] and PlayersYpos[0] < Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
                             if rndDir == "X":
                                 Enemies3Xpos[cycle] += 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(30,10,30,0,0,0,0,30,30,30,30,20,20,20,20,10,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    30, 10, 30, 0, 0, 0, 0, 30, 30, 30, 30, 20, 20, 20, 20, 10, fill=Enemy3Color)
                             else:
                                 Enemies3Ypos[cycle] -= 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(10,0,0,0,0,30,30,30,30,0,20,0,20,10,10,10,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    10, 0, 0, 0, 0, 30, 30, 30, 30, 0, 20, 0, 20, 10, 10, 10, fill=Enemy3Color)
                         elif PlayersXpos[0] > Enemies3Xpos[cycle] and PlayersYpos[0] > Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
                             if rndDir == "X":
                                 Enemies3Xpos[cycle] += 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(30,10,30,0,0,0,0,30,30,30,30,20,20,20,20,10,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    30, 10, 30, 0, 0, 0, 0, 30, 30, 30, 30, 20, 20, 20, 20, 10, fill=Enemy3Color)
                             else:
                                 Enemies3Ypos[cycle] += 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(20,30,30,30,30,0,0,0,0,30,10,30,10,20,20,20,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    20, 30, 30, 30, 30, 0, 0, 0, 0, 30, 10, 30, 10, 20, 20, 20, fill=Enemy3Color)
                         elif PlayersXpos[0] < Enemies3Xpos[cycle] and PlayersYpos[0] == Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
-                            self.enemy3.polygon = self.enemy3.create_polygon(0,20,0,30,30,30,30,0,0,0,0,10,10,10,10,20,fill=Enemy3Color)
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                0, 20, 0, 30, 30, 30, 30, 0, 0, 0, 0, 10, 10, 10, 10, 20, fill=Enemy3Color)
                             Enemies3Xpos[cycle] -= 25
                         elif PlayersXpos[0] > Enemies3Xpos[cycle] and PlayersYpos[0] == Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
-                            self.enemy3.polygon = self.enemy3.create_polygon(30,10,30,0,0,0,0,30,30,30,30,20,20,20,20,10,fill=Enemy3Color)
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                30, 10, 30, 0, 0, 0, 0, 30, 30, 30, 30, 20, 20, 20, 20, 10, fill=Enemy3Color)
                             Enemies3Xpos[cycle] += 25
                         elif PlayersXpos[0] == Enemies3Xpos[cycle] and PlayersYpos[0] < Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
-                            self.enemy3.polygon = self.enemy3.create_polygon(10,0,0,0,0,30,30,30,30,0,20,0,20,10,10,10,fill=Enemy3Color)
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                10, 0, 0, 0, 0, 30, 30, 30, 30, 0, 20, 0, 20, 10, 10, 10, fill=Enemy3Color)
                             Enemies3Ypos[cycle] -= 25
                         elif PlayersXpos[0] == Enemies3Xpos[cycle] and PlayersYpos[0] > Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
-                            self.enemy3.polygon = self.enemy3.create_polygon(20,30,30,30,30,0,0,0,0,30,10,30,10,20,20,20,fill=Enemy3Color)
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                20, 30, 30, 30, 30, 0, 0, 0, 0, 30, 10, 30, 10, 20, 20, 20, fill=Enemy3Color)
                             Enemies3Ypos[cycle] += 25
                     else:
-                    #Target Player 2
+                        # Target Player 2
                         if PlayersXpos[1] < Enemies3Xpos[cycle] and PlayersYpos[1] < Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
                             if rndDir == "X":
                                 Enemies3Xpos[cycle] -= 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(0,20,0,30,30,30,30,0,0,0,0,10,10,10,10,20,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    0, 20, 0, 30, 30, 30, 30, 0, 0, 0, 0, 10, 10, 10, 10, 20, fill=Enemy3Color)
                             else:
                                 Enemies3Ypos[cycle] -= 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(10,0,0,0,0,30,30,30,30,0,20,0,20,10,10,10,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    10, 0, 0, 0, 0, 30, 30, 30, 30, 0, 20, 0, 20, 10, 10, 10, fill=Enemy3Color)
                         elif PlayersXpos[1] < Enemies3Xpos[cycle] and PlayersYpos[1] > Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
                             if rndDir == "X":
                                 Enemies3Xpos[cycle] -= 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(0,20,0,30,30,30,30,0,0,0,0,10,10,10,10,20,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    0, 20, 0, 30, 30, 30, 30, 0, 0, 0, 0, 10, 10, 10, 10, 20, fill=Enemy3Color)
                             else:
                                 Enemies3Ypos[cycle] += 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(20,30,30,30,30,0,0,0,0,30,10,30,10,20,20,20,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    20, 30, 30, 30, 30, 0, 0, 0, 0, 30, 10, 30, 10, 20, 20, 20, fill=Enemy3Color)
                         elif PlayersXpos[1] > Enemies3Xpos[cycle] and PlayersYpos[1] < Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
                             if rndDir == "X":
                                 Enemies3Xpos[cycle] += 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(30,10,30,0,0,0,0,30,30,30,30,20,20,20,20,10,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    30, 10, 30, 0, 0, 0, 0, 30, 30, 30, 30, 20, 20, 20, 20, 10, fill=Enemy3Color)
                             else:
                                 Enemies3Ypos[cycle] -= 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(10,0,0,0,0,30,30,30,30,0,20,0,20,10,10,10,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    10, 0, 0, 0, 0, 30, 30, 30, 30, 0, 20, 0, 20, 10, 10, 10, fill=Enemy3Color)
                         elif PlayersXpos[1] > Enemies3Xpos[cycle] and PlayersYpos[1] > Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
                             if rndDir == "X":
                                 Enemies3Xpos[cycle] += 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(30,10,30,0,0,0,0,30,30,30,30,20,20,20,20,10,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    30, 10, 30, 0, 0, 0, 0, 30, 30, 30, 30, 20, 20, 20, 20, 10, fill=Enemy3Color)
                             else:
                                 Enemies3Ypos[cycle] += 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(20,30,30,30,30,0,0,0,0,30,10,30,10,20,20,20,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    20, 30, 30, 30, 30, 0, 0, 0, 0, 30, 10, 30, 10, 20, 20, 20, fill=Enemy3Color)
                         elif PlayersXpos[1] < Enemies3Xpos[cycle] and PlayersYpos[1] == Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
-                            self.enemy3.polygon = self.enemy3.create_polygon(0,20,0,30,30,30,30,0,0,0,0,10,10,10,10,20,fill=Enemy3Color)
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                0, 20, 0, 30, 30, 30, 30, 0, 0, 0, 0, 10, 10, 10, 10, 20, fill=Enemy3Color)
                             Enemies3Xpos[cycle] -= 25
                         elif PlayersXpos[1] > Enemies3Xpos[cycle] and PlayersYpos[1] == Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
-                            self.enemy3.polygon = self.enemy3.create_polygon(30,10,30,0,0,0,0,30,30,30,30,20,20,20,20,10,fill=Enemy3Color)
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                30, 10, 30, 0, 0, 0, 0, 30, 30, 30, 30, 20, 20, 20, 20, 10, fill=Enemy3Color)
                             Enemies3Xpos[cycle] += 25
                         elif PlayersXpos[1] == Enemies3Xpos[cycle] and PlayersYpos[1] < Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
-                            self.enemy3.polygon = self.enemy3.create_polygon(10,0,0,0,0,30,30,30,30,0,20,0,20,10,10,10,fill=Enemy3Color)
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                10, 0, 0, 0, 0, 30, 30, 30, 30, 0, 20, 0, 20, 10, 10, 10, fill=Enemy3Color)
                             Enemies3Ypos[cycle] -= 25
                         elif PlayersXpos[1] == Enemies3Xpos[cycle] and PlayersYpos[1] > Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
-                            self.enemy3.polygon = self.enemy3.create_polygon(20,30,30,30,30,0,0,0,0,30,10,30,10,20,20,20,fill=Enemy3Color)
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                20, 30, 30, 30, 30, 0, 0, 0, 0, 30, 10, 30, 10, 20, 20, 20, fill=Enemy3Color)
                             Enemies3Ypos[cycle] += 25
-                    self.enemy3.place(x=Enemies3Xpos[cycle],y=Enemies3Ypos[cycle])
-                    for Pcycle in range(0,2):
+                    self.enemy3.place(
+                        x=Enemies3Xpos[cycle], y=Enemies3Ypos[cycle])
+                    for Pcycle in range(0, 2):
                         if PlayersXpos[Pcycle] == Enemies3Xpos[cycle] and PlayersYpos[Pcycle] == Enemies3Ypos[cycle]:
                             GameOver()
                     cycle += 1
@@ -2736,114 +2968,139 @@ def MultiPlayer():
         global gameover
         global created4
         if gameover != 1:
-            self.after(100,Enemy4Move)
+            self.after(100, Enemy4Move)
             if created4 == 1:
                 cycle = 0
                 for self.enemy4 in Enemies4:
-                    rndDir = random.choice(["X","Y"])
+                    rndDir = random.choice(["X", "Y"])
                     Enemy4Color = "darkgreen"
                     if ((PlayersXpos[0] - Enemies4Xpos[cycle])**2 + (PlayersYpos[0] - Enemies4Ypos[cycle])**2)**0.5 <= ((PlayersXpos[1] - Enemies4Xpos[cycle])**2 + (PlayersYpos[1] - Enemies4Ypos[cycle])**2)**0.5:
-                        #Target Player 1
+                        # Target Player 1
                         if PlayersXpos[0] < Enemies4Xpos[cycle] and PlayersYpos[0] < Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
                             if rndDir == "X":
                                 Enemies4Xpos[cycle] -= 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(0,15,15,25,15,17,30,25,30,5,15,13,15,5,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    0, 15, 15, 25, 15, 17, 30, 25, 30, 5, 15, 13, 15, 5, fill=Enemy4Color)
                             else:
                                 Enemies4Ypos[cycle] -= 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(15,0,5,15,12,15,5,30,25,30,17,15,25,15,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    15, 0, 5, 15, 12, 15, 5, 30, 25, 30, 17, 15, 25, 15, fill=Enemy4Color)
                         elif PlayersXpos[0] < Enemies4Xpos[cycle] and PlayersYpos[0] > Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
                             if rndDir == "X":
                                 Enemies4Xpos[cycle] -= 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(0,15,15,25,15,17,30,25,30,5,15,13,15,5,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    0, 15, 15, 25, 15, 17, 30, 25, 30, 5, 15, 13, 15, 5, fill=Enemy4Color)
                             else:
                                 Enemies4Ypos[cycle] += 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(15,30,25,15,17,15,25,0,5,0,13,15,5,15,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    15, 30, 25, 15, 17, 15, 25, 0, 5, 0, 13, 15, 5, 15, fill=Enemy4Color)
                         elif PlayersXpos[0] > Enemies4Xpos[cycle] and PlayersYpos[0] < Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
                             if rndDir == "X":
                                 Enemies4Xpos[cycle] += 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(30,15,15,5,15,13,0,5,0,25,15,17,15,25,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    30, 15, 15, 5, 15, 13, 0, 5, 0, 25, 15, 17, 15, 25, fill=Enemy4Color)
                             else:
                                 Enemies4Ypos[cycle] -= 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(15,0,5,15,12,15,5,30,25,30,17,15,25,15,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    15, 0, 5, 15, 12, 15, 5, 30, 25, 30, 17, 15, 25, 15, fill=Enemy4Color)
                         elif PlayersXpos[0] > Enemies4Xpos[cycle] and PlayersYpos[0] > Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
                             if rndDir == "X":
                                 Enemies4Xpos[cycle] += 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(30,15,15,5,15,13,0,5,0,25,15,17,15,25,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    30, 15, 15, 5, 15, 13, 0, 5, 0, 25, 15, 17, 15, 25, fill=Enemy4Color)
                             else:
                                 Enemies4Ypos[cycle] += 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(15,30,25,15,17,15,25,0,5,0,13,15,5,15,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    15, 30, 25, 15, 17, 15, 25, 0, 5, 0, 13, 15, 5, 15, fill=Enemy4Color)
                         elif PlayersXpos[0] < Enemies4Xpos[cycle] and PlayersYpos[0] == Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
-                            self.enemy4.polygon = self.enemy4.create_polygon(0,15,15,25,15,17,30,25,30,5,15,13,15,5,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                0, 15, 15, 25, 15, 17, 30, 25, 30, 5, 15, 13, 15, 5, fill=Enemy4Color)
                             Enemies4Xpos[cycle] -= 25
                         elif PlayersXpos[0] > Enemies4Xpos[cycle] and PlayersYpos[0] == Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
-                            self.enemy4.polygon = self.enemy4.create_polygon(30,15,15,5,15,13,0,5,0,25,15,17,15,25,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                30, 15, 15, 5, 15, 13, 0, 5, 0, 25, 15, 17, 15, 25, fill=Enemy4Color)
                             Enemies4Xpos[cycle] += 25
                         elif PlayersXpos[0] == Enemies4Xpos[cycle] and PlayersYpos[0] < Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
-                            self.enemy4.polygon = self.enemy4.create_polygon(15,0,5,15,12,15,5,30,25,30,17,15,25,15,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                15, 0, 5, 15, 12, 15, 5, 30, 25, 30, 17, 15, 25, 15, fill=Enemy4Color)
                             Enemies4Ypos[cycle] -= 25
                         elif PlayersXpos[0] == Enemies4Xpos[cycle] and PlayersYpos[0] > Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
-                            self.enemy4.polygon = self.enemy4.create_polygon(15,30,25,15,17,15,25,0,5,0,13,15,5,15,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                15, 30, 25, 15, 17, 15, 25, 0, 5, 0, 13, 15, 5, 15, fill=Enemy4Color)
                             Enemies4Ypos[cycle] += 25
                     else:
-                        #Target Player 2
+                        # Target Player 2
                         if PlayersXpos[1] < Enemies4Xpos[cycle] and PlayersYpos[1] < Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
                             if rndDir == "X":
                                 Enemies4Xpos[cycle] -= 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(0,15,15,25,15,17,30,25,30,5,15,13,15,5,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    0, 15, 15, 25, 15, 17, 30, 25, 30, 5, 15, 13, 15, 5, fill=Enemy4Color)
                             else:
                                 Enemies4Ypos[cycle] -= 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(15,0,5,15,12,15,5,30,25,30,17,15,25,15,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    15, 0, 5, 15, 12, 15, 5, 30, 25, 30, 17, 15, 25, 15, fill=Enemy4Color)
                         elif PlayersXpos[1] < Enemies4Xpos[cycle] and PlayersYpos[1] > Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
                             if rndDir == "X":
                                 Enemies4Xpos[cycle] -= 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(0,15,15,25,15,17,30,25,30,5,15,13,15,5,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    0, 15, 15, 25, 15, 17, 30, 25, 30, 5, 15, 13, 15, 5, fill=Enemy4Color)
                             else:
                                 Enemies4Ypos[cycle] += 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(15,30,25,15,17,15,25,0,5,0,13,15,5,15,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    15, 30, 25, 15, 17, 15, 25, 0, 5, 0, 13, 15, 5, 15, fill=Enemy4Color)
                         elif PlayersXpos[1] > Enemies4Xpos[cycle] and PlayersYpos[1] < Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
                             if rndDir == "X":
                                 Enemies4Xpos[cycle] += 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(30,15,15,5,15,13,0,5,0,25,15,17,15,25,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    30, 15, 15, 5, 15, 13, 0, 5, 0, 25, 15, 17, 15, 25, fill=Enemy4Color)
                             else:
                                 Enemies4Ypos[cycle] -= 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(15,0,5,15,12,15,5,30,25,30,17,15,25,15,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    15, 0, 5, 15, 12, 15, 5, 30, 25, 30, 17, 15, 25, 15, fill=Enemy4Color)
                         elif PlayersXpos[1] > Enemies4Xpos[cycle] and PlayersYpos[1] > Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
                             if rndDir == "X":
                                 Enemies4Xpos[cycle] += 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(30,15,15,5,15,13,0,5,0,25,15,17,15,25,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    30, 15, 15, 5, 15, 13, 0, 5, 0, 25, 15, 17, 15, 25, fill=Enemy4Color)
                             else:
                                 Enemies4Ypos[cycle] += 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(15,30,25,15,17,15,25,0,5,0,13,15,5,15,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    15, 30, 25, 15, 17, 15, 25, 0, 5, 0, 13, 15, 5, 15, fill=Enemy4Color)
                         elif PlayersXpos[1] < Enemies4Xpos[cycle] and PlayersYpos[1] == Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
-                            self.enemy4.polygon = self.enemy4.create_polygon(0,15,15,25,15,17,30,25,30,5,15,13,15,5,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                0, 15, 15, 25, 15, 17, 30, 25, 30, 5, 15, 13, 15, 5, fill=Enemy4Color)
                             Enemies4Xpos[cycle] -= 25
                         elif PlayersXpos[1] > Enemies4Xpos[cycle] and PlayersYpos[1] == Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
-                            self.enemy4.polygon = self.enemy4.create_polygon(30,15,15,5,15,13,0,5,0,25,15,17,15,25,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                30, 15, 15, 5, 15, 13, 0, 5, 0, 25, 15, 17, 15, 25, fill=Enemy4Color)
                             Enemies4Xpos[cycle] += 25
                         elif PlayersXpos[1] == Enemies4Xpos[cycle] and PlayersYpos[1] < Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
-                            self.enemy4.polygon = self.enemy4.create_polygon(15,0,5,15,12,15,5,30,25,30,17,15,25,15,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                15, 0, 5, 15, 12, 15, 5, 30, 25, 30, 17, 15, 25, 15, fill=Enemy4Color)
                             Enemies4Ypos[cycle] -= 25
                         elif PlayersXpos[1] == Enemies4Xpos[cycle] and PlayersYpos[1] > Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
-                            self.enemy4.polygon = self.enemy4.create_polygon(15,30,25,15,17,15,25,0,5,0,13,15,5,15,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                15, 30, 25, 15, 17, 15, 25, 0, 5, 0, 13, 15, 5, 15, fill=Enemy4Color)
                             Enemies4Ypos[cycle] += 25
-                    self.enemy4.place(x=Enemies4Xpos[cycle],y=Enemies4Ypos[cycle])
-                    for Pcycle in range(0,2):
+                    self.enemy4.place(
+                        x=Enemies4Xpos[cycle], y=Enemies4Ypos[cycle])
+                    for Pcycle in range(0, 2):
                         if PlayersXpos[Pcycle] == Enemies4Xpos[cycle] and PlayersYpos[Pcycle] == Enemies4Ypos[cycle]:
                             GameOver()
                     cycle += 1
@@ -2854,12 +3111,12 @@ def MultiPlayer():
         global gameover
         global created5
         if gameover != 1:
-            self.after(500,Enemy5Move)
+            self.after(500, Enemy5Move)
             if created5 == 1:
                 cycle = 0
                 for self.enemy5 in Enemies5:
                     if ((PlayersXpos[0] - Enemies5Xpos[cycle])**2 + (PlayersYpos[0] - Enemies5Ypos[cycle])**2)**0.5 <= ((PlayersXpos[1] - Enemies5Xpos[cycle])**2 + (PlayersYpos[1] - Enemies5Ypos[cycle])**2)**0.5:
-                        #Target Player 1
+                        # Target Player 1
                         if (Enemies5Wall[cycle] == "E" or Enemies5Wall[cycle] == "W") and PlayersYpos[0] < Enemies5Ypos[cycle]:
                             Enemies5Ypos[cycle] -= 25
                         elif (Enemies5Wall[cycle] == "E" or Enemies5Wall[cycle] == "W") and PlayersYpos[0] > Enemies5Ypos[cycle]:
@@ -2869,7 +3126,7 @@ def MultiPlayer():
                         elif PlayersXpos[0] > Enemies5Xpos[cycle] and (Enemies5Wall[cycle] == "N" or Enemies5Wall[cycle] == "S"):
                             Enemies5Xpos[cycle] += 25
                     else:
-                        #Target Player 2
+                        # Target Player 2
                         if (Enemies5Wall[cycle] == "E" or Enemies5Wall[cycle] == "W") and PlayersYpos[1] < Enemies5Ypos[cycle]:
                             Enemies5Ypos[cycle] -= 25
                         elif (Enemies5Wall[cycle] == "E" or Enemies5Wall[cycle] == "W") and PlayersYpos[1] > Enemies5Ypos[cycle]:
@@ -2878,11 +3135,12 @@ def MultiPlayer():
                             Enemies5Xpos[cycle] -= 25
                         elif PlayersXpos[1] > Enemies5Xpos[cycle] and (Enemies5Wall[cycle] == "N" or Enemies5Wall[cycle] == "S"):
                             Enemies5Xpos[cycle] += 25
-                    self.enemy5.place(x=Enemies5Xpos[cycle],y=Enemies5Ypos[cycle])
-                    for Pcycle in range(0,2):
+                    self.enemy5.place(
+                        x=Enemies5Xpos[cycle], y=Enemies5Ypos[cycle])
+                    for Pcycle in range(0, 2):
                         if PlayersXpos[Pcycle] == Enemies5Xpos[cycle] and PlayersYpos[Pcycle] == Enemies5Ypos[cycle]:
                             GameOver()
-                    for Pcycle in range(0,2):
+                    for Pcycle in range(0, 2):
                         if Enemies5Wall[cycle] == "E" or Enemies5Wall[cycle] == "W":
                             if Enemies5Ypos[cycle] == PlayersYpos[Pcycle]:
                                 enShoot()
@@ -2897,7 +3155,7 @@ def MultiPlayer():
         global generated3
         global generated4
         if gameover != 1:
-            self.after(10,Generate)
+            self.after(10, Generate)
             if generated1 == 0:
                 GenerateEnemy1()
                 generated1 = 1000
@@ -2925,9 +3183,11 @@ def MultiPlayer():
             if Enemies6Type[cycle] == 1:
                 enXpos = Enemies6Xpos[cycle]
                 enYpos = Enemies6Ypos[cycle]
-                self.enemy = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy.place(x=enXpos,y=enYpos)
-                self.enemy.polygon = self.enemy.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="darkviolet")
+                self.enemy = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy.place(x=enXpos, y=enYpos)
+                self.enemy.polygon = self.enemy.create_polygon(
+                    15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="darkviolet")
                 Enemies.append(self.enemy)
                 EnemiesDmg.append(Damage)
                 EnemiesXpos.append(enXpos)
@@ -2944,9 +3204,11 @@ def MultiPlayer():
             if Enemies6Type[cycle] == 2:
                 en2Xpos = Enemies6Xpos[cycle]
                 en2Ypos = Enemies6Ypos[cycle]
-                self.enemy2 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy2.place(x=en2Xpos,y=en2Ypos)
-                self.enemy2.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="red")
+                self.enemy2 = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy2.place(x=en2Xpos, y=en2Ypos)
+                self.enemy2.create_polygon(
+                    15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="red")
                 Enemies2.append(self.enemy2)
                 Enemies2Xpos.append(en2Xpos)
                 Enemies2Ypos.append(en2Ypos)
@@ -2963,9 +3225,11 @@ def MultiPlayer():
             if Enemies6Type[cycle] == 3:
                 en3Xpos = Enemies6Xpos[cycle]
                 en3Ypos = Enemies6Ypos[cycle]
-                self.enemy3 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy3.place(x=en3Xpos,y=en3Ypos)
-                self.enemy3.polygon = self.enemy3.create_polygon(10,0,0,0,0,30,30,30,30,0,20,0,20,10,10,10,fill="navy")
+                self.enemy3 = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy3.place(x=en3Xpos, y=en3Ypos)
+                self.enemy3.polygon = self.enemy3.create_polygon(
+                    10, 0, 0, 0, 0, 30, 30, 30, 30, 0, 20, 0, 20, 10, 10, 10, fill="navy")
                 Enemies3.append(self.enemy3)
                 Enemies3Dmg.append(Damage3)
                 Enemies3Xpos.append(en3Xpos)
@@ -2982,9 +3246,11 @@ def MultiPlayer():
             if Enemies6Type[cycle] == 4:
                 en4Xpos = Enemies6Xpos[cycle]
                 en4Ypos = Enemies6Ypos[cycle]
-                self.enemy4 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy4.place(x=en4Xpos,y=en4Ypos)
-                self.enemy4.create_polygon(15,0,5,15,12,15,5,30,25,30,17,15,25,15,fill="darkgreen")
+                self.enemy4 = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy4.place(x=en4Xpos, y=en4Ypos)
+                self.enemy4.create_polygon(
+                    15, 0, 5, 15, 12, 15, 5, 30, 25, 30, 17, 15, 25, 15, fill="darkgreen")
                 Enemies4.append(self.enemy4)
                 Enemies4Xpos.append(en4Xpos)
                 Enemies4Ypos.append(en4Ypos)
@@ -3008,9 +3274,10 @@ def MultiPlayer():
         elif PlayersDir[0] == "W":
             shotXpos = PlayersXpos[0] - 10
             shotYpos = PlayersYpos[0] + 10
-        self.shot = Canvas(bg="black",highlightthickness=0,width=10,height=10)
-        self.shot.place(x=shotXpos,y=shotYpos)
-        self.shot.create_oval(0,0,10,10,fill="white")
+        self.shot = Canvas(bg="black", highlightthickness=0,
+                           width=10, height=10)
+        self.shot.place(x=shotXpos, y=shotYpos)
+        self.shot.create_oval(0, 0, 10, 10, fill="white")
         Shots.append(self.shot)
         ShotsXpos.append(shotXpos)
         ShotsYpos.append(shotYpos)
@@ -3033,9 +3300,10 @@ def MultiPlayer():
         elif PlayersDir[1] == "W":
             shotXpos = PlayersXpos[1] - 10
             shotYpos = PlayersYpos[1] + 10
-        self.shot = Canvas(bg="black",highlightthickness=0,width=10,height=10)
-        self.shot.place(x=shotXpos,y=shotYpos)
-        self.shot.create_oval(0,0,10,10,fill="white")
+        self.shot = Canvas(bg="black", highlightthickness=0,
+                           width=10, height=10)
+        self.shot.place(x=shotXpos, y=shotYpos)
+        self.shot.create_oval(0, 0, 10, 10, fill="white")
         Shots.append(self.shot)
         ShotsXpos.append(shotXpos)
         ShotsYpos.append(shotYpos)
@@ -3064,21 +3332,23 @@ def MultiPlayer():
                 enShotXpos = Enemies5Xpos[cycle] + 30
                 enShotYpos = Enemies5Ypos[cycle] + 10
             if Enemies5Wall[cycle] == "E" or Enemies5Wall[cycle] == "W":
-                for Pcycle in range(0,2):
+                for Pcycle in range(0, 2):
                     if Enemies5Ypos[cycle] == Ypos:
-                        self.enShot = Canvas(bg="black",highlightthickness=0,width=10,height=10)
-                        self.enShot.place(x=enShotXpos,y=enShotYpos)
-                        self.enShot.create_oval(0,0,10,10,fill="yellow")
+                        self.enShot = Canvas(
+                            bg="black", highlightthickness=0, width=10, height=10)
+                        self.enShot.place(x=enShotXpos, y=enShotYpos)
+                        self.enShot.create_oval(0, 0, 10, 10, fill="yellow")
                         enShots.append(self.enShot)
                         enShotsXpos.append(enShotXpos)
                         enShotsYpos.append(enShotYpos)
                         enShotDir.append(enDir)
             else:
-                for Pcycle in range(0,2):
+                for Pcycle in range(0, 2):
                     if Enemies5Xpos[cycle] == Xpos:
-                        self.enShot = Canvas(bg="black",highlightthickness=0,width=10,height=10)
-                        self.enShot.place(x=enShotXpos,y=enShotYpos)
-                        self.enShot.create_oval(0,0,10,10,fill="yellow")
+                        self.enShot = Canvas(
+                            bg="black", highlightthickness=0, width=10, height=10)
+                        self.enShot.place(x=enShotXpos, y=enShotYpos)
+                        self.enShot.create_oval(0, 0, 10, 10, fill="yellow")
                         enShots.append(self.enShot)
                         enShotsXpos.append(enShotXpos)
                         enShotsYpos.append(enShotYpos)
@@ -3092,8 +3362,8 @@ def MultiPlayer():
         global destroy
         global gameover
         if gameover != 1:
-            self.after(10,ShotMove)
-            #Move Shots
+            self.after(10, ShotMove)
+            # Move Shots
             cycle = 0
             for self.shot in Shots:
                 destroy = -1
@@ -3105,24 +3375,27 @@ def MultiPlayer():
                     ShotsYpos[cycle] += 10
                 elif ShotDir[cycle] == "W":
                     ShotsXpos[cycle] -= 10
-                self.shot.place(x=ShotsXpos[cycle],y=ShotsYpos[cycle])
-                #Damage Enemy1
+                self.shot.place(x=ShotsXpos[cycle], y=ShotsYpos[cycle])
+                # Damage Enemy1
                 enCycle = 0
                 for self.enemy in Enemies:
                     if destroy == -1:
                         if EnemiesXpos[enCycle] + 30 >= ShotsXpos[cycle] >= EnemiesXpos[enCycle] - 10 and EnemiesYpos[enCycle] + 30 >= ShotsYpos[cycle] >= EnemiesYpos[enCycle] - 10:
                             destroy = 0
                             if EnemiesDmg[enCycle] == 1:
-                                self.explode = Canvas(bg="black",highlightthickness=0,width=30,height=30)
-                                self.explode.place(x=EnemiesXpos[enCycle],y=EnemiesYpos[enCycle])
-                                self.explode.create_polygon(0,15,13,13,15,0,17,13,30,15,17,17,15,30,13,17,fill="orange")
+                                self.explode = Canvas(
+                                    bg="black", highlightthickness=0, width=30, height=30)
+                                self.explode.place(
+                                    x=EnemiesXpos[enCycle], y=EnemiesYpos[enCycle])
+                                self.explode.create_polygon(
+                                    0, 15, 13, 13, 15, 0, 17, 13, 30, 15, 17, 17, 15, 30, 13, 17, fill="orange")
                                 Explosions.append(self.explode)
                                 self.enemy.destroy()
                                 del Enemies[enCycle]
                                 del EnemiesDmg[enCycle]
                                 del EnemiesXpos[enCycle]
                                 del EnemiesYpos[enCycle]
-                                self.after(10,destroyEnemy)
+                                self.after(10, destroyEnemy)
                                 self.shot.destroy()
                                 del Shots[cycle]
                                 del ShotsXpos[cycle]
@@ -3139,17 +3412,21 @@ def MultiPlayer():
                                     EnemyColor = "darkviolet"
                                 else:
                                     EnemyColor = "violet"
-                                self.enemy.itemconfig(self.enemy.polygon,fill=EnemyColor)
+                                self.enemy.itemconfig(
+                                    self.enemy.polygon, fill=EnemyColor)
                         enCycle += 1
-                #Damage Enemy2
+                # Damage Enemy2
                 enCycle = 0
                 for self.enemy2 in Enemies2:
                     if destroy == -1:
                         if Enemies2Xpos[enCycle] + 30 >= ShotsXpos[cycle] >= Enemies2Xpos[enCycle] - 10 and Enemies2Ypos[enCycle] + 30 >= ShotsYpos[cycle] >= Enemies2Ypos[enCycle] - 10:
                             destroy = 0
-                            self.explode = Canvas(bg="black",highlightthickness=0,width=30,height=30)
-                            self.explode.place(x=Enemies2Xpos[enCycle],y=Enemies2Ypos[enCycle])
-                            self.explode.create_polygon(0,15,13,13,15,0,17,13,30,15,17,17,15,30,13,17,fill="orange")
+                            self.explode = Canvas(
+                                bg="black", highlightthickness=0, width=30, height=30)
+                            self.explode.place(
+                                x=Enemies2Xpos[enCycle], y=Enemies2Ypos[enCycle])
+                            self.explode.create_polygon(
+                                0, 15, 13, 13, 15, 0, 17, 13, 30, 15, 17, 17, 15, 30, 13, 17, fill="orange")
                             Explosions.append(self.explode)
                             self.enemy2.destroy()
                             del Enemies2[enCycle]
@@ -3160,25 +3437,28 @@ def MultiPlayer():
                             del ShotsXpos[cycle]
                             del ShotsYpos[cycle]
                             del ShotDir[cycle]
-                            self.after(10,destroyEnemy)
+                            self.after(10, destroyEnemy)
                         enCycle += 1
-                #Damage Enemy3
+                # Damage Enemy3
                 enCycle = 0
                 for self.enemy3 in Enemies3:
                     if destroy == -1:
                         if Enemies3Xpos[enCycle] + 30 >= ShotsXpos[cycle] >= Enemies3Xpos[enCycle] - 10 and Enemies3Ypos[enCycle] + 30 >= ShotsYpos[cycle] >= Enemies3Ypos[enCycle] - 10:
                             destroy = 0
                             if Enemies3Dmg[enCycle] == 4:
-                                self.explode = Canvas(bg="black",highlightthickness=0,width=30,height=30)
-                                self.explode.place(x=Enemies3Xpos[enCycle],y=Enemies3Ypos[enCycle])
-                                self.explode.create_polygon(0,15,13,13,15,0,17,13,30,15,17,17,15,30,13,17,fill="orange")
+                                self.explode = Canvas(
+                                    bg="black", highlightthickness=0, width=30, height=30)
+                                self.explode.place(
+                                    x=Enemies3Xpos[enCycle], y=Enemies3Ypos[enCycle])
+                                self.explode.create_polygon(
+                                    0, 15, 13, 13, 15, 0, 17, 13, 30, 15, 17, 17, 15, 30, 13, 17, fill="orange")
                                 Explosions.append(self.explode)
                                 self.enemy3.destroy()
                                 del Enemies3[enCycle]
                                 del Enemies3Dmg[enCycle]
                                 del Enemies3Xpos[enCycle]
                                 del Enemies3Ypos[enCycle]
-                                self.after(10,destroyEnemy)
+                                self.after(10, destroyEnemy)
                                 self.shot.destroy()
                                 del Shots[cycle]
                                 del ShotsXpos[cycle]
@@ -3201,17 +3481,21 @@ def MultiPlayer():
                                     Enemy3Color = "deepskyblue"
                                 else:
                                     Enemy3Color = "lightskyblue"
-                                self.enemy3.itemconfig(self.enemy3.polygon,fill=Enemy3Color)
+                                self.enemy3.itemconfig(
+                                    self.enemy3.polygon, fill=Enemy3Color)
                         enCycle += 1
-                #Damage Enemy4
+                # Damage Enemy4
                 enCycle = 0
                 for self.enemy4 in Enemies4:
                     if destroy == -1:
                         if Enemies4Xpos[enCycle] + 30 >= ShotsXpos[cycle] >= Enemies4Xpos[enCycle] - 10 and Enemies4Ypos[enCycle] + 30 >= ShotsYpos[cycle] >= Enemies4Ypos[enCycle] - 10:
                             destroy = 0
-                            self.explode = Canvas(bg="black",highlightthickness=0,width=30,height=30)
-                            self.explode.place(x=Enemies4Xpos[enCycle],y=Enemies4Ypos[enCycle])
-                            self.explode.create_polygon(0,15,13,13,15,0,17,13,30,15,17,17,15,30,13,17,fill="orange")
+                            self.explode = Canvas(
+                                bg="black", highlightthickness=0, width=30, height=30)
+                            self.explode.place(
+                                x=Enemies4Xpos[enCycle], y=Enemies4Ypos[enCycle])
+                            self.explode.create_polygon(
+                                0, 15, 13, 13, 15, 0, 17, 13, 30, 15, 17, 17, 15, 30, 13, 17, fill="orange")
                             Explosions.append(self.explode)
                             self.enemy4.destroy()
                             del Enemies4[enCycle]
@@ -3222,18 +3506,21 @@ def MultiPlayer():
                             del ShotsXpos[cycle]
                             del ShotsYpos[cycle]
                             del ShotDir[cycle]
-                            self.after(10,destroyEnemy)
+                            self.after(10, destroyEnemy)
                         enCycle += 1
-                #Damage Enemy5
+                # Damage Enemy5
                 enCycle = 0
                 for self.enemy5 in Enemies5:
                     if destroy == -1:
                         if Enemies5Xpos[enCycle] + 30 >= ShotsXpos[cycle] >= Enemies5Xpos[enCycle] - 10 and Enemies5Ypos[enCycle] + 30 >= ShotsYpos[cycle] >= Enemies5Ypos[enCycle] - 10:
                             destroy = 0
                             if Enemies5Dmg[enCycle] == 1:
-                                self.explode = Canvas(bg="black",highlightthickness=0,width=30,height=30)
-                                self.explode.place(x=Enemies5Xpos[enCycle],y=Enemies5Ypos[enCycle])
-                                self.explode.create_polygon(0,15,13,13,15,0,17,13,30,15,17,17,15,30,13,17,fill="orange")
+                                self.explode = Canvas(
+                                    bg="black", highlightthickness=0, width=30, height=30)
+                                self.explode.place(
+                                    x=Enemies5Xpos[enCycle], y=Enemies5Ypos[enCycle])
+                                self.explode.create_polygon(
+                                    0, 15, 13, 13, 15, 0, 17, 13, 30, 15, 17, 17, 15, 30, 13, 17, fill="orange")
                                 Explosions.append(self.explode)
                                 self.enemy5.destroy()
                                 del Enemies5[enCycle]
@@ -3241,7 +3528,7 @@ def MultiPlayer():
                                 del Enemies5Xpos[enCycle]
                                 del Enemies5Ypos[enCycle]
                                 del Enemies5Wall[enCycle]
-                                self.after(10,destroyEnemy)
+                                self.after(10, destroyEnemy)
                                 self.shot.destroy()
                                 del Shots[cycle]
                                 del ShotsXpos[cycle]
@@ -3258,18 +3545,22 @@ def MultiPlayer():
                                     Enemy5Color = "darkorange2"
                                 else:
                                     Enemy5Color = "orange"
-                                self.enemy5.itemconfig(self.enemy5.polygon,fill=Enemy5Color)
+                                self.enemy5.itemconfig(
+                                    self.enemy5.polygon, fill=Enemy5Color)
                         enCycle += 1
-                #Damage Enemy6
+                # Damage Enemy6
                 enCycle = 0
                 for self.enemy6 in Enemies6:
                     if destroy == -1:
                         if Enemies6Xpos[enCycle] + 30 >= ShotsXpos[cycle] >= Enemies6Xpos[enCycle] - 10 and Enemies6Ypos[enCycle] + 30 >= ShotsYpos[cycle] >= Enemies6Ypos[enCycle] - 10:
                             destroy = 0
                             if Enemies6Dmg[enCycle] == 5:
-                                self.explode = Canvas(bg="black",highlightthickness=0,width=30,height=30)
-                                self.explode.place(x=Enemies6Xpos[enCycle],y=Enemies6Ypos[enCycle])
-                                self.explode.create_polygon(0,15,13,13,15,0,17,13,30,15,17,17,15,30,13,17,fill="orange")
+                                self.explode = Canvas(
+                                    bg="black", highlightthickness=0, width=30, height=30)
+                                self.explode.place(
+                                    x=Enemies6Xpos[enCycle], y=Enemies6Ypos[enCycle])
+                                self.explode.create_polygon(
+                                    0, 15, 13, 13, 15, 0, 17, 13, 30, 15, 17, 17, 15, 30, 13, 17, fill="orange")
                                 Explosions.append(self.explode)
                                 self.enemy6.destroy()
                                 del Enemies6[enCycle]
@@ -3277,7 +3568,7 @@ def MultiPlayer():
                                 del Enemies6Xpos[enCycle]
                                 del Enemies6Ypos[enCycle]
                                 del Enemies6Type[enCycle]
-                                self.after(10,destroyEnemy)
+                                self.after(10, destroyEnemy)
                                 self.shot.destroy()
                                 del Shots[cycle]
                                 del ShotsXpos[cycle]
@@ -3302,9 +3593,10 @@ def MultiPlayer():
                                     Enemy6Color = "gray60"
                                 elif Enemies6Dmg[enCycle] == 5:
                                     Enemy6Color = "gray70"
-                                self.enemy6.itemconfig(self.enemy6.oval,fill=Enemy6Color)
+                                self.enemy6.itemconfig(
+                                    self.enemy6.oval, fill=Enemy6Color)
                         enCycle += 1
-                #Destroy Shot at Boundary
+                # Destroy Shot at Boundary
                 if destroy == -1:
                     if ShotsXpos[cycle] < 0 or ShotsXpos[cycle] > 830 or ShotsYpos[cycle] < 0 or ShotsYpos[cycle] > 680:
                         self.shot.destroy()
@@ -3317,7 +3609,7 @@ def MultiPlayer():
     def enShotMove():
         global gameover
         if gameover != 1:
-            self.after(10,enShotMove)
+            self.after(10, enShotMove)
             cycle = 0
             for self.enShot in enShots:
                 enDestroy = -1
@@ -3329,9 +3621,9 @@ def MultiPlayer():
                     enShotsYpos[cycle] += 10
                 elif enShotDir[cycle] == "W":
                     enShotsXpos[cycle] -= 10
-                self.enShot.place(x=enShotsXpos[cycle],y=enShotsYpos[cycle])
-                #Game Over
-                for Pcycle in range(0,2):
+                self.enShot.place(x=enShotsXpos[cycle], y=enShotsYpos[cycle])
+                # Game Over
+                for Pcycle in range(0, 2):
                     if gameover != 1:
                         if PlayersXpos[Pcycle] + 30 >= enShotsXpos[cycle] >= PlayersXpos[Pcycle] - 10 and PlayersYpos[Pcycle] + 30 >= enShotsYpos[cycle] >= PlayersYpos[Pcycle] - 10:
                             enDestroy = 0
@@ -3341,7 +3633,7 @@ def MultiPlayer():
                             del enShotsYpos[cycle]
                             del enShotDir[cycle]
                             GameOver()
-                #Destroy Shot at Boundary
+                # Destroy Shot at Boundary
                 if enDestroy == -1:
                     if enShotsXpos[cycle] < 0 or enShotsXpos[cycle] > 830 or enShotsYpos[cycle] < 0 or enShotsYpos[cycle] > 680:
                         self.enShot.destroy()
@@ -3363,262 +3655,262 @@ def MultiPlayer():
         global summoned
         time = 0
         wave += 1
-        #Wave 1
+        # Wave 1
         if wave == 1:
             E = 0
             while E < 3:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
-        #Wave 2
+        # Wave 2
         elif wave == 2:
             E = 0
             while E < 3:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
-        #Wave 3
+        # Wave 3
         elif wave == 3:
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
-        #Wave 4
+        # Wave 4
         elif wave == 4:
             E = 0
             while E < 4:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
-        #Wave 5
+        # Wave 5
         elif wave == 5:
             E = 0
             while E < 3:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
-        #Wave 6
+        # Wave 6
         elif wave == 6:
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < 1:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < 3:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
-        #Wave 7
+        # Wave 7
         elif wave == 7:
             E = 0
             while E < 3:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
-        #Wave 8
+        # Wave 8
         elif wave == 8:
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
-        #Wave 9
+        # Wave 9
         elif wave == 9:
             E = 0
             while E < 3:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
-        #Wave 10
+        # Wave 10
         elif wave == 10:
             E = 0
             while E < 3:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
-        #Wave 11
+        # Wave 11
         elif wave == 11:
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < 1:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
             E = 0
             while E < 1:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
-        #Wave 12
+        # Wave 12
         elif wave == 12:
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy5)
+                self.after(time, CreateEnemy5)
                 E += 1
                 time += 250
-        #Wave 13
+        # Wave 13
         elif wave == 13:
             E = 0
             while E < 3:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < 1:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
             E = 0
             while E < 1:
-                self.after(time,CreateEnemy5)
+                self.after(time, CreateEnemy5)
                 E += 1
                 time += 250
-        #Wave 14
+        # Wave 14
         elif wave == 14:
             E = 0
             while E < 4:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < 1:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy5)
+                self.after(time, CreateEnemy5)
                 E += 1
                 time += 250
-        #Wave 15
+        # Wave 15
         elif wave == 15:
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy6)
+                self.after(time, CreateEnemy6)
                 E += 1
                 time += 250
-        #Wave 16
+        # Wave 16
         elif wave == 16:
             E = 0
             while E < 3:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < 2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < 1:
-                self.after(time,CreateEnemy6)
+                self.after(time, CreateEnemy6)
                 E += 1
                 time += 250
-        #Wave 17
+        # Wave 17
         elif wave == 17:
             E = 0
             while E < 1:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < 1:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < 1:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
             E = 0
             while E < 1:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
             E = 0
             while E < 1:
-                self.after(time,CreateEnemy5)
+                self.after(time, CreateEnemy5)
                 E += 1
                 time += 250
             E = 0
             while E < 1:
-                self.after(time,CreateEnemy6)
+                self.after(time, CreateEnemy6)
                 E += 1
                 time += 250
-        #Wave 18+
+        # Wave 18+
         elif wave >= 18:
             E = 0
             while E < wave - 12:
-                rndEnemy = random.choice([1,2,3,4,5,6])
+                rndEnemy = random.choice([1, 2, 3, 4, 5, 6])
                 if rndEnemy == 1:
-                    self.after(time,CreateEnemy)
+                    self.after(time, CreateEnemy)
                 elif rndEnemy == 2:
-                    self.after(time,CreateEnemy2)
+                    self.after(time, CreateEnemy2)
                 elif rndEnemy == 3:
-                    self.after(time,CreateEnemy3)
+                    self.after(time, CreateEnemy3)
                 elif rndEnemy == 4:
-                    self.after(time,CreateEnemy4)
+                    self.after(time, CreateEnemy4)
                 elif rndEnemy == 5:
-                    self.after(time,CreateEnemy5)
+                    self.after(time, CreateEnemy5)
                 elif rndEnemy == 6:
-                    self.after(time,CreateEnemy6)
+                    self.after(time, CreateEnemy6)
                 E += 1
                 time += 250
         summoned = 0
@@ -3630,7 +3922,7 @@ def MultiPlayer():
         global pace
         global gameover
         if gameover == 0:
-            self.after(10,NextWave)
+            self.after(10, NextWave)
             if summoned == 0:
                 summoned = 1
                 waveTime = pace
@@ -3639,7 +3931,8 @@ def MultiPlayer():
             if not Enemies and not Enemies2 and not Enemies3 and not Enemies4 and not Enemies5 and not Enemies6:
                 Summon()
             waveTime -= 10
-            self.lbScore.config(text="Wave: "+str(wave)+"  Next Wave: "+str(waveTime/1000)+"sec  Press 'p' to pause")
+            self.lbScore.config(text="Wave: " + str(wave) + "  Next Wave: " +
+                                str(waveTime / 1000) + "sec  Press 'p' to pause")
 
     def GameOver():
         global gameover
@@ -3669,12 +3962,13 @@ def MultiPlayer():
             for self.shot in Shots:
                 self.shot.destroy()
             self.lbScore.destroy()
-            self.lbGameOver = Label(text="Game Over" + "\n" "You survived to wave " + str(wave) + "\n" + "Click here to restart",bg="black",fg="white")
-            self.lbGameOver.pack(fill=BOTH,expand=1)
-            self.lbGameOver.bind('<Button>',Restart)
+            self.lbGameOver = Label(text="Game Over" + "\n" "You survived to wave " + str(
+                wave) + "\n" + "Click here to restart", bg="black", fg="white")
+            self.lbGameOver.pack(fill=BOTH, expand=1)
+            self.lbGameOver.bind('<Button>', Restart)
             self.btnMainMenu = Button(text="Main Menu")
             self.btnMainMenu.pack(side=LEFT)
-            self.btnMainMenu.bind('<Button>',StartMainMenu)
+            self.btnMainMenu.bind('<Button>', StartMainMenu)
 
     def Restart(event):
         self.destroy()
@@ -3710,19 +4004,20 @@ def MultiPlayer():
             for self.shot in Shots:
                 self.shot.destroy()
             self.lbScore.destroy()
-            self.lbPause = Label(text="Paused"+"\n"+"Press 'p' to Unpause",bg="black",fg="white")
-            self.lbPause.pack(fill=BOTH,expand=1)
+            self.lbPause = Label(text="Paused" + "\n" +
+                                 "Press 'p' to Unpause", bg="black", fg="white")
+            self.lbPause.pack(fill=BOTH, expand=1)
             self.btnMainMenu = Button(text="Main Menu")
             self.btnMainMenu.pack(side=LEFT)
-            self.btnMainMenu.bind('<Button>',StartMainMenu)
+            self.btnMainMenu.bind('<Button>', StartMainMenu)
         elif pause == 1:
             gameover = 0
             pause = 0
-            self.bind('<Left>',LeftKey)
-            self.bind('<Right>',RightKey)
-            self.bind('<Up>',UpKey)
-            self.bind('<Down>',DownKey)
-            self.bind('<space>',Shoot)
+            self.bind('<Left>', LeftKey)
+            self.bind('<Right>', RightKey)
+            self.bind('<Up>', UpKey)
+            self.bind('<Down>', DownKey)
+            self.bind('<space>', Shoot)
             EnemyMove()
             Enemy2Move()
             Enemy3Move()
@@ -3731,8 +4026,9 @@ def MultiPlayer():
             Generate()
             ShotMove()
             enShotMove()
-            self.lbScore = Label(text="Wave: "+str(wave)+"  Next Wave: "+str(waveTime/1000)+"sec  Press 'p' to pause",bg="black",fg="white")
-            self.lbScore.place(x=165,y=680,width=500,height=20)
+            self.lbScore = Label(text="Wave: " + str(wave) + "  Next Wave: " + str(
+                waveTime / 1000) + "sec  Press 'p' to pause", bg="black", fg="white")
+            self.lbScore.place(x=165, y=680, width=500, height=20)
             NextWave()
             self.lbPause.destroy()
             self.btnMainMenu.unbind('<Button>')
@@ -3745,19 +4041,19 @@ def MultiPlayer():
         self.destroy()
         MainMenu()
 
-    #Bindings
-    self.bind('<Left>',LeftKey)
-    self.bind('<Right>',RightKey)
-    self.bind('<Up>',UpKey)
-    self.bind('<Down>',DownKey)
-    self.bind('<a>',AKey)
-    self.bind('<d>',DKey)
-    self.bind('<w>',WKey)
-    self.bind('<s>',SKey)
-    self.bind('<Escape>',Exit)
-    self.bind('<space>',Shoot)
-    self.bind('<Tab>',Shoot2)
-    self.bind('<p>',Pause)
+    # Bindings
+    self.bind('<Left>', LeftKey)
+    self.bind('<Right>', RightKey)
+    self.bind('<Up>', UpKey)
+    self.bind('<Down>', DownKey)
+    self.bind('<a>', AKey)
+    self.bind('<d>', DKey)
+    self.bind('<w>', WKey)
+    self.bind('<s>', SKey)
+    self.bind('<Escape>', Exit)
+    self.bind('<space>', Shoot)
+    self.bind('<Tab>', Shoot2)
+    self.bind('<p>', Pause)
 
     EnemyMove()
     Enemy2Move()
@@ -3768,15 +4064,16 @@ def MultiPlayer():
     ShotMove()
     enShotMove()
 
-    #Frame settings
+    # Frame settings
     self.geometry("830x700")
     self.title("Space Assault")
     self.configure(bg="black")
 
+
 def TenWaveChallengeSinglePlayerChooseEnemies():
     self = Tk()
 
-    #Variables
+    # Variables
     global W1E1
     global W1E2
     global W1E3
@@ -3898,83 +4195,94 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
     W10E5 = 0
     W10E6 = 0
 
-    #Objects
-    self.lbDirections = Label(text="Choose what enemies are in each wave",bg="black",fg="white")
+    # Objects
+    self.lbDirections = Label(
+        text="Choose what enemies are in each wave", bg="black", fg="white")
     self.lbDirections.pack()
     self.btnMainMenu = Button(text="Main Menu")
-    self.btnMainMenu.place(x=0,y=680,width=100,height=20)
-    self.lbWave1 = Label(text="Wave 1",bg="black",fg="white")
-    self.lbWave1.place(x=115,y=680,width=60,height=20)
-    self.lbWave2 = Label(text="Wave 2",bg="black",fg="white")
-    self.lbWave2.place(x=175,y=680,width=60,height=20)
-    self.lbWave3 = Label(text="Wave 3",bg="black",fg="white")
-    self.lbWave3.place(x=235,y=680,width=60,height=20)
-    self.lbWave4 = Label(text="Wave 4",bg="black",fg="white")
-    self.lbWave4.place(x=295,y=680,width=60,height=20)
-    self.lbWave5 = Label(text="Wave 5",bg="black",fg="white")
-    self.lbWave5.place(x=355,y=680,width=60,height=20)
-    self.lbWave6 = Label(text="Wave 6",bg="black",fg="white")
-    self.lbWave6.place(x=415,y=680,width=60,height=20)
-    self.lbWave7 = Label(text="Wave 7",bg="black",fg="white")
-    self.lbWave7.place(x=475,y=680,width=60,height=20)
-    self.lbWave8 = Label(text="Wave 8",bg="black",fg="white")
-    self.lbWave8.place(x=535,y=680,width=60,height=20)
-    self.lbWave9 = Label(text="Wave 9",bg="black",fg="white")
-    self.lbWave9.place(x=595,y=680,width=60,height=20)
-    self.lbWave10 = Label(text="Wave 10",bg="black",fg="white")
-    self.lbWave10.place(x=655,y=680,width=60,height=20)
+    self.btnMainMenu.place(x=0, y=680, width=100, height=20)
+    self.lbWave1 = Label(text="Wave 1", bg="black", fg="white")
+    self.lbWave1.place(x=115, y=680, width=60, height=20)
+    self.lbWave2 = Label(text="Wave 2", bg="black", fg="white")
+    self.lbWave2.place(x=175, y=680, width=60, height=20)
+    self.lbWave3 = Label(text="Wave 3", bg="black", fg="white")
+    self.lbWave3.place(x=235, y=680, width=60, height=20)
+    self.lbWave4 = Label(text="Wave 4", bg="black", fg="white")
+    self.lbWave4.place(x=295, y=680, width=60, height=20)
+    self.lbWave5 = Label(text="Wave 5", bg="black", fg="white")
+    self.lbWave5.place(x=355, y=680, width=60, height=20)
+    self.lbWave6 = Label(text="Wave 6", bg="black", fg="white")
+    self.lbWave6.place(x=415, y=680, width=60, height=20)
+    self.lbWave7 = Label(text="Wave 7", bg="black", fg="white")
+    self.lbWave7.place(x=475, y=680, width=60, height=20)
+    self.lbWave8 = Label(text="Wave 8", bg="black", fg="white")
+    self.lbWave8.place(x=535, y=680, width=60, height=20)
+    self.lbWave9 = Label(text="Wave 9", bg="black", fg="white")
+    self.lbWave9.place(x=595, y=680, width=60, height=20)
+    self.lbWave10 = Label(text="Wave 10", bg="black", fg="white")
+    self.lbWave10.place(x=655, y=680, width=60, height=20)
     self.btnPlaySinglePlayer = Button(text="Play")
-    self.btnPlaySinglePlayer.place(x=730,y=680,width=100,height=20)
-    self.enemy1Up = Canvas(bg="black",highlightthickness=0)
-    self.enemy1Up.place(x=90,y=300,width=30,height=30)
-    self.enemy1Up.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="darkviolet")
-    self.enemy1num = Label(text="0",bg="black",fg="white")
-    self.enemy1num.place(x=90,y=330,width=30,height=20)
-    self.enemy1Down = Canvas(bg="black",highlightthickness=0)
-    self.enemy1Down.place(x=90,y=350,width=30,height=30)
-    self.enemy1Down.create_polygon(15,30,30,0,15,15,0,0,15,30,fill="darkviolet")
-    self.enemy2Up = Canvas(bg="black",highlightthickness=0)
-    self.enemy2Up.place(x=210,y=300,width=30,height=30)
-    self.enemy2Up.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="red")
-    self.enemy2num = Label(text="0",bg="black",fg="white")
-    self.enemy2num.place(x=210,y=330,width=30,height=20)
-    self.enemy2Down = Canvas(bg="black",highlightthickness=0)
-    self.enemy2Down.place(x=210,y=350,width=30,height=30)
-    self.enemy2Down.create_polygon(15,30,30,0,15,15,0,0,15,30,fill="red")
-    self.enemy3Up = Canvas(bg="black",highlightthickness=0)
-    self.enemy3Up.place(x=330,y=300,width=30,height=30)
-    self.enemy3Up.create_polygon(10,0,0,0,0,30,30,30,30,0,20,0,20,10,10,10,fill="navy")
-    self.enemy3num = Label(text="0",bg="black",fg="white")
-    self.enemy3num.place(x=330,y=330,width=30,height=20)
-    self.enemy3Down = Canvas(bg="black",highlightthickness=0)
-    self.enemy3Down.place(x=330,y=350,width=30,height=30)
-    self.enemy3Down.create_polygon(20,30,30,30,30,0,0,0,0,30,10,30,10,20,20,20,fill="navy")
-    self.enemy4Up = Canvas(bg="black",highlightthickness=0)
-    self.enemy4Up.place(x=450,y=300,width=30,height=30)
-    self.enemy4Up.create_polygon(15,0,5,15,12,15,5,30,25,30,17,15,25,15,fill="darkgreen")
-    self.enemy4num = Label(text="0",bg="black",fg="white")
-    self.enemy4num.place(x=450,y=330,width=30,height=20)
-    self.enemy4Down = Canvas(bg="black",highlightthickness=0)
-    self.enemy4Down.place(x=450,y=350,width=30,height=30)
-    self.enemy4Down.create_polygon(15,30,25,15,17,15,25,0,5,0,13,15,5,15,fill="darkgreen")
-    self.enemy5Up = Canvas(bg="black",highlightthickness=0)
-    self.enemy5Up.place(x=570,y=300,width=30,height=30)
-    self.enemy5Up.create_polygon(30,30,20,15,20,0,10,0,10,15,0,30,fill="darkorange2")
-    self.enemy5num = Label(text="0",bg="black",fg="white")
-    self.enemy5num.place(x=570,y=330,width=30,height=20)
-    self.enemy5Down = Canvas(bg="black",highlightthickness=0)
-    self.enemy5Down.place(x=570,y=350,width=30,height=30)
-    self.enemy5Down.create_polygon(0,0,10,15,10,30,20,30,20,15,30,0,fill="darkorange2")
-    self.enemy6Up = Canvas(bg="black",highlightthickness=0)
-    self.enemy6Up.place(x=690,y=300,width=30,height=30)
-    self.enemy6Up.create_oval(0,0,30,30,fill="gray20")
-    self.enemy6num = Label(text="0",bg="black",fg="white")
-    self.enemy6num.place(x=690,y=330,width=30,height=20)
-    self.enemy6Down = Canvas(bg="black",highlightthickness=0)
-    self.enemy6Down.place(x=690,y=350,width=30,height=30)
-    self.enemy6Down.create_oval(0,0,30,30,fill="gray20")
+    self.btnPlaySinglePlayer.place(x=730, y=680, width=100, height=20)
+    self.enemy1Up = Canvas(bg="black", highlightthickness=0)
+    self.enemy1Up.place(x=90, y=300, width=30, height=30)
+    self.enemy1Up.create_polygon(
+        15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="darkviolet")
+    self.enemy1num = Label(text="0", bg="black", fg="white")
+    self.enemy1num.place(x=90, y=330, width=30, height=20)
+    self.enemy1Down = Canvas(bg="black", highlightthickness=0)
+    self.enemy1Down.place(x=90, y=350, width=30, height=30)
+    self.enemy1Down.create_polygon(
+        15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill="darkviolet")
+    self.enemy2Up = Canvas(bg="black", highlightthickness=0)
+    self.enemy2Up.place(x=210, y=300, width=30, height=30)
+    self.enemy2Up.create_polygon(
+        15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="red")
+    self.enemy2num = Label(text="0", bg="black", fg="white")
+    self.enemy2num.place(x=210, y=330, width=30, height=20)
+    self.enemy2Down = Canvas(bg="black", highlightthickness=0)
+    self.enemy2Down.place(x=210, y=350, width=30, height=30)
+    self.enemy2Down.create_polygon(
+        15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill="red")
+    self.enemy3Up = Canvas(bg="black", highlightthickness=0)
+    self.enemy3Up.place(x=330, y=300, width=30, height=30)
+    self.enemy3Up.create_polygon(
+        10, 0, 0, 0, 0, 30, 30, 30, 30, 0, 20, 0, 20, 10, 10, 10, fill="navy")
+    self.enemy3num = Label(text="0", bg="black", fg="white")
+    self.enemy3num.place(x=330, y=330, width=30, height=20)
+    self.enemy3Down = Canvas(bg="black", highlightthickness=0)
+    self.enemy3Down.place(x=330, y=350, width=30, height=30)
+    self.enemy3Down.create_polygon(
+        20, 30, 30, 30, 30, 0, 0, 0, 0, 30, 10, 30, 10, 20, 20, 20, fill="navy")
+    self.enemy4Up = Canvas(bg="black", highlightthickness=0)
+    self.enemy4Up.place(x=450, y=300, width=30, height=30)
+    self.enemy4Up.create_polygon(
+        15, 0, 5, 15, 12, 15, 5, 30, 25, 30, 17, 15, 25, 15, fill="darkgreen")
+    self.enemy4num = Label(text="0", bg="black", fg="white")
+    self.enemy4num.place(x=450, y=330, width=30, height=20)
+    self.enemy4Down = Canvas(bg="black", highlightthickness=0)
+    self.enemy4Down.place(x=450, y=350, width=30, height=30)
+    self.enemy4Down.create_polygon(
+        15, 30, 25, 15, 17, 15, 25, 0, 5, 0, 13, 15, 5, 15, fill="darkgreen")
+    self.enemy5Up = Canvas(bg="black", highlightthickness=0)
+    self.enemy5Up.place(x=570, y=300, width=30, height=30)
+    self.enemy5Up.create_polygon(
+        30, 30, 20, 15, 20, 0, 10, 0, 10, 15, 0, 30, fill="darkorange2")
+    self.enemy5num = Label(text="0", bg="black", fg="white")
+    self.enemy5num.place(x=570, y=330, width=30, height=20)
+    self.enemy5Down = Canvas(bg="black", highlightthickness=0)
+    self.enemy5Down.place(x=570, y=350, width=30, height=30)
+    self.enemy5Down.create_polygon(
+        0, 0, 10, 15, 10, 30, 20, 30, 20, 15, 30, 0, fill="darkorange2")
+    self.enemy6Up = Canvas(bg="black", highlightthickness=0)
+    self.enemy6Up.place(x=690, y=300, width=30, height=30)
+    self.enemy6Up.create_oval(0, 0, 30, 30, fill="gray20")
+    self.enemy6num = Label(text="0", bg="black", fg="white")
+    self.enemy6num.place(x=690, y=330, width=30, height=20)
+    self.enemy6Down = Canvas(bg="black", highlightthickness=0)
+    self.enemy6Down.place(x=690, y=350, width=30, height=30)
+    self.enemy6Down.create_oval(0, 0, 30, 30, fill="gray20")
 
-    #Functions
+    # Functions
     def StartMainMenu(event):
         self.destroy()
         MainMenu()
@@ -4008,18 +4316,18 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         self.enemy4Down.unbind('<Button>')
         self.enemy5Down.unbind('<Button>')
         self.enemy6Down.unbind('<Button>')
-        self.enemy1Up.bind('<Button>',W1E1Up)
-        self.enemy2Up.bind('<Button>',W1E2Up)
-        self.enemy3Up.bind('<Button>',W1E3Up)
-        self.enemy4Up.bind('<Button>',W1E4Up)
-        self.enemy5Up.bind('<Button>',W1E5Up)
-        self.enemy6Up.bind('<Button>',W1E6Up)
-        self.enemy1Down.bind('<Button>',W1E1Down)
-        self.enemy2Down.bind('<Button>',W1E2Down)
-        self.enemy3Down.bind('<Button>',W1E3Down)
-        self.enemy4Down.bind('<Button>',W1E4Down)
-        self.enemy5Down.bind('<Button>',W1E5Down)
-        self.enemy6Down.bind('<Button>',W1E6Down)
+        self.enemy1Up.bind('<Button>', W1E1Up)
+        self.enemy2Up.bind('<Button>', W1E2Up)
+        self.enemy3Up.bind('<Button>', W1E3Up)
+        self.enemy4Up.bind('<Button>', W1E4Up)
+        self.enemy5Up.bind('<Button>', W1E5Up)
+        self.enemy6Up.bind('<Button>', W1E6Up)
+        self.enemy1Down.bind('<Button>', W1E1Down)
+        self.enemy2Down.bind('<Button>', W1E2Down)
+        self.enemy3Down.bind('<Button>', W1E3Down)
+        self.enemy4Down.bind('<Button>', W1E4Down)
+        self.enemy5Down.bind('<Button>', W1E5Down)
+        self.enemy6Down.bind('<Button>', W1E6Down)
         self.enemy1num.config(text=str(W1E1))
         self.enemy2num.config(text=str(W1E2))
         self.enemy3num.config(text=str(W1E3))
@@ -4056,18 +4364,18 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         self.enemy4Down.unbind('<Button>')
         self.enemy5Down.unbind('<Button>')
         self.enemy6Down.unbind('<Button>')
-        self.enemy1Up.bind('<Button>',W2E1Up)
-        self.enemy2Up.bind('<Button>',W2E2Up)
-        self.enemy3Up.bind('<Button>',W2E3Up)
-        self.enemy4Up.bind('<Button>',W2E4Up)
-        self.enemy5Up.bind('<Button>',W2E5Up)
-        self.enemy6Up.bind('<Button>',W2E6Up)
-        self.enemy1Down.bind('<Button>',W2E1Down)
-        self.enemy2Down.bind('<Button>',W2E2Down)
-        self.enemy3Down.bind('<Button>',W2E3Down)
-        self.enemy4Down.bind('<Button>',W2E4Down)
-        self.enemy5Down.bind('<Button>',W2E5Down)
-        self.enemy6Down.bind('<Button>',W2E6Down)
+        self.enemy1Up.bind('<Button>', W2E1Up)
+        self.enemy2Up.bind('<Button>', W2E2Up)
+        self.enemy3Up.bind('<Button>', W2E3Up)
+        self.enemy4Up.bind('<Button>', W2E4Up)
+        self.enemy5Up.bind('<Button>', W2E5Up)
+        self.enemy6Up.bind('<Button>', W2E6Up)
+        self.enemy1Down.bind('<Button>', W2E1Down)
+        self.enemy2Down.bind('<Button>', W2E2Down)
+        self.enemy3Down.bind('<Button>', W2E3Down)
+        self.enemy4Down.bind('<Button>', W2E4Down)
+        self.enemy5Down.bind('<Button>', W2E5Down)
+        self.enemy6Down.bind('<Button>', W2E6Down)
         self.enemy1num.config(text=str(W2E1))
         self.enemy2num.config(text=str(W2E2))
         self.enemy3num.config(text=str(W2E3))
@@ -4104,18 +4412,18 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         self.enemy4Down.unbind('<Button>')
         self.enemy5Down.unbind('<Button>')
         self.enemy6Down.unbind('<Button>')
-        self.enemy1Up.bind('<Button>',W3E1Up)
-        self.enemy2Up.bind('<Button>',W3E2Up)
-        self.enemy3Up.bind('<Button>',W3E3Up)
-        self.enemy4Up.bind('<Button>',W3E4Up)
-        self.enemy5Up.bind('<Button>',W3E5Up)
-        self.enemy6Up.bind('<Button>',W3E6Up)
-        self.enemy1Down.bind('<Button>',W3E1Down)
-        self.enemy2Down.bind('<Button>',W3E2Down)
-        self.enemy3Down.bind('<Button>',W3E3Down)
-        self.enemy4Down.bind('<Button>',W3E4Down)
-        self.enemy5Down.bind('<Button>',W3E5Down)
-        self.enemy6Down.bind('<Button>',W3E6Down)
+        self.enemy1Up.bind('<Button>', W3E1Up)
+        self.enemy2Up.bind('<Button>', W3E2Up)
+        self.enemy3Up.bind('<Button>', W3E3Up)
+        self.enemy4Up.bind('<Button>', W3E4Up)
+        self.enemy5Up.bind('<Button>', W3E5Up)
+        self.enemy6Up.bind('<Button>', W3E6Up)
+        self.enemy1Down.bind('<Button>', W3E1Down)
+        self.enemy2Down.bind('<Button>', W3E2Down)
+        self.enemy3Down.bind('<Button>', W3E3Down)
+        self.enemy4Down.bind('<Button>', W3E4Down)
+        self.enemy5Down.bind('<Button>', W3E5Down)
+        self.enemy6Down.bind('<Button>', W3E6Down)
         self.enemy1num.config(text=str(W3E1))
         self.enemy2num.config(text=str(W3E2))
         self.enemy3num.config(text=str(W3E3))
@@ -4152,18 +4460,18 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         self.enemy4Down.unbind('<Button>')
         self.enemy5Down.unbind('<Button>')
         self.enemy6Down.unbind('<Button>')
-        self.enemy1Up.bind('<Button>',W4E1Up)
-        self.enemy2Up.bind('<Button>',W4E2Up)
-        self.enemy3Up.bind('<Button>',W4E3Up)
-        self.enemy4Up.bind('<Button>',W4E4Up)
-        self.enemy5Up.bind('<Button>',W4E5Up)
-        self.enemy6Up.bind('<Button>',W4E6Up)
-        self.enemy1Down.bind('<Button>',W4E1Down)
-        self.enemy2Down.bind('<Button>',W4E2Down)
-        self.enemy3Down.bind('<Button>',W4E3Down)
-        self.enemy4Down.bind('<Button>',W4E4Down)
-        self.enemy5Down.bind('<Button>',W4E5Down)
-        self.enemy6Down.bind('<Button>',W4E6Down)
+        self.enemy1Up.bind('<Button>', W4E1Up)
+        self.enemy2Up.bind('<Button>', W4E2Up)
+        self.enemy3Up.bind('<Button>', W4E3Up)
+        self.enemy4Up.bind('<Button>', W4E4Up)
+        self.enemy5Up.bind('<Button>', W4E5Up)
+        self.enemy6Up.bind('<Button>', W4E6Up)
+        self.enemy1Down.bind('<Button>', W4E1Down)
+        self.enemy2Down.bind('<Button>', W4E2Down)
+        self.enemy3Down.bind('<Button>', W4E3Down)
+        self.enemy4Down.bind('<Button>', W4E4Down)
+        self.enemy5Down.bind('<Button>', W4E5Down)
+        self.enemy6Down.bind('<Button>', W4E6Down)
         self.enemy1num.config(text=str(W4E1))
         self.enemy2num.config(text=str(W4E2))
         self.enemy3num.config(text=str(W4E3))
@@ -4200,18 +4508,18 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         self.enemy4Down.unbind('<Button>')
         self.enemy5Down.unbind('<Button>')
         self.enemy6Down.unbind('<Button>')
-        self.enemy1Up.bind('<Button>',W5E1Up)
-        self.enemy2Up.bind('<Button>',W5E2Up)
-        self.enemy3Up.bind('<Button>',W5E3Up)
-        self.enemy4Up.bind('<Button>',W5E4Up)
-        self.enemy5Up.bind('<Button>',W5E5Up)
-        self.enemy6Up.bind('<Button>',W5E6Up)
-        self.enemy1Down.bind('<Button>',W5E1Down)
-        self.enemy2Down.bind('<Button>',W5E2Down)
-        self.enemy3Down.bind('<Button>',W5E3Down)
-        self.enemy4Down.bind('<Button>',W5E4Down)
-        self.enemy5Down.bind('<Button>',W5E5Down)
-        self.enemy6Down.bind('<Button>',W5E6Down)
+        self.enemy1Up.bind('<Button>', W5E1Up)
+        self.enemy2Up.bind('<Button>', W5E2Up)
+        self.enemy3Up.bind('<Button>', W5E3Up)
+        self.enemy4Up.bind('<Button>', W5E4Up)
+        self.enemy5Up.bind('<Button>', W5E5Up)
+        self.enemy6Up.bind('<Button>', W5E6Up)
+        self.enemy1Down.bind('<Button>', W5E1Down)
+        self.enemy2Down.bind('<Button>', W5E2Down)
+        self.enemy3Down.bind('<Button>', W5E3Down)
+        self.enemy4Down.bind('<Button>', W5E4Down)
+        self.enemy5Down.bind('<Button>', W5E5Down)
+        self.enemy6Down.bind('<Button>', W5E6Down)
         self.enemy1num.config(text=str(W5E1))
         self.enemy2num.config(text=str(W5E2))
         self.enemy3num.config(text=str(W5E3))
@@ -4248,18 +4556,18 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         self.enemy4Down.unbind('<Button>')
         self.enemy5Down.unbind('<Button>')
         self.enemy6Down.unbind('<Button>')
-        self.enemy1Up.bind('<Button>',W6E1Up)
-        self.enemy2Up.bind('<Button>',W6E2Up)
-        self.enemy3Up.bind('<Button>',W6E3Up)
-        self.enemy4Up.bind('<Button>',W6E4Up)
-        self.enemy5Up.bind('<Button>',W6E5Up)
-        self.enemy6Up.bind('<Button>',W6E6Up)
-        self.enemy1Down.bind('<Button>',W6E1Down)
-        self.enemy2Down.bind('<Button>',W6E2Down)
-        self.enemy3Down.bind('<Button>',W6E3Down)
-        self.enemy4Down.bind('<Button>',W6E4Down)
-        self.enemy5Down.bind('<Button>',W6E5Down)
-        self.enemy6Down.bind('<Button>',W6E6Down)
+        self.enemy1Up.bind('<Button>', W6E1Up)
+        self.enemy2Up.bind('<Button>', W6E2Up)
+        self.enemy3Up.bind('<Button>', W6E3Up)
+        self.enemy4Up.bind('<Button>', W6E4Up)
+        self.enemy5Up.bind('<Button>', W6E5Up)
+        self.enemy6Up.bind('<Button>', W6E6Up)
+        self.enemy1Down.bind('<Button>', W6E1Down)
+        self.enemy2Down.bind('<Button>', W6E2Down)
+        self.enemy3Down.bind('<Button>', W6E3Down)
+        self.enemy4Down.bind('<Button>', W6E4Down)
+        self.enemy5Down.bind('<Button>', W6E5Down)
+        self.enemy6Down.bind('<Button>', W6E6Down)
         self.enemy1num.config(text=str(W6E1))
         self.enemy2num.config(text=str(W6E2))
         self.enemy3num.config(text=str(W6E3))
@@ -4296,18 +4604,18 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         self.enemy4Down.unbind('<Button>')
         self.enemy5Down.unbind('<Button>')
         self.enemy6Down.unbind('<Button>')
-        self.enemy1Up.bind('<Button>',W7E1Up)
-        self.enemy2Up.bind('<Button>',W7E2Up)
-        self.enemy3Up.bind('<Button>',W7E3Up)
-        self.enemy4Up.bind('<Button>',W7E4Up)
-        self.enemy5Up.bind('<Button>',W7E5Up)
-        self.enemy6Up.bind('<Button>',W7E6Up)
-        self.enemy1Down.bind('<Button>',W7E1Down)
-        self.enemy2Down.bind('<Button>',W7E2Down)
-        self.enemy3Down.bind('<Button>',W7E3Down)
-        self.enemy4Down.bind('<Button>',W7E4Down)
-        self.enemy5Down.bind('<Button>',W7E5Down)
-        self.enemy6Down.bind('<Button>',W7E6Down)
+        self.enemy1Up.bind('<Button>', W7E1Up)
+        self.enemy2Up.bind('<Button>', W7E2Up)
+        self.enemy3Up.bind('<Button>', W7E3Up)
+        self.enemy4Up.bind('<Button>', W7E4Up)
+        self.enemy5Up.bind('<Button>', W7E5Up)
+        self.enemy6Up.bind('<Button>', W7E6Up)
+        self.enemy1Down.bind('<Button>', W7E1Down)
+        self.enemy2Down.bind('<Button>', W7E2Down)
+        self.enemy3Down.bind('<Button>', W7E3Down)
+        self.enemy4Down.bind('<Button>', W7E4Down)
+        self.enemy5Down.bind('<Button>', W7E5Down)
+        self.enemy6Down.bind('<Button>', W7E6Down)
         self.enemy1num.config(text=str(W7E1))
         self.enemy2num.config(text=str(W7E2))
         self.enemy3num.config(text=str(W7E3))
@@ -4344,18 +4652,18 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         self.enemy4Down.unbind('<Button>')
         self.enemy5Down.unbind('<Button>')
         self.enemy6Down.unbind('<Button>')
-        self.enemy1Up.bind('<Button>',W8E1Up)
-        self.enemy2Up.bind('<Button>',W8E2Up)
-        self.enemy3Up.bind('<Button>',W8E3Up)
-        self.enemy4Up.bind('<Button>',W8E4Up)
-        self.enemy5Up.bind('<Button>',W8E5Up)
-        self.enemy6Up.bind('<Button>',W8E6Up)
-        self.enemy1Down.bind('<Button>',W8E1Down)
-        self.enemy2Down.bind('<Button>',W8E2Down)
-        self.enemy3Down.bind('<Button>',W8E3Down)
-        self.enemy4Down.bind('<Button>',W8E4Down)
-        self.enemy5Down.bind('<Button>',W8E5Down)
-        self.enemy6Down.bind('<Button>',W8E6Down)
+        self.enemy1Up.bind('<Button>', W8E1Up)
+        self.enemy2Up.bind('<Button>', W8E2Up)
+        self.enemy3Up.bind('<Button>', W8E3Up)
+        self.enemy4Up.bind('<Button>', W8E4Up)
+        self.enemy5Up.bind('<Button>', W8E5Up)
+        self.enemy6Up.bind('<Button>', W8E6Up)
+        self.enemy1Down.bind('<Button>', W8E1Down)
+        self.enemy2Down.bind('<Button>', W8E2Down)
+        self.enemy3Down.bind('<Button>', W8E3Down)
+        self.enemy4Down.bind('<Button>', W8E4Down)
+        self.enemy5Down.bind('<Button>', W8E5Down)
+        self.enemy6Down.bind('<Button>', W8E6Down)
         self.enemy1num.config(text=str(W8E1))
         self.enemy2num.config(text=str(W8E2))
         self.enemy3num.config(text=str(W8E3))
@@ -4392,18 +4700,18 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         self.enemy4Down.unbind('<Button>')
         self.enemy5Down.unbind('<Button>')
         self.enemy6Down.unbind('<Button>')
-        self.enemy1Up.bind('<Button>',W9E1Up)
-        self.enemy2Up.bind('<Button>',W9E2Up)
-        self.enemy3Up.bind('<Button>',W9E3Up)
-        self.enemy4Up.bind('<Button>',W9E4Up)
-        self.enemy5Up.bind('<Button>',W9E5Up)
-        self.enemy6Up.bind('<Button>',W9E6Up)
-        self.enemy1Down.bind('<Button>',W9E1Down)
-        self.enemy2Down.bind('<Button>',W9E2Down)
-        self.enemy3Down.bind('<Button>',W9E3Down)
-        self.enemy4Down.bind('<Button>',W9E4Down)
-        self.enemy5Down.bind('<Button>',W9E5Down)
-        self.enemy6Down.bind('<Button>',W9E6Down)
+        self.enemy1Up.bind('<Button>', W9E1Up)
+        self.enemy2Up.bind('<Button>', W9E2Up)
+        self.enemy3Up.bind('<Button>', W9E3Up)
+        self.enemy4Up.bind('<Button>', W9E4Up)
+        self.enemy5Up.bind('<Button>', W9E5Up)
+        self.enemy6Up.bind('<Button>', W9E6Up)
+        self.enemy1Down.bind('<Button>', W9E1Down)
+        self.enemy2Down.bind('<Button>', W9E2Down)
+        self.enemy3Down.bind('<Button>', W9E3Down)
+        self.enemy4Down.bind('<Button>', W9E4Down)
+        self.enemy5Down.bind('<Button>', W9E5Down)
+        self.enemy6Down.bind('<Button>', W9E6Down)
         self.enemy1num.config(text=str(W9E1))
         self.enemy2num.config(text=str(W9E2))
         self.enemy3num.config(text=str(W9E3))
@@ -4440,18 +4748,18 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
         self.enemy4Down.unbind('<Button>')
         self.enemy5Down.unbind('<Button>')
         self.enemy6Down.unbind('<Button>')
-        self.enemy1Up.bind('<Button>',W10E1Up)
-        self.enemy2Up.bind('<Button>',W10E2Up)
-        self.enemy3Up.bind('<Button>',W10E3Up)
-        self.enemy4Up.bind('<Button>',W10E4Up)
-        self.enemy5Up.bind('<Button>',W10E5Up)
-        self.enemy6Up.bind('<Button>',W10E6Up)
-        self.enemy1Down.bind('<Button>',W10E1Down)
-        self.enemy2Down.bind('<Button>',W10E2Down)
-        self.enemy3Down.bind('<Button>',W10E3Down)
-        self.enemy4Down.bind('<Button>',W10E4Down)
-        self.enemy5Down.bind('<Button>',W10E5Down)
-        self.enemy6Down.bind('<Button>',W10E6Down)
+        self.enemy1Up.bind('<Button>', W10E1Up)
+        self.enemy2Up.bind('<Button>', W10E2Up)
+        self.enemy3Up.bind('<Button>', W10E3Up)
+        self.enemy4Up.bind('<Button>', W10E4Up)
+        self.enemy5Up.bind('<Button>', W10E5Up)
+        self.enemy6Up.bind('<Button>', W10E6Up)
+        self.enemy1Down.bind('<Button>', W10E1Down)
+        self.enemy2Down.bind('<Button>', W10E2Down)
+        self.enemy3Down.bind('<Button>', W10E3Down)
+        self.enemy4Down.bind('<Button>', W10E4Down)
+        self.enemy5Down.bind('<Button>', W10E5Down)
+        self.enemy6Down.bind('<Button>', W10E6Down)
         self.enemy1num.config(text=str(W10E1))
         self.enemy2num.config(text=str(W10E2))
         self.enemy3num.config(text=str(W10E3))
@@ -5126,32 +5434,34 @@ def TenWaveChallengeSinglePlayerChooseEnemies():
     def Exit(event):
         self.destroy()
 
-    #Bind
-    self.btnMainMenu.bind('<Button>',StartMainMenu)
-    self.lbWave1.bind('<Button>',Wave1)
-    self.lbWave2.bind('<Button>',Wave2)
-    self.lbWave3.bind('<Button>',Wave3)
-    self.lbWave4.bind('<Button>',Wave4)
-    self.lbWave5.bind('<Button>',Wave5)
-    self.lbWave6.bind('<Button>',Wave6)
-    self.lbWave7.bind('<Button>',Wave7)
-    self.lbWave8.bind('<Button>',Wave8)
-    self.lbWave9.bind('<Button>',Wave9)
-    self.lbWave10.bind('<Button>',Wave10)
-    self.btnPlaySinglePlayer.bind('<Button>',StartTenWaveChallengeSinglePlayer)
-    self.bind('<Escape>',Exit)
+    # Bind
+    self.btnMainMenu.bind('<Button>', StartMainMenu)
+    self.lbWave1.bind('<Button>', Wave1)
+    self.lbWave2.bind('<Button>', Wave2)
+    self.lbWave3.bind('<Button>', Wave3)
+    self.lbWave4.bind('<Button>', Wave4)
+    self.lbWave5.bind('<Button>', Wave5)
+    self.lbWave6.bind('<Button>', Wave6)
+    self.lbWave7.bind('<Button>', Wave7)
+    self.lbWave8.bind('<Button>', Wave8)
+    self.lbWave9.bind('<Button>', Wave9)
+    self.lbWave10.bind('<Button>', Wave10)
+    self.btnPlaySinglePlayer.bind(
+        '<Button>', StartTenWaveChallengeSinglePlayer)
+    self.bind('<Escape>', Exit)
 
-    #Frame settings
+    # Frame settings
     self.geometry("830x700")
     self.title("Space Assault")
     self.configure(bg="black")
 
     Wave1()
 
+
 def TenWaveChallengeSinglePlayer():
     self = Tk()
 
-    #Variables
+    # Variables
     global wave
     global Damage
     global Damage3
@@ -5279,7 +5589,7 @@ def TenWaveChallengeSinglePlayer():
     global W10E5
     global W10E6
 
-    #Lists
+    # Lists
     Shots = []
     ShotsXpos = []
     ShotsYpos = []
@@ -5314,26 +5624,30 @@ def TenWaveChallengeSinglePlayer():
     Enemies6Dmg = []
     Explosions = []
 
-    #Score
-    self.lbScore = Label(text="Wave: "+str(wave)+"  Press 'p' to pause",bg="black",fg="white")
-    self.lbScore.place(x=165,y=680,width=500,height=20)
+    # Score
+    self.lbScore = Label(text="Wave: " + str(wave) +
+                         "  Press 'p' to pause", bg="black", fg="white")
+    self.lbScore.place(x=165, y=680, width=500, height=20)
 
-    #Player
-    self.player = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-    self.player.place(x=Xpos,y=Ypos)
-    self.player.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="green")
+    # Player
+    self.player = Canvas(
+        self, bg="black", highlightthickness=0, width=30, height=30)
+    self.player.place(x=Xpos, y=Ypos)
+    self.player.create_polygon(
+        15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="green")
 
-    #Functions
+    # Functions
     def LeftKey(event):
         global Xpos
         global Ypos
         global direction
         global start
         self.player.delete("all")
-        self.player.create_polygon(0,15,30,30,15,15,30,0,0,15,fill="green")
+        self.player.create_polygon(
+            0, 15, 30, 30, 15, 15, 30, 0, 0, 15, fill="green")
         if Xpos > 0:
             Xpos -= 25
-        self.player.place(x=Xpos,y=Ypos)
+        self.player.place(x=Xpos, y=Ypos)
         direction = "W"
         cycle = 0
         for enemy in Enemies:
@@ -5375,10 +5689,11 @@ def TenWaveChallengeSinglePlayer():
         global direction
         global start
         self.player.delete("all")
-        self.player.create_polygon(30,15,0,30,15,15,0,0,30,15,fill="green")
+        self.player.create_polygon(
+            30, 15, 0, 30, 15, 15, 0, 0, 30, 15, fill="green")
         if Xpos < 800:
             Xpos += 25
-        self.player.place(x=Xpos,y=Ypos)
+        self.player.place(x=Xpos, y=Ypos)
         direction = "E"
         cycle = 0
         for enemy in Enemies:
@@ -5420,10 +5735,11 @@ def TenWaveChallengeSinglePlayer():
         global direction
         global start
         self.player.delete("all")
-        self.player.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="green")
+        self.player.create_polygon(
+            15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="green")
         if Ypos > 0:
             Ypos -= 25
-        self.player.place(x=Xpos,y=Ypos)
+        self.player.place(x=Xpos, y=Ypos)
         direction = "N"
         cycle = 0
         for enemy in Enemies:
@@ -5465,10 +5781,11 @@ def TenWaveChallengeSinglePlayer():
         global direction
         global start
         self.player.delete("all")
-        self.player.create_polygon(15,30,30,0,15,15,0,0,15,30,fill="green")
+        self.player.create_polygon(
+            15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill="green")
         if Ypos < 650:
             Ypos += 25
-        self.player.place(x=Xpos,y=Ypos)
+        self.player.place(x=Xpos, y=Ypos)
         direction = "S"
         cycle = 0
         for enemy in Enemies:
@@ -5511,14 +5828,16 @@ def TenWaveChallengeSinglePlayer():
         global enYpos
         global Damage
         global created
-        enXpos = random.randrange(0,33)*25
-        enYpos = random.randrange(0,27)*25
+        enXpos = random.randrange(0, 33) * 25
+        enYpos = random.randrange(0, 27) * 25
         while abs(Xpos - enXpos) <= 75 and abs(Ypos - enYpos) <= 75:
-            enXpos = random.randrange(0,33)*25
-            enYpos = random.randrange(0,27)*25
-        self.enemy = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-        self.enemy.place(x=enXpos,y=enYpos)
-        self.enemy.polygon = self.enemy.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="darkviolet")
+            enXpos = random.randrange(0, 33) * 25
+            enYpos = random.randrange(0, 27) * 25
+        self.enemy = Canvas(
+            self, bg="black", highlightthickness=0, width=30, height=30)
+        self.enemy.place(x=enXpos, y=enYpos)
+        self.enemy.polygon = self.enemy.create_polygon(
+            15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="darkviolet")
         Enemies.append(self.enemy)
         EnemiesDmg.append(Damage)
         EnemiesXpos.append(enXpos)
@@ -5531,14 +5850,16 @@ def TenWaveChallengeSinglePlayer():
         global en2Xpos
         global en2Ypos
         global created2
-        en2Xpos = random.randrange(0,33)*25
-        en2Ypos = random.randrange(0,27)*25
+        en2Xpos = random.randrange(0, 33) * 25
+        en2Ypos = random.randrange(0, 27) * 25
         while abs(Xpos - en2Xpos) <= 75 and abs(Ypos - en2Ypos) <= 75:
-            en2Xpos = random.randrange(0,33)*25
-            en2Ypos = random.randrange(0,27)*25
-        self.enemy2 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-        self.enemy2.place(x=en2Xpos,y=en2Ypos)
-        self.enemy2.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="red")
+            en2Xpos = random.randrange(0, 33) * 25
+            en2Ypos = random.randrange(0, 27) * 25
+        self.enemy2 = Canvas(
+            self, bg="black", highlightthickness=0, width=30, height=30)
+        self.enemy2.place(x=en2Xpos, y=en2Ypos)
+        self.enemy2.create_polygon(
+            15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="red")
         Enemies2.append(self.enemy2)
         Enemies2Xpos.append(en2Xpos)
         Enemies2Ypos.append(en2Ypos)
@@ -5551,14 +5872,16 @@ def TenWaveChallengeSinglePlayer():
         global en3Ypos
         global Damage3
         global created3
-        en3Xpos = random.randrange(0,33)*25
-        en3Ypos = random.randrange(0,27)*25
+        en3Xpos = random.randrange(0, 33) * 25
+        en3Ypos = random.randrange(0, 27) * 25
         while abs(Xpos - en3Xpos) <= 75 and abs(Ypos - en3Ypos) <= 75:
-            en3Xpos = random.randrange(0,33)*25
-            en3Ypos = random.randrange(0,27)*25
-        self.enemy3 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-        self.enemy3.place(x=en3Xpos,y=en3Ypos)
-        self.enemy3.polygon = self.enemy3.create_polygon(10,0,0,0,0,30,30,30,30,0,20,0,20,10,10,10,fill="navy")
+            en3Xpos = random.randrange(0, 33) * 25
+            en3Ypos = random.randrange(0, 27) * 25
+        self.enemy3 = Canvas(
+            self, bg="black", highlightthickness=0, width=30, height=30)
+        self.enemy3.place(x=en3Xpos, y=en3Ypos)
+        self.enemy3.polygon = self.enemy3.create_polygon(
+            10, 0, 0, 0, 0, 30, 30, 30, 30, 0, 20, 0, 20, 10, 10, 10, fill="navy")
         Enemies3.append(self.enemy3)
         Enemies3Dmg.append(Damage3)
         Enemies3Xpos.append(en3Xpos)
@@ -5571,14 +5894,16 @@ def TenWaveChallengeSinglePlayer():
         global en4Xpos
         global en4Ypos
         global created4
-        en4Xpos = random.randrange(0,33)*25
-        en4Ypos = random.randrange(0,27)*25
+        en4Xpos = random.randrange(0, 33) * 25
+        en4Ypos = random.randrange(0, 27) * 25
         while abs(Xpos - en4Xpos) <= 150 and abs(Ypos - en4Ypos) <= 150:
-            en4Xpos = random.randrange(0,33)*25
-            en4Ypos = random.randrange(0,27)*25
-        self.enemy4 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-        self.enemy4.place(x=en4Xpos,y=en4Ypos)
-        self.enemy4.create_polygon(15,0,5,15,12,15,5,30,25,30,17,15,25,15,fill="darkgreen")
+            en4Xpos = random.randrange(0, 33) * 25
+            en4Ypos = random.randrange(0, 27) * 25
+        self.enemy4 = Canvas(
+            self, bg="black", highlightthickness=0, width=30, height=30)
+        self.enemy4.place(x=en4Xpos, y=en4Ypos)
+        self.enemy4.create_polygon(
+            15, 0, 5, 15, 12, 15, 5, 30, 25, 30, 17, 15, 25, 15, fill="darkgreen")
         Enemies4.append(self.enemy4)
         Enemies4Xpos.append(en4Xpos)
         Enemies4Ypos.append(en4Ypos)
@@ -5591,57 +5916,73 @@ def TenWaveChallengeSinglePlayer():
         global en5Ypos
         global Damage5
         global created5
-        wall = random.choice(["N","E","S","W"])
+        wall = random.choice(["N", "E", "S", "W"])
         if wall == "N":
-            en5Xpos = random.randrange(0,33)*25
+            en5Xpos = random.randrange(0, 33) * 25
             en5Ypos = 0
-            self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-            self.enemy5.place(x=en5Xpos,y=en5Ypos)
-            self.enemy5.polygon = self.enemy5.create_polygon(0,0,10,15,10,30,20,30,20,15,30,0,fill="darkorange2")
+            self.enemy5 = Canvas(
+                self, bg="black", highlightthickness=0, width=30, height=30)
+            self.enemy5.place(x=en5Xpos, y=en5Ypos)
+            self.enemy5.polygon = self.enemy5.create_polygon(
+                0, 0, 10, 15, 10, 30, 20, 30, 20, 15, 30, 0, fill="darkorange2")
         elif wall == "E":
             en5Xpos = 800
-            en5Ypos = random.randrange(0,27)*25
-            self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-            self.enemy5.place(x=en5Xpos,y=en5Ypos)
-            self.enemy5.polygon = self.enemy5.create_polygon(30,0,15,10,0,10,0,20,15,20,30,30,fill="darkorange2")
+            en5Ypos = random.randrange(0, 27) * 25
+            self.enemy5 = Canvas(
+                self, bg="black", highlightthickness=0, width=30, height=30)
+            self.enemy5.place(x=en5Xpos, y=en5Ypos)
+            self.enemy5.polygon = self.enemy5.create_polygon(
+                30, 0, 15, 10, 0, 10, 0, 20, 15, 20, 30, 30, fill="darkorange2")
         elif wall == "S":
-            en5Xpos = random.randrange(0,33)*25
+            en5Xpos = random.randrange(0, 33) * 25
             en5Ypos = 650
-            self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-            self.enemy5.place(x=en5Xpos,y=en5Ypos)
-            self.enemy5.polygon = self.enemy5.create_polygon(30,30,20,15,20,0,10,0,10,15,0,30,fill="darkorange2")
+            self.enemy5 = Canvas(
+                self, bg="black", highlightthickness=0, width=30, height=30)
+            self.enemy5.place(x=en5Xpos, y=en5Ypos)
+            self.enemy5.polygon = self.enemy5.create_polygon(
+                30, 30, 20, 15, 20, 0, 10, 0, 10, 15, 0, 30, fill="darkorange2")
         elif wall == "W":
             en5Xpos = 0
-            en5Ypos = random.randrange(0,27)*25
-            self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-            self.enemy5.place(x=en5Xpos,y=en5Ypos)
-            self.enemy5.polygon = self.enemy5.create_polygon(0,30,15,20,30,20,30,10,15,10,0,0,fill="darkorange2")
+            en5Ypos = random.randrange(0, 27) * 25
+            self.enemy5 = Canvas(
+                self, bg="black", highlightthickness=0, width=30, height=30)
+            self.enemy5.place(x=en5Xpos, y=en5Ypos)
+            self.enemy5.polygon = self.enemy5.create_polygon(
+                0, 30, 15, 20, 30, 20, 30, 10, 15, 10, 0, 0, fill="darkorange2")
         while abs(Xpos - en5Xpos) <= 75 and abs(Ypos - en5Ypos) <= 75:
-            wall = random.choice(["N","E","S","W"])
+            wall = random.choice(["N", "E", "S", "W"])
             if wall == "N":
-                en5Xpos = random.randrange(0,33)*25
+                en5Xpos = random.randrange(0, 33) * 25
                 en5Ypos = 0
-                self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy5.place(x=en5Xpos,y=en5Ypos)
-                self.enemy5.polygon = self.enemy5.create_polygon(0,0,10,15,10,30,20,30,20,15,30,0,fill="darkorange2")
+                self.enemy5 = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy5.place(x=en5Xpos, y=en5Ypos)
+                self.enemy5.polygon = self.enemy5.create_polygon(
+                    0, 0, 10, 15, 10, 30, 20, 30, 20, 15, 30, 0, fill="darkorange2")
             elif wall == "E":
                 en5Xpos = 800
-                en5Ypos = random.randrange(0,27)*25
-                self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy5.place(x=en5Xpos,y=en5Ypos)
-                self.enemy5.polygon = self.enemy5.create_polygon(30,0,15,10,0,10,0,20,15,20,30,30,fill="darkorange2")
+                en5Ypos = random.randrange(0, 27) * 25
+                self.enemy5 = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy5.place(x=en5Xpos, y=en5Ypos)
+                self.enemy5.polygon = self.enemy5.create_polygon(
+                    30, 0, 15, 10, 0, 10, 0, 20, 15, 20, 30, 30, fill="darkorange2")
             elif wall == "S":
-                en5Xpos = random.randrange(0,33)*25
+                en5Xpos = random.randrange(0, 33) * 25
                 en5Ypos = 650
-                self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy5.place(x=en5Xpos,y=en5Ypos)
-                self.enemy5.polygon = self.enemy5.create_polygon(30,30,20,15,20,0,10,0,10,15,0,30,fill="darkorange2")
+                self.enemy5 = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy5.place(x=en5Xpos, y=en5Ypos)
+                self.enemy5.polygon = self.enemy5.create_polygon(
+                    30, 30, 20, 15, 20, 0, 10, 0, 10, 15, 0, 30, fill="darkorange2")
             elif wall == "W":
                 en5Xpos = 0
-                en5Ypos = random.randrange(0,27)*25
-                self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy5.place(x=en5Xpos,y=en5Ypos)
-                self.enemy5.polygon = self.enemy5.create_polygon(0,30,15,20,30,20,30,10,15,10,0,0,fill="darkorange2")
+                en5Ypos = random.randrange(0, 27) * 25
+                self.enemy5 = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy5.place(x=en5Xpos, y=en5Ypos)
+                self.enemy5.polygon = self.enemy5.create_polygon(
+                    0, 30, 15, 20, 30, 20, 30, 10, 15, 10, 0, 0, fill="darkorange2")
         Enemies5.append(self.enemy5)
         Enemies5Dmg.append(Damage5)
         Enemies5Xpos.append(en5Xpos)
@@ -5654,15 +5995,16 @@ def TenWaveChallengeSinglePlayer():
         global Ypos
         global en6Xpos
         global en6Ypos
-        en6Type = random.choice([1,2,3,4])
-        en6Xpos = random.randrange(0,33)*25
-        en6Ypos = random.randrange(0,27)*25
+        en6Type = random.choice([1, 2, 3, 4])
+        en6Xpos = random.randrange(0, 33) * 25
+        en6Ypos = random.randrange(0, 27) * 25
         while abs(Xpos - en6Xpos) <= 75 and abs(Ypos - en6Ypos) <= 75:
-            en6Xpos = random.randrange(0,33)*25
-            en6Ypos = random.randrange(0,27)*25
-        self.enemy6 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-        self.enemy6.place(x=en6Xpos,y=en6Ypos)
-        self.enemy6.oval = self.enemy6.create_oval(0,0,30,30,fill="gray20")
+            en6Xpos = random.randrange(0, 33) * 25
+            en6Ypos = random.randrange(0, 27) * 25
+        self.enemy6 = Canvas(
+            self, bg="black", highlightthickness=0, width=30, height=30)
+        self.enemy6.place(x=en6Xpos, y=en6Ypos)
+        self.enemy6.oval = self.enemy6.create_oval(0, 0, 30, 30, fill="gray20")
         Enemies6.append(self.enemy6)
         Enemies6Xpos.append(en6Xpos)
         Enemies6Ypos.append(en6Ypos)
@@ -5675,11 +6017,11 @@ def TenWaveChallengeSinglePlayer():
         global gameover
         global created
         if gameover != 1:
-            self.after(300,EnemyMove)
+            self.after(300, EnemyMove)
             if created == 1:
                 cycle = 0
                 for self.enemy in Enemies:
-                    rndDir = random.choice(["X","Y"])
+                    rndDir = random.choice(["X", "Y"])
                     if EnemiesDmg[cycle] == 0:
                         EnemyColor = "darkviolet"
                     else:
@@ -5688,51 +6030,64 @@ def TenWaveChallengeSinglePlayer():
                         self.enemy.delete("all")
                         if rndDir == "X":
                             EnemiesXpos[cycle] -= 25
-                            self.enemy.polygon = self.enemy.create_polygon(0,15,30,30,15,15,30,0,0,15,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                0, 15, 30, 30, 15, 15, 30, 0, 0, 15, fill=EnemyColor)
                         else:
                             EnemiesYpos[cycle] -= 25
-                            self.enemy.polygon = self.enemy.create_polygon(15,0,30,30,15,15,0,30,15,0,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill=EnemyColor)
                     elif Xpos < EnemiesXpos[cycle] and Ypos > EnemiesYpos[cycle]:
                         self.enemy.delete("all")
                         if rndDir == "X":
                             EnemiesXpos[cycle] -= 25
-                            self.enemy.polygon = self.enemy.create_polygon(0,15,30,30,15,15,30,0,0,15,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                0, 15, 30, 30, 15, 15, 30, 0, 0, 15, fill=EnemyColor)
                         else:
                             EnemiesYpos[cycle] += 25
-                            self.enemy.polygon = self.enemy.create_polygon(15,30,30,0,15,15,0,0,15,30,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill=EnemyColor)
                     elif Xpos > EnemiesXpos[cycle] and Ypos < EnemiesYpos[cycle]:
                         self.enemy.delete("all")
                         if rndDir == "X":
                             EnemiesXpos[cycle] += 25
-                            self.enemy.polygon = self.enemy.create_polygon(30,15,0,30,15,15,0,0,30,15,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                30, 15, 0, 30, 15, 15, 0, 0, 30, 15, fill=EnemyColor)
                         else:
                             EnemiesYpos[cycle] -= 25
-                            self.enemy.polygon = self.enemy.create_polygon(15,0,30,30,15,15,0,30,15,0,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill=EnemyColor)
                     elif Xpos > EnemiesXpos[cycle] and Ypos > EnemiesYpos[cycle]:
                         self.enemy.delete("all")
                         if rndDir == "X":
                             EnemiesXpos[cycle] += 25
-                            self.enemy.polygon = self.enemy.create_polygon(30,15,0,30,15,15,0,0,30,15,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                30, 15, 0, 30, 15, 15, 0, 0, 30, 15, fill=EnemyColor)
                         else:
                             EnemiesYpos[cycle] += 25
-                            self.enemy.polygon = self.enemy.create_polygon(15,30,30,0,15,15,0,0,15,30,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill=EnemyColor)
                     elif Xpos < EnemiesXpos[cycle] and Ypos == EnemiesYpos[cycle]:
                         self.enemy.delete("all")
-                        self.enemy.polygon = self.enemy.create_polygon(0,15,30,30,15,15,30,0,0,15,fill=EnemyColor)
+                        self.enemy.polygon = self.enemy.create_polygon(
+                            0, 15, 30, 30, 15, 15, 30, 0, 0, 15, fill=EnemyColor)
                         EnemiesXpos[cycle] -= 25
                     elif Xpos > EnemiesXpos[cycle] and Ypos == EnemiesYpos[cycle]:
                         self.enemy.delete("all")
-                        self.enemy.polygon = self.enemy.create_polygon(30,15,0,30,15,15,0,0,30,15,fill=EnemyColor)
+                        self.enemy.polygon = self.enemy.create_polygon(
+                            30, 15, 0, 30, 15, 15, 0, 0, 30, 15, fill=EnemyColor)
                         EnemiesXpos[cycle] += 25
                     elif Xpos == EnemiesXpos[cycle] and Ypos < EnemiesYpos[cycle]:
                         self.enemy.delete("all")
-                        self.enemy.polygon = self.enemy.create_polygon(15,0,30,30,15,15,0,30,15,0,fill=EnemyColor)
+                        self.enemy.polygon = self.enemy.create_polygon(
+                            15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill=EnemyColor)
                         EnemiesYpos[cycle] -= 25
                     elif Xpos == EnemiesXpos[cycle] and Ypos > EnemiesYpos[cycle]:
                         self.enemy.delete("all")
-                        self.enemy.polygon = self.enemy.create_polygon(15,30,30,0,15,15,0,0,15,30,fill=EnemyColor)
+                        self.enemy.polygon = self.enemy.create_polygon(
+                            15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill=EnemyColor)
                         EnemiesYpos[cycle] += 25
-                    self.enemy.place(x=EnemiesXpos[cycle],y=EnemiesYpos[cycle])
+                    self.enemy.place(
+                        x=EnemiesXpos[cycle], y=EnemiesYpos[cycle])
                     if Xpos == EnemiesXpos[cycle] and Ypos == EnemiesYpos[cycle]:
                         GameOver()
                     cycle += 1
@@ -5743,47 +6098,56 @@ def TenWaveChallengeSinglePlayer():
         global gameover
         global created2
         if gameover != 1:
-            self.after(300,Enemy2Move)
+            self.after(300, Enemy2Move)
             if created2 == 1:
                 cycle = 0
                 for self.enemy2 in Enemies2:
                     if Xpos < Enemies2Xpos[cycle] and Ypos < Enemies2Ypos[cycle]:
                         self.enemy2.delete("all")
-                        self.enemy2.create_polygon(0,0,30,15,15,15,15,30,0,0,fill="red")
+                        self.enemy2.create_polygon(
+                            0, 0, 30, 15, 15, 15, 15, 30, 0, 0, fill="red")
                         Enemies2Xpos[cycle] -= 25
                         Enemies2Ypos[cycle] -= 25
                     elif Xpos < Enemies2Xpos[cycle] and Ypos > Enemies2Ypos[cycle]:
                         self.enemy2.delete("all")
-                        self.enemy2.create_polygon(0,30,15,0,15,15,30,15,0,30,fill="red")
+                        self.enemy2.create_polygon(
+                            0, 30, 15, 0, 15, 15, 30, 15, 0, 30, fill="red")
                         Enemies2Xpos[cycle] -= 25
                         Enemies2Ypos[cycle] += 25
                     elif Xpos > Enemies2Xpos[cycle] and Ypos < Enemies2Ypos[cycle]:
                         self.enemy2.delete("all")
-                        self.enemy2.create_polygon(30,0,0,15,15,15,15,30,30,0,fill="red")
+                        self.enemy2.create_polygon(
+                            30, 0, 0, 15, 15, 15, 15, 30, 30, 0, fill="red")
                         Enemies2Xpos[cycle] += 25
                         Enemies2Ypos[cycle] -= 25
                     elif Xpos > Enemies2Xpos[cycle] and Ypos > Enemies2Ypos[cycle]:
                         self.enemy2.delete("all")
-                        self.enemy2.create_polygon(30,30,15,0,15,15,0,15,30,30,fill="red")
+                        self.enemy2.create_polygon(
+                            30, 30, 15, 0, 15, 15, 0, 15, 30, 30, fill="red")
                         Enemies2Xpos[cycle] += 25
                         Enemies2Ypos[cycle] += 25
                     elif Xpos < Enemies2Xpos[cycle] and Ypos == Enemies2Ypos[cycle]:
                         self.enemy2.delete("all")
-                        self.enemy2.create_polygon(0,15,30,30,15,15,30,0,0,15,fill="red")
+                        self.enemy2.create_polygon(
+                            0, 15, 30, 30, 15, 15, 30, 0, 0, 15, fill="red")
                         Enemies2Xpos[cycle] -= 25
                     elif Xpos > Enemies2Xpos[cycle] and Ypos == Enemies2Ypos[cycle]:
                         self.enemy2.delete("all")
-                        self.enemy2.create_polygon(30,15,0,30,15,15,0,0,30,15,fill="red")
+                        self.enemy2.create_polygon(
+                            30, 15, 0, 30, 15, 15, 0, 0, 30, 15, fill="red")
                         Enemies2Xpos[cycle] += 25
                     elif Xpos == Enemies2Xpos[cycle] and Ypos < Enemies2Ypos[cycle]:
                         self.enemy2.delete("all")
-                        self.enemy2.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="red")
+                        self.enemy2.create_polygon(
+                            15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="red")
                         Enemies2Ypos[cycle] -= 25
                     elif Xpos == Enemies2Xpos[cycle] and Ypos > Enemies2Ypos[cycle]:
                         self.enemy2.delete("all")
-                        self.enemy2.create_polygon(15,30,30,0,15,15,0,0,15,30,fill="red")
+                        self.enemy2.create_polygon(
+                            15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill="red")
                         Enemies2Ypos[cycle] += 25
-                    self.enemy2.place(x=Enemies2Xpos[cycle],y=Enemies2Ypos[cycle])
+                    self.enemy2.place(
+                        x=Enemies2Xpos[cycle], y=Enemies2Ypos[cycle])
                     if Xpos == Enemies2Xpos[cycle] and Ypos == Enemies2Ypos[cycle]:
                         GameOver()
                     cycle += 1
@@ -5794,73 +6158,86 @@ def TenWaveChallengeSinglePlayer():
         global gameover
         global created3
         if gameover != 1:
-            self.after(350,Enemy3Move)
+            self.after(350, Enemy3Move)
             if created3 == 1:
                 cycle = 0
                 for self.enemy3 in Enemies3:
-                        rndDir = random.choice(["X","Y"])
-                        if Enemies3Dmg[cycle] == 0:
-                            Enemy3Color = "navy"
-                        elif Enemies3Dmg[cycle] == 1:
-                            Enemy3Color = "blue"
-                        elif Enemies3Dmg[cycle] == 2:
-                            Enemy3Color = "dodgerblue"
-                        elif Enemies3Dmg[cycle] == 3:
-                            Enemy3Color = "deepskyblue"
-                        else:
-                            Enemy3Color = "lightskyblue"
-                        if Xpos < Enemies3Xpos[cycle] and Ypos < Enemies3Ypos[cycle]:
-                            self.enemy3.delete("all")
-                            if rndDir == "X":
-                                Enemies3Xpos[cycle] -= 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(0,20,0,30,30,30,30,0,0,0,0,10,10,10,10,20,fill=Enemy3Color)
-                            else:
-                                Enemies3Ypos[cycle] -= 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(10,0,0,0,0,30,30,30,30,0,20,0,20,10,10,10,fill=Enemy3Color)
-                        elif Xpos < Enemies3Xpos[cycle] and Ypos > Enemies3Ypos[cycle]:
-                            self.enemy3.delete("all")
-                            if rndDir == "X":
-                                Enemies3Xpos[cycle] -= 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(0,20,0,30,30,30,30,0,0,0,0,10,10,10,10,20,fill=Enemy3Color)
-                            else:
-                                Enemies3Ypos[cycle] += 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(20,30,30,30,30,0,0,0,0,30,10,30,10,20,20,20,fill=Enemy3Color)
-                        elif Xpos > Enemies3Xpos[cycle] and Ypos < Enemies3Ypos[cycle]:
-                            self.enemy3.delete("all")
-                            if rndDir == "X":
-                                Enemies3Xpos[cycle] += 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(30,10,30,0,0,0,0,30,30,30,30,20,20,20,20,10,fill=Enemy3Color)
-                            else:
-                                Enemies3Ypos[cycle] -= 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(10,0,0,0,0,30,30,30,30,0,20,0,20,10,10,10,fill=Enemy3Color)
-                        elif Xpos > Enemies3Xpos[cycle] and Ypos > Enemies3Ypos[cycle]:
-                            self.enemy3.delete("all")
-                            if rndDir == "X":
-                                Enemies3Xpos[cycle] += 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(30,10,30,0,0,0,0,30,30,30,30,20,20,20,20,10,fill=Enemy3Color)
-                            else:
-                                Enemies3Ypos[cycle] += 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(20,30,30,30,30,0,0,0,0,30,10,30,10,20,20,20,fill=Enemy3Color)
-                        elif Xpos < Enemies3Xpos[cycle] and Ypos == Enemies3Ypos[cycle]:
-                            self.enemy3.delete("all")
-                            self.enemy3.polygon = self.enemy3.create_polygon(0,20,0,30,30,30,30,0,0,0,0,10,10,10,10,20,fill=Enemy3Color)
+                    rndDir = random.choice(["X", "Y"])
+                    if Enemies3Dmg[cycle] == 0:
+                        Enemy3Color = "navy"
+                    elif Enemies3Dmg[cycle] == 1:
+                        Enemy3Color = "blue"
+                    elif Enemies3Dmg[cycle] == 2:
+                        Enemy3Color = "dodgerblue"
+                    elif Enemies3Dmg[cycle] == 3:
+                        Enemy3Color = "deepskyblue"
+                    else:
+                        Enemy3Color = "lightskyblue"
+                    if Xpos < Enemies3Xpos[cycle] and Ypos < Enemies3Ypos[cycle]:
+                        self.enemy3.delete("all")
+                        if rndDir == "X":
                             Enemies3Xpos[cycle] -= 25
-                        elif Xpos > Enemies3Xpos[cycle] and Ypos == Enemies3Ypos[cycle]:
-                            self.enemy3.delete("all")
-                            self.enemy3.polygon = self.enemy3.create_polygon(30,10,30,0,0,0,0,30,30,30,30,20,20,20,20,10,fill=Enemy3Color)
-                            Enemies3Xpos[cycle] += 25
-                        elif Xpos == Enemies3Xpos[cycle] and Ypos < Enemies3Ypos[cycle]:
-                            self.enemy3.delete("all")
-                            self.enemy3.polygon = self.enemy3.create_polygon(10,0,0,0,0,30,30,30,30,0,20,0,20,10,10,10,fill=Enemy3Color)
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                0, 20, 0, 30, 30, 30, 30, 0, 0, 0, 0, 10, 10, 10, 10, 20, fill=Enemy3Color)
+                        else:
                             Enemies3Ypos[cycle] -= 25
-                        elif Xpos == Enemies3Xpos[cycle] and Ypos > Enemies3Ypos[cycle]:
-                            self.enemy3.delete("all")
-                            self.enemy3.polygon = self.enemy3.create_polygon(20,30,30,30,30,0,0,0,0,30,10,30,10,20,20,20,fill=Enemy3Color)
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                10, 0, 0, 0, 0, 30, 30, 30, 30, 0, 20, 0, 20, 10, 10, 10, fill=Enemy3Color)
+                    elif Xpos < Enemies3Xpos[cycle] and Ypos > Enemies3Ypos[cycle]:
+                        self.enemy3.delete("all")
+                        if rndDir == "X":
+                            Enemies3Xpos[cycle] -= 25
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                0, 20, 0, 30, 30, 30, 30, 0, 0, 0, 0, 10, 10, 10, 10, 20, fill=Enemy3Color)
+                        else:
                             Enemies3Ypos[cycle] += 25
-                        self.enemy3.place(x=Enemies3Xpos[cycle],y=Enemies3Ypos[cycle])
-                        if Xpos == Enemies3Xpos[cycle] and Ypos == Enemies3Ypos[cycle]:
-                            GameOver()
-                        cycle += 1
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                20, 30, 30, 30, 30, 0, 0, 0, 0, 30, 10, 30, 10, 20, 20, 20, fill=Enemy3Color)
+                    elif Xpos > Enemies3Xpos[cycle] and Ypos < Enemies3Ypos[cycle]:
+                        self.enemy3.delete("all")
+                        if rndDir == "X":
+                            Enemies3Xpos[cycle] += 25
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                30, 10, 30, 0, 0, 0, 0, 30, 30, 30, 30, 20, 20, 20, 20, 10, fill=Enemy3Color)
+                        else:
+                            Enemies3Ypos[cycle] -= 25
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                10, 0, 0, 0, 0, 30, 30, 30, 30, 0, 20, 0, 20, 10, 10, 10, fill=Enemy3Color)
+                    elif Xpos > Enemies3Xpos[cycle] and Ypos > Enemies3Ypos[cycle]:
+                        self.enemy3.delete("all")
+                        if rndDir == "X":
+                            Enemies3Xpos[cycle] += 25
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                30, 10, 30, 0, 0, 0, 0, 30, 30, 30, 30, 20, 20, 20, 20, 10, fill=Enemy3Color)
+                        else:
+                            Enemies3Ypos[cycle] += 25
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                20, 30, 30, 30, 30, 0, 0, 0, 0, 30, 10, 30, 10, 20, 20, 20, fill=Enemy3Color)
+                    elif Xpos < Enemies3Xpos[cycle] and Ypos == Enemies3Ypos[cycle]:
+                        self.enemy3.delete("all")
+                        self.enemy3.polygon = self.enemy3.create_polygon(
+                            0, 20, 0, 30, 30, 30, 30, 0, 0, 0, 0, 10, 10, 10, 10, 20, fill=Enemy3Color)
+                        Enemies3Xpos[cycle] -= 25
+                    elif Xpos > Enemies3Xpos[cycle] and Ypos == Enemies3Ypos[cycle]:
+                        self.enemy3.delete("all")
+                        self.enemy3.polygon = self.enemy3.create_polygon(
+                            30, 10, 30, 0, 0, 0, 0, 30, 30, 30, 30, 20, 20, 20, 20, 10, fill=Enemy3Color)
+                        Enemies3Xpos[cycle] += 25
+                    elif Xpos == Enemies3Xpos[cycle] and Ypos < Enemies3Ypos[cycle]:
+                        self.enemy3.delete("all")
+                        self.enemy3.polygon = self.enemy3.create_polygon(
+                            10, 0, 0, 0, 0, 30, 30, 30, 30, 0, 20, 0, 20, 10, 10, 10, fill=Enemy3Color)
+                        Enemies3Ypos[cycle] -= 25
+                    elif Xpos == Enemies3Xpos[cycle] and Ypos > Enemies3Ypos[cycle]:
+                        self.enemy3.delete("all")
+                        self.enemy3.polygon = self.enemy3.create_polygon(
+                            20, 30, 30, 30, 30, 0, 0, 0, 0, 30, 10, 30, 10, 20, 20, 20, fill=Enemy3Color)
+                        Enemies3Ypos[cycle] += 25
+                    self.enemy3.place(
+                        x=Enemies3Xpos[cycle], y=Enemies3Ypos[cycle])
+                    if Xpos == Enemies3Xpos[cycle] and Ypos == Enemies3Ypos[cycle]:
+                        GameOver()
+                    cycle += 1
 
     def Enemy4Move():
         global Xpos
@@ -5868,61 +6245,74 @@ def TenWaveChallengeSinglePlayer():
         global gameover
         global created4
         if gameover != 1:
-            self.after(100,Enemy4Move)
+            self.after(100, Enemy4Move)
             if created4 == 1:
                 cycle = 0
                 for self.enemy4 in Enemies4:
-                    rndDir = random.choice(["X","Y"])
+                    rndDir = random.choice(["X", "Y"])
                     Enemy4Color = "darkgreen"
                     if Xpos < Enemies4Xpos[cycle] and Ypos < Enemies4Ypos[cycle]:
                         self.enemy4.delete("all")
                         if rndDir == "X":
                             Enemies4Xpos[cycle] -= 25
-                            self.enemy4.polygon = self.enemy4.create_polygon(0,15,15,25,15,17,30,25,30,5,15,13,15,5,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                0, 15, 15, 25, 15, 17, 30, 25, 30, 5, 15, 13, 15, 5, fill=Enemy4Color)
                         else:
                             Enemies4Ypos[cycle] -= 25
-                            self.enemy4.polygon = self.enemy4.create_polygon(15,0,5,15,12,15,5,30,25,30,17,15,25,15,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                15, 0, 5, 15, 12, 15, 5, 30, 25, 30, 17, 15, 25, 15, fill=Enemy4Color)
                     elif Xpos < Enemies4Xpos[cycle] and Ypos > Enemies4Ypos[cycle]:
                         self.enemy4.delete("all")
                         if rndDir == "X":
                             Enemies4Xpos[cycle] -= 25
-                            self.enemy4.polygon = self.enemy4.create_polygon(0,15,15,25,15,17,30,25,30,5,15,13,15,5,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                0, 15, 15, 25, 15, 17, 30, 25, 30, 5, 15, 13, 15, 5, fill=Enemy4Color)
                         else:
                             Enemies4Ypos[cycle] += 25
-                            self.enemy4.polygon = self.enemy4.create_polygon(15,30,25,15,17,15,25,0,5,0,13,15,5,15,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                15, 30, 25, 15, 17, 15, 25, 0, 5, 0, 13, 15, 5, 15, fill=Enemy4Color)
                     elif Xpos > Enemies4Xpos[cycle] and Ypos < Enemies4Ypos[cycle]:
                         self.enemy4.delete("all")
                         if rndDir == "X":
                             Enemies4Xpos[cycle] += 25
-                            self.enemy4.polygon = self.enemy4.create_polygon(30,15,15,5,15,13,0,5,0,25,15,17,15,25,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                30, 15, 15, 5, 15, 13, 0, 5, 0, 25, 15, 17, 15, 25, fill=Enemy4Color)
                         else:
                             Enemies4Ypos[cycle] -= 25
-                            self.enemy4.polygon = self.enemy4.create_polygon(15,0,5,15,12,15,5,30,25,30,17,15,25,15,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                15, 0, 5, 15, 12, 15, 5, 30, 25, 30, 17, 15, 25, 15, fill=Enemy4Color)
                     elif Xpos > Enemies4Xpos[cycle] and Ypos > Enemies4Ypos[cycle]:
                         self.enemy4.delete("all")
                         if rndDir == "X":
                             Enemies4Xpos[cycle] += 25
-                            self.enemy4.polygon = self.enemy4.create_polygon(30,15,15,5,15,13,0,5,0,25,15,17,15,25,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                30, 15, 15, 5, 15, 13, 0, 5, 0, 25, 15, 17, 15, 25, fill=Enemy4Color)
                         else:
                             Enemies4Ypos[cycle] += 25
-                            self.enemy4.polygon = self.enemy4.create_polygon(15,30,25,15,17,15,25,0,5,0,13,15,5,15,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                15, 30, 25, 15, 17, 15, 25, 0, 5, 0, 13, 15, 5, 15, fill=Enemy4Color)
                     elif Xpos < Enemies4Xpos[cycle] and Ypos == Enemies4Ypos[cycle]:
                         self.enemy4.delete("all")
-                        self.enemy4.polygon = self.enemy4.create_polygon(0,15,15,25,15,17,30,25,30,5,15,13,15,5,fill=Enemy4Color)
+                        self.enemy4.polygon = self.enemy4.create_polygon(
+                            0, 15, 15, 25, 15, 17, 30, 25, 30, 5, 15, 13, 15, 5, fill=Enemy4Color)
                         Enemies4Xpos[cycle] -= 25
                     elif Xpos > Enemies4Xpos[cycle] and Ypos == Enemies4Ypos[cycle]:
                         self.enemy4.delete("all")
-                        self.enemy4.polygon = self.enemy4.create_polygon(30,15,15,5,15,13,0,5,0,25,15,17,15,25,fill=Enemy4Color)
+                        self.enemy4.polygon = self.enemy4.create_polygon(
+                            30, 15, 15, 5, 15, 13, 0, 5, 0, 25, 15, 17, 15, 25, fill=Enemy4Color)
                         Enemies4Xpos[cycle] += 25
                     elif Xpos == Enemies4Xpos[cycle] and Ypos < Enemies4Ypos[cycle]:
                         self.enemy4.delete("all")
-                        self.enemy4.polygon = self.enemy4.create_polygon(15,0,5,15,12,15,5,30,25,30,17,15,25,15,fill=Enemy4Color)
+                        self.enemy4.polygon = self.enemy4.create_polygon(
+                            15, 0, 5, 15, 12, 15, 5, 30, 25, 30, 17, 15, 25, 15, fill=Enemy4Color)
                         Enemies4Ypos[cycle] -= 25
                     elif Xpos == Enemies4Xpos[cycle] and Ypos > Enemies4Ypos[cycle]:
                         self.enemy4.delete("all")
-                        self.enemy4.polygon = self.enemy4.create_polygon(15,30,25,15,17,15,25,0,5,0,13,15,5,15,fill=Enemy4Color)
+                        self.enemy4.polygon = self.enemy4.create_polygon(
+                            15, 30, 25, 15, 17, 15, 25, 0, 5, 0, 13, 15, 5, 15, fill=Enemy4Color)
                         Enemies4Ypos[cycle] += 25
-                    self.enemy4.place(x=Enemies4Xpos[cycle],y=Enemies4Ypos[cycle])
+                    self.enemy4.place(
+                        x=Enemies4Xpos[cycle], y=Enemies4Ypos[cycle])
                     if Xpos == Enemies4Xpos[cycle] and Ypos == Enemies4Ypos[cycle]:
                         GameOver()
                     cycle += 1
@@ -5933,7 +6323,7 @@ def TenWaveChallengeSinglePlayer():
         global gameover
         global created5
         if gameover != 1:
-            self.after(500,Enemy5Move)
+            self.after(500, Enemy5Move)
             if created5 == 1:
                 cycle = 0
                 for self.enemy5 in Enemies5:
@@ -5945,7 +6335,8 @@ def TenWaveChallengeSinglePlayer():
                         Enemies5Xpos[cycle] -= 25
                     elif Xpos > Enemies5Xpos[cycle] and (Enemies5Wall[cycle] == "N" or Enemies5Wall[cycle] == "S"):
                         Enemies5Xpos[cycle] += 25
-                    self.enemy5.place(x=Enemies5Xpos[cycle],y=Enemies5Ypos[cycle])
+                    self.enemy5.place(
+                        x=Enemies5Xpos[cycle], y=Enemies5Ypos[cycle])
                     if Xpos == Enemies5Xpos[cycle] and Ypos == Enemies5Ypos[cycle]:
                         GameOver()
                     if Enemies5Wall[cycle] == "E" or Enemies5Wall[cycle] == "W":
@@ -5962,7 +6353,7 @@ def TenWaveChallengeSinglePlayer():
         global generated3
         global generated4
         if gameover != 1:
-            self.after(10,Generate)
+            self.after(10, Generate)
             if generated1 == 0:
                 GenerateEnemy1()
                 generated1 = 1000
@@ -5990,9 +6381,11 @@ def TenWaveChallengeSinglePlayer():
             if Enemies6Type[cycle] == 1:
                 enXpos = Enemies6Xpos[cycle]
                 enYpos = Enemies6Ypos[cycle]
-                self.enemy = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy.place(x=enXpos,y=enYpos)
-                self.enemy.polygon = self.enemy.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="darkviolet")
+                self.enemy = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy.place(x=enXpos, y=enYpos)
+                self.enemy.polygon = self.enemy.create_polygon(
+                    15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="darkviolet")
                 Enemies.append(self.enemy)
                 EnemiesDmg.append(Damage)
                 EnemiesXpos.append(enXpos)
@@ -6009,9 +6402,11 @@ def TenWaveChallengeSinglePlayer():
             if Enemies6Type[cycle] == 2:
                 en2Xpos = Enemies6Xpos[cycle]
                 en2Ypos = Enemies6Ypos[cycle]
-                self.enemy2 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy2.place(x=en2Xpos,y=en2Ypos)
-                self.enemy2.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="red")
+                self.enemy2 = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy2.place(x=en2Xpos, y=en2Ypos)
+                self.enemy2.create_polygon(
+                    15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="red")
                 Enemies2.append(self.enemy2)
                 Enemies2Xpos.append(en2Xpos)
                 Enemies2Ypos.append(en2Ypos)
@@ -6028,9 +6423,11 @@ def TenWaveChallengeSinglePlayer():
             if Enemies6Type[cycle] == 3:
                 en3Xpos = Enemies6Xpos[cycle]
                 en3Ypos = Enemies6Ypos[cycle]
-                self.enemy3 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy3.place(x=en3Xpos,y=en3Ypos)
-                self.enemy3.polygon = self.enemy3.create_polygon(10,0,0,0,0,30,30,30,30,0,20,0,20,10,10,10,fill="navy")
+                self.enemy3 = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy3.place(x=en3Xpos, y=en3Ypos)
+                self.enemy3.polygon = self.enemy3.create_polygon(
+                    10, 0, 0, 0, 0, 30, 30, 30, 30, 0, 20, 0, 20, 10, 10, 10, fill="navy")
                 Enemies3.append(self.enemy3)
                 Enemies3Dmg.append(Damage3)
                 Enemies3Xpos.append(en3Xpos)
@@ -6047,9 +6444,11 @@ def TenWaveChallengeSinglePlayer():
             if Enemies6Type[cycle] == 4:
                 en4Xpos = Enemies6Xpos[cycle]
                 en4Ypos = Enemies6Ypos[cycle]
-                self.enemy4 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy4.place(x=en4Xpos,y=en4Ypos)
-                self.enemy4.create_polygon(15,0,5,15,12,15,5,30,25,30,17,15,25,15,fill="darkgreen")
+                self.enemy4 = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy4.place(x=en4Xpos, y=en4Ypos)
+                self.enemy4.create_polygon(
+                    15, 0, 5, 15, 12, 15, 5, 30, 25, 30, 17, 15, 25, 15, fill="darkgreen")
                 Enemies4.append(self.enemy4)
                 Enemies4Xpos.append(en4Xpos)
                 Enemies4Ypos.append(en4Ypos)
@@ -6073,9 +6472,10 @@ def TenWaveChallengeSinglePlayer():
         elif direction == "W":
             shotXpos = Xpos - 10
             shotYpos = Ypos + 10
-        self.shot = Canvas(bg="black",highlightthickness=0,width=10,height=10)
-        self.shot.place(x=shotXpos,y=shotYpos)
-        self.shot.create_oval(0,0,10,10,fill="white")
+        self.shot = Canvas(bg="black", highlightthickness=0,
+                           width=10, height=10)
+        self.shot.place(x=shotXpos, y=shotYpos)
+        self.shot.create_oval(0, 0, 10, 10, fill="white")
         Shots.append(self.shot)
         ShotsXpos.append(shotXpos)
         ShotsYpos.append(shotYpos)
@@ -6105,18 +6505,20 @@ def TenWaveChallengeSinglePlayer():
                 enShotYpos = Enemies5Ypos[cycle] + 10
             if Enemies5Wall[cycle] == "E" or Enemies5Wall[cycle] == "W":
                 if Enemies5Ypos[cycle] == Ypos:
-                    self.enShot = Canvas(bg="black",highlightthickness=0,width=10,height=10)
-                    self.enShot.place(x=enShotXpos,y=enShotYpos)
-                    self.enShot.create_oval(0,0,10,10,fill="yellow")
+                    self.enShot = Canvas(
+                        bg="black", highlightthickness=0, width=10, height=10)
+                    self.enShot.place(x=enShotXpos, y=enShotYpos)
+                    self.enShot.create_oval(0, 0, 10, 10, fill="yellow")
                     enShots.append(self.enShot)
                     enShotsXpos.append(enShotXpos)
                     enShotsYpos.append(enShotYpos)
                     enShotDir.append(enDir)
             else:
                 if Enemies5Xpos[cycle] == Xpos:
-                    self.enShot = Canvas(bg="black",highlightthickness=0,width=10,height=10)
-                    self.enShot.place(x=enShotXpos,y=enShotYpos)
-                    self.enShot.create_oval(0,0,10,10,fill="yellow")
+                    self.enShot = Canvas(
+                        bg="black", highlightthickness=0, width=10, height=10)
+                    self.enShot.place(x=enShotXpos, y=enShotYpos)
+                    self.enShot.create_oval(0, 0, 10, 10, fill="yellow")
                     enShots.append(self.enShot)
                     enShotsXpos.append(enShotXpos)
                     enShotsYpos.append(enShotYpos)
@@ -6130,8 +6532,8 @@ def TenWaveChallengeSinglePlayer():
         global destroy
         global gameover
         if gameover != 1:
-            self.after(10,ShotMove)
-            #Move Shots
+            self.after(10, ShotMove)
+            # Move Shots
             cycle = 0
             for self.shot in Shots:
                 destroy = -1
@@ -6143,24 +6545,27 @@ def TenWaveChallengeSinglePlayer():
                     ShotsYpos[cycle] += 10
                 elif ShotDir[cycle] == "W":
                     ShotsXpos[cycle] -= 10
-                self.shot.place(x=ShotsXpos[cycle],y=ShotsYpos[cycle])
-                #Damage Enemy1
+                self.shot.place(x=ShotsXpos[cycle], y=ShotsYpos[cycle])
+                # Damage Enemy1
                 enCycle = 0
                 for self.enemy in Enemies:
                     if destroy == -1:
                         if EnemiesXpos[enCycle] + 30 >= ShotsXpos[cycle] >= EnemiesXpos[enCycle] - 10 and EnemiesYpos[enCycle] + 30 >= ShotsYpos[cycle] >= EnemiesYpos[enCycle] - 10:
                             destroy = 0
                             if EnemiesDmg[enCycle] == 1:
-                                self.explode = Canvas(bg="black",highlightthickness=0,width=30,height=30)
-                                self.explode.place(x=EnemiesXpos[enCycle],y=EnemiesYpos[enCycle])
-                                self.explode.create_polygon(0,15,13,13,15,0,17,13,30,15,17,17,15,30,13,17,fill="orange")
+                                self.explode = Canvas(
+                                    bg="black", highlightthickness=0, width=30, height=30)
+                                self.explode.place(
+                                    x=EnemiesXpos[enCycle], y=EnemiesYpos[enCycle])
+                                self.explode.create_polygon(
+                                    0, 15, 13, 13, 15, 0, 17, 13, 30, 15, 17, 17, 15, 30, 13, 17, fill="orange")
                                 Explosions.append(self.explode)
                                 self.enemy.destroy()
                                 del Enemies[enCycle]
                                 del EnemiesDmg[enCycle]
                                 del EnemiesXpos[enCycle]
                                 del EnemiesYpos[enCycle]
-                                self.after(10,destroyEnemy)
+                                self.after(10, destroyEnemy)
                                 self.shot.destroy()
                                 del Shots[cycle]
                                 del ShotsXpos[cycle]
@@ -6177,17 +6582,21 @@ def TenWaveChallengeSinglePlayer():
                                     EnemyColor = "darkviolet"
                                 else:
                                     EnemyColor = "violet"
-                                self.enemy.itemconfig(self.enemy.polygon,fill=EnemyColor)
+                                self.enemy.itemconfig(
+                                    self.enemy.polygon, fill=EnemyColor)
                         enCycle += 1
-                #Damage Enemy2
+                # Damage Enemy2
                 enCycle = 0
                 for self.enemy2 in Enemies2:
                     if destroy == -1:
                         if Enemies2Xpos[enCycle] + 30 >= ShotsXpos[cycle] >= Enemies2Xpos[enCycle] - 10 and Enemies2Ypos[enCycle] + 30 >= ShotsYpos[cycle] >= Enemies2Ypos[enCycle] - 10:
                             destroy = 0
-                            self.explode = Canvas(bg="black",highlightthickness=0,width=30,height=30)
-                            self.explode.place(x=Enemies2Xpos[enCycle],y=Enemies2Ypos[enCycle])
-                            self.explode.create_polygon(0,15,13,13,15,0,17,13,30,15,17,17,15,30,13,17,fill="orange")
+                            self.explode = Canvas(
+                                bg="black", highlightthickness=0, width=30, height=30)
+                            self.explode.place(
+                                x=Enemies2Xpos[enCycle], y=Enemies2Ypos[enCycle])
+                            self.explode.create_polygon(
+                                0, 15, 13, 13, 15, 0, 17, 13, 30, 15, 17, 17, 15, 30, 13, 17, fill="orange")
                             Explosions.append(self.explode)
                             self.enemy2.destroy()
                             del Enemies2[enCycle]
@@ -6198,25 +6607,28 @@ def TenWaveChallengeSinglePlayer():
                             del ShotsXpos[cycle]
                             del ShotsYpos[cycle]
                             del ShotDir[cycle]
-                            self.after(10,destroyEnemy)
+                            self.after(10, destroyEnemy)
                         enCycle += 1
-                #Damage Enemy3
+                # Damage Enemy3
                 enCycle = 0
                 for self.enemy3 in Enemies3:
                     if destroy == -1:
                         if Enemies3Xpos[enCycle] + 30 >= ShotsXpos[cycle] >= Enemies3Xpos[enCycle] - 10 and Enemies3Ypos[enCycle] + 30 >= ShotsYpos[cycle] >= Enemies3Ypos[enCycle] - 10:
                             destroy = 0
                             if Enemies3Dmg[enCycle] == 4:
-                                self.explode = Canvas(bg="black",highlightthickness=0,width=30,height=30)
-                                self.explode.place(x=Enemies3Xpos[enCycle],y=Enemies3Ypos[enCycle])
-                                self.explode.create_polygon(0,15,13,13,15,0,17,13,30,15,17,17,15,30,13,17,fill="orange")
+                                self.explode = Canvas(
+                                    bg="black", highlightthickness=0, width=30, height=30)
+                                self.explode.place(
+                                    x=Enemies3Xpos[enCycle], y=Enemies3Ypos[enCycle])
+                                self.explode.create_polygon(
+                                    0, 15, 13, 13, 15, 0, 17, 13, 30, 15, 17, 17, 15, 30, 13, 17, fill="orange")
                                 Explosions.append(self.explode)
                                 self.enemy3.destroy()
                                 del Enemies3[enCycle]
                                 del Enemies3Dmg[enCycle]
                                 del Enemies3Xpos[enCycle]
                                 del Enemies3Ypos[enCycle]
-                                self.after(10,destroyEnemy)
+                                self.after(10, destroyEnemy)
                                 self.shot.destroy()
                                 del Shots[cycle]
                                 del ShotsXpos[cycle]
@@ -6239,17 +6651,21 @@ def TenWaveChallengeSinglePlayer():
                                     Enemy3Color = "deepskyblue"
                                 else:
                                     Enemy3Color = "lightskyblue"
-                                self.enemy3.itemconfig(self.enemy3.polygon,fill=Enemy3Color)
+                                self.enemy3.itemconfig(
+                                    self.enemy3.polygon, fill=Enemy3Color)
                         enCycle += 1
-                #Damage Enemy4
+                # Damage Enemy4
                 enCycle = 0
                 for self.enemy4 in Enemies4:
                     if destroy == -1:
                         if Enemies4Xpos[enCycle] + 30 >= ShotsXpos[cycle] >= Enemies4Xpos[enCycle] - 10 and Enemies4Ypos[enCycle] + 30 >= ShotsYpos[cycle] >= Enemies4Ypos[enCycle] - 10:
                             destroy = 0
-                            self.explode = Canvas(bg="black",highlightthickness=0,width=30,height=30)
-                            self.explode.place(x=Enemies4Xpos[enCycle],y=Enemies4Ypos[enCycle])
-                            self.explode.create_polygon(0,15,13,13,15,0,17,13,30,15,17,17,15,30,13,17,fill="orange")
+                            self.explode = Canvas(
+                                bg="black", highlightthickness=0, width=30, height=30)
+                            self.explode.place(
+                                x=Enemies4Xpos[enCycle], y=Enemies4Ypos[enCycle])
+                            self.explode.create_polygon(
+                                0, 15, 13, 13, 15, 0, 17, 13, 30, 15, 17, 17, 15, 30, 13, 17, fill="orange")
                             Explosions.append(self.explode)
                             self.enemy4.destroy()
                             del Enemies4[enCycle]
@@ -6260,18 +6676,21 @@ def TenWaveChallengeSinglePlayer():
                             del ShotsXpos[cycle]
                             del ShotsYpos[cycle]
                             del ShotDir[cycle]
-                            self.after(10,destroyEnemy)
+                            self.after(10, destroyEnemy)
                         enCycle += 1
-                #Damage Enemy5
+                # Damage Enemy5
                 enCycle = 0
                 for self.enemy5 in Enemies5:
                     if destroy == -1:
                         if Enemies5Xpos[enCycle] + 30 >= ShotsXpos[cycle] >= Enemies5Xpos[enCycle] - 10 and Enemies5Ypos[enCycle] + 30 >= ShotsYpos[cycle] >= Enemies5Ypos[enCycle] - 10:
                             destroy = 0
                             if Enemies5Dmg[enCycle] == 1:
-                                self.explode = Canvas(bg="black",highlightthickness=0,width=30,height=30)
-                                self.explode.place(x=Enemies5Xpos[enCycle],y=Enemies5Ypos[enCycle])
-                                self.explode.create_polygon(0,15,13,13,15,0,17,13,30,15,17,17,15,30,13,17,fill="orange")
+                                self.explode = Canvas(
+                                    bg="black", highlightthickness=0, width=30, height=30)
+                                self.explode.place(
+                                    x=Enemies5Xpos[enCycle], y=Enemies5Ypos[enCycle])
+                                self.explode.create_polygon(
+                                    0, 15, 13, 13, 15, 0, 17, 13, 30, 15, 17, 17, 15, 30, 13, 17, fill="orange")
                                 Explosions.append(self.explode)
                                 self.enemy5.destroy()
                                 del Enemies5[enCycle]
@@ -6279,7 +6698,7 @@ def TenWaveChallengeSinglePlayer():
                                 del Enemies5Xpos[enCycle]
                                 del Enemies5Ypos[enCycle]
                                 del Enemies5Wall[enCycle]
-                                self.after(10,destroyEnemy)
+                                self.after(10, destroyEnemy)
                                 self.shot.destroy()
                                 del Shots[cycle]
                                 del ShotsXpos[cycle]
@@ -6296,18 +6715,22 @@ def TenWaveChallengeSinglePlayer():
                                     Enemy5Color = "darkorange2"
                                 else:
                                     Enemy5Color = "orange"
-                                self.enemy5.itemconfig(self.enemy5.polygon,fill=Enemy5Color)
+                                self.enemy5.itemconfig(
+                                    self.enemy5.polygon, fill=Enemy5Color)
                         enCycle += 1
-                #Damage Enemy6
+                # Damage Enemy6
                 enCycle = 0
                 for self.enemy6 in Enemies6:
                     if destroy == -1:
                         if Enemies6Xpos[enCycle] + 30 >= ShotsXpos[cycle] >= Enemies6Xpos[enCycle] - 10 and Enemies6Ypos[enCycle] + 30 >= ShotsYpos[cycle] >= Enemies6Ypos[enCycle] - 10:
                             destroy = 0
                             if Enemies6Dmg[enCycle] == 5:
-                                self.explode = Canvas(bg="black",highlightthickness=0,width=30,height=30)
-                                self.explode.place(x=Enemies6Xpos[enCycle],y=Enemies6Ypos[enCycle])
-                                self.explode.create_polygon(0,15,13,13,15,0,17,13,30,15,17,17,15,30,13,17,fill="orange")
+                                self.explode = Canvas(
+                                    bg="black", highlightthickness=0, width=30, height=30)
+                                self.explode.place(
+                                    x=Enemies6Xpos[enCycle], y=Enemies6Ypos[enCycle])
+                                self.explode.create_polygon(
+                                    0, 15, 13, 13, 15, 0, 17, 13, 30, 15, 17, 17, 15, 30, 13, 17, fill="orange")
                                 Explosions.append(self.explode)
                                 self.enemy6.destroy()
                                 del Enemies6[enCycle]
@@ -6315,7 +6738,7 @@ def TenWaveChallengeSinglePlayer():
                                 del Enemies6Xpos[enCycle]
                                 del Enemies6Ypos[enCycle]
                                 del Enemies6Type[enCycle]
-                                self.after(10,destroyEnemy)
+                                self.after(10, destroyEnemy)
                                 self.shot.destroy()
                                 del Shots[cycle]
                                 del ShotsXpos[cycle]
@@ -6340,9 +6763,10 @@ def TenWaveChallengeSinglePlayer():
                                     Enemy6Color = "gray60"
                                 elif Enemies6Dmg[enCycle] == 5:
                                     Enemy6Color = "gray70"
-                                self.enemy6.itemconfig(self.enemy6.oval,fill=Enemy6Color)
+                                self.enemy6.itemconfig(
+                                    self.enemy6.oval, fill=Enemy6Color)
                         enCycle += 1
-                #Destroy Shot at Boundary
+                # Destroy Shot at Boundary
                 if destroy == -1:
                     if ShotsXpos[cycle] < 0 or ShotsXpos[cycle] > 830 or ShotsYpos[cycle] < 0 or ShotsYpos[cycle] > 680:
                         self.shot.destroy()
@@ -6355,7 +6779,7 @@ def TenWaveChallengeSinglePlayer():
     def enShotMove():
         global gameover
         if gameover != 1:
-            self.after(10,enShotMove)
+            self.after(10, enShotMove)
             cycle = 0
             for self.enShot in enShots:
                 enDestroy = -1
@@ -6367,8 +6791,8 @@ def TenWaveChallengeSinglePlayer():
                     enShotsYpos[cycle] += 10
                 elif enShotDir[cycle] == "W":
                     enShotsXpos[cycle] -= 10
-                self.enShot.place(x=enShotsXpos[cycle],y=enShotsYpos[cycle])
-                #Game Over
+                self.enShot.place(x=enShotsXpos[cycle], y=enShotsYpos[cycle])
+                # Game Over
                 if Xpos + 30 >= enShotsXpos[cycle] >= Xpos - 10 and Ypos + 30 >= enShotsYpos[cycle] >= Ypos - 10:
                     enDestroy = 0
                     self.enShot.destroy()
@@ -6377,7 +6801,7 @@ def TenWaveChallengeSinglePlayer():
                     del enShotsYpos[cycle]
                     del enShotDir[cycle]
                     GameOver()
-                #Destroy Shot at Boundary
+                # Destroy Shot at Boundary
                 if enDestroy == -1:
                     if enShotsXpos[cycle] < 0 or enShotsXpos[cycle] > 830 or enShotsYpos[cycle] < 0 or enShotsYpos[cycle] > 680:
                         self.enShot.destroy()
@@ -6398,327 +6822,327 @@ def TenWaveChallengeSinglePlayer():
         global wave
         time = 0
         wave += 1
-        #Wave 1
+        # Wave 1
         if wave == 1:
             E = 0
             while E < W1E1:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < W1E2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < W1E3:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
             E = 0
             while E < W1E4:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
             E = 0
             while E < W1E5:
-                self.after(time,CreateEnemy5)
+                self.after(time, CreateEnemy5)
                 E += 1
                 time += 250
             E = 0
             while E < W1E6:
-                self.after(time,CreateEnemy6)
+                self.after(time, CreateEnemy6)
                 E += 1
                 time += 250
-        #Wave 2
+        # Wave 2
         if wave == 2:
             E = 0
             while E < W2E1:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < W2E2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < W2E3:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
             E = 0
             while E < W2E4:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
             E = 0
             while E < W2E5:
-                self.after(time,CreateEnemy5)
+                self.after(time, CreateEnemy5)
                 E += 1
                 time += 250
             E = 0
             while E < W2E6:
-                self.after(time,CreateEnemy6)
+                self.after(time, CreateEnemy6)
                 E += 1
                 time += 250
-        #Wave 3
+        # Wave 3
         if wave == 3:
             E = 0
             while E < W3E1:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < W3E2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < W3E3:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
             E = 0
             while E < W3E4:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
             E = 0
             while E < W3E5:
-                self.after(time,CreateEnemy5)
+                self.after(time, CreateEnemy5)
                 E += 1
                 time += 250
             E = 0
             while E < W3E6:
-                self.after(time,CreateEnemy6)
+                self.after(time, CreateEnemy6)
                 E += 1
                 time += 250
-        #Wave 4
+        # Wave 4
         if wave == 4:
             E = 0
             while E < W4E1:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < W4E2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < W4E3:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
             E = 0
             while E < W4E4:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
             E = 0
             while E < W4E5:
-                self.after(time,CreateEnemy5)
+                self.after(time, CreateEnemy5)
                 E += 1
                 time += 250
             E = 0
             while E < W4E6:
-                self.after(time,CreateEnemy6)
+                self.after(time, CreateEnemy6)
                 E += 1
                 time += 250
-        #Wave 5
+        # Wave 5
         if wave == 5:
             E = 0
             while E < W5E1:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < W5E2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < W5E3:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
             E = 0
             while E < W5E4:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
             E = 0
             while E < W5E5:
-                self.after(time,CreateEnemy5)
+                self.after(time, CreateEnemy5)
                 E += 1
                 time += 250
             E = 0
             while E < W5E6:
-                self.after(time,CreateEnemy6)
+                self.after(time, CreateEnemy6)
                 E += 1
                 time += 250
-        #Wave 6
+        # Wave 6
         if wave == 6:
             E = 0
             while E < W6E1:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < W6E2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < W6E3:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
             E = 0
             while E < W6E4:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
             E = 0
             while E < W6E5:
-                self.after(time,CreateEnemy5)
+                self.after(time, CreateEnemy5)
                 E += 1
                 time += 250
             E = 0
             while E < W6E6:
-                self.after(time,CreateEnemy6)
+                self.after(time, CreateEnemy6)
                 E += 1
                 time += 250
-        #Wave 7
+        # Wave 7
         if wave == 7:
             E = 0
             while E < W7E1:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < W7E2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < W7E3:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
             E = 0
             while E < W7E4:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
             E = 0
             while E < W7E5:
-                self.after(time,CreateEnemy5)
+                self.after(time, CreateEnemy5)
                 E += 1
                 time += 250
             E = 0
             while E < W7E6:
-                self.after(time,CreateEnemy6)
+                self.after(time, CreateEnemy6)
                 E += 1
                 time += 250
-        #Wave 8
+        # Wave 8
         if wave == 8:
             E = 0
             while E < W8E1:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < W8E2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < W8E3:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
             E = 0
             while E < W8E4:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
             E = 0
             while E < W8E5:
-                self.after(time,CreateEnemy5)
+                self.after(time, CreateEnemy5)
                 E += 1
                 time += 250
             E = 0
             while E < W8E6:
-                self.after(time,CreateEnemy6)
+                self.after(time, CreateEnemy6)
                 E += 1
                 time += 250
-        #Wave 9
+        # Wave 9
         if wave == 9:
             E = 0
             while E < W9E1:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < W9E2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < W9E3:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
             E = 0
             while E < W9E4:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
             E = 0
             while E < W9E5:
-                self.after(time,CreateEnemy5)
+                self.after(time, CreateEnemy5)
                 E += 1
                 time += 250
             E = 0
             while E < W9E6:
-                self.after(time,CreateEnemy6)
+                self.after(time, CreateEnemy6)
                 E += 1
                 time += 250
-        #Wave 10
+        # Wave 10
         if wave == 10:
             E = 0
             while E < W10E1:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < W10E2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < W10E3:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
             E = 0
             while E < W10E4:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
             E = 0
             while E < W10E5:
-                self.after(time,CreateEnemy5)
+                self.after(time, CreateEnemy5)
                 E += 1
                 time += 250
             E = 0
             while E < W10E6:
-                self.after(time,CreateEnemy6)
+                self.after(time, CreateEnemy6)
                 E += 1
                 time += 250
-        #Win
+        # Win
         if wave == 11:
             Winner()
 
@@ -6726,11 +7150,12 @@ def TenWaveChallengeSinglePlayer():
         global wave
         global gameover
         if gameover == 0:
-            self.after(10,NextWave)
+            self.after(10, NextWave)
             if not Enemies and not Enemies2 and not Enemies3 and not Enemies4 and not Enemies5 and not Enemies6:
                 Summon()
                 if wave != 11:
-                    self.lbScore.config(text="Wave: "+str(wave)+"  Press 'p' to pause")
+                    self.lbScore.config(
+                        text="Wave: " + str(wave) + "  Press 'p' to pause")
 
     def Winner():
         global gameover
@@ -6759,11 +7184,11 @@ def TenWaveChallengeSinglePlayer():
             for self.shot in Shots:
                 self.shot.destroy()
             self.lbScore.destroy()
-            self.lbWinner = Label(text="You Win!!!",bg="black",fg="white")
-            self.lbWinner.pack(fill=BOTH,expand=1)
+            self.lbWinner = Label(text="You Win!!!", bg="black", fg="white")
+            self.lbWinner.pack(fill=BOTH, expand=1)
             self.btnMainMenu = Button(text="Main Menu")
             self.btnMainMenu.pack(side=LEFT)
-            self.btnMainMenu.bind('<Button>',StartMainMenu)
+            self.btnMainMenu.bind('<Button>', StartMainMenu)
 
     def GameOver():
         global gameover
@@ -6793,12 +7218,13 @@ def TenWaveChallengeSinglePlayer():
             for self.shot in Shots:
                 self.shot.destroy()
             self.lbScore.destroy()
-            self.lbGameOver = Label(text="Game Over" + "\n" "You survived to wave " + str(wave) + "\n" + "Click here to restart",bg="black",fg="white")
-            self.lbGameOver.pack(fill=BOTH,expand=1)
-            self.lbGameOver.bind('<Button>',Restart)
+            self.lbGameOver = Label(text="Game Over" + "\n" "You survived to wave " + str(
+                wave) + "\n" + "Click here to restart", bg="black", fg="white")
+            self.lbGameOver.pack(fill=BOTH, expand=1)
+            self.lbGameOver.bind('<Button>', Restart)
             self.btnMainMenu = Button(text="Main Menu")
             self.btnMainMenu.pack(side=LEFT)
-            self.btnMainMenu.bind('<Button>',StartMainMenu)
+            self.btnMainMenu.bind('<Button>', StartMainMenu)
 
     def Restart(event):
         self.destroy()
@@ -6833,19 +7259,20 @@ def TenWaveChallengeSinglePlayer():
             for self.shot in Shots:
                 self.shot.destroy()
             self.lbScore.destroy()
-            self.lbPause = Label(text="Paused"+"\n"+"Press 'p' to Unpause",bg="black",fg="white")
-            self.lbPause.pack(fill=BOTH,expand=1)
+            self.lbPause = Label(text="Paused" + "\n" +
+                                 "Press 'p' to Unpause", bg="black", fg="white")
+            self.lbPause.pack(fill=BOTH, expand=1)
             self.btnMainMenu = Button(text="Main Menu")
             self.btnMainMenu.pack(side=LEFT)
-            self.btnMainMenu.bind('<Button>',StartMainMenu)
+            self.btnMainMenu.bind('<Button>', StartMainMenu)
         elif pause == 1:
             gameover = 0
             pause = 0
-            self.bind('<Left>',LeftKey)
-            self.bind('<Right>',RightKey)
-            self.bind('<Up>',UpKey)
-            self.bind('<Down>',DownKey)
-            self.bind('<space>',Shoot)
+            self.bind('<Left>', LeftKey)
+            self.bind('<Right>', RightKey)
+            self.bind('<Up>', UpKey)
+            self.bind('<Down>', DownKey)
+            self.bind('<space>', Shoot)
             EnemyMove()
             Enemy2Move()
             Enemy3Move()
@@ -6854,8 +7281,9 @@ def TenWaveChallengeSinglePlayer():
             Generate()
             ShotMove()
             enShotMove()
-            self.lbScore = Label(text="Wave: "+str(wave)+"  Press 'p' to pause",bg="black",fg="white")
-            self.lbScore.place(x=165,y=680,width=500,height=20)
+            self.lbScore = Label(text="Wave: " + str(wave) +
+                                 "  Press 'p' to pause", bg="black", fg="white")
+            self.lbScore.place(x=165, y=680, width=500, height=20)
             NextWave()
             self.lbPause.destroy()
             self.btnMainMenu.unbind('<Button>')
@@ -6868,14 +7296,14 @@ def TenWaveChallengeSinglePlayer():
         self.destroy()
         MainMenu()
 
-    #Bindings
-    self.bind('<Left>',LeftKey)
-    self.bind('<Right>',RightKey)
-    self.bind('<Up>',UpKey)
-    self.bind('<Down>',DownKey)
-    self.bind('<Escape>',Exit)
-    self.bind('<space>',Shoot)
-    self.bind('<p>',Pause)
+    # Bindings
+    self.bind('<Left>', LeftKey)
+    self.bind('<Right>', RightKey)
+    self.bind('<Up>', UpKey)
+    self.bind('<Down>', DownKey)
+    self.bind('<Escape>', Exit)
+    self.bind('<space>', Shoot)
+    self.bind('<p>', Pause)
 
     EnemyMove()
     Enemy2Move()
@@ -6886,15 +7314,16 @@ def TenWaveChallengeSinglePlayer():
     ShotMove()
     enShotMove()
 
-    #Frame settings
+    # Frame settings
     self.geometry("830x700")
     self.title("Space Assault")
     self.configure(bg="black")
 
+
 def TenWaveChallengeMultiPlayerChooseEnemies():
     self = Tk()
 
-    #Variables
+    # Variables
     global W1E1
     global W1E2
     global W1E3
@@ -7016,83 +7445,94 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
     W10E5 = 0
     W10E6 = 0
 
-    #Objects
-    self.lbDirections = Label(text="Choose what enemies are in each wave",bg="black",fg="white")
+    # Objects
+    self.lbDirections = Label(
+        text="Choose what enemies are in each wave", bg="black", fg="white")
     self.lbDirections.pack()
     self.btnMainMenu = Button(text="Main Menu")
-    self.btnMainMenu.place(x=0,y=680,width=100,height=20)
-    self.lbWave1 = Label(text="Wave 1",bg="black",fg="white")
-    self.lbWave1.place(x=115,y=680,width=60,height=20)
-    self.lbWave2 = Label(text="Wave 2",bg="black",fg="white")
-    self.lbWave2.place(x=175,y=680,width=60,height=20)
-    self.lbWave3 = Label(text="Wave 3",bg="black",fg="white")
-    self.lbWave3.place(x=235,y=680,width=60,height=20)
-    self.lbWave4 = Label(text="Wave 4",bg="black",fg="white")
-    self.lbWave4.place(x=295,y=680,width=60,height=20)
-    self.lbWave5 = Label(text="Wave 5",bg="black",fg="white")
-    self.lbWave5.place(x=355,y=680,width=60,height=20)
-    self.lbWave6 = Label(text="Wave 6",bg="black",fg="white")
-    self.lbWave6.place(x=415,y=680,width=60,height=20)
-    self.lbWave7 = Label(text="Wave 7",bg="black",fg="white")
-    self.lbWave7.place(x=475,y=680,width=60,height=20)
-    self.lbWave8 = Label(text="Wave 8",bg="black",fg="white")
-    self.lbWave8.place(x=535,y=680,width=60,height=20)
-    self.lbWave9 = Label(text="Wave 9",bg="black",fg="white")
-    self.lbWave9.place(x=595,y=680,width=60,height=20)
-    self.lbWave10 = Label(text="Wave 10",bg="black",fg="white")
-    self.lbWave10.place(x=655,y=680,width=60,height=20)
+    self.btnMainMenu.place(x=0, y=680, width=100, height=20)
+    self.lbWave1 = Label(text="Wave 1", bg="black", fg="white")
+    self.lbWave1.place(x=115, y=680, width=60, height=20)
+    self.lbWave2 = Label(text="Wave 2", bg="black", fg="white")
+    self.lbWave2.place(x=175, y=680, width=60, height=20)
+    self.lbWave3 = Label(text="Wave 3", bg="black", fg="white")
+    self.lbWave3.place(x=235, y=680, width=60, height=20)
+    self.lbWave4 = Label(text="Wave 4", bg="black", fg="white")
+    self.lbWave4.place(x=295, y=680, width=60, height=20)
+    self.lbWave5 = Label(text="Wave 5", bg="black", fg="white")
+    self.lbWave5.place(x=355, y=680, width=60, height=20)
+    self.lbWave6 = Label(text="Wave 6", bg="black", fg="white")
+    self.lbWave6.place(x=415, y=680, width=60, height=20)
+    self.lbWave7 = Label(text="Wave 7", bg="black", fg="white")
+    self.lbWave7.place(x=475, y=680, width=60, height=20)
+    self.lbWave8 = Label(text="Wave 8", bg="black", fg="white")
+    self.lbWave8.place(x=535, y=680, width=60, height=20)
+    self.lbWave9 = Label(text="Wave 9", bg="black", fg="white")
+    self.lbWave9.place(x=595, y=680, width=60, height=20)
+    self.lbWave10 = Label(text="Wave 10", bg="black", fg="white")
+    self.lbWave10.place(x=655, y=680, width=60, height=20)
     self.btnPlayMultiPlayer = Button(text="Play")
-    self.btnPlayMultiPlayer.place(x=730,y=680,width=100,height=20)
-    self.enemy1Up = Canvas(bg="black",highlightthickness=0)
-    self.enemy1Up.place(x=90,y=300,width=30,height=30)
-    self.enemy1Up.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="darkviolet")
-    self.enemy1num = Label(text="0",bg="black",fg="white")
-    self.enemy1num.place(x=90,y=330,width=30,height=20)
-    self.enemy1Down = Canvas(bg="black",highlightthickness=0)
-    self.enemy1Down.place(x=90,y=350,width=30,height=30)
-    self.enemy1Down.create_polygon(15,30,30,0,15,15,0,0,15,30,fill="darkviolet")
-    self.enemy2Up = Canvas(bg="black",highlightthickness=0)
-    self.enemy2Up.place(x=210,y=300,width=30,height=30)
-    self.enemy2Up.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="red")
-    self.enemy2num = Label(text="0",bg="black",fg="white")
-    self.enemy2num.place(x=210,y=330,width=30,height=20)
-    self.enemy2Down = Canvas(bg="black",highlightthickness=0)
-    self.enemy2Down.place(x=210,y=350,width=30,height=30)
-    self.enemy2Down.create_polygon(15,30,30,0,15,15,0,0,15,30,fill="red")
-    self.enemy3Up = Canvas(bg="black",highlightthickness=0)
-    self.enemy3Up.place(x=330,y=300,width=30,height=30)
-    self.enemy3Up.create_polygon(10,0,0,0,0,30,30,30,30,0,20,0,20,10,10,10,fill="navy")
-    self.enemy3num = Label(text="0",bg="black",fg="white")
-    self.enemy3num.place(x=330,y=330,width=30,height=20)
-    self.enemy3Down = Canvas(bg="black",highlightthickness=0)
-    self.enemy3Down.place(x=330,y=350,width=30,height=30)
-    self.enemy3Down.create_polygon(20,30,30,30,30,0,0,0,0,30,10,30,10,20,20,20,fill="navy")
-    self.enemy4Up = Canvas(bg="black",highlightthickness=0)
-    self.enemy4Up.place(x=450,y=300,width=30,height=30)
-    self.enemy4Up.create_polygon(15,0,5,15,12,15,5,30,25,30,17,15,25,15,fill="darkgreen")
-    self.enemy4num = Label(text="0",bg="black",fg="white")
-    self.enemy4num.place(x=450,y=330,width=30,height=20)
-    self.enemy4Down = Canvas(bg="black",highlightthickness=0)
-    self.enemy4Down.place(x=450,y=350,width=30,height=30)
-    self.enemy4Down.create_polygon(15,30,25,15,17,15,25,0,5,0,13,15,5,15,fill="darkgreen")
-    self.enemy5Up = Canvas(bg="black",highlightthickness=0)
-    self.enemy5Up.place(x=570,y=300,width=30,height=30)
-    self.enemy5Up.create_polygon(30,30,20,15,20,0,10,0,10,15,0,30,fill="darkorange2")
-    self.enemy5num = Label(text="0",bg="black",fg="white")
-    self.enemy5num.place(x=570,y=330,width=30,height=20)
-    self.enemy5Down = Canvas(bg="black",highlightthickness=0)
-    self.enemy5Down.place(x=570,y=350,width=30,height=30)
-    self.enemy5Down.create_polygon(0,0,10,15,10,30,20,30,20,15,30,0,fill="darkorange2")
-    self.enemy6Up = Canvas(bg="black",highlightthickness=0)
-    self.enemy6Up.place(x=690,y=300,width=30,height=30)
-    self.enemy6Up.create_oval(0,0,30,30,fill="gray20")
-    self.enemy6num = Label(text="0",bg="black",fg="white")
-    self.enemy6num.place(x=690,y=330,width=30,height=20)
-    self.enemy6Down = Canvas(bg="black",highlightthickness=0)
-    self.enemy6Down.place(x=690,y=350,width=30,height=30)
-    self.enemy6Down.create_oval(0,0,30,30,fill="gray20")
+    self.btnPlayMultiPlayer.place(x=730, y=680, width=100, height=20)
+    self.enemy1Up = Canvas(bg="black", highlightthickness=0)
+    self.enemy1Up.place(x=90, y=300, width=30, height=30)
+    self.enemy1Up.create_polygon(
+        15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="darkviolet")
+    self.enemy1num = Label(text="0", bg="black", fg="white")
+    self.enemy1num.place(x=90, y=330, width=30, height=20)
+    self.enemy1Down = Canvas(bg="black", highlightthickness=0)
+    self.enemy1Down.place(x=90, y=350, width=30, height=30)
+    self.enemy1Down.create_polygon(
+        15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill="darkviolet")
+    self.enemy2Up = Canvas(bg="black", highlightthickness=0)
+    self.enemy2Up.place(x=210, y=300, width=30, height=30)
+    self.enemy2Up.create_polygon(
+        15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="red")
+    self.enemy2num = Label(text="0", bg="black", fg="white")
+    self.enemy2num.place(x=210, y=330, width=30, height=20)
+    self.enemy2Down = Canvas(bg="black", highlightthickness=0)
+    self.enemy2Down.place(x=210, y=350, width=30, height=30)
+    self.enemy2Down.create_polygon(
+        15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill="red")
+    self.enemy3Up = Canvas(bg="black", highlightthickness=0)
+    self.enemy3Up.place(x=330, y=300, width=30, height=30)
+    self.enemy3Up.create_polygon(
+        10, 0, 0, 0, 0, 30, 30, 30, 30, 0, 20, 0, 20, 10, 10, 10, fill="navy")
+    self.enemy3num = Label(text="0", bg="black", fg="white")
+    self.enemy3num.place(x=330, y=330, width=30, height=20)
+    self.enemy3Down = Canvas(bg="black", highlightthickness=0)
+    self.enemy3Down.place(x=330, y=350, width=30, height=30)
+    self.enemy3Down.create_polygon(
+        20, 30, 30, 30, 30, 0, 0, 0, 0, 30, 10, 30, 10, 20, 20, 20, fill="navy")
+    self.enemy4Up = Canvas(bg="black", highlightthickness=0)
+    self.enemy4Up.place(x=450, y=300, width=30, height=30)
+    self.enemy4Up.create_polygon(
+        15, 0, 5, 15, 12, 15, 5, 30, 25, 30, 17, 15, 25, 15, fill="darkgreen")
+    self.enemy4num = Label(text="0", bg="black", fg="white")
+    self.enemy4num.place(x=450, y=330, width=30, height=20)
+    self.enemy4Down = Canvas(bg="black", highlightthickness=0)
+    self.enemy4Down.place(x=450, y=350, width=30, height=30)
+    self.enemy4Down.create_polygon(
+        15, 30, 25, 15, 17, 15, 25, 0, 5, 0, 13, 15, 5, 15, fill="darkgreen")
+    self.enemy5Up = Canvas(bg="black", highlightthickness=0)
+    self.enemy5Up.place(x=570, y=300, width=30, height=30)
+    self.enemy5Up.create_polygon(
+        30, 30, 20, 15, 20, 0, 10, 0, 10, 15, 0, 30, fill="darkorange2")
+    self.enemy5num = Label(text="0", bg="black", fg="white")
+    self.enemy5num.place(x=570, y=330, width=30, height=20)
+    self.enemy5Down = Canvas(bg="black", highlightthickness=0)
+    self.enemy5Down.place(x=570, y=350, width=30, height=30)
+    self.enemy5Down.create_polygon(
+        0, 0, 10, 15, 10, 30, 20, 30, 20, 15, 30, 0, fill="darkorange2")
+    self.enemy6Up = Canvas(bg="black", highlightthickness=0)
+    self.enemy6Up.place(x=690, y=300, width=30, height=30)
+    self.enemy6Up.create_oval(0, 0, 30, 30, fill="gray20")
+    self.enemy6num = Label(text="0", bg="black", fg="white")
+    self.enemy6num.place(x=690, y=330, width=30, height=20)
+    self.enemy6Down = Canvas(bg="black", highlightthickness=0)
+    self.enemy6Down.place(x=690, y=350, width=30, height=30)
+    self.enemy6Down.create_oval(0, 0, 30, 30, fill="gray20")
 
-    #Functions
+    # Functions
     def StartMainMenu(event):
         self.destroy()
         MainMenu()
@@ -7126,18 +7566,18 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         self.enemy4Down.unbind('<Button>')
         self.enemy5Down.unbind('<Button>')
         self.enemy6Down.unbind('<Button>')
-        self.enemy1Up.bind('<Button>',W1E1Up)
-        self.enemy2Up.bind('<Button>',W1E2Up)
-        self.enemy3Up.bind('<Button>',W1E3Up)
-        self.enemy4Up.bind('<Button>',W1E4Up)
-        self.enemy5Up.bind('<Button>',W1E5Up)
-        self.enemy6Up.bind('<Button>',W1E6Up)
-        self.enemy1Down.bind('<Button>',W1E1Down)
-        self.enemy2Down.bind('<Button>',W1E2Down)
-        self.enemy3Down.bind('<Button>',W1E3Down)
-        self.enemy4Down.bind('<Button>',W1E4Down)
-        self.enemy5Down.bind('<Button>',W1E5Down)
-        self.enemy6Down.bind('<Button>',W1E6Down)
+        self.enemy1Up.bind('<Button>', W1E1Up)
+        self.enemy2Up.bind('<Button>', W1E2Up)
+        self.enemy3Up.bind('<Button>', W1E3Up)
+        self.enemy4Up.bind('<Button>', W1E4Up)
+        self.enemy5Up.bind('<Button>', W1E5Up)
+        self.enemy6Up.bind('<Button>', W1E6Up)
+        self.enemy1Down.bind('<Button>', W1E1Down)
+        self.enemy2Down.bind('<Button>', W1E2Down)
+        self.enemy3Down.bind('<Button>', W1E3Down)
+        self.enemy4Down.bind('<Button>', W1E4Down)
+        self.enemy5Down.bind('<Button>', W1E5Down)
+        self.enemy6Down.bind('<Button>', W1E6Down)
         self.enemy1num.config(text=str(W1E1))
         self.enemy2num.config(text=str(W1E2))
         self.enemy3num.config(text=str(W1E3))
@@ -7174,18 +7614,18 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         self.enemy4Down.unbind('<Button>')
         self.enemy5Down.unbind('<Button>')
         self.enemy6Down.unbind('<Button>')
-        self.enemy1Up.bind('<Button>',W2E1Up)
-        self.enemy2Up.bind('<Button>',W2E2Up)
-        self.enemy3Up.bind('<Button>',W2E3Up)
-        self.enemy4Up.bind('<Button>',W2E4Up)
-        self.enemy5Up.bind('<Button>',W2E5Up)
-        self.enemy6Up.bind('<Button>',W2E6Up)
-        self.enemy1Down.bind('<Button>',W2E1Down)
-        self.enemy2Down.bind('<Button>',W2E2Down)
-        self.enemy3Down.bind('<Button>',W2E3Down)
-        self.enemy4Down.bind('<Button>',W2E4Down)
-        self.enemy5Down.bind('<Button>',W2E5Down)
-        self.enemy6Down.bind('<Button>',W2E6Down)
+        self.enemy1Up.bind('<Button>', W2E1Up)
+        self.enemy2Up.bind('<Button>', W2E2Up)
+        self.enemy3Up.bind('<Button>', W2E3Up)
+        self.enemy4Up.bind('<Button>', W2E4Up)
+        self.enemy5Up.bind('<Button>', W2E5Up)
+        self.enemy6Up.bind('<Button>', W2E6Up)
+        self.enemy1Down.bind('<Button>', W2E1Down)
+        self.enemy2Down.bind('<Button>', W2E2Down)
+        self.enemy3Down.bind('<Button>', W2E3Down)
+        self.enemy4Down.bind('<Button>', W2E4Down)
+        self.enemy5Down.bind('<Button>', W2E5Down)
+        self.enemy6Down.bind('<Button>', W2E6Down)
         self.enemy1num.config(text=str(W2E1))
         self.enemy2num.config(text=str(W2E2))
         self.enemy3num.config(text=str(W2E3))
@@ -7222,18 +7662,18 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         self.enemy4Down.unbind('<Button>')
         self.enemy5Down.unbind('<Button>')
         self.enemy6Down.unbind('<Button>')
-        self.enemy1Up.bind('<Button>',W3E1Up)
-        self.enemy2Up.bind('<Button>',W3E2Up)
-        self.enemy3Up.bind('<Button>',W3E3Up)
-        self.enemy4Up.bind('<Button>',W3E4Up)
-        self.enemy5Up.bind('<Button>',W3E5Up)
-        self.enemy6Up.bind('<Button>',W3E6Up)
-        self.enemy1Down.bind('<Button>',W3E1Down)
-        self.enemy2Down.bind('<Button>',W3E2Down)
-        self.enemy3Down.bind('<Button>',W3E3Down)
-        self.enemy4Down.bind('<Button>',W3E4Down)
-        self.enemy5Down.bind('<Button>',W3E5Down)
-        self.enemy6Down.bind('<Button>',W3E6Down)
+        self.enemy1Up.bind('<Button>', W3E1Up)
+        self.enemy2Up.bind('<Button>', W3E2Up)
+        self.enemy3Up.bind('<Button>', W3E3Up)
+        self.enemy4Up.bind('<Button>', W3E4Up)
+        self.enemy5Up.bind('<Button>', W3E5Up)
+        self.enemy6Up.bind('<Button>', W3E6Up)
+        self.enemy1Down.bind('<Button>', W3E1Down)
+        self.enemy2Down.bind('<Button>', W3E2Down)
+        self.enemy3Down.bind('<Button>', W3E3Down)
+        self.enemy4Down.bind('<Button>', W3E4Down)
+        self.enemy5Down.bind('<Button>', W3E5Down)
+        self.enemy6Down.bind('<Button>', W3E6Down)
         self.enemy1num.config(text=str(W3E1))
         self.enemy2num.config(text=str(W3E2))
         self.enemy3num.config(text=str(W3E3))
@@ -7270,18 +7710,18 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         self.enemy4Down.unbind('<Button>')
         self.enemy5Down.unbind('<Button>')
         self.enemy6Down.unbind('<Button>')
-        self.enemy1Up.bind('<Button>',W4E1Up)
-        self.enemy2Up.bind('<Button>',W4E2Up)
-        self.enemy3Up.bind('<Button>',W4E3Up)
-        self.enemy4Up.bind('<Button>',W4E4Up)
-        self.enemy5Up.bind('<Button>',W4E5Up)
-        self.enemy6Up.bind('<Button>',W4E6Up)
-        self.enemy1Down.bind('<Button>',W4E1Down)
-        self.enemy2Down.bind('<Button>',W4E2Down)
-        self.enemy3Down.bind('<Button>',W4E3Down)
-        self.enemy4Down.bind('<Button>',W4E4Down)
-        self.enemy5Down.bind('<Button>',W4E5Down)
-        self.enemy6Down.bind('<Button>',W4E6Down)
+        self.enemy1Up.bind('<Button>', W4E1Up)
+        self.enemy2Up.bind('<Button>', W4E2Up)
+        self.enemy3Up.bind('<Button>', W4E3Up)
+        self.enemy4Up.bind('<Button>', W4E4Up)
+        self.enemy5Up.bind('<Button>', W4E5Up)
+        self.enemy6Up.bind('<Button>', W4E6Up)
+        self.enemy1Down.bind('<Button>', W4E1Down)
+        self.enemy2Down.bind('<Button>', W4E2Down)
+        self.enemy3Down.bind('<Button>', W4E3Down)
+        self.enemy4Down.bind('<Button>', W4E4Down)
+        self.enemy5Down.bind('<Button>', W4E5Down)
+        self.enemy6Down.bind('<Button>', W4E6Down)
         self.enemy1num.config(text=str(W4E1))
         self.enemy2num.config(text=str(W4E2))
         self.enemy3num.config(text=str(W4E3))
@@ -7318,18 +7758,18 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         self.enemy4Down.unbind('<Button>')
         self.enemy5Down.unbind('<Button>')
         self.enemy6Down.unbind('<Button>')
-        self.enemy1Up.bind('<Button>',W5E1Up)
-        self.enemy2Up.bind('<Button>',W5E2Up)
-        self.enemy3Up.bind('<Button>',W5E3Up)
-        self.enemy4Up.bind('<Button>',W5E4Up)
-        self.enemy5Up.bind('<Button>',W5E5Up)
-        self.enemy6Up.bind('<Button>',W5E6Up)
-        self.enemy1Down.bind('<Button>',W5E1Down)
-        self.enemy2Down.bind('<Button>',W5E2Down)
-        self.enemy3Down.bind('<Button>',W5E3Down)
-        self.enemy4Down.bind('<Button>',W5E4Down)
-        self.enemy5Down.bind('<Button>',W5E5Down)
-        self.enemy6Down.bind('<Button>',W5E6Down)
+        self.enemy1Up.bind('<Button>', W5E1Up)
+        self.enemy2Up.bind('<Button>', W5E2Up)
+        self.enemy3Up.bind('<Button>', W5E3Up)
+        self.enemy4Up.bind('<Button>', W5E4Up)
+        self.enemy5Up.bind('<Button>', W5E5Up)
+        self.enemy6Up.bind('<Button>', W5E6Up)
+        self.enemy1Down.bind('<Button>', W5E1Down)
+        self.enemy2Down.bind('<Button>', W5E2Down)
+        self.enemy3Down.bind('<Button>', W5E3Down)
+        self.enemy4Down.bind('<Button>', W5E4Down)
+        self.enemy5Down.bind('<Button>', W5E5Down)
+        self.enemy6Down.bind('<Button>', W5E6Down)
         self.enemy1num.config(text=str(W5E1))
         self.enemy2num.config(text=str(W5E2))
         self.enemy3num.config(text=str(W5E3))
@@ -7366,18 +7806,18 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         self.enemy4Down.unbind('<Button>')
         self.enemy5Down.unbind('<Button>')
         self.enemy6Down.unbind('<Button>')
-        self.enemy1Up.bind('<Button>',W6E1Up)
-        self.enemy2Up.bind('<Button>',W6E2Up)
-        self.enemy3Up.bind('<Button>',W6E3Up)
-        self.enemy4Up.bind('<Button>',W6E4Up)
-        self.enemy5Up.bind('<Button>',W6E5Up)
-        self.enemy6Up.bind('<Button>',W6E6Up)
-        self.enemy1Down.bind('<Button>',W6E1Down)
-        self.enemy2Down.bind('<Button>',W6E2Down)
-        self.enemy3Down.bind('<Button>',W6E3Down)
-        self.enemy4Down.bind('<Button>',W6E4Down)
-        self.enemy5Down.bind('<Button>',W6E5Down)
-        self.enemy6Down.bind('<Button>',W6E6Down)
+        self.enemy1Up.bind('<Button>', W6E1Up)
+        self.enemy2Up.bind('<Button>', W6E2Up)
+        self.enemy3Up.bind('<Button>', W6E3Up)
+        self.enemy4Up.bind('<Button>', W6E4Up)
+        self.enemy5Up.bind('<Button>', W6E5Up)
+        self.enemy6Up.bind('<Button>', W6E6Up)
+        self.enemy1Down.bind('<Button>', W6E1Down)
+        self.enemy2Down.bind('<Button>', W6E2Down)
+        self.enemy3Down.bind('<Button>', W6E3Down)
+        self.enemy4Down.bind('<Button>', W6E4Down)
+        self.enemy5Down.bind('<Button>', W6E5Down)
+        self.enemy6Down.bind('<Button>', W6E6Down)
         self.enemy1num.config(text=str(W6E1))
         self.enemy2num.config(text=str(W6E2))
         self.enemy3num.config(text=str(W6E3))
@@ -7414,18 +7854,18 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         self.enemy4Down.unbind('<Button>')
         self.enemy5Down.unbind('<Button>')
         self.enemy6Down.unbind('<Button>')
-        self.enemy1Up.bind('<Button>',W7E1Up)
-        self.enemy2Up.bind('<Button>',W7E2Up)
-        self.enemy3Up.bind('<Button>',W7E3Up)
-        self.enemy4Up.bind('<Button>',W7E4Up)
-        self.enemy5Up.bind('<Button>',W7E5Up)
-        self.enemy6Up.bind('<Button>',W7E6Up)
-        self.enemy1Down.bind('<Button>',W7E1Down)
-        self.enemy2Down.bind('<Button>',W7E2Down)
-        self.enemy3Down.bind('<Button>',W7E3Down)
-        self.enemy4Down.bind('<Button>',W7E4Down)
-        self.enemy5Down.bind('<Button>',W7E5Down)
-        self.enemy6Down.bind('<Button>',W7E6Down)
+        self.enemy1Up.bind('<Button>', W7E1Up)
+        self.enemy2Up.bind('<Button>', W7E2Up)
+        self.enemy3Up.bind('<Button>', W7E3Up)
+        self.enemy4Up.bind('<Button>', W7E4Up)
+        self.enemy5Up.bind('<Button>', W7E5Up)
+        self.enemy6Up.bind('<Button>', W7E6Up)
+        self.enemy1Down.bind('<Button>', W7E1Down)
+        self.enemy2Down.bind('<Button>', W7E2Down)
+        self.enemy3Down.bind('<Button>', W7E3Down)
+        self.enemy4Down.bind('<Button>', W7E4Down)
+        self.enemy5Down.bind('<Button>', W7E5Down)
+        self.enemy6Down.bind('<Button>', W7E6Down)
         self.enemy1num.config(text=str(W7E1))
         self.enemy2num.config(text=str(W7E2))
         self.enemy3num.config(text=str(W7E3))
@@ -7462,18 +7902,18 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         self.enemy4Down.unbind('<Button>')
         self.enemy5Down.unbind('<Button>')
         self.enemy6Down.unbind('<Button>')
-        self.enemy1Up.bind('<Button>',W8E1Up)
-        self.enemy2Up.bind('<Button>',W8E2Up)
-        self.enemy3Up.bind('<Button>',W8E3Up)
-        self.enemy4Up.bind('<Button>',W8E4Up)
-        self.enemy5Up.bind('<Button>',W8E5Up)
-        self.enemy6Up.bind('<Button>',W8E6Up)
-        self.enemy1Down.bind('<Button>',W8E1Down)
-        self.enemy2Down.bind('<Button>',W8E2Down)
-        self.enemy3Down.bind('<Button>',W8E3Down)
-        self.enemy4Down.bind('<Button>',W8E4Down)
-        self.enemy5Down.bind('<Button>',W8E5Down)
-        self.enemy6Down.bind('<Button>',W8E6Down)
+        self.enemy1Up.bind('<Button>', W8E1Up)
+        self.enemy2Up.bind('<Button>', W8E2Up)
+        self.enemy3Up.bind('<Button>', W8E3Up)
+        self.enemy4Up.bind('<Button>', W8E4Up)
+        self.enemy5Up.bind('<Button>', W8E5Up)
+        self.enemy6Up.bind('<Button>', W8E6Up)
+        self.enemy1Down.bind('<Button>', W8E1Down)
+        self.enemy2Down.bind('<Button>', W8E2Down)
+        self.enemy3Down.bind('<Button>', W8E3Down)
+        self.enemy4Down.bind('<Button>', W8E4Down)
+        self.enemy5Down.bind('<Button>', W8E5Down)
+        self.enemy6Down.bind('<Button>', W8E6Down)
         self.enemy1num.config(text=str(W8E1))
         self.enemy2num.config(text=str(W8E2))
         self.enemy3num.config(text=str(W8E3))
@@ -7510,18 +7950,18 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         self.enemy4Down.unbind('<Button>')
         self.enemy5Down.unbind('<Button>')
         self.enemy6Down.unbind('<Button>')
-        self.enemy1Up.bind('<Button>',W9E1Up)
-        self.enemy2Up.bind('<Button>',W9E2Up)
-        self.enemy3Up.bind('<Button>',W9E3Up)
-        self.enemy4Up.bind('<Button>',W9E4Up)
-        self.enemy5Up.bind('<Button>',W9E5Up)
-        self.enemy6Up.bind('<Button>',W9E6Up)
-        self.enemy1Down.bind('<Button>',W9E1Down)
-        self.enemy2Down.bind('<Button>',W9E2Down)
-        self.enemy3Down.bind('<Button>',W9E3Down)
-        self.enemy4Down.bind('<Button>',W9E4Down)
-        self.enemy5Down.bind('<Button>',W9E5Down)
-        self.enemy6Down.bind('<Button>',W9E6Down)
+        self.enemy1Up.bind('<Button>', W9E1Up)
+        self.enemy2Up.bind('<Button>', W9E2Up)
+        self.enemy3Up.bind('<Button>', W9E3Up)
+        self.enemy4Up.bind('<Button>', W9E4Up)
+        self.enemy5Up.bind('<Button>', W9E5Up)
+        self.enemy6Up.bind('<Button>', W9E6Up)
+        self.enemy1Down.bind('<Button>', W9E1Down)
+        self.enemy2Down.bind('<Button>', W9E2Down)
+        self.enemy3Down.bind('<Button>', W9E3Down)
+        self.enemy4Down.bind('<Button>', W9E4Down)
+        self.enemy5Down.bind('<Button>', W9E5Down)
+        self.enemy6Down.bind('<Button>', W9E6Down)
         self.enemy1num.config(text=str(W9E1))
         self.enemy2num.config(text=str(W9E2))
         self.enemy3num.config(text=str(W9E3))
@@ -7558,18 +7998,18 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
         self.enemy4Down.unbind('<Button>')
         self.enemy5Down.unbind('<Button>')
         self.enemy6Down.unbind('<Button>')
-        self.enemy1Up.bind('<Button>',W10E1Up)
-        self.enemy2Up.bind('<Button>',W10E2Up)
-        self.enemy3Up.bind('<Button>',W10E3Up)
-        self.enemy4Up.bind('<Button>',W10E4Up)
-        self.enemy5Up.bind('<Button>',W10E5Up)
-        self.enemy6Up.bind('<Button>',W10E6Up)
-        self.enemy1Down.bind('<Button>',W10E1Down)
-        self.enemy2Down.bind('<Button>',W10E2Down)
-        self.enemy3Down.bind('<Button>',W10E3Down)
-        self.enemy4Down.bind('<Button>',W10E4Down)
-        self.enemy5Down.bind('<Button>',W10E5Down)
-        self.enemy6Down.bind('<Button>',W10E6Down)
+        self.enemy1Up.bind('<Button>', W10E1Up)
+        self.enemy2Up.bind('<Button>', W10E2Up)
+        self.enemy3Up.bind('<Button>', W10E3Up)
+        self.enemy4Up.bind('<Button>', W10E4Up)
+        self.enemy5Up.bind('<Button>', W10E5Up)
+        self.enemy6Up.bind('<Button>', W10E6Up)
+        self.enemy1Down.bind('<Button>', W10E1Down)
+        self.enemy2Down.bind('<Button>', W10E2Down)
+        self.enemy3Down.bind('<Button>', W10E3Down)
+        self.enemy4Down.bind('<Button>', W10E4Down)
+        self.enemy5Down.bind('<Button>', W10E5Down)
+        self.enemy6Down.bind('<Button>', W10E6Down)
         self.enemy1num.config(text=str(W10E1))
         self.enemy2num.config(text=str(W10E2))
         self.enemy3num.config(text=str(W10E3))
@@ -8244,32 +8684,33 @@ def TenWaveChallengeMultiPlayerChooseEnemies():
     def Exit(event):
         self.destroy()
 
-    #Bind
-    self.btnMainMenu.bind('<Button>',StartMainMenu)
-    self.lbWave1.bind('<Button>',Wave1)
-    self.lbWave2.bind('<Button>',Wave2)
-    self.lbWave3.bind('<Button>',Wave3)
-    self.lbWave4.bind('<Button>',Wave4)
-    self.lbWave5.bind('<Button>',Wave5)
-    self.lbWave6.bind('<Button>',Wave6)
-    self.lbWave7.bind('<Button>',Wave7)
-    self.lbWave8.bind('<Button>',Wave8)
-    self.lbWave9.bind('<Button>',Wave9)
-    self.lbWave10.bind('<Button>',Wave10)
-    self.btnPlayMultiPlayer.bind('<Button>',StartTenWaveChallengeMultiPlayer)
-    self.bind('<Escape>',Exit)
+    # Bind
+    self.btnMainMenu.bind('<Button>', StartMainMenu)
+    self.lbWave1.bind('<Button>', Wave1)
+    self.lbWave2.bind('<Button>', Wave2)
+    self.lbWave3.bind('<Button>', Wave3)
+    self.lbWave4.bind('<Button>', Wave4)
+    self.lbWave5.bind('<Button>', Wave5)
+    self.lbWave6.bind('<Button>', Wave6)
+    self.lbWave7.bind('<Button>', Wave7)
+    self.lbWave8.bind('<Button>', Wave8)
+    self.lbWave9.bind('<Button>', Wave9)
+    self.lbWave10.bind('<Button>', Wave10)
+    self.btnPlayMultiPlayer.bind('<Button>', StartTenWaveChallengeMultiPlayer)
+    self.bind('<Escape>', Exit)
 
-    #Frame settings
+    # Frame settings
     self.geometry("830x700")
     self.title("Space Assault")
     self.configure(bg="black")
 
     Wave1()
 
+
 def TenWaveChallengeMultiPlayer():
     self = Tk()
 
-    #Variables
+    # Variables
     global wave
     global Damage
     global Damage3
@@ -8403,7 +8844,7 @@ def TenWaveChallengeMultiPlayer():
     global W10E5
     global W10E6
 
-    #Lists
+    # Lists
     Players = []
     PlayersXpos = []
     PlayersYpos = []
@@ -8442,38 +8883,44 @@ def TenWaveChallengeMultiPlayer():
     Enemies6Dmg = []
     Explosions = []
 
-    #Score
-    self.lbScore = Label(text="Wave: "+str(wave)+"  Press 'p' to pause",bg="black",fg="white")
-    self.lbScore.place(x=165,y=680,width=500,height=20)
+    # Score
+    self.lbScore = Label(text="Wave: " + str(wave) +
+                         "  Press 'p' to pause", bg="black", fg="white")
+    self.lbScore.place(x=165, y=680, width=500, height=20)
 
-    #Player
-    self.player = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-    self.player.place(x=Xpos,y=Ypos)
-    self.player.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="green")
+    # Player
+    self.player = Canvas(
+        self, bg="black", highlightthickness=0, width=30, height=30)
+    self.player.place(x=Xpos, y=Ypos)
+    self.player.create_polygon(
+        15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="green")
     Players.append(self.player)
     PlayersXpos.append(Xpos)
     PlayersYpos.append(Ypos)
     PlayersDir.append(direction)
-    #Player2
-    self.player2 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-    self.player2.place(x=X2pos,y=Y2pos)
-    self.player2.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="white")
+    # Player2
+    self.player2 = Canvas(
+        self, bg="black", highlightthickness=0, width=30, height=30)
+    self.player2.place(x=X2pos, y=Y2pos)
+    self.player2.create_polygon(
+        15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="white")
     Players.append(self.player2)
     PlayersXpos.append(X2pos)
     PlayersYpos.append(Y2pos)
     PlayersDir.append(direction2)
 
-    #Functions
+    # Functions
     def LeftKey(event):
         global Xpos
         global Ypos
         global direction
         global start
         self.player.delete("all")
-        self.player.create_polygon(0,15,30,30,15,15,30,0,0,15,fill="green")
+        self.player.create_polygon(
+            0, 15, 30, 30, 15, 15, 30, 0, 0, 15, fill="green")
         if PlayersXpos[0] > 0:
             PlayersXpos[0] -= 25
-        self.player.place(x=PlayersXpos[0],y=PlayersYpos[0])
+        self.player.place(x=PlayersXpos[0], y=PlayersYpos[0])
         PlayersDir[0] = "W"
         cycle = 0
         for enemy in Enemies:
@@ -8515,10 +8962,11 @@ def TenWaveChallengeMultiPlayer():
         global direction
         global start
         self.player.delete("all")
-        self.player.create_polygon(30,15,0,30,15,15,0,0,30,15,fill="green")
+        self.player.create_polygon(
+            30, 15, 0, 30, 15, 15, 0, 0, 30, 15, fill="green")
         if PlayersXpos[0] < 800:
             PlayersXpos[0] += 25
-        self.player.place(x=PlayersXpos[0],y=PlayersYpos[0])
+        self.player.place(x=PlayersXpos[0], y=PlayersYpos[0])
         PlayersDir[0] = "E"
         cycle = 0
         for enemy in Enemies:
@@ -8560,10 +9008,11 @@ def TenWaveChallengeMultiPlayer():
         global direction
         global start
         self.player.delete("all")
-        self.player.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="green")
+        self.player.create_polygon(
+            15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="green")
         if PlayersYpos[0] > 0:
             PlayersYpos[0] -= 25
-        self.player.place(x=PlayersXpos[0],y=PlayersYpos[0])
+        self.player.place(x=PlayersXpos[0], y=PlayersYpos[0])
         PlayersDir[0] = "N"
         cycle = 0
         for enemy in Enemies:
@@ -8605,10 +9054,11 @@ def TenWaveChallengeMultiPlayer():
         global direction
         global start
         self.player.delete("all")
-        self.player.create_polygon(15,30,30,0,15,15,0,0,15,30,fill="green")
+        self.player.create_polygon(
+            15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill="green")
         if PlayersYpos[0] < 650:
             PlayersYpos[0] += 25
-        self.player.place(x=PlayersXpos[0],y=PlayersYpos[0])
+        self.player.place(x=PlayersXpos[0], y=PlayersYpos[0])
         PlayersDir[0] = "S"
         cycle = 0
         for enemy in Enemies:
@@ -8647,10 +9097,11 @@ def TenWaveChallengeMultiPlayer():
     def AKey(event):
         global start
         self.player2.delete("all")
-        self.player2.create_polygon(0,15,30,30,15,15,30,0,0,15,fill="white")
+        self.player2.create_polygon(
+            0, 15, 30, 30, 15, 15, 30, 0, 0, 15, fill="white")
         if PlayersXpos[1] > 0:
             PlayersXpos[1] -= 25
-        self.player2.place(x=PlayersXpos[1],y=PlayersYpos[1])
+        self.player2.place(x=PlayersXpos[1], y=PlayersYpos[1])
         PlayersDir[1] = "W"
         cycle = 0
         for enemy in Enemies:
@@ -8689,39 +9140,40 @@ def TenWaveChallengeMultiPlayer():
     def DKey(event):
         global start
         self.player2.delete("all")
-        self.player2.create_polygon(30,15,0,30,15,15,0,0,30,15,fill="white")
-        if PlayersXpos[1]  < 800:
-            PlayersXpos[1]  += 25
-        self.player2.place(x=PlayersXpos[1] ,y=PlayersYpos[1] )
+        self.player2.create_polygon(
+            30, 15, 0, 30, 15, 15, 0, 0, 30, 15, fill="white")
+        if PlayersXpos[1] < 800:
+            PlayersXpos[1] += 25
+        self.player2.place(x=PlayersXpos[1], y=PlayersYpos[1])
         PlayersDir[1] = "E"
         cycle = 0
         for enemy in Enemies:
-            if PlayersXpos[1]  == EnemiesXpos[cycle] and PlayersYpos[1]  == EnemiesYpos[cycle]:
+            if PlayersXpos[1] == EnemiesXpos[cycle] and PlayersYpos[1] == EnemiesYpos[cycle]:
                 GameOver()
             cycle += 1
         cycle = 0
         for enemy2 in Enemies2:
-            if PlayersXpos[1]  == Enemies2Xpos[cycle] and PlayersYpos[1]  == Enemies2Ypos[cycle]:
+            if PlayersXpos[1] == Enemies2Xpos[cycle] and PlayersYpos[1] == Enemies2Ypos[cycle]:
                 GameOver()
             cycle += 1
         cycle = 0
         for enemy3 in Enemies3:
-            if PlayersXpos[1]  == Enemies3Xpos[cycle] and PlayersYpos[1]  == Enemies3Ypos[cycle]:
+            if PlayersXpos[1] == Enemies3Xpos[cycle] and PlayersYpos[1] == Enemies3Ypos[cycle]:
                 GameOver()
             cycle += 1
         cycle = 0
         for enemy4 in Enemies4:
-            if PlayersXpos[1]  == Enemies4Xpos[cycle] and PlayersYpos[1]  == Enemies4Ypos[cycle]:
+            if PlayersXpos[1] == Enemies4Xpos[cycle] and PlayersYpos[1] == Enemies4Ypos[cycle]:
                 GameOver()
             cycle += 1
         cycle = 0
         for enemy5 in Enemies5:
-            if PlayersXpos[1]  == Enemies5Xpos[cycle] and PlayersYpos[1]  == Enemies5Ypos[cycle]:
+            if PlayersXpos[1] == Enemies5Xpos[cycle] and PlayersYpos[1] == Enemies5Ypos[cycle]:
                 GameOver()
             cycle += 1
         cycle = 0
         for enemy6 in Enemies6:
-            if PlayersXpos[1]  == Enemies6Xpos[cycle] and PlayersYpos[1]  == Enemies6Ypos[cycle]:
+            if PlayersXpos[1] == Enemies6Xpos[cycle] and PlayersYpos[1] == Enemies6Ypos[cycle]:
                 GameOver()
             cycle += 1
         if start == 0:
@@ -8731,10 +9183,11 @@ def TenWaveChallengeMultiPlayer():
     def WKey(event):
         global start
         self.player2.delete("all")
-        self.player2.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="white")
+        self.player2.create_polygon(
+            15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="white")
         if PlayersYpos[1] > 0:
             PlayersYpos[1] -= 25
-        self.player2.place(x=PlayersXpos[1],y=PlayersYpos[1])
+        self.player2.place(x=PlayersXpos[1], y=PlayersYpos[1])
         PlayersDir[1] = "N"
         cycle = 0
         for enemy in Enemies:
@@ -8773,10 +9226,11 @@ def TenWaveChallengeMultiPlayer():
     def SKey(event):
         global start
         self.player2.delete("all")
-        self.player2.create_polygon(15,30,30,0,15,15,0,0,15,30,fill="white")
+        self.player2.create_polygon(
+            15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill="white")
         if PlayersYpos[1] < 650:
             PlayersYpos[1] += 25
-        self.player2.place(x=PlayersXpos[1],y=PlayersYpos[1])
+        self.player2.place(x=PlayersXpos[1], y=PlayersYpos[1])
         PlayersDir[1] = "S"
         cycle = 0
         for enemy in Enemies:
@@ -8819,14 +9273,16 @@ def TenWaveChallengeMultiPlayer():
         global enYpos
         global Damage
         global created
-        enXpos = random.randrange(0,33)*25
-        enYpos = random.randrange(0,27)*25
+        enXpos = random.randrange(0, 33) * 25
+        enYpos = random.randrange(0, 27) * 25
         while (abs(PlayersXpos[0] - enXpos) <= 75 and abs(PlayersYpos[0] - enYpos) <= 75) or (abs(PlayersXpos[1] - enXpos) <= 75 and abs(PlayersYpos[1] - enYpos) <= 75):
-            enXpos = random.randrange(0,33)*25
-            enYpos = random.randrange(0,27)*25
-        self.enemy = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-        self.enemy.place(x=enXpos,y=enYpos)
-        self.enemy.polygon = self.enemy.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="darkviolet")
+            enXpos = random.randrange(0, 33) * 25
+            enYpos = random.randrange(0, 27) * 25
+        self.enemy = Canvas(
+            self, bg="black", highlightthickness=0, width=30, height=30)
+        self.enemy.place(x=enXpos, y=enYpos)
+        self.enemy.polygon = self.enemy.create_polygon(
+            15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="darkviolet")
         Enemies.append(self.enemy)
         EnemiesDmg.append(Damage)
         EnemiesXpos.append(enXpos)
@@ -8839,14 +9295,16 @@ def TenWaveChallengeMultiPlayer():
         global en2Xpos
         global en2Ypos
         global created2
-        en2Xpos = random.randrange(0,33)*25
-        en2Ypos = random.randrange(0,27)*25
+        en2Xpos = random.randrange(0, 33) * 25
+        en2Ypos = random.randrange(0, 27) * 25
         while (abs(PlayersXpos[0] - en2Xpos) <= 75 and abs(PlayersYpos[0] - en2Ypos) <= 75) or (abs(PlayersXpos[1] - en2Xpos) <= 75 and abs(PlayersYpos[1] - en2Ypos) <= 75):
-            en2Xpos = random.randrange(0,33)*25
-            en2Ypos = random.randrange(0,27)*25
-        self.enemy2 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-        self.enemy2.place(x=en2Xpos,y=en2Ypos)
-        self.enemy2.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="red")
+            en2Xpos = random.randrange(0, 33) * 25
+            en2Ypos = random.randrange(0, 27) * 25
+        self.enemy2 = Canvas(
+            self, bg="black", highlightthickness=0, width=30, height=30)
+        self.enemy2.place(x=en2Xpos, y=en2Ypos)
+        self.enemy2.create_polygon(
+            15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="red")
         Enemies2.append(self.enemy2)
         Enemies2Xpos.append(en2Xpos)
         Enemies2Ypos.append(en2Ypos)
@@ -8859,14 +9317,16 @@ def TenWaveChallengeMultiPlayer():
         global en3Ypos
         global Damage3
         global created3
-        en3Xpos = random.randrange(0,33)*25
-        en3Ypos = random.randrange(0,27)*25
+        en3Xpos = random.randrange(0, 33) * 25
+        en3Ypos = random.randrange(0, 27) * 25
         while (abs(PlayersXpos[0] - en3Xpos) <= 75 and abs(PlayersYpos[0] - en3Ypos) <= 75) or (abs(PlayersXpos[1] - en3Xpos) <= 75 and abs(PlayersYpos[1] - en3Ypos) <= 75):
-            en3Xpos = random.randrange(0,33)*25
-            en3Ypos = random.randrange(0,27)*25
-        self.enemy3 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-        self.enemy3.place(x=en3Xpos,y=en3Ypos)
-        self.enemy3.polygon = self.enemy3.create_polygon(10,0,0,0,0,30,30,30,30,0,20,0,20,10,10,10,fill="navy")
+            en3Xpos = random.randrange(0, 33) * 25
+            en3Ypos = random.randrange(0, 27) * 25
+        self.enemy3 = Canvas(
+            self, bg="black", highlightthickness=0, width=30, height=30)
+        self.enemy3.place(x=en3Xpos, y=en3Ypos)
+        self.enemy3.polygon = self.enemy3.create_polygon(
+            10, 0, 0, 0, 0, 30, 30, 30, 30, 0, 20, 0, 20, 10, 10, 10, fill="navy")
         Enemies3.append(self.enemy3)
         Enemies3Dmg.append(Damage3)
         Enemies3Xpos.append(en3Xpos)
@@ -8879,14 +9339,16 @@ def TenWaveChallengeMultiPlayer():
         global en4Xpos
         global en4Ypos
         global created4
-        en4Xpos = random.randrange(0,33)*25
-        en4Ypos = random.randrange(0,27)*25
+        en4Xpos = random.randrange(0, 33) * 25
+        en4Ypos = random.randrange(0, 27) * 25
         while (abs(PlayersXpos[0] - en4Xpos) <= 150 and abs(PlayersYpos[0] - en4Ypos) <= 150) or (abs(PlayersXpos[1] - en4Xpos) <= 150 and abs(PlayersYpos[1] - en4Ypos) <= 150):
-            en4Xpos = random.randrange(0,33)*25
-            en4Ypos = random.randrange(0,27)*25
-        self.enemy4 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-        self.enemy4.place(x=en4Xpos,y=en4Ypos)
-        self.enemy4.create_polygon(15,0,5,15,12,15,5,30,25,30,17,15,25,15,fill="darkgreen")
+            en4Xpos = random.randrange(0, 33) * 25
+            en4Ypos = random.randrange(0, 27) * 25
+        self.enemy4 = Canvas(
+            self, bg="black", highlightthickness=0, width=30, height=30)
+        self.enemy4.place(x=en4Xpos, y=en4Ypos)
+        self.enemy4.create_polygon(
+            15, 0, 5, 15, 12, 15, 5, 30, 25, 30, 17, 15, 25, 15, fill="darkgreen")
         Enemies4.append(self.enemy4)
         Enemies4Xpos.append(en4Xpos)
         Enemies4Ypos.append(en4Ypos)
@@ -8899,57 +9361,73 @@ def TenWaveChallengeMultiPlayer():
         global en5Ypos
         global Damage5
         global created5
-        wall = random.choice(["N","E","S","W"])
+        wall = random.choice(["N", "E", "S", "W"])
         if wall == "N":
-            en5Xpos = random.randrange(0,33)*25
+            en5Xpos = random.randrange(0, 33) * 25
             en5Ypos = 0
-            self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-            self.enemy5.place(x=en5Xpos,y=en5Ypos)
-            self.enemy5.polygon = self.enemy5.create_polygon(0,0,10,15,10,30,20,30,20,15,30,0,fill="darkorange2")
+            self.enemy5 = Canvas(
+                self, bg="black", highlightthickness=0, width=30, height=30)
+            self.enemy5.place(x=en5Xpos, y=en5Ypos)
+            self.enemy5.polygon = self.enemy5.create_polygon(
+                0, 0, 10, 15, 10, 30, 20, 30, 20, 15, 30, 0, fill="darkorange2")
         elif wall == "E":
             en5Xpos = 800
-            en5Ypos = random.randrange(0,27)*25
-            self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-            self.enemy5.place(x=en5Xpos,y=en5Ypos)
-            self.enemy5.polygon = self.enemy5.create_polygon(30,0,15,10,0,10,0,20,15,20,30,30,fill="darkorange2")
+            en5Ypos = random.randrange(0, 27) * 25
+            self.enemy5 = Canvas(
+                self, bg="black", highlightthickness=0, width=30, height=30)
+            self.enemy5.place(x=en5Xpos, y=en5Ypos)
+            self.enemy5.polygon = self.enemy5.create_polygon(
+                30, 0, 15, 10, 0, 10, 0, 20, 15, 20, 30, 30, fill="darkorange2")
         elif wall == "S":
-            en5Xpos = random.randrange(0,33)*25
+            en5Xpos = random.randrange(0, 33) * 25
             en5Ypos = 650
-            self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-            self.enemy5.place(x=en5Xpos,y=en5Ypos)
-            self.enemy5.polygon = self.enemy5.create_polygon(30,30,20,15,20,0,10,0,10,15,0,30,fill="darkorange2")
+            self.enemy5 = Canvas(
+                self, bg="black", highlightthickness=0, width=30, height=30)
+            self.enemy5.place(x=en5Xpos, y=en5Ypos)
+            self.enemy5.polygon = self.enemy5.create_polygon(
+                30, 30, 20, 15, 20, 0, 10, 0, 10, 15, 0, 30, fill="darkorange2")
         elif wall == "W":
             en5Xpos = 0
-            en5Ypos = random.randrange(0,27)*25
-            self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-            self.enemy5.place(x=en5Xpos,y=en5Ypos)
-            self.enemy5.polygon = self.enemy5.create_polygon(0,30,15,20,30,20,30,10,15,10,0,0,fill="darkorange2")
+            en5Ypos = random.randrange(0, 27) * 25
+            self.enemy5 = Canvas(
+                self, bg="black", highlightthickness=0, width=30, height=30)
+            self.enemy5.place(x=en5Xpos, y=en5Ypos)
+            self.enemy5.polygon = self.enemy5.create_polygon(
+                0, 30, 15, 20, 30, 20, 30, 10, 15, 10, 0, 0, fill="darkorange2")
         while (abs(PlayersXpos[0] - en5Xpos) <= 75 and abs(PlayersYpos[0] - en5Ypos) <= 75) or (abs(PlayersXpos[1] - en5Xpos) <= 75 and abs(PlayersYpos[1] - en5Ypos) <= 75):
-            wall = random.choice(["N","E","S","W"])
+            wall = random.choice(["N", "E", "S", "W"])
             if wall == "N":
-                en5Xpos = random.randrange(0,33)*25
+                en5Xpos = random.randrange(0, 33) * 25
                 en5Ypos = 0
-                self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy5.place(x=en5Xpos,y=en5Ypos)
-                self.enemy5.polygon = self.enemy5.create_polygon(0,0,10,15,10,30,20,30,20,15,30,0,fill="darkorange2")
+                self.enemy5 = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy5.place(x=en5Xpos, y=en5Ypos)
+                self.enemy5.polygon = self.enemy5.create_polygon(
+                    0, 0, 10, 15, 10, 30, 20, 30, 20, 15, 30, 0, fill="darkorange2")
             elif wall == "E":
                 en5Xpos = 800
-                en5Ypos = random.randrange(0,27)*25
-                self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy5.place(x=en5Xpos,y=en5Ypos)
-                self.enemy5.polygon = self.enemy5.create_polygon(30,0,15,10,0,10,0,20,15,20,30,30,fill="darkorange2")
+                en5Ypos = random.randrange(0, 27) * 25
+                self.enemy5 = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy5.place(x=en5Xpos, y=en5Ypos)
+                self.enemy5.polygon = self.enemy5.create_polygon(
+                    30, 0, 15, 10, 0, 10, 0, 20, 15, 20, 30, 30, fill="darkorange2")
             elif wall == "S":
-                en5Xpos = random.randrange(0,33)*25
+                en5Xpos = random.randrange(0, 33) * 25
                 en5Ypos = 650
-                self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy5.place(x=en5Xpos,y=en5Ypos)
-                self.enemy5.polygon = self.enemy5.create_polygon(30,30,20,15,20,0,10,0,10,15,0,30,fill="darkorange2")
+                self.enemy5 = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy5.place(x=en5Xpos, y=en5Ypos)
+                self.enemy5.polygon = self.enemy5.create_polygon(
+                    30, 30, 20, 15, 20, 0, 10, 0, 10, 15, 0, 30, fill="darkorange2")
             elif wall == "W":
                 en5Xpos = 0
-                en5Ypos = random.randrange(0,27)*25
-                self.enemy5 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy5.place(x=en5Xpos,y=en5Ypos)
-                self.enemy5.polygon = self.enemy5.create_polygon(0,30,15,20,30,20,30,10,15,10,0,0,fill="darkorange2")
+                en5Ypos = random.randrange(0, 27) * 25
+                self.enemy5 = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy5.place(x=en5Xpos, y=en5Ypos)
+                self.enemy5.polygon = self.enemy5.create_polygon(
+                    0, 30, 15, 20, 30, 20, 30, 10, 15, 10, 0, 0, fill="darkorange2")
         Enemies5.append(self.enemy5)
         Enemies5Dmg.append(Damage5)
         Enemies5Xpos.append(en5Xpos)
@@ -8962,15 +9440,16 @@ def TenWaveChallengeMultiPlayer():
         global Ypos
         global en6Xpos
         global en6Ypos
-        en6Type = random.choice([1,2,3,4])
-        en6Xpos = random.randrange(0,33)*25
-        en6Ypos = random.randrange(0,27)*25
+        en6Type = random.choice([1, 2, 3, 4])
+        en6Xpos = random.randrange(0, 33) * 25
+        en6Ypos = random.randrange(0, 27) * 25
         while (abs(PlayersXpos[0] - en6Xpos) <= 75 and abs(PlayersYpos[0] - en6Ypos) <= 75) or (abs(PlayersXpos[1] - en6Xpos) <= 75 and abs(PlayersYpos[1] - en6Ypos) <= 75):
-            en6Xpos = random.randrange(0,33)*25
-            en6Ypos = random.randrange(0,27)*25
-        self.enemy6 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-        self.enemy6.place(x=en6Xpos,y=en6Ypos)
-        self.enemy6.oval = self.enemy6.create_oval(0,0,30,30,fill="gray20")
+            en6Xpos = random.randrange(0, 33) * 25
+            en6Ypos = random.randrange(0, 27) * 25
+        self.enemy6 = Canvas(
+            self, bg="black", highlightthickness=0, width=30, height=30)
+        self.enemy6.place(x=en6Xpos, y=en6Ypos)
+        self.enemy6.oval = self.enemy6.create_oval(0, 0, 30, 30, fill="gray20")
         Enemies6.append(self.enemy6)
         Enemies6Xpos.append(en6Xpos)
         Enemies6Ypos.append(en6Ypos)
@@ -8983,117 +9462,142 @@ def TenWaveChallengeMultiPlayer():
         global gameover
         global created
         if gameover != 1:
-            self.after(300,EnemyMove)
+            self.after(300, EnemyMove)
             if created == 1:
                 cycle = 0
                 for self.enemy in Enemies:
-                    rndDir = random.choice(["X","Y"])
+                    rndDir = random.choice(["X", "Y"])
                     if EnemiesDmg[cycle] == 0:
                         EnemyColor = "darkviolet"
                     else:
                         EnemyColor = "violet"
                     if ((PlayersXpos[0] - EnemiesXpos[cycle])**2 + (PlayersYpos[0] - EnemiesYpos[cycle])**2)**0.5 <= ((PlayersXpos[1] - EnemiesXpos[cycle])**2 + (PlayersYpos[1] - EnemiesYpos[cycle])**2)**0.5:
-                        #Target Player 1
+                        # Target Player 1
                         if PlayersXpos[0] < EnemiesXpos[cycle] and PlayersYpos[0] < EnemiesYpos[cycle]:
                             self.enemy.delete("all")
                             if rndDir == "X":
                                 EnemiesXpos[cycle] -= 25
-                                self.enemy.polygon = self.enemy.create_polygon(0,15,30,30,15,15,30,0,0,15,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    0, 15, 30, 30, 15, 15, 30, 0, 0, 15, fill=EnemyColor)
                             else:
                                 EnemiesYpos[cycle] -= 25
-                                self.enemy.polygon = self.enemy.create_polygon(15,0,30,30,15,15,0,30,15,0,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill=EnemyColor)
                         elif PlayersXpos[0] < EnemiesXpos[cycle] and PlayersYpos[0] > EnemiesYpos[cycle]:
                             self.enemy.delete("all")
                             if rndDir == "X":
                                 EnemiesXpos[cycle] -= 25
-                                self.enemy.polygon = self.enemy.create_polygon(0,15,30,30,15,15,30,0,0,15,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    0, 15, 30, 30, 15, 15, 30, 0, 0, 15, fill=EnemyColor)
                             else:
                                 EnemiesYpos[cycle] += 25
-                                self.enemy.polygon = self.enemy.create_polygon(15,30,30,0,15,15,0,0,15,30,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill=EnemyColor)
                         elif PlayersXpos[0] > EnemiesXpos[cycle] and PlayersYpos[0] < EnemiesYpos[cycle]:
                             self.enemy.delete("all")
                             if rndDir == "X":
                                 EnemiesXpos[cycle] += 25
-                                self.enemy.polygon = self.enemy.create_polygon(30,15,0,30,15,15,0,0,30,15,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    30, 15, 0, 30, 15, 15, 0, 0, 30, 15, fill=EnemyColor)
                             else:
                                 EnemiesYpos[cycle] -= 25
-                                self.enemy.polygon = self.enemy.create_polygon(15,0,30,30,15,15,0,30,15,0,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill=EnemyColor)
                         elif PlayersXpos[0] > EnemiesXpos[cycle] and PlayersYpos[0] > EnemiesYpos[cycle]:
                             self.enemy.delete("all")
                             if rndDir == "X":
                                 EnemiesXpos[cycle] += 25
-                                self.enemy.polygon = self.enemy.create_polygon(30,15,0,30,15,15,0,0,30,15,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    30, 15, 0, 30, 15, 15, 0, 0, 30, 15, fill=EnemyColor)
                             else:
                                 EnemiesYpos[cycle] += 25
-                                self.enemy.polygon = self.enemy.create_polygon(15,30,30,0,15,15,0,0,15,30,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill=EnemyColor)
                         elif PlayersXpos[0] < EnemiesXpos[cycle] and PlayersYpos[0] == EnemiesYpos[cycle]:
                             self.enemy.delete("all")
-                            self.enemy.polygon = self.enemy.create_polygon(0,15,30,30,15,15,30,0,0,15,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                0, 15, 30, 30, 15, 15, 30, 0, 0, 15, fill=EnemyColor)
                             EnemiesXpos[cycle] -= 25
                         elif PlayersXpos[0] > EnemiesXpos[cycle] and PlayersYpos[0] == EnemiesYpos[cycle]:
                             self.enemy.delete("all")
-                            self.enemy.polygon = self.enemy.create_polygon(30,15,0,30,15,15,0,0,30,15,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                30, 15, 0, 30, 15, 15, 0, 0, 30, 15, fill=EnemyColor)
                             EnemiesXpos[cycle] += 25
                         elif PlayersXpos[0] == EnemiesXpos[cycle] and PlayersYpos[0] < EnemiesYpos[cycle]:
                             self.enemy.delete("all")
-                            self.enemy.polygon = self.enemy.create_polygon(15,0,30,30,15,15,0,30,15,0,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill=EnemyColor)
                             EnemiesYpos[cycle] -= 25
                         elif PlayersXpos[0] == EnemiesXpos[cycle] and PlayersYpos[0] > EnemiesYpos[cycle]:
                             self.enemy.delete("all")
-                            self.enemy.polygon = self.enemy.create_polygon(15,30,30,0,15,15,0,0,15,30,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill=EnemyColor)
                             EnemiesYpos[cycle] += 25
                     else:
-                        #Target Player 2
+                        # Target Player 2
                         if PlayersXpos[1] < EnemiesXpos[cycle] and PlayersYpos[1] < EnemiesYpos[cycle]:
                             self.enemy.delete("all")
                             if rndDir == "X":
                                 EnemiesXpos[cycle] -= 25
-                                self.enemy.polygon = self.enemy.create_polygon(0,15,30,30,15,15,30,0,0,15,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    0, 15, 30, 30, 15, 15, 30, 0, 0, 15, fill=EnemyColor)
                             else:
                                 EnemiesYpos[cycle] -= 25
-                                self.enemy.polygon = self.enemy.create_polygon(15,0,30,30,15,15,0,30,15,0,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill=EnemyColor)
                         elif PlayersXpos[1] < EnemiesXpos[cycle] and PlayersYpos[1] > EnemiesYpos[cycle]:
                             self.enemy.delete("all")
                             if rndDir == "X":
                                 EnemiesXpos[cycle] -= 25
-                                self.enemy.polygon = self.enemy.create_polygon(0,15,30,30,15,15,30,0,0,15,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    0, 15, 30, 30, 15, 15, 30, 0, 0, 15, fill=EnemyColor)
                             else:
                                 EnemiesYpos[cycle] += 25
-                                self.enemy.polygon = self.enemy.create_polygon(15,30,30,0,15,15,0,0,15,30,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill=EnemyColor)
                         elif PlayersXpos[1] > EnemiesXpos[cycle] and PlayersYpos[1] < EnemiesYpos[cycle]:
                             self.enemy.delete("all")
                             if rndDir == "X":
                                 EnemiesXpos[cycle] += 25
-                                self.enemy.polygon = self.enemy.create_polygon(30,15,0,30,15,15,0,0,30,15,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    30, 15, 0, 30, 15, 15, 0, 0, 30, 15, fill=EnemyColor)
                             else:
                                 EnemiesYpos[cycle] -= 25
-                                self.enemy.polygon = self.enemy.create_polygon(15,0,30,30,15,15,0,30,15,0,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill=EnemyColor)
                         elif PlayersXpos[1] > EnemiesXpos[cycle] and PlayersYpos[1] > EnemiesYpos[cycle]:
                             self.enemy.delete("all")
                             if rndDir == "X":
                                 EnemiesXpos[cycle] += 25
-                                self.enemy.polygon = self.enemy.create_polygon(30,15,0,30,15,15,0,0,30,15,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    30, 15, 0, 30, 15, 15, 0, 0, 30, 15, fill=EnemyColor)
                             else:
                                 EnemiesYpos[cycle] += 25
-                                self.enemy.polygon = self.enemy.create_polygon(15,30,30,0,15,15,0,0,15,30,fill=EnemyColor)
+                                self.enemy.polygon = self.enemy.create_polygon(
+                                    15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill=EnemyColor)
                         elif PlayersXpos[1] < EnemiesXpos[cycle] and PlayersYpos[1] == EnemiesYpos[cycle]:
                             self.enemy.delete("all")
-                            self.enemy.polygon = self.enemy.create_polygon(0,15,30,30,15,15,30,0,0,15,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                0, 15, 30, 30, 15, 15, 30, 0, 0, 15, fill=EnemyColor)
                             EnemiesXpos[cycle] -= 25
                         elif PlayersXpos[1] > EnemiesXpos[cycle] and PlayersYpos[1] == EnemiesYpos[cycle]:
                             self.enemy.delete("all")
-                            self.enemy.polygon = self.enemy.create_polygon(30,15,0,30,15,15,0,0,30,15,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                30, 15, 0, 30, 15, 15, 0, 0, 30, 15, fill=EnemyColor)
                             EnemiesXpos[cycle] += 25
                         elif PlayersXpos[1] == EnemiesXpos[cycle] and PlayersYpos[1] < EnemiesYpos[cycle]:
                             self.enemy.delete("all")
-                            self.enemy.polygon = self.enemy.create_polygon(15,0,30,30,15,15,0,30,15,0,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill=EnemyColor)
                             EnemiesYpos[cycle] -= 25
                         elif PlayersXpos[1] == EnemiesXpos[cycle] and PlayersYpos[1] > EnemiesYpos[cycle]:
                             self.enemy.delete("all")
-                            self.enemy.polygon = self.enemy.create_polygon(15,30,30,0,15,15,0,0,15,30,fill=EnemyColor)
+                            self.enemy.polygon = self.enemy.create_polygon(
+                                15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill=EnemyColor)
                             EnemiesYpos[cycle] += 25
-                    self.enemy.place(x=EnemiesXpos[cycle],y=EnemiesYpos[cycle])
-                    for Pcycle in range(0,2):
+                    self.enemy.place(
+                        x=EnemiesXpos[cycle], y=EnemiesYpos[cycle])
+                    for Pcycle in range(0, 2):
                         if PlayersXpos[Pcycle] == EnemiesXpos[cycle] and PlayersYpos[Pcycle] == EnemiesYpos[cycle]:
                             GameOver()
                     cycle += 1
@@ -9104,90 +9608,107 @@ def TenWaveChallengeMultiPlayer():
         global gameover
         global created2
         if gameover != 1:
-            self.after(300,Enemy2Move)
+            self.after(300, Enemy2Move)
             if created2 == 1:
                 cycle = 0
                 for self.enemy2 in Enemies2:
                     if ((PlayersXpos[0] - Enemies2Xpos[cycle])**2 + (PlayersYpos[0] - Enemies2Ypos[cycle])**2)**0.5 <= ((PlayersXpos[1] - Enemies2Xpos[cycle])**2 + (PlayersYpos[1] - Enemies2Ypos[cycle])**2)**0.5:
-                        #Target Player 1
+                        # Target Player 1
                         if PlayersXpos[0] < Enemies2Xpos[cycle] and PlayersYpos[0] < Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(0,0,30,15,15,15,15,30,0,0,fill="red")
+                            self.enemy2.create_polygon(
+                                0, 0, 30, 15, 15, 15, 15, 30, 0, 0, fill="red")
                             Enemies2Xpos[cycle] -= 25
                             Enemies2Ypos[cycle] -= 25
                         elif PlayersXpos[0] < Enemies2Xpos[cycle] and PlayersYpos[0] > Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(0,30,15,0,15,15,30,15,0,30,fill="red")
+                            self.enemy2.create_polygon(
+                                0, 30, 15, 0, 15, 15, 30, 15, 0, 30, fill="red")
                             Enemies2Xpos[cycle] -= 25
                             Enemies2Ypos[cycle] += 25
                         elif PlayersXpos[0] > Enemies2Xpos[cycle] and PlayersYpos[0] < Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(30,0,0,15,15,15,15,30,30,0,fill="red")
+                            self.enemy2.create_polygon(
+                                30, 0, 0, 15, 15, 15, 15, 30, 30, 0, fill="red")
                             Enemies2Xpos[cycle] += 25
                             Enemies2Ypos[cycle] -= 25
                         elif PlayersXpos[0] > Enemies2Xpos[cycle] and PlayersYpos[0] > Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(30,30,15,0,15,15,0,15,30,30,fill="red")
+                            self.enemy2.create_polygon(
+                                30, 30, 15, 0, 15, 15, 0, 15, 30, 30, fill="red")
                             Enemies2Xpos[cycle] += 25
                             Enemies2Ypos[cycle] += 25
                         elif PlayersXpos[0] < Enemies2Xpos[cycle] and PlayersYpos[0] == Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(0,15,30,30,15,15,30,0,0,15,fill="red")
+                            self.enemy2.create_polygon(
+                                0, 15, 30, 30, 15, 15, 30, 0, 0, 15, fill="red")
                             Enemies2Xpos[cycle] -= 25
                         elif PlayersXpos[0] > Enemies2Xpos[cycle] and PlayersYpos[0] == Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(30,15,0,30,15,15,0,0,30,15,fill="red")
+                            self.enemy2.create_polygon(
+                                30, 15, 0, 30, 15, 15, 0, 0, 30, 15, fill="red")
                             Enemies2Xpos[cycle] += 25
                         elif PlayersXpos[0] == Enemies2Xpos[cycle] and PlayersYpos[0] < Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="red")
+                            self.enemy2.create_polygon(
+                                15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="red")
                             Enemies2Ypos[cycle] -= 25
                         elif PlayersXpos[0] == Enemies2Xpos[cycle] and PlayersYpos[0] > Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(15,30,30,0,15,15,0,0,15,30,fill="red")
+                            self.enemy2.create_polygon(
+                                15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill="red")
                             Enemies2Ypos[cycle] += 25
                     else:
-                        #Target Player 2
+                        # Target Player 2
                         if PlayersXpos[1] < Enemies2Xpos[cycle] and PlayersYpos[1] < Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(0,0,30,15,15,15,15,30,0,0,fill="red")
+                            self.enemy2.create_polygon(
+                                0, 0, 30, 15, 15, 15, 15, 30, 0, 0, fill="red")
                             Enemies2Xpos[cycle] -= 25
                             Enemies2Ypos[cycle] -= 25
                         elif PlayersXpos[1] < Enemies2Xpos[cycle] and PlayersYpos[1] > Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(0,30,15,0,15,15,30,15,0,30,fill="red")
+                            self.enemy2.create_polygon(
+                                0, 30, 15, 0, 15, 15, 30, 15, 0, 30, fill="red")
                             Enemies2Xpos[cycle] -= 25
                             Enemies2Ypos[cycle] += 25
                         elif PlayersXpos[1] > Enemies2Xpos[cycle] and PlayersYpos[1] < Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(30,0,0,15,15,15,15,30,30,0,fill="red")
+                            self.enemy2.create_polygon(
+                                30, 0, 0, 15, 15, 15, 15, 30, 30, 0, fill="red")
                             Enemies2Xpos[cycle] += 25
                             Enemies2Ypos[cycle] -= 25
                         elif PlayersXpos[1] > Enemies2Xpos[cycle] and PlayersYpos[1] > Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(30,30,15,0,15,15,0,15,30,30,fill="red")
+                            self.enemy2.create_polygon(
+                                30, 30, 15, 0, 15, 15, 0, 15, 30, 30, fill="red")
                             Enemies2Xpos[cycle] += 25
                             Enemies2Ypos[cycle] += 25
                         elif PlayersXpos[1] < Enemies2Xpos[cycle] and PlayersYpos[1] == Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(0,15,30,30,15,15,30,0,0,15,fill="red")
+                            self.enemy2.create_polygon(
+                                0, 15, 30, 30, 15, 15, 30, 0, 0, 15, fill="red")
                             Enemies2Xpos[cycle] -= 25
                         elif PlayersXpos[1] > Enemies2Xpos[cycle] and PlayersYpos[1] == Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(30,15,0,30,15,15,0,0,30,15,fill="red")
+                            self.enemy2.create_polygon(
+                                30, 15, 0, 30, 15, 15, 0, 0, 30, 15, fill="red")
                             Enemies2Xpos[cycle] += 25
                         elif PlayersXpos[1] == Enemies2Xpos[cycle] and PlayersYpos[1] < Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="red")
+                            self.enemy2.create_polygon(
+                                15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="red")
                             Enemies2Ypos[cycle] -= 25
                         elif PlayersXpos[1] == Enemies2Xpos[cycle] and PlayersYpos[1] > Enemies2Ypos[cycle]:
                             self.enemy2.delete("all")
-                            self.enemy2.create_polygon(15,30,30,0,15,15,0,0,15,30,fill="red")
+                            self.enemy2.create_polygon(
+                                15, 30, 30, 0, 15, 15, 0, 0, 15, 30, fill="red")
                             Enemies2Ypos[cycle] += 25
-                    self.enemy2.place(x=Enemies2Xpos[cycle],y=Enemies2Ypos[cycle])
-                    for Pcycle in range(0,2):
-                            if PlayersXpos[Pcycle] == Enemies2Xpos[cycle] and PlayersYpos[Pcycle] == Enemies2Ypos[cycle]:
-                                GameOver()
+                    self.enemy2.place(
+                        x=Enemies2Xpos[cycle], y=Enemies2Ypos[cycle])
+                    for Pcycle in range(0, 2):
+                        if PlayersXpos[Pcycle] == Enemies2Xpos[cycle] and PlayersYpos[Pcycle] == Enemies2Ypos[cycle]:
+                            GameOver()
                     cycle += 1
 
     def Enemy3Move():
@@ -9196,11 +9717,11 @@ def TenWaveChallengeMultiPlayer():
         global gameover
         global created3
         if gameover != 1:
-            self.after(350,Enemy3Move)
+            self.after(350, Enemy3Move)
             if created3 == 1:
                 cycle = 0
                 for self.enemy3 in Enemies3:
-                    rndDir = random.choice(["X","Y"])
+                    rndDir = random.choice(["X", "Y"])
                     if Enemies3Dmg[cycle] == 0:
                         Enemy3Color = "navy"
                     elif Enemies3Dmg[cycle] == 1:
@@ -9212,107 +9733,132 @@ def TenWaveChallengeMultiPlayer():
                     else:
                         Enemy3Color = "lightskyblue"
                     if ((PlayersXpos[0] - Enemies3Xpos[cycle])**2 + (PlayersYpos[0] - Enemies3Ypos[cycle])**2)**0.5 <= ((PlayersXpos[1] - Enemies3Xpos[cycle])**2 + (PlayersYpos[1] - Enemies3Ypos[cycle])**2)**0.5:
-                        #Target Player 1
+                        # Target Player 1
                         if PlayersXpos[0] < Enemies3Xpos[cycle] and PlayersYpos[0] < Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
                             if rndDir == "X":
                                 Enemies3Xpos[cycle] -= 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(0,20,0,30,30,30,30,0,0,0,0,10,10,10,10,20,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    0, 20, 0, 30, 30, 30, 30, 0, 0, 0, 0, 10, 10, 10, 10, 20, fill=Enemy3Color)
                             else:
                                 Enemies3Ypos[cycle] -= 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(10,0,0,0,0,30,30,30,30,0,20,0,20,10,10,10,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    10, 0, 0, 0, 0, 30, 30, 30, 30, 0, 20, 0, 20, 10, 10, 10, fill=Enemy3Color)
                         elif PlayersXpos[0] < Enemies3Xpos[cycle] and PlayersYpos[0] > Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
                             if rndDir == "X":
                                 Enemies3Xpos[cycle] -= 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(0,20,0,30,30,30,30,0,0,0,0,10,10,10,10,20,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    0, 20, 0, 30, 30, 30, 30, 0, 0, 0, 0, 10, 10, 10, 10, 20, fill=Enemy3Color)
                             else:
                                 Enemies3Ypos[cycle] += 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(20,30,30,30,30,0,0,0,0,30,10,30,10,20,20,20,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    20, 30, 30, 30, 30, 0, 0, 0, 0, 30, 10, 30, 10, 20, 20, 20, fill=Enemy3Color)
                         elif PlayersXpos[0] > Enemies3Xpos[cycle] and PlayersYpos[0] < Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
                             if rndDir == "X":
                                 Enemies3Xpos[cycle] += 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(30,10,30,0,0,0,0,30,30,30,30,20,20,20,20,10,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    30, 10, 30, 0, 0, 0, 0, 30, 30, 30, 30, 20, 20, 20, 20, 10, fill=Enemy3Color)
                             else:
                                 Enemies3Ypos[cycle] -= 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(10,0,0,0,0,30,30,30,30,0,20,0,20,10,10,10,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    10, 0, 0, 0, 0, 30, 30, 30, 30, 0, 20, 0, 20, 10, 10, 10, fill=Enemy3Color)
                         elif PlayersXpos[0] > Enemies3Xpos[cycle] and PlayersYpos[0] > Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
                             if rndDir == "X":
                                 Enemies3Xpos[cycle] += 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(30,10,30,0,0,0,0,30,30,30,30,20,20,20,20,10,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    30, 10, 30, 0, 0, 0, 0, 30, 30, 30, 30, 20, 20, 20, 20, 10, fill=Enemy3Color)
                             else:
                                 Enemies3Ypos[cycle] += 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(20,30,30,30,30,0,0,0,0,30,10,30,10,20,20,20,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    20, 30, 30, 30, 30, 0, 0, 0, 0, 30, 10, 30, 10, 20, 20, 20, fill=Enemy3Color)
                         elif PlayersXpos[0] < Enemies3Xpos[cycle] and PlayersYpos[0] == Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
-                            self.enemy3.polygon = self.enemy3.create_polygon(0,20,0,30,30,30,30,0,0,0,0,10,10,10,10,20,fill=Enemy3Color)
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                0, 20, 0, 30, 30, 30, 30, 0, 0, 0, 0, 10, 10, 10, 10, 20, fill=Enemy3Color)
                             Enemies3Xpos[cycle] -= 25
                         elif PlayersXpos[0] > Enemies3Xpos[cycle] and PlayersYpos[0] == Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
-                            self.enemy3.polygon = self.enemy3.create_polygon(30,10,30,0,0,0,0,30,30,30,30,20,20,20,20,10,fill=Enemy3Color)
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                30, 10, 30, 0, 0, 0, 0, 30, 30, 30, 30, 20, 20, 20, 20, 10, fill=Enemy3Color)
                             Enemies3Xpos[cycle] += 25
                         elif PlayersXpos[0] == Enemies3Xpos[cycle] and PlayersYpos[0] < Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
-                            self.enemy3.polygon = self.enemy3.create_polygon(10,0,0,0,0,30,30,30,30,0,20,0,20,10,10,10,fill=Enemy3Color)
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                10, 0, 0, 0, 0, 30, 30, 30, 30, 0, 20, 0, 20, 10, 10, 10, fill=Enemy3Color)
                             Enemies3Ypos[cycle] -= 25
                         elif PlayersXpos[0] == Enemies3Xpos[cycle] and PlayersYpos[0] > Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
-                            self.enemy3.polygon = self.enemy3.create_polygon(20,30,30,30,30,0,0,0,0,30,10,30,10,20,20,20,fill=Enemy3Color)
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                20, 30, 30, 30, 30, 0, 0, 0, 0, 30, 10, 30, 10, 20, 20, 20, fill=Enemy3Color)
                             Enemies3Ypos[cycle] += 25
                     else:
-                    #Target Player 2
+                        # Target Player 2
                         if PlayersXpos[1] < Enemies3Xpos[cycle] and PlayersYpos[1] < Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
                             if rndDir == "X":
                                 Enemies3Xpos[cycle] -= 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(0,20,0,30,30,30,30,0,0,0,0,10,10,10,10,20,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    0, 20, 0, 30, 30, 30, 30, 0, 0, 0, 0, 10, 10, 10, 10, 20, fill=Enemy3Color)
                             else:
                                 Enemies3Ypos[cycle] -= 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(10,0,0,0,0,30,30,30,30,0,20,0,20,10,10,10,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    10, 0, 0, 0, 0, 30, 30, 30, 30, 0, 20, 0, 20, 10, 10, 10, fill=Enemy3Color)
                         elif PlayersXpos[1] < Enemies3Xpos[cycle] and PlayersYpos[1] > Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
                             if rndDir == "X":
                                 Enemies3Xpos[cycle] -= 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(0,20,0,30,30,30,30,0,0,0,0,10,10,10,10,20,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    0, 20, 0, 30, 30, 30, 30, 0, 0, 0, 0, 10, 10, 10, 10, 20, fill=Enemy3Color)
                             else:
                                 Enemies3Ypos[cycle] += 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(20,30,30,30,30,0,0,0,0,30,10,30,10,20,20,20,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    20, 30, 30, 30, 30, 0, 0, 0, 0, 30, 10, 30, 10, 20, 20, 20, fill=Enemy3Color)
                         elif PlayersXpos[1] > Enemies3Xpos[cycle] and PlayersYpos[1] < Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
                             if rndDir == "X":
                                 Enemies3Xpos[cycle] += 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(30,10,30,0,0,0,0,30,30,30,30,20,20,20,20,10,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    30, 10, 30, 0, 0, 0, 0, 30, 30, 30, 30, 20, 20, 20, 20, 10, fill=Enemy3Color)
                             else:
                                 Enemies3Ypos[cycle] -= 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(10,0,0,0,0,30,30,30,30,0,20,0,20,10,10,10,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    10, 0, 0, 0, 0, 30, 30, 30, 30, 0, 20, 0, 20, 10, 10, 10, fill=Enemy3Color)
                         elif PlayersXpos[1] > Enemies3Xpos[cycle] and PlayersYpos[1] > Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
                             if rndDir == "X":
                                 Enemies3Xpos[cycle] += 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(30,10,30,0,0,0,0,30,30,30,30,20,20,20,20,10,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    30, 10, 30, 0, 0, 0, 0, 30, 30, 30, 30, 20, 20, 20, 20, 10, fill=Enemy3Color)
                             else:
                                 Enemies3Ypos[cycle] += 25
-                                self.enemy3.polygon = self.enemy3.create_polygon(20,30,30,30,30,0,0,0,0,30,10,30,10,20,20,20,fill=Enemy3Color)
+                                self.enemy3.polygon = self.enemy3.create_polygon(
+                                    20, 30, 30, 30, 30, 0, 0, 0, 0, 30, 10, 30, 10, 20, 20, 20, fill=Enemy3Color)
                         elif PlayersXpos[1] < Enemies3Xpos[cycle] and PlayersYpos[1] == Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
-                            self.enemy3.polygon = self.enemy3.create_polygon(0,20,0,30,30,30,30,0,0,0,0,10,10,10,10,20,fill=Enemy3Color)
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                0, 20, 0, 30, 30, 30, 30, 0, 0, 0, 0, 10, 10, 10, 10, 20, fill=Enemy3Color)
                             Enemies3Xpos[cycle] -= 25
                         elif PlayersXpos[1] > Enemies3Xpos[cycle] and PlayersYpos[1] == Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
-                            self.enemy3.polygon = self.enemy3.create_polygon(30,10,30,0,0,0,0,30,30,30,30,20,20,20,20,10,fill=Enemy3Color)
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                30, 10, 30, 0, 0, 0, 0, 30, 30, 30, 30, 20, 20, 20, 20, 10, fill=Enemy3Color)
                             Enemies3Xpos[cycle] += 25
                         elif PlayersXpos[1] == Enemies3Xpos[cycle] and PlayersYpos[1] < Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
-                            self.enemy3.polygon = self.enemy3.create_polygon(10,0,0,0,0,30,30,30,30,0,20,0,20,10,10,10,fill=Enemy3Color)
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                10, 0, 0, 0, 0, 30, 30, 30, 30, 0, 20, 0, 20, 10, 10, 10, fill=Enemy3Color)
                             Enemies3Ypos[cycle] -= 25
                         elif PlayersXpos[1] == Enemies3Xpos[cycle] and PlayersYpos[1] > Enemies3Ypos[cycle]:
                             self.enemy3.delete("all")
-                            self.enemy3.polygon = self.enemy3.create_polygon(20,30,30,30,30,0,0,0,0,30,10,30,10,20,20,20,fill=Enemy3Color)
+                            self.enemy3.polygon = self.enemy3.create_polygon(
+                                20, 30, 30, 30, 30, 0, 0, 0, 0, 30, 10, 30, 10, 20, 20, 20, fill=Enemy3Color)
                             Enemies3Ypos[cycle] += 25
-                    self.enemy3.place(x=Enemies3Xpos[cycle],y=Enemies3Ypos[cycle])
-                    for Pcycle in range(0,2):
+                    self.enemy3.place(
+                        x=Enemies3Xpos[cycle], y=Enemies3Ypos[cycle])
+                    for Pcycle in range(0, 2):
                         if PlayersXpos[Pcycle] == Enemies3Xpos[cycle] and PlayersYpos[Pcycle] == Enemies3Ypos[cycle]:
                             GameOver()
                     cycle += 1
@@ -9323,114 +9869,139 @@ def TenWaveChallengeMultiPlayer():
         global gameover
         global created4
         if gameover != 1:
-            self.after(100,Enemy4Move)
+            self.after(100, Enemy4Move)
             if created4 == 1:
                 cycle = 0
                 for self.enemy4 in Enemies4:
-                    rndDir = random.choice(["X","Y"])
+                    rndDir = random.choice(["X", "Y"])
                     Enemy4Color = "darkgreen"
                     if ((PlayersXpos[0] - Enemies4Xpos[cycle])**2 + (PlayersYpos[0] - Enemies4Ypos[cycle])**2)**0.5 <= ((PlayersXpos[1] - Enemies4Xpos[cycle])**2 + (PlayersYpos[1] - Enemies4Ypos[cycle])**2)**0.5:
-                        #Target Player 1
+                        # Target Player 1
                         if PlayersXpos[0] < Enemies4Xpos[cycle] and PlayersYpos[0] < Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
                             if rndDir == "X":
                                 Enemies4Xpos[cycle] -= 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(0,15,15,25,15,17,30,25,30,5,15,13,15,5,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    0, 15, 15, 25, 15, 17, 30, 25, 30, 5, 15, 13, 15, 5, fill=Enemy4Color)
                             else:
                                 Enemies4Ypos[cycle] -= 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(15,0,5,15,12,15,5,30,25,30,17,15,25,15,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    15, 0, 5, 15, 12, 15, 5, 30, 25, 30, 17, 15, 25, 15, fill=Enemy4Color)
                         elif PlayersXpos[0] < Enemies4Xpos[cycle] and PlayersYpos[0] > Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
                             if rndDir == "X":
                                 Enemies4Xpos[cycle] -= 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(0,15,15,25,15,17,30,25,30,5,15,13,15,5,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    0, 15, 15, 25, 15, 17, 30, 25, 30, 5, 15, 13, 15, 5, fill=Enemy4Color)
                             else:
                                 Enemies4Ypos[cycle] += 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(15,30,25,15,17,15,25,0,5,0,13,15,5,15,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    15, 30, 25, 15, 17, 15, 25, 0, 5, 0, 13, 15, 5, 15, fill=Enemy4Color)
                         elif PlayersXpos[0] > Enemies4Xpos[cycle] and PlayersYpos[0] < Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
                             if rndDir == "X":
                                 Enemies4Xpos[cycle] += 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(30,15,15,5,15,13,0,5,0,25,15,17,15,25,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    30, 15, 15, 5, 15, 13, 0, 5, 0, 25, 15, 17, 15, 25, fill=Enemy4Color)
                             else:
                                 Enemies4Ypos[cycle] -= 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(15,0,5,15,12,15,5,30,25,30,17,15,25,15,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    15, 0, 5, 15, 12, 15, 5, 30, 25, 30, 17, 15, 25, 15, fill=Enemy4Color)
                         elif PlayersXpos[0] > Enemies4Xpos[cycle] and PlayersYpos[0] > Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
                             if rndDir == "X":
                                 Enemies4Xpos[cycle] += 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(30,15,15,5,15,13,0,5,0,25,15,17,15,25,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    30, 15, 15, 5, 15, 13, 0, 5, 0, 25, 15, 17, 15, 25, fill=Enemy4Color)
                             else:
                                 Enemies4Ypos[cycle] += 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(15,30,25,15,17,15,25,0,5,0,13,15,5,15,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    15, 30, 25, 15, 17, 15, 25, 0, 5, 0, 13, 15, 5, 15, fill=Enemy4Color)
                         elif PlayersXpos[0] < Enemies4Xpos[cycle] and PlayersYpos[0] == Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
-                            self.enemy4.polygon = self.enemy4.create_polygon(0,15,15,25,15,17,30,25,30,5,15,13,15,5,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                0, 15, 15, 25, 15, 17, 30, 25, 30, 5, 15, 13, 15, 5, fill=Enemy4Color)
                             Enemies4Xpos[cycle] -= 25
                         elif PlayersXpos[0] > Enemies4Xpos[cycle] and PlayersYpos[0] == Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
-                            self.enemy4.polygon = self.enemy4.create_polygon(30,15,15,5,15,13,0,5,0,25,15,17,15,25,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                30, 15, 15, 5, 15, 13, 0, 5, 0, 25, 15, 17, 15, 25, fill=Enemy4Color)
                             Enemies4Xpos[cycle] += 25
                         elif PlayersXpos[0] == Enemies4Xpos[cycle] and PlayersYpos[0] < Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
-                            self.enemy4.polygon = self.enemy4.create_polygon(15,0,5,15,12,15,5,30,25,30,17,15,25,15,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                15, 0, 5, 15, 12, 15, 5, 30, 25, 30, 17, 15, 25, 15, fill=Enemy4Color)
                             Enemies4Ypos[cycle] -= 25
                         elif PlayersXpos[0] == Enemies4Xpos[cycle] and PlayersYpos[0] > Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
-                            self.enemy4.polygon = self.enemy4.create_polygon(15,30,25,15,17,15,25,0,5,0,13,15,5,15,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                15, 30, 25, 15, 17, 15, 25, 0, 5, 0, 13, 15, 5, 15, fill=Enemy4Color)
                             Enemies4Ypos[cycle] += 25
                     else:
-                        #Target Player 2
+                        # Target Player 2
                         if PlayersXpos[1] < Enemies4Xpos[cycle] and PlayersYpos[1] < Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
                             if rndDir == "X":
                                 Enemies4Xpos[cycle] -= 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(0,15,15,25,15,17,30,25,30,5,15,13,15,5,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    0, 15, 15, 25, 15, 17, 30, 25, 30, 5, 15, 13, 15, 5, fill=Enemy4Color)
                             else:
                                 Enemies4Ypos[cycle] -= 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(15,0,5,15,12,15,5,30,25,30,17,15,25,15,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    15, 0, 5, 15, 12, 15, 5, 30, 25, 30, 17, 15, 25, 15, fill=Enemy4Color)
                         elif PlayersXpos[1] < Enemies4Xpos[cycle] and PlayersYpos[1] > Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
                             if rndDir == "X":
                                 Enemies4Xpos[cycle] -= 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(0,15,15,25,15,17,30,25,30,5,15,13,15,5,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    0, 15, 15, 25, 15, 17, 30, 25, 30, 5, 15, 13, 15, 5, fill=Enemy4Color)
                             else:
                                 Enemies4Ypos[cycle] += 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(15,30,25,15,17,15,25,0,5,0,13,15,5,15,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    15, 30, 25, 15, 17, 15, 25, 0, 5, 0, 13, 15, 5, 15, fill=Enemy4Color)
                         elif PlayersXpos[1] > Enemies4Xpos[cycle] and PlayersYpos[1] < Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
                             if rndDir == "X":
                                 Enemies4Xpos[cycle] += 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(30,15,15,5,15,13,0,5,0,25,15,17,15,25,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    30, 15, 15, 5, 15, 13, 0, 5, 0, 25, 15, 17, 15, 25, fill=Enemy4Color)
                             else:
                                 Enemies4Ypos[cycle] -= 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(15,0,5,15,12,15,5,30,25,30,17,15,25,15,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    15, 0, 5, 15, 12, 15, 5, 30, 25, 30, 17, 15, 25, 15, fill=Enemy4Color)
                         elif PlayersXpos[1] > Enemies4Xpos[cycle] and PlayersYpos[1] > Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
                             if rndDir == "X":
                                 Enemies4Xpos[cycle] += 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(30,15,15,5,15,13,0,5,0,25,15,17,15,25,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    30, 15, 15, 5, 15, 13, 0, 5, 0, 25, 15, 17, 15, 25, fill=Enemy4Color)
                             else:
                                 Enemies4Ypos[cycle] += 25
-                                self.enemy4.polygon = self.enemy4.create_polygon(15,30,25,15,17,15,25,0,5,0,13,15,5,15,fill=Enemy4Color)
+                                self.enemy4.polygon = self.enemy4.create_polygon(
+                                    15, 30, 25, 15, 17, 15, 25, 0, 5, 0, 13, 15, 5, 15, fill=Enemy4Color)
                         elif PlayersXpos[1] < Enemies4Xpos[cycle] and PlayersYpos[1] == Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
-                            self.enemy4.polygon = self.enemy4.create_polygon(0,15,15,25,15,17,30,25,30,5,15,13,15,5,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                0, 15, 15, 25, 15, 17, 30, 25, 30, 5, 15, 13, 15, 5, fill=Enemy4Color)
                             Enemies4Xpos[cycle] -= 25
                         elif PlayersXpos[1] > Enemies4Xpos[cycle] and PlayersYpos[1] == Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
-                            self.enemy4.polygon = self.enemy4.create_polygon(30,15,15,5,15,13,0,5,0,25,15,17,15,25,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                30, 15, 15, 5, 15, 13, 0, 5, 0, 25, 15, 17, 15, 25, fill=Enemy4Color)
                             Enemies4Xpos[cycle] += 25
                         elif PlayersXpos[1] == Enemies4Xpos[cycle] and PlayersYpos[1] < Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
-                            self.enemy4.polygon = self.enemy4.create_polygon(15,0,5,15,12,15,5,30,25,30,17,15,25,15,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                15, 0, 5, 15, 12, 15, 5, 30, 25, 30, 17, 15, 25, 15, fill=Enemy4Color)
                             Enemies4Ypos[cycle] -= 25
                         elif PlayersXpos[1] == Enemies4Xpos[cycle] and PlayersYpos[1] > Enemies4Ypos[cycle]:
                             self.enemy4.delete("all")
-                            self.enemy4.polygon = self.enemy4.create_polygon(15,30,25,15,17,15,25,0,5,0,13,15,5,15,fill=Enemy4Color)
+                            self.enemy4.polygon = self.enemy4.create_polygon(
+                                15, 30, 25, 15, 17, 15, 25, 0, 5, 0, 13, 15, 5, 15, fill=Enemy4Color)
                             Enemies4Ypos[cycle] += 25
-                    self.enemy4.place(x=Enemies4Xpos[cycle],y=Enemies4Ypos[cycle])
-                    for Pcycle in range(0,2):
+                    self.enemy4.place(
+                        x=Enemies4Xpos[cycle], y=Enemies4Ypos[cycle])
+                    for Pcycle in range(0, 2):
                         if PlayersXpos[Pcycle] == Enemies4Xpos[cycle] and PlayersYpos[Pcycle] == Enemies4Ypos[cycle]:
                             GameOver()
                     cycle += 1
@@ -9441,12 +10012,12 @@ def TenWaveChallengeMultiPlayer():
         global gameover
         global created5
         if gameover != 1:
-            self.after(500,Enemy5Move)
+            self.after(500, Enemy5Move)
             if created5 == 1:
                 cycle = 0
                 for self.enemy5 in Enemies5:
                     if ((PlayersXpos[0] - Enemies5Xpos[cycle])**2 + (PlayersYpos[0] - Enemies5Ypos[cycle])**2)**0.5 <= ((PlayersXpos[1] - Enemies5Xpos[cycle])**2 + (PlayersYpos[1] - Enemies5Ypos[cycle])**2)**0.5:
-                        #Target Player 1
+                        # Target Player 1
                         if (Enemies5Wall[cycle] == "E" or Enemies5Wall[cycle] == "W") and PlayersYpos[0] < Enemies5Ypos[cycle]:
                             Enemies5Ypos[cycle] -= 25
                         elif (Enemies5Wall[cycle] == "E" or Enemies5Wall[cycle] == "W") and PlayersYpos[0] > Enemies5Ypos[cycle]:
@@ -9456,7 +10027,7 @@ def TenWaveChallengeMultiPlayer():
                         elif PlayersXpos[0] > Enemies5Xpos[cycle] and (Enemies5Wall[cycle] == "N" or Enemies5Wall[cycle] == "S"):
                             Enemies5Xpos[cycle] += 25
                     else:
-                        #Target Player 2
+                        # Target Player 2
                         if (Enemies5Wall[cycle] == "E" or Enemies5Wall[cycle] == "W") and PlayersYpos[1] < Enemies5Ypos[cycle]:
                             Enemies5Ypos[cycle] -= 25
                         elif (Enemies5Wall[cycle] == "E" or Enemies5Wall[cycle] == "W") and PlayersYpos[1] > Enemies5Ypos[cycle]:
@@ -9465,11 +10036,12 @@ def TenWaveChallengeMultiPlayer():
                             Enemies5Xpos[cycle] -= 25
                         elif PlayersXpos[1] > Enemies5Xpos[cycle] and (Enemies5Wall[cycle] == "N" or Enemies5Wall[cycle] == "S"):
                             Enemies5Xpos[cycle] += 25
-                    self.enemy5.place(x=Enemies5Xpos[cycle],y=Enemies5Ypos[cycle])
-                    for Pcycle in range(0,2):
+                    self.enemy5.place(
+                        x=Enemies5Xpos[cycle], y=Enemies5Ypos[cycle])
+                    for Pcycle in range(0, 2):
                         if PlayersXpos[Pcycle] == Enemies5Xpos[cycle] and PlayersYpos[Pcycle] == Enemies5Ypos[cycle]:
                             GameOver()
-                    for Pcycle in range(0,2):
+                    for Pcycle in range(0, 2):
                         if Enemies5Wall[cycle] == "E" or Enemies5Wall[cycle] == "W":
                             if Enemies5Ypos[cycle] == PlayersYpos[Pcycle]:
                                 enShoot()
@@ -9484,7 +10056,7 @@ def TenWaveChallengeMultiPlayer():
         global generated3
         global generated4
         if gameover != 1:
-            self.after(10,Generate)
+            self.after(10, Generate)
             if generated1 == 0:
                 GenerateEnemy1()
                 generated1 = 1000
@@ -9512,9 +10084,11 @@ def TenWaveChallengeMultiPlayer():
             if Enemies6Type[cycle] == 1:
                 enXpos = Enemies6Xpos[cycle]
                 enYpos = Enemies6Ypos[cycle]
-                self.enemy = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy.place(x=enXpos,y=enYpos)
-                self.enemy.polygon = self.enemy.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="darkviolet")
+                self.enemy = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy.place(x=enXpos, y=enYpos)
+                self.enemy.polygon = self.enemy.create_polygon(
+                    15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="darkviolet")
                 Enemies.append(self.enemy)
                 EnemiesDmg.append(Damage)
                 EnemiesXpos.append(enXpos)
@@ -9531,9 +10105,11 @@ def TenWaveChallengeMultiPlayer():
             if Enemies6Type[cycle] == 2:
                 en2Xpos = Enemies6Xpos[cycle]
                 en2Ypos = Enemies6Ypos[cycle]
-                self.enemy2 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy2.place(x=en2Xpos,y=en2Ypos)
-                self.enemy2.create_polygon(15,0,30,30,15,15,0,30,15,0,fill="red")
+                self.enemy2 = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy2.place(x=en2Xpos, y=en2Ypos)
+                self.enemy2.create_polygon(
+                    15, 0, 30, 30, 15, 15, 0, 30, 15, 0, fill="red")
                 Enemies2.append(self.enemy2)
                 Enemies2Xpos.append(en2Xpos)
                 Enemies2Ypos.append(en2Ypos)
@@ -9550,9 +10126,11 @@ def TenWaveChallengeMultiPlayer():
             if Enemies6Type[cycle] == 3:
                 en3Xpos = Enemies6Xpos[cycle]
                 en3Ypos = Enemies6Ypos[cycle]
-                self.enemy3 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy3.place(x=en3Xpos,y=en3Ypos)
-                self.enemy3.polygon = self.enemy3.create_polygon(10,0,0,0,0,30,30,30,30,0,20,0,20,10,10,10,fill="navy")
+                self.enemy3 = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy3.place(x=en3Xpos, y=en3Ypos)
+                self.enemy3.polygon = self.enemy3.create_polygon(
+                    10, 0, 0, 0, 0, 30, 30, 30, 30, 0, 20, 0, 20, 10, 10, 10, fill="navy")
                 Enemies3.append(self.enemy3)
                 Enemies3Dmg.append(Damage3)
                 Enemies3Xpos.append(en3Xpos)
@@ -9569,9 +10147,11 @@ def TenWaveChallengeMultiPlayer():
             if Enemies6Type[cycle] == 4:
                 en4Xpos = Enemies6Xpos[cycle]
                 en4Ypos = Enemies6Ypos[cycle]
-                self.enemy4 = Canvas(self,bg="black",highlightthickness=0,width=30,height=30)
-                self.enemy4.place(x=en4Xpos,y=en4Ypos)
-                self.enemy4.create_polygon(15,0,5,15,12,15,5,30,25,30,17,15,25,15,fill="darkgreen")
+                self.enemy4 = Canvas(
+                    self, bg="black", highlightthickness=0, width=30, height=30)
+                self.enemy4.place(x=en4Xpos, y=en4Ypos)
+                self.enemy4.create_polygon(
+                    15, 0, 5, 15, 12, 15, 5, 30, 25, 30, 17, 15, 25, 15, fill="darkgreen")
                 Enemies4.append(self.enemy4)
                 Enemies4Xpos.append(en4Xpos)
                 Enemies4Ypos.append(en4Ypos)
@@ -9595,9 +10175,10 @@ def TenWaveChallengeMultiPlayer():
         elif PlayersDir[0] == "W":
             shotXpos = PlayersXpos[0] - 10
             shotYpos = PlayersYpos[0] + 10
-        self.shot = Canvas(bg="black",highlightthickness=0,width=10,height=10)
-        self.shot.place(x=shotXpos,y=shotYpos)
-        self.shot.create_oval(0,0,10,10,fill="white")
+        self.shot = Canvas(bg="black", highlightthickness=0,
+                           width=10, height=10)
+        self.shot.place(x=shotXpos, y=shotYpos)
+        self.shot.create_oval(0, 0, 10, 10, fill="white")
         Shots.append(self.shot)
         ShotsXpos.append(shotXpos)
         ShotsYpos.append(shotYpos)
@@ -9620,9 +10201,10 @@ def TenWaveChallengeMultiPlayer():
         elif PlayersDir[1] == "W":
             shotXpos = PlayersXpos[1] - 10
             shotYpos = PlayersYpos[1] + 10
-        self.shot = Canvas(bg="black",highlightthickness=0,width=10,height=10)
-        self.shot.place(x=shotXpos,y=shotYpos)
-        self.shot.create_oval(0,0,10,10,fill="white")
+        self.shot = Canvas(bg="black", highlightthickness=0,
+                           width=10, height=10)
+        self.shot.place(x=shotXpos, y=shotYpos)
+        self.shot.create_oval(0, 0, 10, 10, fill="white")
         Shots.append(self.shot)
         ShotsXpos.append(shotXpos)
         ShotsYpos.append(shotYpos)
@@ -9651,21 +10233,23 @@ def TenWaveChallengeMultiPlayer():
                 enShotXpos = Enemies5Xpos[cycle] + 30
                 enShotYpos = Enemies5Ypos[cycle] + 10
             if Enemies5Wall[cycle] == "E" or Enemies5Wall[cycle] == "W":
-                for Pcycle in range(0,2):
+                for Pcycle in range(0, 2):
                     if Enemies5Ypos[cycle] == PlayersYpos[Pcycle]:
-                        self.enShot = Canvas(bg="black",highlightthickness=0,width=10,height=10)
-                        self.enShot.place(x=enShotXpos,y=enShotYpos)
-                        self.enShot.create_oval(0,0,10,10,fill="yellow")
+                        self.enShot = Canvas(
+                            bg="black", highlightthickness=0, width=10, height=10)
+                        self.enShot.place(x=enShotXpos, y=enShotYpos)
+                        self.enShot.create_oval(0, 0, 10, 10, fill="yellow")
                         enShots.append(self.enShot)
                         enShotsXpos.append(enShotXpos)
                         enShotsYpos.append(enShotYpos)
                         enShotDir.append(enDir)
             else:
-                for Pcycle in range(0,2):
+                for Pcycle in range(0, 2):
                     if Enemies5Xpos[cycle] == PlayersXpos[Pcycle]:
-                        self.enShot = Canvas(bg="black",highlightthickness=0,width=10,height=10)
-                        self.enShot.place(x=enShotXpos,y=enShotYpos)
-                        self.enShot.create_oval(0,0,10,10,fill="yellow")
+                        self.enShot = Canvas(
+                            bg="black", highlightthickness=0, width=10, height=10)
+                        self.enShot.place(x=enShotXpos, y=enShotYpos)
+                        self.enShot.create_oval(0, 0, 10, 10, fill="yellow")
                         enShots.append(self.enShot)
                         enShotsXpos.append(enShotXpos)
                         enShotsYpos.append(enShotYpos)
@@ -9679,8 +10263,8 @@ def TenWaveChallengeMultiPlayer():
         global destroy
         global gameover
         if gameover != 1:
-            self.after(10,ShotMove)
-            #Move Shots
+            self.after(10, ShotMove)
+            # Move Shots
             cycle = 0
             for self.shot in Shots:
                 destroy = -1
@@ -9692,24 +10276,27 @@ def TenWaveChallengeMultiPlayer():
                     ShotsYpos[cycle] += 10
                 elif ShotDir[cycle] == "W":
                     ShotsXpos[cycle] -= 10
-                self.shot.place(x=ShotsXpos[cycle],y=ShotsYpos[cycle])
-                #Damage Enemy1
+                self.shot.place(x=ShotsXpos[cycle], y=ShotsYpos[cycle])
+                # Damage Enemy1
                 enCycle = 0
                 for self.enemy in Enemies:
                     if destroy == -1:
                         if EnemiesXpos[enCycle] + 30 >= ShotsXpos[cycle] >= EnemiesXpos[enCycle] - 10 and EnemiesYpos[enCycle] + 30 >= ShotsYpos[cycle] >= EnemiesYpos[enCycle] - 10:
                             destroy = 0
                             if EnemiesDmg[enCycle] == 1:
-                                self.explode = Canvas(bg="black",highlightthickness=0,width=30,height=30)
-                                self.explode.place(x=EnemiesXpos[enCycle],y=EnemiesYpos[enCycle])
-                                self.explode.create_polygon(0,15,13,13,15,0,17,13,30,15,17,17,15,30,13,17,fill="orange")
+                                self.explode = Canvas(
+                                    bg="black", highlightthickness=0, width=30, height=30)
+                                self.explode.place(
+                                    x=EnemiesXpos[enCycle], y=EnemiesYpos[enCycle])
+                                self.explode.create_polygon(
+                                    0, 15, 13, 13, 15, 0, 17, 13, 30, 15, 17, 17, 15, 30, 13, 17, fill="orange")
                                 Explosions.append(self.explode)
                                 self.enemy.destroy()
                                 del Enemies[enCycle]
                                 del EnemiesDmg[enCycle]
                                 del EnemiesXpos[enCycle]
                                 del EnemiesYpos[enCycle]
-                                self.after(10,destroyEnemy)
+                                self.after(10, destroyEnemy)
                                 self.shot.destroy()
                                 del Shots[cycle]
                                 del ShotsXpos[cycle]
@@ -9726,17 +10313,21 @@ def TenWaveChallengeMultiPlayer():
                                     EnemyColor = "darkviolet"
                                 else:
                                     EnemyColor = "violet"
-                                self.enemy.itemconfig(self.enemy.polygon,fill=EnemyColor)
+                                self.enemy.itemconfig(
+                                    self.enemy.polygon, fill=EnemyColor)
                         enCycle += 1
-                #Damage Enemy2
+                # Damage Enemy2
                 enCycle = 0
                 for self.enemy2 in Enemies2:
                     if destroy == -1:
                         if Enemies2Xpos[enCycle] + 30 >= ShotsXpos[cycle] >= Enemies2Xpos[enCycle] - 10 and Enemies2Ypos[enCycle] + 30 >= ShotsYpos[cycle] >= Enemies2Ypos[enCycle] - 10:
                             destroy = 0
-                            self.explode = Canvas(bg="black",highlightthickness=0,width=30,height=30)
-                            self.explode.place(x=Enemies2Xpos[enCycle],y=Enemies2Ypos[enCycle])
-                            self.explode.create_polygon(0,15,13,13,15,0,17,13,30,15,17,17,15,30,13,17,fill="orange")
+                            self.explode = Canvas(
+                                bg="black", highlightthickness=0, width=30, height=30)
+                            self.explode.place(
+                                x=Enemies2Xpos[enCycle], y=Enemies2Ypos[enCycle])
+                            self.explode.create_polygon(
+                                0, 15, 13, 13, 15, 0, 17, 13, 30, 15, 17, 17, 15, 30, 13, 17, fill="orange")
                             Explosions.append(self.explode)
                             self.enemy2.destroy()
                             del Enemies2[enCycle]
@@ -9747,25 +10338,28 @@ def TenWaveChallengeMultiPlayer():
                             del ShotsXpos[cycle]
                             del ShotsYpos[cycle]
                             del ShotDir[cycle]
-                            self.after(10,destroyEnemy)
+                            self.after(10, destroyEnemy)
                         enCycle += 1
-                #Damage Enemy3
+                # Damage Enemy3
                 enCycle = 0
                 for self.enemy3 in Enemies3:
                     if destroy == -1:
                         if Enemies3Xpos[enCycle] + 30 >= ShotsXpos[cycle] >= Enemies3Xpos[enCycle] - 10 and Enemies3Ypos[enCycle] + 30 >= ShotsYpos[cycle] >= Enemies3Ypos[enCycle] - 10:
                             destroy = 0
                             if Enemies3Dmg[enCycle] == 4:
-                                self.explode = Canvas(bg="black",highlightthickness=0,width=30,height=30)
-                                self.explode.place(x=Enemies3Xpos[enCycle],y=Enemies3Ypos[enCycle])
-                                self.explode.create_polygon(0,15,13,13,15,0,17,13,30,15,17,17,15,30,13,17,fill="orange")
+                                self.explode = Canvas(
+                                    bg="black", highlightthickness=0, width=30, height=30)
+                                self.explode.place(
+                                    x=Enemies3Xpos[enCycle], y=Enemies3Ypos[enCycle])
+                                self.explode.create_polygon(
+                                    0, 15, 13, 13, 15, 0, 17, 13, 30, 15, 17, 17, 15, 30, 13, 17, fill="orange")
                                 Explosions.append(self.explode)
                                 self.enemy3.destroy()
                                 del Enemies3[enCycle]
                                 del Enemies3Dmg[enCycle]
                                 del Enemies3Xpos[enCycle]
                                 del Enemies3Ypos[enCycle]
-                                self.after(10,destroyEnemy)
+                                self.after(10, destroyEnemy)
                                 self.shot.destroy()
                                 del Shots[cycle]
                                 del ShotsXpos[cycle]
@@ -9788,17 +10382,21 @@ def TenWaveChallengeMultiPlayer():
                                     Enemy3Color = "deepskyblue"
                                 else:
                                     Enemy3Color = "lightskyblue"
-                                self.enemy3.itemconfig(self.enemy3.polygon,fill=Enemy3Color)
+                                self.enemy3.itemconfig(
+                                    self.enemy3.polygon, fill=Enemy3Color)
                         enCycle += 1
-                #Damage Enemy4
+                # Damage Enemy4
                 enCycle = 0
                 for self.enemy4 in Enemies4:
                     if destroy == -1:
                         if Enemies4Xpos[enCycle] + 30 >= ShotsXpos[cycle] >= Enemies4Xpos[enCycle] - 10 and Enemies4Ypos[enCycle] + 30 >= ShotsYpos[cycle] >= Enemies4Ypos[enCycle] - 10:
                             destroy = 0
-                            self.explode = Canvas(bg="black",highlightthickness=0,width=30,height=30)
-                            self.explode.place(x=Enemies4Xpos[enCycle],y=Enemies4Ypos[enCycle])
-                            self.explode.create_polygon(0,15,13,13,15,0,17,13,30,15,17,17,15,30,13,17,fill="orange")
+                            self.explode = Canvas(
+                                bg="black", highlightthickness=0, width=30, height=30)
+                            self.explode.place(
+                                x=Enemies4Xpos[enCycle], y=Enemies4Ypos[enCycle])
+                            self.explode.create_polygon(
+                                0, 15, 13, 13, 15, 0, 17, 13, 30, 15, 17, 17, 15, 30, 13, 17, fill="orange")
                             Explosions.append(self.explode)
                             self.enemy4.destroy()
                             del Enemies4[enCycle]
@@ -9809,18 +10407,21 @@ def TenWaveChallengeMultiPlayer():
                             del ShotsXpos[cycle]
                             del ShotsYpos[cycle]
                             del ShotDir[cycle]
-                            self.after(10,destroyEnemy)
+                            self.after(10, destroyEnemy)
                         enCycle += 1
-                #Damage Enemy5
+                # Damage Enemy5
                 enCycle = 0
                 for self.enemy5 in Enemies5:
                     if destroy == -1:
                         if Enemies5Xpos[enCycle] + 30 >= ShotsXpos[cycle] >= Enemies5Xpos[enCycle] - 10 and Enemies5Ypos[enCycle] + 30 >= ShotsYpos[cycle] >= Enemies5Ypos[enCycle] - 10:
                             destroy = 0
                             if Enemies5Dmg[enCycle] == 1:
-                                self.explode = Canvas(bg="black",highlightthickness=0,width=30,height=30)
-                                self.explode.place(x=Enemies5Xpos[enCycle],y=Enemies5Ypos[enCycle])
-                                self.explode.create_polygon(0,15,13,13,15,0,17,13,30,15,17,17,15,30,13,17,fill="orange")
+                                self.explode = Canvas(
+                                    bg="black", highlightthickness=0, width=30, height=30)
+                                self.explode.place(
+                                    x=Enemies5Xpos[enCycle], y=Enemies5Ypos[enCycle])
+                                self.explode.create_polygon(
+                                    0, 15, 13, 13, 15, 0, 17, 13, 30, 15, 17, 17, 15, 30, 13, 17, fill="orange")
                                 Explosions.append(self.explode)
                                 self.enemy5.destroy()
                                 del Enemies5[enCycle]
@@ -9828,7 +10429,7 @@ def TenWaveChallengeMultiPlayer():
                                 del Enemies5Xpos[enCycle]
                                 del Enemies5Ypos[enCycle]
                                 del Enemies5Wall[enCycle]
-                                self.after(10,destroyEnemy)
+                                self.after(10, destroyEnemy)
                                 self.shot.destroy()
                                 del Shots[cycle]
                                 del ShotsXpos[cycle]
@@ -9845,18 +10446,22 @@ def TenWaveChallengeMultiPlayer():
                                     Enemy5Color = "darkorange2"
                                 else:
                                     Enemy5Color = "orange"
-                                self.enemy5.itemconfig(self.enemy5.polygon,fill=Enemy5Color)
+                                self.enemy5.itemconfig(
+                                    self.enemy5.polygon, fill=Enemy5Color)
                         enCycle += 1
-                #Damage Enemy6
+                # Damage Enemy6
                 enCycle = 0
                 for self.enemy6 in Enemies6:
                     if destroy == -1:
                         if Enemies6Xpos[enCycle] + 30 >= ShotsXpos[cycle] >= Enemies6Xpos[enCycle] - 10 and Enemies6Ypos[enCycle] + 30 >= ShotsYpos[cycle] >= Enemies6Ypos[enCycle] - 10:
                             destroy = 0
                             if Enemies6Dmg[enCycle] == 5:
-                                self.explode = Canvas(bg="black",highlightthickness=0,width=30,height=30)
-                                self.explode.place(x=Enemies6Xpos[enCycle],y=Enemies6Ypos[enCycle])
-                                self.explode.create_polygon(0,15,13,13,15,0,17,13,30,15,17,17,15,30,13,17,fill="orange")
+                                self.explode = Canvas(
+                                    bg="black", highlightthickness=0, width=30, height=30)
+                                self.explode.place(
+                                    x=Enemies6Xpos[enCycle], y=Enemies6Ypos[enCycle])
+                                self.explode.create_polygon(
+                                    0, 15, 13, 13, 15, 0, 17, 13, 30, 15, 17, 17, 15, 30, 13, 17, fill="orange")
                                 Explosions.append(self.explode)
                                 self.enemy6.destroy()
                                 del Enemies6[enCycle]
@@ -9864,7 +10469,7 @@ def TenWaveChallengeMultiPlayer():
                                 del Enemies6Xpos[enCycle]
                                 del Enemies6Ypos[enCycle]
                                 del Enemies6Type[enCycle]
-                                self.after(10,destroyEnemy)
+                                self.after(10, destroyEnemy)
                                 self.shot.destroy()
                                 del Shots[cycle]
                                 del ShotsXpos[cycle]
@@ -9889,9 +10494,10 @@ def TenWaveChallengeMultiPlayer():
                                     Enemy6Color = "gray60"
                                 elif Enemies6Dmg[enCycle] == 5:
                                     Enemy6Color = "gray70"
-                                self.enemy6.itemconfig(self.enemy6.oval,fill=Enemy6Color)
+                                self.enemy6.itemconfig(
+                                    self.enemy6.oval, fill=Enemy6Color)
                         enCycle += 1
-                #Destroy Shot at Boundary
+                # Destroy Shot at Boundary
                 if destroy == -1:
                     if ShotsXpos[cycle] < 0 or ShotsXpos[cycle] > 830 or ShotsYpos[cycle] < 0 or ShotsYpos[cycle] > 680:
                         self.shot.destroy()
@@ -9904,7 +10510,7 @@ def TenWaveChallengeMultiPlayer():
     def enShotMove():
         global gameover
         if gameover != 1:
-            self.after(10,enShotMove)
+            self.after(10, enShotMove)
             cycle = 0
             for self.enShot in enShots:
                 enDestroy = -1
@@ -9916,9 +10522,9 @@ def TenWaveChallengeMultiPlayer():
                     enShotsYpos[cycle] += 10
                 elif enShotDir[cycle] == "W":
                     enShotsXpos[cycle] -= 10
-                self.enShot.place(x=enShotsXpos[cycle],y=enShotsYpos[cycle])
-                #Game Over
-                for Pcycle in range(0,2):
+                self.enShot.place(x=enShotsXpos[cycle], y=enShotsYpos[cycle])
+                # Game Over
+                for Pcycle in range(0, 2):
                     if gameover != 1:
                         if PlayersXpos[Pcycle] + 30 >= enShotsXpos[cycle] >= PlayersXpos[Pcycle] - 10 and PlayersYpos[Pcycle] + 30 >= enShotsYpos[cycle] >= PlayersYpos[Pcycle] - 10:
                             enDestroy = 0
@@ -9928,7 +10534,7 @@ def TenWaveChallengeMultiPlayer():
                             del enShotsYpos[cycle]
                             del enShotDir[cycle]
                             GameOver()
-                #Destroy Shot at Boundary
+                # Destroy Shot at Boundary
                 if enDestroy == -1:
                     if enShotsXpos[cycle] < 0 or enShotsXpos[cycle] > 830 or enShotsYpos[cycle] < 0 or enShotsYpos[cycle] > 680:
                         self.enShot.destroy()
@@ -9949,327 +10555,327 @@ def TenWaveChallengeMultiPlayer():
         global wave
         time = 0
         wave += 1
-        #Wave 1
+        # Wave 1
         if wave == 1:
             E = 0
             while E < W1E1:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < W1E2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < W1E3:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
             E = 0
             while E < W1E4:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
             E = 0
             while E < W1E5:
-                self.after(time,CreateEnemy5)
+                self.after(time, CreateEnemy5)
                 E += 1
                 time += 250
             E = 0
             while E < W1E6:
-                self.after(time,CreateEnemy6)
+                self.after(time, CreateEnemy6)
                 E += 1
                 time += 250
-        #Wave 2
+        # Wave 2
         if wave == 2:
             E = 0
             while E < W2E1:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < W2E2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < W2E3:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
             E = 0
             while E < W2E4:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
             E = 0
             while E < W2E5:
-                self.after(time,CreateEnemy5)
+                self.after(time, CreateEnemy5)
                 E += 1
                 time += 250
             E = 0
             while E < W2E6:
-                self.after(time,CreateEnemy6)
+                self.after(time, CreateEnemy6)
                 E += 1
                 time += 250
-        #Wave 3
+        # Wave 3
         if wave == 3:
             E = 0
             while E < W3E1:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < W3E2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < W3E3:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
             E = 0
             while E < W3E4:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
             E = 0
             while E < W3E5:
-                self.after(time,CreateEnemy5)
+                self.after(time, CreateEnemy5)
                 E += 1
                 time += 250
             E = 0
             while E < W3E6:
-                self.after(time,CreateEnemy6)
+                self.after(time, CreateEnemy6)
                 E += 1
                 time += 250
-        #Wave 4
+        # Wave 4
         if wave == 4:
             E = 0
             while E < W4E1:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < W4E2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < W4E3:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
             E = 0
             while E < W4E4:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
             E = 0
             while E < W4E5:
-                self.after(time,CreateEnemy5)
+                self.after(time, CreateEnemy5)
                 E += 1
                 time += 250
             E = 0
             while E < W4E6:
-                self.after(time,CreateEnemy6)
+                self.after(time, CreateEnemy6)
                 E += 1
                 time += 250
-        #Wave 5
+        # Wave 5
         if wave == 5:
             E = 0
             while E < W5E1:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < W5E2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < W5E3:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
             E = 0
             while E < W5E4:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
             E = 0
             while E < W5E5:
-                self.after(time,CreateEnemy5)
+                self.after(time, CreateEnemy5)
                 E += 1
                 time += 250
             E = 0
             while E < W5E6:
-                self.after(time,CreateEnemy6)
+                self.after(time, CreateEnemy6)
                 E += 1
                 time += 250
-        #Wave 6
+        # Wave 6
         if wave == 6:
             E = 0
             while E < W6E1:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < W6E2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < W6E3:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
             E = 0
             while E < W6E4:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
             E = 0
             while E < W6E5:
-                self.after(time,CreateEnemy5)
+                self.after(time, CreateEnemy5)
                 E += 1
                 time += 250
             E = 0
             while E < W6E6:
-                self.after(time,CreateEnemy6)
+                self.after(time, CreateEnemy6)
                 E += 1
                 time += 250
-        #Wave 7
+        # Wave 7
         if wave == 7:
             E = 0
             while E < W7E1:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < W7E2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < W7E3:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
             E = 0
             while E < W7E4:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
             E = 0
             while E < W7E5:
-                self.after(time,CreateEnemy5)
+                self.after(time, CreateEnemy5)
                 E += 1
                 time += 250
             E = 0
             while E < W7E6:
-                self.after(time,CreateEnemy6)
+                self.after(time, CreateEnemy6)
                 E += 1
                 time += 250
-        #Wave 8
+        # Wave 8
         if wave == 8:
             E = 0
             while E < W8E1:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < W8E2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < W8E3:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
             E = 0
             while E < W8E4:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
             E = 0
             while E < W8E5:
-                self.after(time,CreateEnemy5)
+                self.after(time, CreateEnemy5)
                 E += 1
                 time += 250
             E = 0
             while E < W8E6:
-                self.after(time,CreateEnemy6)
+                self.after(time, CreateEnemy6)
                 E += 1
                 time += 250
-        #Wave 9
+        # Wave 9
         if wave == 9:
             E = 0
             while E < W9E1:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < W9E2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < W9E3:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
             E = 0
             while E < W9E4:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
             E = 0
             while E < W9E5:
-                self.after(time,CreateEnemy5)
+                self.after(time, CreateEnemy5)
                 E += 1
                 time += 250
             E = 0
             while E < W9E6:
-                self.after(time,CreateEnemy6)
+                self.after(time, CreateEnemy6)
                 E += 1
                 time += 250
-        #Wave 10
+        # Wave 10
         if wave == 10:
             E = 0
             while E < W10E1:
-                self.after(time,CreateEnemy)
+                self.after(time, CreateEnemy)
                 E += 1
                 time += 250
             E = 0
             while E < W10E2:
-                self.after(time,CreateEnemy2)
+                self.after(time, CreateEnemy2)
                 E += 1
                 time += 250
             E = 0
             while E < W10E3:
-                self.after(time,CreateEnemy3)
+                self.after(time, CreateEnemy3)
                 E += 1
                 time += 250
             E = 0
             while E < W10E4:
-                self.after(time,CreateEnemy4)
+                self.after(time, CreateEnemy4)
                 E += 1
                 time += 250
             E = 0
             while E < W10E5:
-                self.after(time,CreateEnemy5)
+                self.after(time, CreateEnemy5)
                 E += 1
                 time += 250
             E = 0
             while E < W10E6:
-                self.after(time,CreateEnemy6)
+                self.after(time, CreateEnemy6)
                 E += 1
                 time += 250
-        #Win
+        # Win
         if wave == 11:
             Winner()
 
@@ -10277,11 +10883,12 @@ def TenWaveChallengeMultiPlayer():
         global wave
         global gameover
         if gameover == 0:
-            self.after(10,NextWave)
+            self.after(10, NextWave)
             if not Enemies and not Enemies2 and not Enemies3 and not Enemies4 and not Enemies5 and not Enemies6:
                 Summon()
                 if wave != 11:
-                    self.lbScore.config(text="Wave: "+str(wave)+"  Press 'p' to pause")
+                    self.lbScore.config(
+                        text="Wave: " + str(wave) + "  Press 'p' to pause")
 
     def Winner():
         global gameover
@@ -10310,11 +10917,11 @@ def TenWaveChallengeMultiPlayer():
             for self.shot in Shots:
                 self.shot.destroy()
             self.lbScore.destroy()
-            self.lbWinner = Label(text="You Win!!!",bg="black",fg="white")
-            self.lbWinner.pack(fill=BOTH,expand=1)
+            self.lbWinner = Label(text="You Win!!!", bg="black", fg="white")
+            self.lbWinner.pack(fill=BOTH, expand=1)
             self.btnMainMenu = Button(text="Main Menu")
             self.btnMainMenu.pack(side=LEFT)
-            self.btnMainMenu.bind('<Button>',StartMainMenu)
+            self.btnMainMenu.bind('<Button>', StartMainMenu)
 
     def GameOver():
         global gameover
@@ -10344,12 +10951,13 @@ def TenWaveChallengeMultiPlayer():
             for self.shot in Shots:
                 self.shot.destroy()
             self.lbScore.destroy()
-            self.lbGameOver = Label(text="Game Over" + "\n" "You survived to wave " + str(wave) + "\n" + "Click here to restart",bg="black",fg="white")
-            self.lbGameOver.pack(fill=BOTH,expand=1)
-            self.lbGameOver.bind('<Button>',Restart)
+            self.lbGameOver = Label(text="Game Over" + "\n" "You survived to wave " + str(
+                wave) + "\n" + "Click here to restart", bg="black", fg="white")
+            self.lbGameOver.pack(fill=BOTH, expand=1)
+            self.lbGameOver.bind('<Button>', Restart)
             self.btnMainMenu = Button(text="Main Menu")
             self.btnMainMenu.pack(side=LEFT)
-            self.btnMainMenu.bind('<Button>',StartMainMenu)
+            self.btnMainMenu.bind('<Button>', StartMainMenu)
 
     def Restart(event):
         self.destroy()
@@ -10384,19 +10992,20 @@ def TenWaveChallengeMultiPlayer():
             for self.shot in Shots:
                 self.shot.destroy()
             self.lbScore.destroy()
-            self.lbPause = Label(text="Paused"+"\n"+"Press 'p' to Unpause",bg="black",fg="white")
-            self.lbPause.pack(fill=BOTH,expand=1)
+            self.lbPause = Label(text="Paused" + "\n" +
+                                 "Press 'p' to Unpause", bg="black", fg="white")
+            self.lbPause.pack(fill=BOTH, expand=1)
             self.btnMainMenu = Button(text="Main Menu")
             self.btnMainMenu.pack(side=LEFT)
-            self.btnMainMenu.bind('<Button>',StartMainMenu)
+            self.btnMainMenu.bind('<Button>', StartMainMenu)
         elif pause == 1:
             gameover = 0
             pause = 0
-            self.bind('<Left>',LeftKey)
-            self.bind('<Right>',RightKey)
-            self.bind('<Up>',UpKey)
-            self.bind('<Down>',DownKey)
-            self.bind('<space>',Shoot)
+            self.bind('<Left>', LeftKey)
+            self.bind('<Right>', RightKey)
+            self.bind('<Up>', UpKey)
+            self.bind('<Down>', DownKey)
+            self.bind('<space>', Shoot)
             EnemyMove()
             Enemy2Move()
             Enemy3Move()
@@ -10405,8 +11014,9 @@ def TenWaveChallengeMultiPlayer():
             Generate()
             ShotMove()
             enShotMove()
-            self.lbScore = Label(text="Wave: "+str(wave)+"  Press 'p' to pause",bg="black",fg="white")
-            self.lbScore.place(x=165,y=680,width=500,height=20)
+            self.lbScore = Label(text="Wave: " + str(wave) +
+                                 "  Press 'p' to pause", bg="black", fg="white")
+            self.lbScore.place(x=165, y=680, width=500, height=20)
             NextWave()
             self.lbPause.destroy()
             self.btnMainMenu.unbind('<Button>')
@@ -10419,19 +11029,19 @@ def TenWaveChallengeMultiPlayer():
         self.destroy()
         MainMenu()
 
-    #Bindings
-    self.bind('<Left>',LeftKey)
-    self.bind('<Right>',RightKey)
-    self.bind('<Up>',UpKey)
-    self.bind('<Down>',DownKey)
-    self.bind('<a>',AKey)
-    self.bind('<d>',DKey)
-    self.bind('<w>',WKey)
-    self.bind('<s>',SKey)
-    self.bind('<Escape>',Exit)
-    self.bind('<space>',Shoot)
-    self.bind('<Tab>',Shoot2)
-    self.bind('<p>',Pause)
+    # Bindings
+    self.bind('<Left>', LeftKey)
+    self.bind('<Right>', RightKey)
+    self.bind('<Up>', UpKey)
+    self.bind('<Down>', DownKey)
+    self.bind('<a>', AKey)
+    self.bind('<d>', DKey)
+    self.bind('<w>', WKey)
+    self.bind('<s>', SKey)
+    self.bind('<Escape>', Exit)
+    self.bind('<space>', Shoot)
+    self.bind('<Tab>', Shoot2)
+    self.bind('<p>', Pause)
 
     EnemyMove()
     Enemy2Move()
@@ -10442,7 +11052,7 @@ def TenWaveChallengeMultiPlayer():
     ShotMove()
     enShotMove()
 
-    #Frame settings
+    # Frame settings
     self.geometry("830x700")
     self.title("Space Assault")
     self.configure(bg="black")

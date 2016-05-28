@@ -2,6 +2,7 @@
 
 import os
 
+
 def quicksort(l):
     """Sort list using quick sort.
     Complexity: O(n log n).  Worst: O(n2)
@@ -29,7 +30,7 @@ if __name__ == '__main__':
     array = [3, 1, 6, 0, 7, 19, 7, 2, 22]
     sorted = [0, 1, 2, 3, 6, 7, 7, 19, 22]
     assert(quicksort(array) == sorted)
-    
+
     array = []
     assert(quicksort(array) == array)
 

@@ -106,23 +106,25 @@ Work out the first ten digits of the sum of the following one-hundred 50-digit n
 
 import os
 
+
 def large_sum(filename):
     sum_total, lines, numbers = 0, 0, 0
     with open(filename) as file:
         for line in file:
             sum_total += int(line.strip('\n'))
     return str(sum_total)[0:10]
-   
+
+
 def main():
     import time
-    start = time.time() 
-      
+    start = time.time()
+
     filename = '13.large_sum.dat'
     print(large_sum(filename))
-    
+
     elapsed = (time.time() - start)
-    print('Tests Passed!\n It took %s seconds to run them.' % (elapsed))   
-                   
+    print('Tests Passed!\n It took %s seconds to run them.' % (elapsed))
+
 if __name__ == '__main__':
     main()
 

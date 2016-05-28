@@ -4,6 +4,7 @@ import os
 
 from __future__ import print_function
 
+
 class SomeImplicitBase(object):
     """
     A special base class that is an implicit base of all singletons
@@ -11,6 +12,7 @@ class SomeImplicitBase(object):
     how this sort of thing would be done if needed.
     """
     pass
+
 
 class SingletonMeta(type):
     """
@@ -21,10 +23,11 @@ class SingletonMeta(type):
     """
     def __new__(mcs, name, all_bases, cls_dict):
         return type.__new__(mcs, name, all_bases, cls_dict)
+
     def mro(cls):
         # Get what the __mro__ would be without special bases
         new_mro_bases = list(type("___unused_class_name_1",
-            cls.__dict__['__explicit_bases__'], dict(cls.__dict__)).__mro__)
+                                  cls.__dict__['__explicit_bases__'], dict(cls.__dict__)).__mro__)
         # Omit __unused_class_name_1
         new_mro_bases = new_mro_bases[1:]
         # start with the mro that excludes the implicit bases
@@ -44,9 +47,11 @@ class SingletonMeta(type):
         return tuple(
             [cls] + list(
                 type("___unused_class_name_2",
-                    tuple(new_mro_bases), dict(cls.__dict__)).__mro__[1:]
+                     tuple(new_mro_bases), dict(cls.__dict__)).__mro__[1:]
             )
         )
+
+
 def as_singleton_instance(cls):
     """
     This is where the magic happens.  This defines a
@@ -72,8 +77,10 @@ def as_singleton_instance(cls):
     rv = rv_type()
     return rv
 
+
 class SomeOtherBaseClass(object):
     _some_property = 25
+
 
 @as_singleton_instance
 class this_is_an_instance(SomeOtherBaseClass):
@@ -83,16 +90,20 @@ class this_is_an_instance(SomeOtherBaseClass):
     base classes SomeOtherBaseClass and SomeImplicitBase.
     All of the methods below will work as expected.
     """
+
     def __call__(self, *args):
         print("In instance __call__()")
+
     def some_function(self, *args):
         print("called some_function({0})".format(
             ", ".join(repr(a) for a in args)
         ))
+
     @property
     def some_property(self):
         print("getting some_property")
         return self._some_property
+
     @some_property.setter
     def some_property(self, new_value):
         print("setting some_property to {0}".format(new_value))
@@ -100,14 +111,17 @@ class this_is_an_instance(SomeOtherBaseClass):
 
 
 if __name__ == "__main__":
-    this_is_an_instance() # => prints "In instance __call__()"
+    this_is_an_instance()  # => prints "In instance __call__()"
 
     this_is_an_instance.some_function(
         "hello", "world"
-    ) # => prints "called some_function("hello", "world")
+    )  # => prints "called some_function("hello", "world")
 
-    print(this_is_an_instance.some_property) # => prints "getting some_property", then "25"
-    this_is_an_instance.some_property = 55 # => prints "setting some_property to 55"
-    print(this_is_an_instance.some_property) # => prints "getting some_property", then "55"
+    # => prints "getting some_property", then "25"
+    print(this_is_an_instance.some_property)
+    # => prints "setting some_property to 55"
+    this_is_an_instance.some_property = 55
+    # => prints "getting some_property", then "55"
+    print(this_is_an_instance.some_property)
 
 os.system("pause")

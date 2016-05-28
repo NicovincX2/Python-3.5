@@ -7,14 +7,15 @@ from time import process_time
 size = 200
 iterations = 100
 
+
 def mandelbrot_python(m, size, iterations):
     for i in range(size):
         for j in range(size):
-            c = -2 + 3./size*j + 1j*(1.5-3./size*i)
+            c = -2 + 3. / size * j + 1j * (1.5 - 3. / size * i)
             z = 0
             for n in range(iterations):
                 if np.abs(z) <= 10:
-                    z = z*z + c
+                    z = z * z + c
                     m[i, j] = n
                 else:
                     break
@@ -24,25 +25,27 @@ mandelbrot_python(m, size, iterations)
 
 import matplotlib.pyplot as plt
 
-plt.imshow(np.log(m), cmap=plt.cm.hot,);
-plt.xticks([]); plt.yticks([]);
+plt.imshow(np.log(m), cmap=plt.cm.hot,)
+plt.xticks([])
+plt.yticks([])
 
 top = process_time()
 mandelbrot_python(m, size, iterations)
-print(top-process_time())
+print(top - process_time())
 
 import numba
 from numba import jit, complex128
+
 
 @jit(locals=dict(c=complex128, z=complex128))
 def mandelbrot_numba(m, size, iterations):
     for i in range(size):
         for j in range(size):
-            c = -2 + 3./size*j + 1j*(1.5-3./size*i)
+            c = -2 + 3. / size * j + 1j * (1.5 - 3. / size * i)
             z = 0
             for n in range(iterations):
                 if abs(z) <= 10:
-                    z = z*z + c
+                    z = z * z + c
                     m[i, j] = n
                 else:
                     break
@@ -52,7 +55,7 @@ mandelbrot_numba(m, size, iterations)
 
 top = process_time()
 mandelbrot_numba(m, size, iterations)
-print(top-process_time())
+print(top - process_time())
 
 """
 import cython

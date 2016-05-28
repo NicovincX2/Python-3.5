@@ -26,6 +26,7 @@ new_edge_length_squared = 2 - 2 * sqrt(1 - edge_length_squared / 4))
 
 from decimal import Decimal, getcontext
 
+
 def pi_archimedes(n):
     """
     Calculate n iterations of Archimedes PI recurrence relation
@@ -33,9 +34,11 @@ def pi_archimedes(n):
     polygon_edge_length_squared = Decimal(2)
     polygon_sides = 2
     for i in range(n):
-        polygon_edge_length_squared = 2 - 2 * (1 - polygon_edge_length_squared / 4).sqrt()
+        polygon_edge_length_squared = 2 - 2 * \
+            (1 - polygon_edge_length_squared / 4).sqrt()
         polygon_sides *= 2
     return polygon_sides * polygon_edge_length_squared.sqrt()
+
 
 def main():
     """
@@ -43,9 +46,9 @@ def main():
     """
     places = 100
     old_result = None
-    for n in range(10*places):
+    for n in range(10 * places):
         # Do calculations with double precision
-        getcontext().prec = 2*places
+        getcontext().prec = 2 * places
         result = pi_archimedes(n)
         # Print the result with single precision
         getcontext().prec = places

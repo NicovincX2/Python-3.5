@@ -2,6 +2,7 @@
 
 import os
 
+
 def calc_cache_pos(strings, indexes):
     factor = 1
     pos = 0
@@ -9,6 +10,7 @@ def calc_cache_pos(strings, indexes):
         pos += i * factor
         factor *= len(s)
     return pos
+
 
 def lcs_back(strings, indexes, cache):
     if -1 in indexes:
@@ -32,6 +34,7 @@ def lcs_back(strings, indexes, cache):
         result = max(substrings, key=len)
     cache[calc_cache_pos(strings, indexes)] = result
     return result
+
 
 def lcs(strings):
     """

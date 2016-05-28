@@ -2,6 +2,7 @@
 
 import os
 
+
 def string_matching_rabin_karp(text='', pattern='', hash_base=256):
     """Returns positions where pattern is found in text.
     worst case: O(nm)
@@ -20,15 +21,15 @@ def string_matching_rabin_karp(text='', pattern='', hash_base=256):
     offsets = []
     htext = hash_value(text[:m], hash_base)
     hpattern = hash_value(pattern, hash_base)
-    for i in range(n-m+1):
+    for i in range(n - m + 1):
         if htext == hpattern:
-            if text[i:i+m] == pattern:
+            if text[i:i + m] == pattern:
                 offsets.append(i)
-        if i < n-m:
+        if i < n - m:
             htext = (hash_base *
                      (htext -
                       (ord(text[i]) *
-                       (hash_base ** (m-1))))) + ord(text[i+m])
+                       (hash_base ** (m - 1))))) + ord(text[i + m])
 
     return offsets
 

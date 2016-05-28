@@ -102,5 +102,5 @@ plt.title('Percentage of Bachelor\'s degrees conferred to women in '
 # You can also save it as a PDF, JPEG, etc.
 # Just change the file extension in this call.
 plt.savefig('percent-bachelors-degrees-women-usa.png', bbox_inches='tight')
-    
+
 os.system("pause")

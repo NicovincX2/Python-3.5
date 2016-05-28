@@ -41,9 +41,11 @@ MAX_BOUND = numpy.ones(N)
 creator.create("FitnessMin", base.Fitness, weights=(-1.0, -1.0))
 creator.create("Individual", list, fitness=creator.FitnessMin)
 
+
 def distance(feasible_ind, original_ind):
     """A distance function to the feasibility region."""
     return sum((f - o)**2 for f, o in zip(feasible_ind, original_ind))
+
 
 def closest_feasible(individual):
     """A function returning a valid individual from an invalid one."""
@@ -51,6 +53,7 @@ def closest_feasible(individual):
     feasible_ind = numpy.maximum(MIN_BOUND, feasible_ind)
     feasible_ind = numpy.minimum(MAX_BOUND, feasible_ind)
     return feasible_ind
+
 
 def valid(individual):
     """Determines if the individual is valid or not."""
@@ -60,7 +63,9 @@ def valid(individual):
 
 toolbox = base.Toolbox()
 toolbox.register("evaluate", benchmarks.zdt1)
-toolbox.decorate("evaluate", tools.ClosestValidPenality(valid, closest_feasible, 1.0e-6, distance))
+toolbox.decorate("evaluate", tools.ClosestValidPenality(
+    valid, closest_feasible, 1.0e-6, distance))
+
 
 def main():
     # The cma module uses the numpy random number generator
@@ -71,12 +76,14 @@ def main():
     verbose = True
 
     # The MO-CMA-ES algorithm takes a full population as argument
-    population = [creator.Individual(x) for x in (numpy.random.uniform(0, 1, (MU, N)))]
+    population = [creator.Individual(x) for x in (
+        numpy.random.uniform(0, 1, (MU, N)))]
 
     for ind in population:
         ind.fitness.values = toolbox.evaluate(ind)
 
-    strategy = cma.StrategyMultiObjective(population, sigma=1.0, mu=MU, lambda_=LAMBDA)
+    strategy = cma.StrategyMultiObjective(
+        population, sigma=1.0, mu=MU, lambda_=LAMBDA)
     toolbox.register("generate", strategy.generate, creator.Individual)
     toolbox.register("update", strategy.update)
 
@@ -105,7 +112,8 @@ def main():
             print(logbook.stream)
 
     if verbose:
-        print("Final population hypervolume is %f" % hypervolume(strategy.parents, [11.0, 11.0]))
+        print("Final population hypervolume is %f" %
+              hypervolume(strategy.parents, [11.0, 11.0]))
 
     # import matplotlib.pyplot as plt
 

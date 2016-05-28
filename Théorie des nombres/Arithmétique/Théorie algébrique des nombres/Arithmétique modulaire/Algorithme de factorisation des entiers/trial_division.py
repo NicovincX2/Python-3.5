@@ -22,7 +22,7 @@ def trial_division(n):
     if n < 2:
         return prime_factors
     for p in eratosthenes(int(n**0.5) + 1):
-        if p*p > n:
+        if p * p > n:
             break
         while n % p == 0:
             prime_factors.append(p)

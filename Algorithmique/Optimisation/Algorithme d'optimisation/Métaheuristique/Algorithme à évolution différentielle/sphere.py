@@ -34,13 +34,16 @@ from deap import tools
 NDIM = 10
 
 creator.create("FitnessMin", base.Fitness, weights=(-1.0,))
-creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessMin)
+creator.create("Individual", array.array, typecode='d',
+               fitness=creator.FitnessMin)
+
 
 def mutDE(y, a, b, c, f):
     size = len(y)
     for i in range(len(y)):
-        y[i] = a[i] + f*(b[i]-c[i])
+        y[i] = a[i] + f * (b[i] - c[i])
     return y
+
 
 def cxBinomial(x, y, cr):
     size = len(x)
@@ -49,6 +52,7 @@ def cxBinomial(x, y, cr):
         if i == index or random.random() < cr:
             x[i] = y[i]
     return x
+
 
 def cxExponential(x, y, cr):
     size = len(x)
@@ -62,19 +66,21 @@ def cxExponential(x, y, cr):
 
 toolbox = base.Toolbox()
 toolbox.register("attr_float", random.uniform, -3, 3)
-toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, NDIM)
+toolbox.register("individual", tools.initRepeat,
+                 creator.Individual, toolbox.attr_float, NDIM)
 toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 toolbox.register("mutate", mutDE, f=0.8)
 toolbox.register("mate", cxExponential, cr=0.8)
 toolbox.register("select", tools.selRandom, k=3)
 toolbox.register("evaluate", benchmarks.griewank)
 
+
 def main():
     # Differential evolution parameters
     MU = NDIM * 10
     NGEN = 200
 
-    pop = toolbox.population(n=MU);
+    pop = toolbox.population(n=MU)
     hof = tools.HallOfFame(1)
     stats = tools.Statistics(lambda ind: ind.fitness.values)
     stats.register("avg", numpy.mean)

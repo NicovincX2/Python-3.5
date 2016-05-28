@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import division
 import os
 from scipy import linalg as la
 from scipy import optimize
@@ -9,7 +10,7 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 mpl.rcParams["font.family"] = "serif"
 mpl.rcParams["font.size"] = "12"
-from __future__ import division
+
 
 np.random.seed(1234)
 
@@ -34,9 +35,8 @@ ax.plot(x, y_exact, 'k', lw=2, label='True value $y = 1 + 2x + 3x^2$')
 ax.plot(x, y_fit, 'b', lw=2, label='Least square fit')
 ax.set_xlabel(r"$x$", fontsize=18)
 ax.set_ylabel(r"$y$", fontsize=18)
-ax.legend(loc=2);
+ax.legend(loc=2)
 
-fig.savefig('ch5-linear-systems-least-square.pdf')
+fig.savefig('linear-systems-least-square.pdf')
 
 os.system("pause")
-

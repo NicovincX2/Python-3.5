@@ -6,6 +6,7 @@ import heapq
 
 
 class Cell(object):
+
     def __init__(self, x, y, reachable):
         """Initialize new cell.
         @param reachable is cell reachable? not a wall?
@@ -26,6 +27,7 @@ class Cell(object):
 
 
 class AStar(object):
+
     def __init__(self):
         # open list
         self.opened = []
@@ -79,14 +81,14 @@ class AStar(object):
         @returns adjacent cells list.
         """
         cells = []
-        if cell.x < self.grid_width-1:
-            cells.append(self.get_cell(cell.x+1, cell.y))
+        if cell.x < self.grid_width - 1:
+            cells.append(self.get_cell(cell.x + 1, cell.y))
         if cell.y > 0:
-            cells.append(self.get_cell(cell.x, cell.y-1))
+            cells.append(self.get_cell(cell.x, cell.y - 1))
         if cell.x > 0:
-            cells.append(self.get_cell(cell.x-1, cell.y))
-        if cell.y < self.grid_height-1:
-            cells.append(self.get_cell(cell.x, cell.y+1))
+            cells.append(self.get_cell(cell.x - 1, cell.y))
+        if cell.y < self.grid_height - 1:
+            cells.append(self.get_cell(cell.x, cell.y + 1))
         return cells
 
     def get_path(self):

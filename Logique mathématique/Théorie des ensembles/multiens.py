@@ -2,12 +2,14 @@
 
 import os
 
-## Petits alias pour clarifier (optionnel)
-nb_d_elements    = len  # le nb d'éléments d'une collection
+# Petits alias pour clarifier (optionnel)
+nb_d_elements = len  # le nb d'éléments d'une collection
 ens_des_elements = set  # l'ensemble des éléments d'une collection
- 
-## Méthode 1 : parcours "naturel" à l'aide d'une boucle
-def multi1( elmt_cherche, multiensemble ) :
+
+# Méthode 1 : parcours "naturel" à l'aide d'une boucle
+
+
+def multi1(elmt_cherche, multiensemble):
     """
     - Compte l'ordre de multiplicité de elmt dans un multiensemble
     - On crée un compteur, nul au départ
@@ -19,23 +21,23 @@ def multi1( elmt_cherche, multiensemble ) :
     4000
     """
     cpt = 0
-    for elmt_lu in multiensemble :
-        if elmt_lu == elmt_cherche :
+    for elmt_lu in multiensemble:
+        if elmt_lu == elmt_cherche:
             cpt += 1
     return cpt
- 
-    
-## Méthode 2 : uniligne avec liste par compréhension
-def multi2( elmt_cherche, multiensemble ) :
-    return nb_d_elements( [ elmt_lu for elmt_lu in multiensemble if elmt_lu == elmt_cherche ] )
-    
- 
-## Méthode 3 : on utilise le fait que True == 1 et False == 0
-def multi3( elmt_cherche, multiensemble ) :
+
+
+# Méthode 2 : uniligne avec liste par compréhension
+def multi2(elmt_cherche, multiensemble):
+    return nb_d_elements([elmt_lu for elmt_lu in multiensemble if elmt_lu == elmt_cherche])
+
+
+# Méthode 3 : on utilise le fait que True == 1 et False == 0
+def multi3(elmt_cherche, multiensemble):
     cpt = 0
-    for elmt_lu in multiensemble :
-        cpt += ( elmt_lu == elmt_cherche ) # plus lent car on rajoute systématiquement des 0 ce qui est inutile
+    for elmt_lu in multiensemble:
+        # plus lent car on rajoute systématiquement des 0 ce qui est inutile
+        cpt += (elmt_lu == elmt_cherche)
     return cpt
 
 os.system("pause")
-

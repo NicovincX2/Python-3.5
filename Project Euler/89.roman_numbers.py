@@ -19,6 +19,7 @@ Find the number of characters saved by writing each of these in their minimal fo
 
 import os
 
+
 def subtractive(roman):
     result = roman
     replacements = [
@@ -42,6 +43,6 @@ if __name__ == '__main__':
         roman = line.strip()
         current += len(roman)
         improved += len(subtractive(roman))
-    print current - improved
+    print(current - improved)
 
 os.system("pause")

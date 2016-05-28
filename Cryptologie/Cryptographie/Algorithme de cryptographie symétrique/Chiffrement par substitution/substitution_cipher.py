@@ -4,10 +4,12 @@ import os
 from string import printable
 import random
 
-EXAMPLE_KEY = ''.join(sorted(printable, key=lambda _:random.random()))
+EXAMPLE_KEY = ''.join(sorted(printable, key=lambda _: random.random()))
+
 
 def encode(plaintext, key):
     return ''.join(key[printable.index(char)] for char in plaintext)
+
 
 def decode(plaintext, key):
     return ''.join(printable[key.index(char)] for char in plaintext)

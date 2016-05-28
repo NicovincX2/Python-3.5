@@ -16,8 +16,9 @@ x = y = np.linspace(-1, 1, 100)
 
 X, Y = np.meshgrid(x, y)
 
+
 def f(x, y):
-    return np.exp(-x**2 - y**2) * np.cos(4*x) * np.sin(6*y)
+    return np.exp(-x**2 - y**2) * np.cos(4 * x) * np.sin(6 * y)
 
 Z = f(X, Y)
 
@@ -30,10 +31,10 @@ ydata = np.random.uniform(-1, 1, N)
 zdata = f(xdata, ydata)
 
 fig, ax = plt.subplots(figsize=(8, 6))
-c = ax.contourf(X, Y, Z, 15, cmap=plt.cm.RdBu);
+c = ax.contourf(X, Y, Z, 15, cmap=plt.cm.RdBu)
 ax.scatter(xdata, ydata, marker='.')
-ax.set_ylim(-1,1)
-ax.set_xlim(-1,1)
+ax.set_ylim(-1, 1)
+ax.set_xlim(-1, 1)
 ax.set_xlabel(r"$x$", fontsize=20)
 ax.set_ylabel(r"$y$", fontsize=20)
 
@@ -41,10 +42,12 @@ cb = fig.colorbar(c, ax=ax)
 cb.set_label(r"$z$", fontsize=20)
 
 fig.tight_layout()
-fig.savefig('ch7-multivariate-interpolation-exact.pdf');
+fig.savefig('ch7-multivariate-interpolation-exact.pdf')
+
 
 def z_interpolate(xdata, ydata, zdata):
-    Zi_0 = interpolate.griddata((xdata, ydata), zdata, (X, Y), method='nearest')
+    Zi_0 = interpolate.griddata(
+        (xdata, ydata), zdata, (X, Y), method='nearest')
     Zi_1 = interpolate.griddata((xdata, ydata), zdata, (X, Y), method='linear')
     Zi_3 = interpolate.griddata((xdata, ydata), zdata, (X, Y), method='cubic')
     return Zi_0, Zi_1, Zi_3
@@ -65,9 +68,8 @@ for idx, n in enumerate(n_vec):
 
 for m in range(len(n_vec)):
     axes[idx, m].set_xlabel("x", fontsize=16)
-    
+
 fig.tight_layout()
-fig.savefig('ch7-multivariate-interpolation-interp.pdf');
+fig.savefig('ch7-multivariate-interpolation-interp.pdf')
 
 os.system("pause")
-

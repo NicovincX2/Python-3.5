@@ -13,13 +13,14 @@ What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed 
 
 import os
 
-#Project Euler Problem 28
+# Project Euler Problem 28
+
 
 def g(L):
-    n = (L-1) // 2
-    return (16*n**3 + 30*n**2 + 26*n + 3) // 3
- 
-L = 1001 
-print ("Sum of both diagonals of a", L, "square \nspiral =", g(L))
+    n = (L - 1) // 2
+    return (16 * n**3 + 30 * n**2 + 26 * n + 3) // 3
+
+L = 1001
+print("Sum of both diagonals of a", L, "square \nspiral =", g(L))
 
 os.system("pause")

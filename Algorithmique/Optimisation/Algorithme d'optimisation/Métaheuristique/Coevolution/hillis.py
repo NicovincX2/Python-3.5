@@ -32,19 +32,24 @@ sys.path.append("../ga")
 import sortingnetwork as sn
 INPUTS = 12
 
+
 def evalNetwork(host, parasite, dimension):
     network = sn.SortingNetwork(dimension, host)
     return network.assess(parasite),
 
+
 def genWire(dimension):
     return (random.randrange(dimension), random.randrange(dimension))
+
 
 def genNetwork(dimension, min_size, max_size):
     size = random.randint(min_size, max_size)
     return [genWire(dimension) for i in range(size)]
 
+
 def getParasite(dimension):
     return [random.choice((0, 1)) for i in range(dimension)]
+
 
 def mutNetwork(individual, dimension, mutpb, addpb, delpb, indpb):
     if random.random() < mutpb:
@@ -58,6 +63,7 @@ def mutNetwork(individual, dimension, mutpb, addpb, delpb, indpb):
         index = random.randrange(len(individual))
         del individual[index]
     return individual,
+
 
 def mutParasite(individual, indmut, indpb):
     for i in individual:
@@ -73,24 +79,28 @@ creator.create("Parasite", list, fitness=creator.FitnessMax)
 htoolbox = base.Toolbox()
 ptoolbox = base.Toolbox()
 
-htoolbox.register("network", genNetwork, dimension=INPUTS, min_size=9, max_size=12)
-htoolbox.register("individual", tools.initIterate, creator.Host, htoolbox.network)
+htoolbox.register("network", genNetwork, dimension=INPUTS,
+                  min_size=9, max_size=12)
+htoolbox.register("individual", tools.initIterate,
+                  creator.Host, htoolbox.network)
 htoolbox.register("population", tools.initRepeat, list, htoolbox.individual)
 
 ptoolbox.register("parasite", getParasite, dimension=INPUTS)
-ptoolbox.register("individual", tools.initRepeat, creator.Parasite, ptoolbox.parasite, 20)
+ptoolbox.register("individual", tools.initRepeat,
+                  creator.Parasite, ptoolbox.parasite, 20)
 ptoolbox.register("population", tools.initRepeat, list, ptoolbox.individual)
 
 htoolbox.register("evaluate", evalNetwork, dimension=INPUTS)
 htoolbox.register("mate", tools.cxTwoPoint)
 htoolbox.register("mutate", mutNetwork, dimension=INPUTS, mutpb=0.2, addpb=0.01,
-    delpb=0.01, indpb=0.05)
+                  delpb=0.01, indpb=0.05)
 htoolbox.register("select", tools.selTournament, tournsize=3)
 
 ptoolbox.register("mate", tools.cxTwoPoint)
 ptoolbox.register("indMutate", tools.mutFlipBit, indpb=0.05)
 ptoolbox.register("mutate", mutParasite, indmut=ptoolbox.indMutate, indpb=0.05)
 ptoolbox.register("select", tools.selTournament, tournsize=3)
+
 
 def cloneHost(individual):
     """Specialized copy function that will work only on a list of tuples
@@ -99,6 +109,7 @@ def cloneHost(individual):
     clone = individual.__class__(individual)
     clone.fitness.values = individual.fitness.values
     return clone
+
 
 def cloneParasite(individual):
     """Specialized copy function that will work only on a list of lists
@@ -110,6 +121,7 @@ def cloneParasite(individual):
 
 htoolbox.register("clone", cloneHost)
 ptoolbox.register("clone", cloneParasite)
+
 
 def main():
     random.seed(64)

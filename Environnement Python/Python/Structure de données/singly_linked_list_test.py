@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 
-import os, sys
+import os
+import sys
 sys.path.append(os.path.join(os.getcwd(), os.path.pardir))
 import unittest
 from singlylinkedlist import SinglyLinkedList
 
+
 class test_graph(unittest.TestCase):
+
     def setUp(self):
         self.tens = SinglyLinkedList(range(0, 100, 10))
         self.blankList = SinglyLinkedList()
