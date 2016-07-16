@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import os
-import random as rand
-import string
 
 class AdoptionCenter:
     """
