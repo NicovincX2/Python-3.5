@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+
+import os
 import random as rand
 import string
 
@@ -221,3 +224,5 @@ for i in p:
 	print (i.get_name(), adopter2.get_score(i))
 	# print (i.get_name(), adopter5.get_score(i))
 	# print (i.get_name(), adopter6.get_score(i))
+
+os.system("pause")

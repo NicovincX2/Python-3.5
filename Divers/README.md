@@ -2,7 +2,7 @@
 
 >>>> Tout ce qui n'a pas sa place ailleurs.
 
->> - Handle a signal: compteur + temps d'exécution.
+>> - Handle a signal: compteur + temps d'exï¿½cution.
 >> - [Star Wars API](http://swapi.co/)
 >> - [Mastermind](https://fr.wikipedia.org/wiki/Mastermind)
 
@@ -12,10 +12,11 @@
 > - [Palindrome](https://fr.wikipedia.org/wiki/Palindrome)
 > - Website cleaner
 > - Minuterie
-> - Code couleur d'une résistance
-> - [Découpe de tissu](http://michel.stainer.pagesperso-orange.fr/PSIx/Informatique/Devoirs/AlgoX/2007algoX.pdf)
-> - [Dépouillement d'élections](http://michel.stainer.pagesperso-orange.fr/PSIx/Informatique/Devoirs/AlgoX/2005algoX.pdf)
+> - Code couleur d'une rï¿½sistance
+> - [Dï¿½coupe de tissu](http://michel.stainer.pagesperso-orange.fr/PSIx/Informatique/Devoirs/AlgoX/2007algoX.pdf)
+> - [Dï¿½pouillement d'ï¿½lections](http://michel.stainer.pagesperso-orange.fr/PSIx/Informatique/Devoirs/AlgoX/2005algoX.pdf)
 > - Space Assault
 > - [Plan de remboursement](https://fr.wikipedia.org/wiki/Plan_de_remboursement)
 > - [Morse (alphabet)](https://fr.wikipedia.org/wiki/Morse_%28alphabet%29)
 > - Pong game
+> - Adoption d'animaux : Simulation d'un processus d'adoption comprenant des containtes d'utilisateurs.
